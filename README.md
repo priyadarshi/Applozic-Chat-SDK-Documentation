@@ -161,7 +161,6 @@ Example:
 ```
 // APPLOZIC_FUNCTION_TO_LOAD_CONTACTS
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE'); // contacts json format given below
-
 // SAMPLE CONTACT_LIST_JSON 
 var CONTACT_LIST_JSON = 
           {"contacts": [{"userId": "user1", "displayName": "Devashish", 
