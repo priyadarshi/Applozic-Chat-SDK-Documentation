@@ -194,9 +194,19 @@ You can add the following html into your code to directly open a conversation wi
 
 ```
 <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
-
-**Note** - Data attribute **mck-name** is optional in above tag
- ``` 
+ ```        
+ 
+ 
+ 
+ **Note** - Data attribute **mck-name** is optional in above tag          
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -216,7 +226,7 @@ Step 12: To show **online/offline** status(optional) :
 You can add the following  properties to your html element for real time online/offline status update
 
 **Two Class Attribute** - 
-mck-user-ol-status **AND** n-vis
+mck-user-ol-status AND n-vis
 
 
 
@@ -248,15 +258,15 @@ Example-
  
 ```
  var topicDetail= { title: 'topic-title', subtitle: 'sub-title','link' :'image-link',
- key1:'key1',      // ex-Qty(Optional)
- value1:'value1',  // ex- number of quantity(Optional)
- key2: 'key2',     // ex-price (Optional)
- value2:'value2'   // ex-Rs.50 (Optional)
- };
+                     key1:'key1',      // ex-Qty(Optional)
+                     value1:'value1',  // ex- number of quantity(Optional)
+                     key2: 'key2',     // ex-price (Optional)
+                     value2:'value2'   // ex-Rs.50 (Optional)
+                   };
  
 function getTopicDetail(topicId) {
-     return topicDetail;
-};
+   return topicDetail;
+                                  };
 ```         
 
 
@@ -280,35 +290,47 @@ Example-
 
 
 ```
-<a href="#" class="applozic-tm-launcher" data-mck-id="put-userId-here" data-mck-name="put-displayName-here" data-mck-topicid="put-topicId-here">Chat on topic</a>
+<a href="#" class="APPLOZIC_TM_LAUNCHER" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-For more customization  visit:
-
-**https://applozic.readme.io/v1.0/docs/customized-applozic-web-plugin**          
 
 
-
+Step 14: Function to return user details(call after plugin initialize) 
 
 ```
-// function to return user details(call after plugin initialize) 
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
+```    
 
-// callback function to receive response (used as a reference in above function)
+Step 15: Callback function to receive response (used as a reference in above function).   
+
+
+```
 function getUserDetail(response) {
     if(response.status === 'success') {
       // write your logic
     }
  }
+```        
 
-Response format - 
+Step 16: Response format .      
+
+
+
+```
 response object = {
          'status' : 'success' ,           // or error
      'data':{'totalUnreadCount' :         // total unread count for user          
           'users': Array[2]               //  array containing other users detail
                      }
-                }
-// Sample - 
+                }     
+```     
+
+
+
+Step 17: Sample .         
+
+
+```
 {"status" : "success",
   "data" : {"totalUnreadCount" : 4 ,
                 "users":[{"userId":"user1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCount":3},{"userId":"user2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]}
