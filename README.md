@@ -34,8 +34,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
 
 ```
 <script type="text/javascript">
-   (function(d, m){    
-   var s, h;       
+   (function(d, m){var s, h;       
    s = document.createElement("script");
    s.type = "text/javascript";
    s.async=true;
@@ -43,8 +42,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
    h=document.getElementsByTagName('head')[0];
    h.appendChild(s);
    window.applozic=m;
-   m.init=function(t){m._globals=t;}})
-   (document, window.applozic || {});
+   m.init=function(t){m._globals=t;}})(document, window.applozic || {});
 </script>
 ```
  
@@ -58,7 +56,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
  
  
 ``` 
-<script type="text/javascript" >
+<script type="text/javascript">
   window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICAION_KEY_HERE', desktopNotification: true});
 </script>
 ```    
