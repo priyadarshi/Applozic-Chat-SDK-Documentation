@@ -93,12 +93,14 @@ Sample of **CONTACT_JSON** given below which is used as a reference in Step 5 an
 
 
 ```
-var CONTACT_JSON = {"USER_1": {"displayName": "Devashish",
-"photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
-"USERID_2": { "displayName": "Adarsh", "photoLink":    
-"https://www.applozic.com/resources/images/applozic_icon.png"}, 
-"USERID_3": { "displayName": "Shanki", "photoLink":  
-"https://www.applozic.com/resources/images/applozic_icon.png"}}; 
+var CONTACT_JSON =
+                 {"USER_1": {"displayName": "Devashish",
+                      "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
+                 "USERID_2": { "displayName": "Adarsh", "photoLink":    
+                      "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                 "USERID_3": { "displayName": "Shanki", "photoLink":  
+                      "https://www.applozic.com/resources/images/applozic_icon.png"}
+                  }; 
  ```
 
 
