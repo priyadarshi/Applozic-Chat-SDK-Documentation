@@ -57,7 +57,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
  
 ``` 
 <script type="text/javascript">
-  window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICAION_KEY_HERE', desktopNotification: true});
+  window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true});
 </script>
 ```    
 
@@ -227,7 +227,94 @@ data-mck-id='PUT_OTHER_USERID_HERE'
 Example: 
 ```
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
+```        
+
+
+
+
+Step 13: Topic based conversation (optional)
+
+Adding topic details to the conversation tab 
+
+Example-      
+
+
 ```
+<a href="#" class="applozic-wt-launcher" data-mck-id="put-userId-here" data-mck-name="put-displayName-here" data-mck-topicid="put-topicId-here">Chat on topic</a>       
+```         
+
+ Callback function to get topic details from by topicId (JSON should be in same format as given below) -           
+ 
+ 
+```
+ var topicDetail= { title: 'topic-title', subtitle: 'sub-title','link' :'image-link',
+ key1:'key1',      // ex-Qty(Optional)
+ value1:'value1',  // ex- number of quantity(Optional)
+ key2: 'key2',     // ex-price (Optional)
+ value2:'value2'   // ex-Rs.50 (Optional)
+ };
+ 
+function getTopicDetail(topicId) {
+     return topicDetail;
+};
+```         
+
+
+Use the below given option 'getTopicDetail'  to pass the above callback function name and also enable 'topicBox' as given in example 
+
+Example-          
+
+
+
+```
+<script type="text/javascript" >window.applozic.init({userId: 'user id', appId: 'application key', contactDisplayName: displayName, contactDisplayImage: contactImageSrc, desktopNotification: true, getTopicDetail: getTopicDetail, topicBox : true});
+</script>
+```        
+
+
+If want to send message about topic details directly on tab click ,  then use  class 'applozic-tm-launcher' in tab along with data attribute 'mck-topicid'
+
+Example-       
+
+
+
+
+```
+<a href="#" class="applozic-tm-launcher" data-mck-id="put-userId-here" data-mck-name="put-displayName-here" data-mck-topicid="put-topicId-here">Chat on topic</a>
+```
+
+For more customization  visit:
+
+**https://applozic.readme.io/v1.0/docs/customized-applozic-web-plugin**          
+
+
+
+
+```
+// function to return user details(call after plugin initialize) 
+  $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
+
+// callback function to receive response (used as a reference in above function)
+function getUserDetail(response) {
+    if(response.status === 'success') {
+      // write your logic
+    }
+ }
+
+Response format - 
+response object = {
+         'status' : 'success' ,           // or error
+     'data':{'totalUnreadCount' :         // total unread count for user          
+          'users': Array[2]               //  array containing other users detail
+                     }
+                }
+// Sample - 
+{"status" : "success",
+  "data" : {"totalUnreadCount" : 4 ,
+                "users":[{"userId":"user1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCount":3},{"userId":"user2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]}
+}      
+```
+
 
 
 
