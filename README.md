@@ -250,7 +250,7 @@ Example-
 
 
 ```
-<a href="#" class="applozic-wt-launcher" data-mck-id="put-userId-here" data-mck-name="put-displayName-here" data-mck-topicid="put-topicId-here">Chat on topic</a>       
+<a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>       
 ```         
 
  Callback function to get topic details from by topicId (JSON should be in same format as given below) -           
@@ -264,9 +264,10 @@ Example-
                      value2:'value2'   // ex-Rs.50 (Optional)
                    };
  
-function getTopicDetail(topicId) {
+function getTopicDetail(topicId) 
+ {
    return topicDetail;
-                                  };
+ };
 ```         
 
 
@@ -277,7 +278,7 @@ Example-
 
 
 ```
-<script type="text/javascript" >window.applozic.init({userId: 'user id', appId: 'application key', contactDisplayName: displayName, contactDisplayImage: contactImageSrc, desktopNotification: true, getTopicDetail: getTopicDetail, topicBox : true});
+<script type="text/javascript" >window.applozic.init({userId: 'USERID', appId: 'APPLICATION_KEY', contactDisplayName: displayName, contactDisplayImage: contactImageSrc, desktopNotification: true, getTopicDetail: getTopicDetail, topicBox : true});
 </script>
 ```        
 
@@ -290,7 +291,7 @@ Example-
 
 
 ```
-<a href="#" class="APPLOZIC_TM_LAUNCHER" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
+<a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
 
