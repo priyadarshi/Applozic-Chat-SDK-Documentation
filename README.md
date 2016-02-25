@@ -93,7 +93,7 @@ Sample of **CONTACT_JSON** given below which is used as a reference in Step 5 an
 
 
 ```
-var CONTACT_JSON = {"USERID_1": {"displayName": "Devashish",
+var CONTACT_JSON = {"USER_1": {"displayName": "Devashish",
 "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
 "USERID_2": { "displayName": "Adarsh", "photoLink":    
 "https://www.applozic.com/resources/images/applozic_icon.png"}, 
@@ -242,7 +242,7 @@ Example:
 
 
 
-Step 13: Topic based conversation (optional)
+Step 13: Topic based conversation (optional):
 
 Adding topic details to the conversation tab 
 
@@ -285,7 +285,7 @@ Example-
 ```        
 
 
-If want to send message about topic details directly on tab click ,  then use  class 'applozic-tm-launcher' in tab along with data attribute 'mck-topicid'
+If want to send message about topic details directly on tab click ,  then use  class **applozic-tm-launcher** in tab along with data attribute **mck-topicid**
 
 Example-       
 
@@ -293,18 +293,18 @@ Example-
 
 
 ```
-<a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
+<a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
 
 
-Step 14: Function to return user details(call after plugin initialize) 
+Step 14: Function to return user details(call after plugin initialize) :
 
 ```
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```    
 
-Step 15: Callback function to receive response (used as a reference in above function).   
+Step 15: Callback function to receive response (used as a reference in above function):   
 
 
 ```
@@ -315,7 +315,7 @@ function getUserDetail(response) {
  }
 ```        
 
-Step 16: Response format .      
+Step 16: Response format :      
 
 
 
@@ -330,7 +330,7 @@ response object = {
 
 
 
-Step 17: Sample .         
+Step 17: Sample :         
 
 
 ```
