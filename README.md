@@ -130,7 +130,7 @@ Example:
 
 ```
   function contactDisplayImage(USERID)  {                        
-    var contact =  CONTACTS_JSON[USERID];                       
+    var contact =  CONTACT_JSON[USERID];                       
     if (typeof contact !== 'undefined')                      
       {                       
         return contact.photoLink;          
@@ -163,11 +163,11 @@ Example:
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE'); // contacts json format given below
 // SAMPLE CONTACT_LIST_JSON 
 var CONTACT_LIST_JSON = 
-          {"contacts": [{"userId": "user1", "displayName": "Devashish", 
+          {"contacts": [{"userId": "USER_1", "displayName": "Devashish", 
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
-                        {"userId": "user2", "displayName": "Adarsh", 
+                        {"userId": "USER_2", "displayName": "Adarsh", 
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
-                        {"userId": "user3", "displayName": "Shanki",
+                        {"userId": "USER_3", "displayName": "Shanki",
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
                       ]
          };       
@@ -225,13 +225,13 @@ Step 12: To show **online/offline** status(optional) :
 
 You can add the following  properties to your html element for real time online/offline status update
 
-**Two Class Attribute** - 
-mck-user-ol-status AND n-vis
+Two Class Attribute - 
+**mck-user-ol-status** and **n-vis**
 
 
 
-**Data Attribute** - 
-data-mck-id='PUT_OTHER_USERID_HERE'
+Data Attribute - 
+**data-mck-id**='PUT_OTHER_USERID_HERE'
 
 
 Example: 
@@ -257,7 +257,9 @@ Example-
  
  
 ```
- var topicDetail= { title: 'topic-title', subtitle: 'sub-title','link' :'image-link',
+ var topicDetail= { title: 'topic-title',
+                     subtitle: 'sub-title',
+                     'link' :'image-link',
                      key1:'key1',      // ex-Qty(Optional)
                      value1:'value1',  // ex- number of quantity(Optional)
                      key2: 'key2',     // ex-price (Optional)
@@ -319,11 +321,11 @@ Step 16: Response format .
 
 ```
 response object = {
-         'status' : 'success' ,           // or error
-     'data':{'totalUnreadCount' :         // total unread count for user          
-          'users': Array[2]               //  array containing other users detail
-                     }
-                }     
+                      'status' : 'success' ,           // or error
+                      'data':{'totalUnreadCount' :         // total unread count for user          
+                      'users': Array[2]               //  array containing other users detail
+                             }
+                  }     
 ```     
 
 
