@@ -80,12 +80,12 @@ Step 4: Some additional options which you can configure while plugin initializat
 
 
 ```
- 1) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'  // Type - FUNCTION  (optional)
+ 1) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'                    // Type - FUNCTION  (optional)
   Function should return USER_DISPLAY_NAME by taking USERID as input parameter. Example given in Step 5        
- 2) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'  //Type - FUNCTION (optional)
+ 2) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 6 
- 3) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'  // TYPE - FUNCTION
-  Callback function which execute after plugin initialize. You can write your logic inside this function which you want to execute after plugin initialization. Example given in Step 7
+ 3) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // TYPE - FUNCTION
+  Callback function which execute after plugin initialize. You can write your logic inside this function which you want to execute      after plugin initialization. Example given in Step 7
 ```
 
 
