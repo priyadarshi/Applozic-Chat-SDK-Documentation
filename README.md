@@ -89,11 +89,11 @@ Step 4: Some additional options which you can configure while plugin initializat
 ```
 
 
-Sample of **CONTACTS_JSON** given below which is used as a reference in Step 5 and Step 6      
+Sample of **CONTACT_JSON** given below which is used as a reference in Step 5 and Step 6      
 
 
 ```
-var CONTACTS_JSON = {"USERID_1": {"displayName": "Devashish",
+var CONTACT_JSON = {"USERID_1": {"displayName": "Devashish",
 "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
 "USERID_2": { "displayName": "Adarsh", "photoLink":    
 "https://www.applozic.com/resources/images/applozic_icon.png"}, 
@@ -111,7 +111,7 @@ Example:
 
 ```   
  function contactDisplayName(USERID)  {                      
-   var contact = CONTACTS_JSON[USERID];               
+   var contact = CONTACT_JSON[USERID];               
         if (typeof contact !== 'undefined')             
           {                                      
            return contact.displayName;                  
@@ -161,8 +161,7 @@ Example:
 ```
 // APPLOZIC_FUNCTION_TO_LOAD_CONTACTS
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE'); // contacts json format given below
- 
- 
+
 // SAMPLE CONTACT_LIST_JSON 
 var CONTACT_LIST_JSON = 
           {"contacts": [{"userId": "user1", "displayName": "Devashish", 
