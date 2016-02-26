@@ -48,68 +48,76 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
  
  
  
- 
  Step 3: Copy and paste below script before **`</body>`** to initialize plugin: 
  
- 
- 
- 
+
  
 ``` 
 <script type="text/javascript">
-  window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true});
+  window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE",});
 </script>
 ```    
 
 
-
  Above options description :    
 
-
-
 ```
- userId: 'USERID WITH WHOM YOU WANT TO INITIALIZE PLUGIN'                  // required   
+ userId: 'UNIQUE USER ID OF ACTIVE USER'                                   // loggedIn user Id (required)   
  appId: 'YOUR APPLICATION KEY'                                             // obtained from Step 1 (required)     
  desktopNotification: true or false                                        // optional
- Note : Only for chrome browser enable or disable desktop notifications for incoming messages.
+ notificationIconLink : 'YOUR WEB APP LOGO'                                // required for desktop notifications (optional)                             
 ```
 
+**Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notifications
 
 
 Step 4: Some additional options which you can configure while plugin initialization in Step 3 :
 
+```
+ 1) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // Type - FUNCTION (optional)
+  Callback function which execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 5
+ 2) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'                    // Type - FUNCTION (optional)
+  Function should return USER_DISPLAY_NAME by taking USERID as input parameter. Example given in Step 6        
+ 3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
+  Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 7
+```
+
+
+ 
+Step 5: Sample code for **onInit()** function : 
+
+You can write javascript function to execute your logic on plugin initialization
+
+Sample :     
+
+  ```
+  function onInit(response) {
+    if (response === "success")
+      {
+        // write your logic here
+      }
+  };
+  
+  ```
+
+Sample code for **CONTACT_JSON** used as a reference in **Step 6** and **Step 7** -     
 
 ```
- 1) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'                    // Type - FUNCTION  (optional)
-  Function should return USER_DISPLAY_NAME by taking USERID as input parameter. Example given in Step 5        
- 2) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
-  Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 6 
- 3) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // TYPE - FUNCTION
-  Callback function which execute after plugin initialize. You can write your logic inside this function which you want to execute after plugin initialization. Example given in Step 7
-```
-
-
-Sample of **CONTACT_JSON** given below which is used as a reference in Step 5 and Step 6      
-
-
-```
-var CONTACT_JSON =
-                 {"USER_1": {"displayName": "Devashish",
+var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
                       "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
-                 "USERID_2": { "displayName": "Adarsh", "photoLink":    
-                      "https://www.applozic.com/resources/images/applozic_icon.png"}, 
-                 "USERID_3": { "displayName": "Shanki", "photoLink":  
-                      "https://www.applozic.com/resources/images/applozic_icon.png"}
+                    "USERID_2": { "displayName": "Adarsh", "photoLink":    
+                        "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                    "USERID_3": { "displayName": "Shanki", "photoLink":  
+                        "https://www.applozic.com/resources/images/applozic_icon.png"}
                   }; 
  ```
 
 
+Step 6: Sample code for **contactDisplayName()** function : 
 
-Step 5: Sample code define **contactDisplayName()** function (optional) : 
+You  can write javascript function which return USER DISPLAY NAME on basis of USER ID 
 
-You  can write javascript function which return USER_DISPLAY_NAME on basis of USERID 
-
-Example:     
+Sample :     
 
 ```   
  function contactDisplayName(USERID)  {                      
@@ -121,14 +129,12 @@ Example:
  }                     
 ```
 
+Step 7: Sample code for **contactDisplayImage()** function : 
 
-Step 6: Sample code to define **contactDisplayImage()** function (optional) : 
-
-You can write javascript function to return USER_IMAGE_URL on basis of USERID 
+You can write javascript function to return USER IMAGE LINK on basis of USER ID 
 
 
-Example:     
-
+Sample code -
 
 ```
   function contactDisplayImage(USERID)  {                        
@@ -139,31 +145,18 @@ Example:
       }
   }                            
  ```
- 
-Step 7: Sample code to define **onInit()** function  (optional) : 
 
-You can write javascript function to execute your logic after plugin initialization
-
-
-Example:     
-
-
-  ```
-  function onInit(response) {
-    if (response === "success") {
-      // write your logic here
-    }
-  };
-  
-  ```
- 
  
  Step 8: If you want to load all contacts directly use below function (optional) :
 
+ Function used to load contacts - 
 ```
-// APPLOZIC_FUNCTION_TO_LOAD_CONTACTS
- $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE'); // contacts json format given below
-// SAMPLE CONTACT_LIST_JSON 
+ $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
+```
+
+Sample code for **CONTACT_LIST_JSON ** used as a reference in **Step 8** -  
+
+```
 var CONTACT_LIST_JSON = 
           {"contacts": [{"userId": "USER_1", "displayName": "Devashish", 
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
@@ -171,17 +164,18 @@ var CONTACT_LIST_JSON =
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_3", "displayName": "Shanki",
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
-                      ]
+                        ]
          };       
 
 ```
 
-**NOTE**- Call **loadContacts** function only after plugin initailization.
+**NOTE**- Call **loadContacts** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+
 You don't need to use functions explained in Step 5 and Step 6 if loading all contacts dynamically as explaind in Step 8  
 
 
 
-Step 9: Function to load individual tab conversation dynamically (optional) :
+Step 9: Function to load(open) individual tab conversation dynamically (optional) :
 
 ```
  $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
@@ -189,8 +183,7 @@ Step 9: Function to load individual tab conversation dynamically (optional) :
  ``` 
  
  
- 
-Step 10: Anchor tag or button to load individual tab conversation directly (optional) :
+Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :
 
 You can add the following html into your code to directly open a conversation with any user-   
 
@@ -198,101 +191,95 @@ You can add the following html into your code to directly open a conversation wi
 <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
  ```        
  
- 
- 
  **Note** - Data attribute **mck-name** is optional in above tag          
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Step 11: To add auto suggest users list in search field use below element id (optional) : 
+Step 11: To add auto suggest users list in search field use below html element id (optional) : 
 
-You can bind auto suggest plugin on input search field with id given below     
+You can bind auto suggest plugin on input search field of id given below -      
 
 ```
 mck-search 
 ```
 
-  
+Step 12: To show **online/offline** status (optional) : 
 
+You can add the following attributes to your html element for real time online/offline status update -
 
-Step 12: To show **online/offline** status(optional) : 
-
-You can add the following  properties to your html element for real time online/offline status update
-
-Two Class Attribute - 
+Class Attributes - 
 **mck-user-ol-status** and **n-vis**
 
-
-
 Data Attribute - 
-**data-mck-id**='PUT_OTHER_USERID_HERE'
-
+**data-mck-id**
 
 Example: 
 ```
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
+Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional):
 
 
+required attributes on chat button ro anchor tag -
 
-Step 13: Topic based conversation (optional):
+Class Attribute -
+**applozic-wt-launcher**
 
-Adding topic details to the conversation tab 
+Data Attriutes - 
+**data-mck-id ** , **data-mck-name** and **data-mck-topicid**
+
 
 Example-      
-
-
 ```
-<a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>       
+<a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```         
 
- Callback function to get topic details from by topicId (JSON should be in same format as given below) -           
- 
- 
+
+Define callback function in your code to return topic(product) details on basis of topicId ( detail should be in same JSON format as given below) -           
+
 ```
- var topicDetail= { title: 'topic-title',
-                     subtitle: 'sub-title',
-                     'link' :'image-link',
-                     key1:'key1',      // ex-Qty(Optional)
-                     value1:'value1',  // ex- number of quantity(Optional)
-                     key2: 'key2',     // ex-price (Optional)
-                     value2:'value2'   // ex-Rs.50 (Optional)
-                   };
- 
 function getTopicDetail(topicId) 
  {
-   return topicDetail;
- };
+   return TOPIC_DETAIL;  // object sample define below
+ }
+```
+
+JSON format of topic detail :
+
+These detail will be displayed on conversation tab - 
+
+```
+ var TOPIC_DETAIL={ 'title': 'topic-title',      // Product title
+                     'subtitle': 'sub-title',     // Product subTitle or Product Id
+                     'link' :'image-link',        // Product image link
+                     'key1':'key1' ,              // Small text anything like Qty (Optional)
+                     'value1':'value1',           // Value of key1 ex-10 (number of quantity) Optional
+                     'key2': 'key2',              // Small text anything like MRP (product price) (Optional)
+                     'value2':'value2'            // Value of key2 ex-$100  (Optional)
+                  };
+ 
 ```         
 
 
-Use the below given option 'getTopicDetail'  to pass the above callback function name and also enable 'topicBox' as given in example 
-
-Example-          
-
-
+Additional options to configure in plugin initialize code given in step : 3
 
 ```
-<script type="text/javascript" >window.applozic.init({userId: 'USERID', appId: 'APPLICATION_KEY', contactDisplayName: displayName, contactDisplayImage: contactImageSrc, desktopNotification: true, getTopicDetail: getTopicDetail, topicBox : true});
+  getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
+  topicBox :  true or false                                     //  Set true if want to display topic details in conversation box
+  
+ ```
+
+Sample code to configure above options -          
+
+```
+<script type="text/javascript">window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY', getTopicDetail: getTopicDetail, topicBox : true});
 </script>
 ```        
 
 
-If want to send message about topic details directly on tab click ,  then use  class **applozic-tm-launcher** in tab along with data attribute **mck-topicid**
+If want to send message about topic details directly on chat button click , then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
 
-Example-       
-
-
-
+Sample -       
 
 ```
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
@@ -300,13 +287,16 @@ Example-
 
 
 
-Step 14: Function to return user details(call after plugin initialize) :
+Step 14: Function to return user details :
+
+Call below given function to get user details like Total unread count, last seen at etc
+
 
 ```
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```    
 
-Step 15: Callback function to receive response (used as a reference in above function):   
+Callback function to receive response (used as a reference in above function):   
 
 
 ```
@@ -315,37 +305,20 @@ function getUserDetail(response) {
       // write your logic
     }
  }
-```        
+```
 
-Step 16: Response format :      
-
-
+ Response Sample :      
 
 ```
-response object = {
-                      'status' : 'success' ,           // or error
-                      'data':{'totalUnreadCount' :         // total unread count for user          
-                      'users': Array[2]               //  array containing other users detail
-                             }
-                  }     
+response = {
+              'status' : 'success' ,                    // or error
+              'data':{'totalUnreadCount' : 15           // total unread count for user          
+                       'users':                          // Array of other users detail
+                       [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
+                       {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
+                                
+                     }     
 ```     
-
-
-
-Step 17: Sample :         
-
-
-```
-{"status" : "success",
-  "data" : {"totalUnreadCount" : 4 ,
-                "users":[{"userId":"user1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3},
-                {"userId":"user2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]}
-}      
-```
-
-
-
-
 
 
 
