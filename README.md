@@ -3,12 +3,7 @@
 ### Overview      
 
 
-
 Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com         
-
-
-
-Want to contribute? Drop us a mail at   ` contact@applozic.com `    
 
 
 ### Getting Started          
@@ -877,7 +872,7 @@ to: 'receiver userid'
 
 
 
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application id.            
+Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.            
 
 
 
@@ -2317,7 +2312,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application id.
+Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.
 
 
   
@@ -2336,7 +2331,7 @@ Integrate messaging into your mobile apps and website without developing or main
 
 **Create your Application**
 
-a )  [**Sign-up**](https://www.applozic.com/signup.html)  with applozic to get your applicationId.
+a )  [**Sign-up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
 
 b ) Once you signed up create your Application with required details on admin dashboard. Upload your push-notification certificate to our portal to enable real time notification.         
 
@@ -2347,7 +2342,7 @@ b ) Once you signed up create your Application with required details on admin da
 
 
 
-c) Once you create your application you can see your application-Id listed on admin dashboard. Please use same applicationId explained in further steps.          
+c) Once you create your application you can see your application key listed on admin dashboard. Please use same application key explained in further steps.          
 
 
 
@@ -2412,7 +2407,7 @@ After your app login validation, copy the following code to create applozic user
 ** Objective-C **   
 ```
  ALUser *user = [[ALUser alloc] init];           
- [user setApplicationId:@"applozic-sample-app"]; // REPLACE SAMPLE ID with your application-Id                
+ [user setApplicationId:@"applozic-sample-app"]; // REPLACE SAMPLE ID with your application key                
  [user setUserId:[self.userIdField text]]; //replace [self.userIdField text] with user's unique id here                    
  [user setEmailId:[self.emailField text]]; //optional                       
 ```
