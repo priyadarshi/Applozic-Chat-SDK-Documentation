@@ -46,12 +46,8 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
 </script>
 ```
  
- 
- 
- Step 3: Copy and paste below script before **`</body>`** to initialize plugin: 
- 
+Step 3: Copy and paste below script before **`</body>`** to initialize plugin: 
 
- 
 ``` 
 <script type="text/javascript">
   window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"});
@@ -62,10 +58,10 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
  Above options description :    
 
 ```
- userId: 'UNIQUE USER ID OF ACTIVE USER'                                   // loggedIn user Id (required)   
- appId: 'YOUR APPLICATION KEY'                                             // obtained from Step 1 (required)     
- desktopNotification: true or false                                        // optional
- notificationIconLink : 'YOUR WEB APP LOGO'                                // required for desktop notifications (optional)                             
+ userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)   
+ appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)     
+ desktopNotification: true or false                    // optional
+ notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notifications (optional)                             
 ```
 
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notifications
@@ -81,26 +77,23 @@ Step 4: Some additional options which you can configure while plugin initializat
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 7
 ```
-
-
- 
 Step 5: Sample code for **onInit()** function : 
 
 You can write javascript function to execute your logic on plugin initialization
 
 Sample :     
 
-  ```
+ ```
   function onInit(response) {
-    if (response === "success")
-      {
-        // write your logic here
-      }
+      if (response === "success")
+         {
+            // write your logic here
+         }
   };
   
   ```
 
-Sample code for **CONTACT_JSON** used as a reference in **Step 6** and **Step 7** -     
+Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 -     
 
 ```
 var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
@@ -115,7 +108,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
 
 Step 6: Sample code for **contactDisplayName()** function : 
 
-You  can write javascript function which return USER DISPLAY NAME on basis of USER ID 
+You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
 Sample :     
 
@@ -131,8 +124,7 @@ Sample :
 
 Step 7: Sample code for **contactDisplayImage()** function : 
 
-You can write javascript function to return USER IMAGE LINK on basis of USER ID 
-
+You can write javascript function to return USER IMAGE LINK on basis of userId 
 
 Sample code -
 
@@ -154,7 +146,7 @@ Sample code -
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
 ```
 
-Sample code for **CONTACT_LIST_JSON ** used as a reference in **Step 8** -  
+Sample code for **CONTACT_LIST_JSON** used as a reference in step 8 -  
 
 ```
 var CONTACT_LIST_JSON = 
@@ -173,8 +165,6 @@ var CONTACT_LIST_JSON =
 
 You don't need to use functions explained in Step 5 and Step 6 if loading all contacts dynamically as explaind in Step 8  
 
-
-
 Step 9: Function to load(open) individual tab conversation dynamically (optional) :
 
 ```
@@ -185,7 +175,7 @@ Step 9: Function to load(open) individual tab conversation dynamically (optional
  
 Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :
 
-You can add the following html into your code to directly open a conversation with any user-   
+You can add the following html into your code to directly open a conversation with any user -   
 
 ```
 <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
@@ -212,7 +202,8 @@ Class Attributes -
 Data Attribute - 
 **data-mck-id**
 
-Example: 
+Example -
+
 ```
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
@@ -220,13 +211,13 @@ Example:
 Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional):
 
 
-required attributes on chat button ro anchor tag -
+These are attributes requires on chat button or anchor tag -
 
 Class Attribute -
 **applozic-wt-launcher**
 
 Data Attriutes - 
-**data-mck-id ** , **data-mck-name** and **data-mck-topicid**
+**data-mck-id ,data-mck-name** and **data-mck-topicid**
 
 
 Example-      
@@ -239,12 +230,12 @@ Define callback function in your code to return topic(product) details on basis 
 
 ```
 function getTopicDetail(topicId) 
- {
-   return TOPIC_DETAIL;  // object sample define below
- }
+   {
+      return TOPIC_DETAIL;  // object sample define below
+   }
 ```
 
-JSON format of topic detail :
+Json format of topic detail :
 
 These detail will be displayed on conversation tab - 
 
@@ -261,7 +252,7 @@ These detail will be displayed on conversation tab -
 ```         
 
 
-Additional options to configure in plugin initialize code given in step : 3
+Additional options to configure in plugin initialize code given in step 3 : 
 
 ```
   getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
@@ -291,7 +282,6 @@ Step 14: Function to get USER DETAIL :
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc
 
-
 ```
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```    
@@ -301,30 +291,27 @@ Callback function to receive response (used as a reference in above function):
 
 ```
 function getUserDetail(response) {
-    if(response.status === 'success') {
+   if(response.status === 'success') {
       // write your logic
-    }
- }
+   }
+}
 ```
 
- Response Sample :      
+Response Sample :      
 
 ```
-response = {
-              'status' : 'success' ,                    // or error
-              'data':{'totalUnreadCount' : 15           // total unread count for user          
-                       'users':                          // Array of other users detail
-                       [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
-                       {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
+response = {'status' : 'success' ,                     // or error
+            'data':  {'totalUnreadCount': 15           // total unread count for user          
+                     'users':                          // Array of other users detail
+                        [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
+                        {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
                                 
-                     }     
+                     }
+           }
 ```     
 
 
 ### Customization     
-
-
-
 
 
 
