@@ -17,7 +17,7 @@ Integrate messaging into your mobile apps and website without developing or main
 A jQuery plugin to integrate messaging into your web page for real time communication between users via Applozic messaging platform and also to see your latest conversations and past chat history.
 
 
-Add Applozic messaging plugin into your web application :
+Add Applozic messaging plugin into your web application :-
 
 
 Step 1: Register at **https://www.applozic.com/** to get the application key.
@@ -260,7 +260,7 @@ Sample code :-
 
 If want to send message about topic details directly on chat button click, then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
 
-Sample -       
+Sample  code :-       
 
 ```
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
@@ -385,7 +385,7 @@ Step 7: Sample code for **contactDisplayName()** function :-
 
 You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
-Sample :     
+Sample :-     
 
 ```   
  function contactDisplayName(USERID)  {                      
@@ -401,7 +401,7 @@ Step 8: Sample code for **contactDisplayImage()** function :-
 
 You can write javascript function to return USER IMAGE LINK on basis of userId 
 
-Sample code -
+Sample code :-
 
 ```
   function contactDisplayImage(USERID)  {                        
@@ -416,7 +416,7 @@ Sample code -
  
  Step 9: If you want to load all contacts directly use below function (optional) :-
 
-Function used to load contacts - 
+Function used to load contacts :- 
  
 ```
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
@@ -442,15 +442,15 @@ var CONTACT_LIST_JSON =
 You don't need to use functions explained in step 7 and step 8 if loading all contacts dynamically as explaind in step 9  
 
 
-Step 10 : To customize layout of plugin :
+Step 10 : To customize layout of plugin :-
 
-You can modify **mck-sidebox-1.0.css** class located at :      
+You can modify **mck-sidebox-1.0.css** class located at -      
 
 ``` 
   https://github.com/AppLozic/Applozic-Web-Plugin/blob/master/message/advanced/css/app/mck-sidebox-1.0.css 
 ```
 
-Step 11: To add auto suggest users list in search field (optional) :
+Step 11: To add auto suggest users list in search field (optional) :-
 
 You can bind auto suggest plugin on input search field with id given below -
 
@@ -459,14 +459,14 @@ mck-search
 ```
 
 
-Step 12: Function to load(open) individual tab conversation dynamically (optional) :
+Step 12: Function to load(open) individual tab conversation dynamically (optional) :-
 
 ```
  $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
 
  ``` 
  
-Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional) :
+Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional) :-
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -477,7 +477,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag          
  
 
-Step 14: To show **online/offline** status (optional) :
+Step 14: To show **online/offline** status (optional) :-
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -485,13 +485,13 @@ Class Attributes - **mck-user-ol-status** and **n-vis**
 
 Data Attribute - **mck-id**
 
-Example:
+Example :-
 
 ```
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
+Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
 
 These are attributes requires on chat button or anchor tag -
 
@@ -499,7 +499,7 @@ Class Attribute - **applozic-wt-launcher**
 
 Data Attriutes - **mck-id, mck-name** and **mck-topicid*
 
-Example-
+Example :-
 ```
 <a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```
@@ -538,7 +538,7 @@ Additional options to configure in plugin initialize code in step 3 :-
 
 ```
 
-Sample code to configure above options -
+Sample code to configure above options :-
 
 ```
 <script type="text/javascript">window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY', getTopicDetail: getTopicDetail, topicBox : true});
@@ -553,7 +553,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-Step 14: Function to get User Detail :-
+Step 16: Function to get User Detail :-
 
 Call below given function to get user details like Total unread count, last seen at etc
 
