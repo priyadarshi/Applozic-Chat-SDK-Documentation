@@ -22,10 +22,7 @@ Add Applozic messaging plugin into your web application :
 
 Step 1: Register at **https://www.applozic.com/** to get the application key.
 
-Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:               
-
-
-
+Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page :-               
 
 ```
 <script type="text/javascript">
@@ -41,7 +38,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
 </script>
 ```
  
-Step 3: Copy and paste below script before **`</body>`** to initialize plugin: 
+Step 3: Copy and paste below script before **`</body>`** to initialize plugin :- 
 
 ``` 
 <script type="text/javascript">
@@ -50,7 +47,7 @@ Step 3: Copy and paste below script before **`</body>`** to initialize plugin:
 ```    
 
 
- Above options description :    
+Above options description :-    
 
 ```
  userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)   
@@ -59,10 +56,10 @@ Step 3: Copy and paste below script before **`</body>`** to initialize plugin:
  notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notification (optional)                             
 ```
 
-**Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notifications
+**Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
 
-Step 4: Some additional options which you can configure while plugin initialization in Step 3 :
+Step 4: Some additional options which you can configure while plugin initialization in Step 3 :-
 
 ```
  1) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // Type - FUNCTION (optional)
@@ -72,9 +69,9 @@ Step 4: Some additional options which you can configure while plugin initializat
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 7
 ```
-Step 5: Sample code for **onInit()** function : 
+Step 5: Sample code for **onInit()** function :- 
 
-You can write javascript function to execute your logic on plugin initialization
+You can write javascript function to execute your logic on plugin initialization -
 
 Sample :     
 
@@ -88,7 +85,7 @@ Sample :
   
   ```
 
-Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 -     
+Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 :-     
 
 ```
 var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
@@ -101,7 +98,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
  ```
 
 
-Step 6: Sample code for **contactDisplayName()** function : 
+Step 6: Sample code for **contactDisplayName()** function :- 
 
 You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
@@ -117,7 +114,7 @@ Sample :
  }                     
 ```
 
-Step 7: Sample code for **contactDisplayImage()** function : 
+Step 7: Sample code for **contactDisplayImage()** function :- 
 
 You can write javascript function to return USER IMAGE LINK on basis of userId 
 
@@ -134,14 +131,14 @@ Sample code -
  ```
 
  
- Step 8: If you want to load all contacts directly use below function (optional) :
+ Step 8: If you want to load all contacts directly use below function (optional) :-
 
  Function used to load contacts - 
 ```
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
 ```
 
-Sample code for **CONTACT_LIST_JSON** used as a reference in step 8 -  
+Sample code for **CONTACT_LIST_JSON** used as a reference in step 8 :-  
 
 ```
 var CONTACT_LIST_JSON = 
@@ -160,15 +157,14 @@ var CONTACT_LIST_JSON =
 
 You don't need to use functions explained in Step 6 and Step 7 if loading all contacts dynamically as explaind in Step 8  
 
-Step 9: Function to load(open) individual tab conversation dynamically (optional) :
+Step 9: Function to load(open) individual tab conversation dynamically (optional) :-
 
 ```
  $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
 
  ``` 
  
- 
-Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :
+Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :-
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -179,7 +175,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag          
  
  
-Step 11: To add auto suggest users list in search field use below html element id (optional) : 
+Step 11: To add auto suggest users list in search field use below html element id (optional) :- 
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -187,7 +183,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-Step 12: To show **online/offline** status (optional) : 
+Step 12: To show **online/offline** status (optional) :- 
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -203,7 +199,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional):
+Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
 
 
 These are attributes requires on chat button or anchor tag -
@@ -215,14 +211,14 @@ Data Attriutes -
 **mck-id ,mck-name** and **mck-topicid**
 
 
-Example -      
+Example :-      
 
 ```
 <a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```         
 
 
-Define callback function in your code to return topic(product) details on basis of topicId ( detail should be in same JSON format as given below) -           
+Define callback function in your code to return topic(product) details on basis of topicId (detail should be in same JSON format as given below) :-           
 
 ```
 function getTopicDetail(topicId) 
@@ -231,7 +227,7 @@ function getTopicDetail(topicId)
    }
 ```
 
-Json format of TOPIC_DETAIL :
+Json format of TOPIC_DETAIL :-
 
 ```
  var TOPIC_DETAIL= {'title': 'topic-title',      // Product title
@@ -244,9 +240,9 @@ Json format of TOPIC_DETAIL :
                   };
  
 ```         
-**NOTE** - These detail will be displayed on conversation tab
+**NOTE** - These detail will be displayed on conversation tab.
 
-Additional options to configure in plugin initialize code in step 3 : 
+Additional options to configure in plugin initialize code in step 3 :- 
 
 ```
   getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
@@ -254,7 +250,7 @@ Additional options to configure in plugin initialize code in step 3 :
   
  ```
 
-Sample code -          
+Sample code :-          
 
 ```
 <script type="text/javascript">window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY', getTopicDetail: getTopicDetail, topicBox : true});
@@ -262,7 +258,7 @@ Sample code -
 ```        
 
 
-If want to send message about topic details directly on chat button click , then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
+If want to send message about topic details directly on chat button click, then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
 
 Sample -       
 
@@ -271,15 +267,15 @@ Sample -
 ```
 
 
-Step 14: Function to get User Detail :
+Step 14: Function to get User Detail :-
 
-Call below given function to get user details like totalUnreadCount, lastSeenAt time etc
+Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
 ```
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```    
 
-Callback function to receive response (used as a reference in above function):   
+Callback function to receive response (used as a reference in above function) :-   
 
 
 ```
@@ -290,7 +286,7 @@ function getUserDetail(response) {
 }
 ```
 
-Response Sample :      
+Response Sample :-      
 
 ```
 response = {'status' : 'success' ,                     // or error
