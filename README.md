@@ -240,7 +240,7 @@ Json format of TOPIC_DETAIL :-
                   };
  
 ```         
-**NOTE** - These detail will be displayed on conversation tab.
+**NOTE** - Topic details will be displayed on conversation tab.
 
 Additional options to configure in plugin initialize code in step 3 :- 
 
@@ -321,13 +321,13 @@ Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozi
 Open **message.html**  file as a reference and add all scripts and html in your web page in same order as given in message.html. 
 
 
-Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :  
+Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :-  
 
 ```
   $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
 
-Step 4: Configure value in above script :     
+Step 4: Configure value in above script :-     
 
 description - 
 
@@ -337,9 +337,9 @@ description -
  desktopNotification: true or false                                        // optional
  notificationIconLink : 'YOUR WEB APP LOGO'                                // required for desktop notifications (optional)                                   
 ```
-**Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notifications
+**Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
-Step 5: Some additional options which you can configure while plugin initialization in Step 3 :
+Step 5: Some additional options which you can configure while plugin initialization in Step 3 :-
 
 
 ```
@@ -352,7 +352,7 @@ Step 5: Some additional options which you can configure while plugin initializat
 ```
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
-Step 6: Sample code for **onInit()** function : 
+Step 6: Sample code for **onInit()** function :- 
 
 You can write javascript function to execute your logic after plugin initialization
 
@@ -368,7 +368,7 @@ Sample -
   
 ```
 
-Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 -     
+Sample code for **CONTACT_JSON** used as a reference in Step 7 and Step 8 :-     
 
 ```
 var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
@@ -381,7 +381,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
  ```
 
 
-Step 7: Sample code for **contactDisplayName()** function : 
+Step 7: Sample code for **contactDisplayName()** function :- 
 
 You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
@@ -397,7 +397,7 @@ Sample :
  }                     
 ```
 
-Step 8: Sample code for **contactDisplayImage()** function : 
+Step 8: Sample code for **contactDisplayImage()** function :- 
 
 You can write javascript function to return USER IMAGE LINK on basis of userId 
 
@@ -414,7 +414,7 @@ Sample code -
  ```
 
  
- Step 9: If you want to load all contacts directly use below function (optional) :
+ Step 9: If you want to load all contacts directly use below function (optional) :-
 
 Function used to load contacts - 
  
@@ -422,7 +422,7 @@ Function used to load contacts -
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
 ```
 
-Sample code for **CONTACT_LIST_JSON ** used as a reference in above script -  
+Sample code for **CONTACT_LIST_JSON** used as a reference in above script :-  
 
 ```
 var CONTACT_LIST_JSON = 
@@ -437,7 +437,7 @@ var CONTACT_LIST_JSON =
 
 ```
 
-**NOTE**- Call **loadContacts** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+**NOTE**- Call **loadContacts** function only after plugin initailization. For reference use **init()** function explained in Step 6.
 
 You don't need to use functions explained in step 7 and step 8 if loading all contacts dynamically as explaind in step 9  
 
@@ -491,19 +491,19 @@ Example:
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional):
+Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
 
-required attributes on chat button ro anchor tag -
+These are attributes requires on chat button or anchor tag -
 
-Class Attribute - applozic-wt-launcher
+Class Attribute - **applozic-wt-launcher**
 
-Data Attriutes - data-mck-id ** , **data-mck-name and data-mck-topicid
+Data Attriutes - **mck-id, mck-name** and **mck-topicid*
 
 Example-
 ```
 <a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```
-Define callback function in your code to return topic(product) details on basis of topicId ( detail should be in same JSON format as given below) -
+Define callback function in your code to return topic(product) details on basis of topicId ( detail should be in same JSON format as given below) :-
 
 ```
 function getTopicDetail(topicId) 
@@ -512,9 +512,8 @@ function getTopicDetail(topicId)
   }
 ```
 
-JSON format of topic detail :
+JSON format of TOPIC_DETAIL :-
 
-These detail will be displayed on conversation tab -
 
 ```
  var TOPIC_DETAIL={'title': 'topic-title',      // Product title
@@ -528,11 +527,14 @@ These detail will be displayed on conversation tab -
 
 ```
 
-Additional options to configure in plugin initialize code given in step 3
+**NOTE** - These detail will be displayed on conversation tab.
+
+
+Additional options to configure in plugin initialize code in step 3 :-
 
 ```
   getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
-  topicBox :  true or false                                     //  Set true if want to display topic details in conversation box
+  topicBox :  true or false                                     // Set true if want to display topic details in conversation box
 
 ```
 
@@ -543,15 +545,15 @@ Sample code to configure above options -
 </script>
 ```
 
-If want to send message about topic details directly on chat button click , then use class attribute applozic-tm-launcher in chat button instead of applozic-wt-launcher
+If want to send message about topic details directly on chat button click , then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
 
-Sample -
+Sample code :-
 
 ```
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-Step 14: Function to return user details :
+Step 14: Function to get User Detail :-
 
 Call below given function to get user details like Total unread count, last seen at etc
 
@@ -559,7 +561,7 @@ Call below given function to get user details like Total unread count, last seen
   $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```
 
-Callback function to receive response (used as a reference in above function):
+Call below given function to get user details like totalUnreadCount, lastSeenAt time etc :-
 
 ```
 function getUserDetail(response) {
@@ -569,7 +571,7 @@ function getUserDetail(response) {
  }
 ```
 
-Response Sample :
+Response Sample :-
 
 ```
 response = {'status' : 'success' ,                    // or error
