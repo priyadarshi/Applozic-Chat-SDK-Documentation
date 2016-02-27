@@ -292,7 +292,7 @@ Response Sample :-
 response = {'status' : 'success' ,                     // or error
             'data':  {'totalUnreadCount': 15           // total unread count for user          
                      'users':                          // Array of other users detail
-                        [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
+                        [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCount":3}, 
                         {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
                                 
                      }
