@@ -56,7 +56,7 @@ Step 3: Copy and paste below script before **`</body>`** to initialize plugin:
  userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)   
  appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)     
  desktopNotification: true or false                    // optional
- notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notifications (optional)                             
+ notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notification (optional)                             
 ```
 
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notifications
@@ -158,7 +158,7 @@ var CONTACT_LIST_JSON =
 
 **NOTE**- Call **loadContacts** function only after plugin initailization. For reference use **init()** function explained in Step 5.
 
-You don't need to use functions explained in Step 5 and Step 6 if loading all contacts dynamically as explaind in Step 8  
+You don't need to use functions explained in Step 6 and Step 7 if loading all contacts dynamically as explaind in Step 8  
 
 Step 9: Function to load(open) individual tab conversation dynamically (optional) :
 
@@ -195,7 +195,7 @@ Class Attributes -
 **mck-user-ol-status** and **n-vis**
 
 Data Attribute - 
-**data-mck-id**
+**mck-id**
 
 Example -
 
@@ -212,10 +212,11 @@ Class Attribute -
 **applozic-wt-launcher**
 
 Data Attriutes - 
-**data-mck-id ,data-mck-name** and **data-mck-topicid**
+**mck-id ,mck-name** and **mck-topicid**
 
 
-Example-      
+Example -      
+
 ```
 <a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```         
@@ -230,12 +231,10 @@ function getTopicDetail(topicId)
    }
 ```
 
-Json format of topic detail :
-
-These detail will be displayed on conversation tab - 
+Json format of TOPIC_DETAIL :
 
 ```
- var TOPIC_DETAIL={ 'title': 'topic-title',      // Product title
+ var TOPIC_DETAIL= {'title': 'topic-title',      // Product title
                      'subtitle': 'sub-title',     // Product subTitle or Product Id
                      'link' :'image-link',        // Product image link
                      'key1':'key1' ,              // Small text anything like Qty (Optional)
@@ -245,9 +244,9 @@ These detail will be displayed on conversation tab -
                   };
  
 ```         
+**NOTE** - These detail will be displayed on conversation tab
 
-
-Additional options to configure in plugin initialize code given in step 3 : 
+Additional options to configure in plugin initialize code in step 3 : 
 
 ```
   getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
@@ -255,7 +254,7 @@ Additional options to configure in plugin initialize code given in step 3 :
   
  ```
 
-Sample code to configure above options -          
+Sample code -          
 
 ```
 <script type="text/javascript">window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY', getTopicDetail: getTopicDetail, topicBox : true});
@@ -272,8 +271,7 @@ Sample -
 ```
 
 
-
-Step 14: Function to get USER DETAIL :
+Step 14: Function to get User Detail :
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc
 
@@ -327,17 +325,13 @@ Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozi
 Open **message.html**  file as a reference and add all scripts and html in your web page in same order as given in message.html. 
 
 
-Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :     
-
-
+Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :  
 
 ```
   $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
 
-
-
-Step 4:Replace above configured parameters:     
+Step 4: Configure value in above script :     
 
 description - 
 
@@ -362,16 +356,13 @@ Step 5: Some additional options which you can configure while plugin initializat
 ```
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
-
-
- 
 Step 6: Sample code for **onInit()** function : 
 
-You can write javascript function to execute your logic on plugin initialization
+You can write javascript function to execute your logic after plugin initialization
 
-Sample :     
+Sample -     
 
-  ```
+ ```
   function onInit(response) {
     if (response === "success")
       {
@@ -379,9 +370,9 @@ Sample :
       }
   };
   
-  ```
+```
 
-Sample code for **CONTACT_JSON** used as a reference in **Step 6** and **Step 7** -     
+Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 -     
 
 ```
 var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
@@ -396,7 +387,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
 
 Step 7: Sample code for **contactDisplayName()** function : 
 
-You  can write javascript function which return USER DISPLAY NAME on basis of USER ID 
+You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
 Sample :     
 
@@ -412,8 +403,7 @@ Sample :
 
 Step 8: Sample code for **contactDisplayImage()** function : 
 
-You can write javascript function to return USER IMAGE LINK on basis of USER ID 
-
+You can write javascript function to return USER IMAGE LINK on basis of userId 
 
 Sample code -
 
@@ -430,12 +420,13 @@ Sample code -
  
  Step 9: If you want to load all contacts directly use below function (optional) :
 
- Function used to load contacts - 
+Function used to load contacts - 
+ 
 ```
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
 ```
 
-Sample code for **CONTACT_LIST_JSON ** used as a reference in **Step 8** -  
+Sample code for **CONTACT_LIST_JSON ** used as a reference in above script -  
 
 ```
 var CONTACT_LIST_JSON = 
@@ -452,7 +443,7 @@ var CONTACT_LIST_JSON =
 
 **NOTE**- Call **loadContacts** function only after plugin initailization. For reference use **init()** function explained in Step 5.
 
-You don't need to use functions explained in Step 5 and Step 6 if loading all contacts dynamically as explaind in Step 8  
+You don't need to use functions explained in step 7 and step 8 if loading all contacts dynamically as explaind in step 9  
 
 
 Step 10 : To customize layout of plugin :
@@ -463,102 +454,40 @@ You can modify **mck-sidebox-1.0.css** class located at :
   https://github.com/AppLozic/Applozic-Web-Plugin/blob/master/message/advanced/css/app/mck-sidebox-1.0.css 
 ```
 
-Step 11: To add auto suggest users list in search field (optional)
+Step 11: To add auto suggest users list in search field (optional) :
 
-You can bind auto suggest plugin on input search field with id given below:    
-
+You can bind auto suggest plugin on input search field with id given below -
 
 ```
 mck-search 
 ```
 
 
-Step 7: Callback function to get contact display name from userId (optional)
-
-You  can write javascript function which return display name on basis of userId 
-
-Example:         
-
+Step 12: Function to load(open) individual tab conversation dynamically (optional) :
 
 ```
- function displayName(userId)  {                  
-      var contact = contacts[userId];  // used contacts variable as given above.      
-      if (typeof contact !== 'undefined')    
-         {               
-            return contact.displayName;       
-         }
-   }                          
-```
+ $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
 
-Step 8: Callback function to get contact image url from userId (optional)
-
-You  can write javascript function to return user image url on basis of userId 
-
-Example:      
-
-
-```
-  function contactImageSrc(userId) {                        
-      var contact = contacts[userId];   // used contacts variable as given above.          
-      if (typeof contact !== 'undefined')                  
-         {               
-            return contact.photoLink;               
-         }
-   }
-```    
-    
-    
-Step 9: Function to load contact list dynamically (optional)
-
-You can call below function to load contact list by passing contacts json as given in variable contacts :      
-
-
-
-```
- var contacts = {"contacts": [{"userId": "user1", "displayName": "Devashish",
- "photoLink":  "https://www.applozic.com/resources/images/applozic_icon.png"},
- {"userId": "user2", "displayName": "Adarsh",
- "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
- {"userId": "user3", "displayName": "Shanki", 
- "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}]}; 
+ ``` 
  
- $applozic.fn.applozic('loadContacts', 'put-contacts-json-here); // contacts json format given above 
- ```
+Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional) :
 
-
-Step 10: Function to load(open) individual tab conversation dynamically (optional) :
-
-You can call below function to directly open any contact tab dynamically :       
-
-
-```
- $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // userId of other person with whom you want to open conversation 
-```          
-
-Step 11:  Anchor tag or button to load(open) individual tab conversation directly (optional) :
-
-You can add the following html into your code to directly open a conversation with any user-
+You can add the following html into your code to directly open a conversation with any user -   
 
 ```
 <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
-```
-Note - Data attribute mck-name is optional in above tag
+ ```        
+ 
+ **Note** - Data attribute **mck-name** is optional in above tag          
+ 
 
-Step 11: To add auto suggest users list in search field use below html element id (optional) :
-
-You can bind auto suggest plugin on input search field of id given below -
-
-```
-mck-search 
-```
-
-Step 12: To show online/offline status (optional) :
+Step 14: To show **online/offline** status (optional) :
 
 You can add the following attributes to your html element for real time online/offline status update -
 
-Class Attributes - mck-user-ol-status and n-vis
+Class Attributes - **mck-user-ol-status** and **n-vis**
 
-Data Attribute - data-mck-id
+Data Attribute - **mck-id**
 
 Example:
 
