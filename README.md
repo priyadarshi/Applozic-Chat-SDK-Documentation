@@ -6,7 +6,7 @@ Applozic Chat & Messaging SDK for your mobile and web apps
 
 Applozic powers real time messaging across any device, any platform & anywhere in the world. Integrate our simple SDK to engage your users with image, file, location sharing and audio/video conversations.
 
-Signup at https://www.applozic.com to get your application key.        
+Signup at [Applozic](https://www.applozic.com/) to get your application key.        
 
 
 # ANDROID SDK    
@@ -16,7 +16,7 @@ Signup at https://www.applozic.com to get your application key.
 
 
 
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.            
+Integrate chat and messaging into your android app without developing or maintaining any infrastructure. 
 
 
 
@@ -33,11 +33,6 @@ Integrate messaging into your mobile apps and website without developing or main
 ### Getting Started       
 
 
-**** Quick Start for Applozic Messaging ****      
-
-
-
-To integrate messaging into your android app, register at [Applozic](https://www.applozic.com/) to get the application key.
 
 ** Step 1: Add the following in build.gradle **:      
 
