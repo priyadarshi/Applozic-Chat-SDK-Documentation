@@ -360,7 +360,7 @@ startActivity(intent);
 ```
 
 
-For easy insertion of Admin/Support Contact information, please changes following values in string.xml. You can take sample app method ( MainActivity.buildSupportContactData() ) as reference for contact information insertion.          
+For easy insertion of Admin/Support Contact information, please change following values in string.xml. You can take sample app method ( MainActivity.buildSupportContactData() ) as reference for contact information insertion.          
 
 
 
@@ -408,18 +408,23 @@ support_contact_image_url also supports url eg:
    
    
    
-Trying out the demo app:
+
+
+
+** Running demo app **:   
 
 Open project in Android Studio to run the sample app in your device. Send messages between multiple devices. 
 
 
-Display name for users:
+** Display name for users **:
+
 You can either choose to handle display name from your app or have Applozic handle it.
 From your app's first activity, set the following to disable display name feature:
 ApplozicClient.getInstance(this).setHandleDisplayName(false);
 By default, the display name feature is enabled.
 
-UI Customization:
+
+** UI Customization **:
 
 Clone the repository : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
 
