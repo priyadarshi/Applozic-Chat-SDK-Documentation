@@ -2064,7 +2064,7 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-**DISPATCH URL**: https://staging.applozic.com/rest/ws/message/dispatch
+**DISPATCH URL**: https://apps.applozic.com/rest/ws/message/dispatch
 
 **Method Type**: POST
 
