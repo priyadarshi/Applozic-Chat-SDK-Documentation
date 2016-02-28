@@ -19,8 +19,6 @@ Signup at [Applozic](https://www.applozic.com/) to get your application key.
 Integrate chat and messaging into your android app without developing or maintaining any infrastructure. 
 
 
-
-
 ### Getting Started       
 
 
