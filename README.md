@@ -1,3 +1,15 @@
+# QUICK START
+
+#### Overview 
+
+Applozic Chat & Messaging SDK for your mobile and web apps
+
+Applozic powers real time messaging across any device, any platform & anywhere in the world. Integrate our simple SDK to engage your users with image, file, location sharing and audio/video conversations.
+
+Signup at https://www.applozic.com to get your application key.        
+
+
+
 # APPLOZIC WEB PLUGIN     
 
 ### Overview      
