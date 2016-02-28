@@ -21,15 +21,6 @@ Integrate chat and messaging into your android app without developing or maintai
 
 
 
-
- 
-
-
-
-
-
-
-
 ### Getting Started       
 
 
