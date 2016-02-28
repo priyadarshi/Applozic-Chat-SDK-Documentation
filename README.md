@@ -1256,13 +1256,14 @@ Integrate messaging into your mobile apps and website without developing or main
 
 ****Applozic messaging jQuery plugin****
 
-A jQuery plugin to integrate messaging into your web page for real time communication between users via Applozic messaging platform and also to see your latest conversations and past chat history.
+Javascript chat and messaging plugin that lets you enable real time chat using websockets in your website without developing or maintaining any infrastructure.
+
 
 
 Add Applozic messaging plugin into your web application :-
 
 
-Step 1: Register at **https://www.applozic.com/** to get the application key.
+Step 1: Sign up at **https://www.applozic.com/** to get the application key.
 
 Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page :-               
 
@@ -1555,7 +1556,7 @@ A small jQuery plugin for integrating messaging into your web page to directly s
 Add Applozic messaging plugin into your web application :
 
 
-Step 1: Register at **https://www.applozic.com/** to get the application key.
+Step 1: Sign up at **https://www.applozic.com/** to get the application key.
 
 
 Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced**
@@ -1787,7 +1788,7 @@ Sample code to configure above options :-
 </script>
 ```
 
-If want to send message about topic details directly on chat button click , then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
+If you want to send message about topic details directly on chat button click, then use class attribute **applozic-tm-launcher** in chat button instead of **applozic-wt-launcher**
 
 Sample code :-
 
@@ -1836,7 +1837,7 @@ Integrate messaging plugin into your web application.
 Add Applozic messaging plugin into your web application for real time messaging communication 
 via  Applozic functions. 
 
-**Step 1**: Register at **https://www.applozic.com/** to get the application key.
+**Step 1**: Sign up at **https://www.applozic.com/** to get the application key.
 
 **Step 2**: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:                 
 
