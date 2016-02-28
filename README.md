@@ -498,13 +498,13 @@ ii) Get messages of logged in user with another user by passing userId, startTim
 
 
 
-***Building your own contacts***         
+***Creating Contact list***         
 
 
 
-You can build your own contact in two easy steps by using AppContactService.java api. Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
+You can create the contact list in two easy steps by using AppContactService.java api. Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
 
-**Step 1: Build your contact object:**         
+**Step 1: Creating contact object:**         
 
 
 
@@ -526,12 +526,12 @@ Example :
     contact.setUserId("adarshk");           
     contact.setFullName("Adarsh");               
     contact.setImageURL("R.drawable.applozic_ic_contact_picture_holo_light");           
-    contact.setEmailId("applozic.connect@gmail.com");                
+    contact.setEmailId("github@applozic.com");                
 ```
 
-**Step 2: add contacts :**
+**Step 2: Add contacts :**
 
-After creating contact object in step1, add your contact using AppContactService.java add() method.
+After creating contact object in Step 1, add the contact using AppContactService.java add() method.
  
 Example :        
 
@@ -584,7 +584,7 @@ new Thread(new Runnable() {
            public void run() {
                 String groupName = "Applozic Group"; // Name of group.
                 List<String> groupMemberList = new ArrayList<String>(); // List Of unique group member Names.
-                groupMemberList.add("member1");
+                groupMemberList.add("member1");   // Put userId of the user
                 groupMemberList.add("member2");
                 groupMemberList.add("member3");
                 groupMemberList.add("member4");
@@ -739,7 +739,7 @@ iOS chat and messaging library that lets you enable real time chat without devel
 
 **Create your Application**
 
-a )  [**Sign up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
+a )  [**Sign up**](https://www.applozic.com/signup.html) with Applozic to get your application key.
 
 b ) Once you signed up create your Application with required details on admin dashboard. Upload your push notification certificate to our portal to enable real time notification.         
 
@@ -750,7 +750,7 @@ b ) Once you signed up create your Application with required details on admin da
 
 
 
-c) Once you create your application you can see your application key listed on admin dashboard. Please use same application key explained in further steps.          
+c) After creating application, you will see your application key listed on admin dashboard. Please use same application key explained in further steps.          
 
 
 
@@ -1023,21 +1023,21 @@ Applozic framework provides convenient APIs for building your own contact. Devel
 ```
 ALContact *contact1 = [[ALContact alloc] init];              
 contact1.userId = @"adarshk"; // unique Id for user               
-contact1.fullName = @"Rathan"; // Fullname of the contact.               
+contact1.fullName = @"Adarsh Kumar"; // Fullname of the contact.               
 
 //Display name for contact. This name would be displayed to the user in chat and contact list.                  
-contact1.displayName = @"Rathan";               
-contact1.email = @"123@abc.com"; //Email Id for the contact.              
+contact1.displayName = @"Adarsh";               
+contact1.email = @"github@applozic.com"; //Email Id for the contact.              
 //Contact image url. Contact image would be downloaded automatically from URL.                  
-ontact1.contactImageUrl =@" https://www.applozic.com/resources/images/applozic_logo.gif";        
-contact1.localImageResourceName = @"4.jpg"; // If this field is mentioned,
+ontact1.contactImageUrl =@"https://www.applozic.com/resources/images/applozic_logo.gif";        
+contact1.localImageResourceName = @"adarsh.jpg"; // If this field is mentioned,
 Contact image will be taken from local storges.   
 ```
 
 
-**b) Building contact from dictionary:
+**b) Creating contact from dictionary:
 **
-you can directly build contact from dictionary,all you have to do is just pass a dictionary while initialising obJect.          
+You can directly create contact from dictionary, all you have to do is just pass a dictionary while initialising object.          
 
 
 
@@ -1046,13 +1046,11 @@ you can directly build contact from dictionary,all you have to do is just pass a
 ```
   //Contact ------- Example with dictonary 
   NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init]; 
-  [demodictionary setValue:@"aman999" forKey:@"userId"]; 
-  [demodictionary setValue:@"aman sharma" forKey:@"fullName"]; 
-  [demodictionary setValue:@"aman" forKey:@"displayName"];  
-  [demodictionary setValue:@"aman@applozic.com" forKey:@"email"]; 
-  [demodictionary setValue:@"http://images.landofnod.com/is/image/LandOfNod/ 
-  Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=
-  550&hei=550&/1308310656/not-giant-enough-letter-a.jpg" forKey:@"contactImageUrl"]; 
+  [demodictionary setValue:@"adarshk" forKey:@"userId"]; 
+  [demodictionary setValue:@"Adarsh Kumar" forKey:@"fullName"]; 
+  [demodictionary setValue:@"Adarsh" forKey:@"displayName"];  
+  [demodictionary setValue:@"github@applozic.com" forKey:@"email"]; 
+  [demodictionary setValue:@"https://www.applozic.com/resources/images/applozic_logo.gif" forKey:@"contactImageUrl"]; 
   [demodictionary setValue:nil forKey:@"localImageResourceName"];              
   ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                   
 ```
@@ -1070,7 +1068,7 @@ you can directly build contact from dictionary,all you have to do is just pass a
 //Contact -------- Example with json                   
 NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
 \"contactNumber\": \"9535008745\",\"displayName\":  \"Applozic Support\",
-\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",\"email\":       
+\"contactImageUrl\": \"https://www.applozic.com/resources/images/applozic_logo.gif\",\"email\":       
 \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
 ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                        
  ```
@@ -1079,9 +1077,9 @@ ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];
  
  **Save Your Contact:** 
 
-Once contacts has been created, you need to save it.  APIs are provided by Applozic to save contacts. 
+Below are the list of functions for saving and updating contacts.
 
-**saving single contact:
+**Saving single contact:
 **              
 
 
@@ -1092,7 +1090,7 @@ Once contacts has been created, you need to save it.  APIs are provided by Applo
 ```
 
 
-You can build your contact service using applozic contact apis. Below is the sample ContactService given:               
+You can build your contact service using applozic contact APIs. Below is the sample ContactService given:               
 
 
 
@@ -1191,36 +1189,28 @@ You can build your contact service using applozic contact apis. Below is the sam
     //contact 1              
     ALContact *contact1 = [[ALContact alloc] init];                       
     contact1.userId = @"adarshk";            
-    contact1.fullName = @"Rathan";               
-    contact1.displayName = @"Rathan";                
-    contact1.email = @"123@abc.com";                
+    contact1.fullName = @"Adarsh Kumar";               
+    contact1.displayName = @"Adarsh";                
+    contact1.email = @"github@applozic.com";                
     contact1.contactImageUrl = nil;               
-    contact1.localImageResourceName = @"4.jpg";               
+    contact1.localImageResourceName = @"adarsh.jpg";               
     
     // contact 2                 
     ALContact *contact2 = [[ALContact alloc] init];               
     contact2.userId = @"marvel";                  
     contact2.fullName = @"abhishek thapliyal";                
     contact2.displayName = @"abhishek";               
-    contact2.email = @"456@abc.com";           
+    contact2.email = @"abhishek@applozic.com";           
     contact2.contactImageUrl = nil;                  
-    contact2.localImageResourceName = @"4.jpg";                      
+    contact2.localImageResourceName = @"abhishek.jpg";                      
     
     
-    ALContact *contact3 = [[ALContact alloc] init];                   
-    contact3.userId = @"don";                 
-    contact3.fullName = @"DON";
-    contact3.displayName = @"DON";               
-    contact3.email = @"don@baba.com";                 
-    contact3.contactImageUrl = @"http://tinyhousetalk.com/wp-content/uploads/
-    320-Sq-Ft-Orange-Container-Guest-House-00.jpg";    
-    contact3.localImageResourceName = nil;                   
     
     //Contact -------- Example with json                             
     
     NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
     \"contactNumber\": \"9535008745\",\"displayName\":
-    \"Applozic Support\",\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",
+    \"Applozic Support\",\"contactImageUrl\": \"https://www.applozic.com/resources/images/applozic_logo.gif\",
     \"email\":
     \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
     
@@ -1229,13 +1219,11 @@ You can build your contact service using applozic contact apis. Below is the sam
    //Contact ------- Example with dictonary                  
     
    NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init];                     
-   [demodictionary setValue:@"aman999" forKey:@"userId"];               
-   [demodictionary setValue:@"aman sharma" forKey:@"fullName"];                 
-   [demodictionary setValue:@"aman" forKey:@"displayName"];                  
-   [demodictionary setValue:@"aman@applozic.com" forKey:@"email"];                   
-   [demodictionary setValue:@"http://images.landofnod.com/is/image
-   /LandOfNod/Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=550&hei=
-   550&/1308310656/not-giant-enough-letter-a.jpg"             
+   [demodictionary setValue:@"adarshk" forKey:@"userId"];               
+   [demodictionary setValue:@"Adarsh Kumar" forKey:@"fullName"];                 
+   [demodictionary setValue:@"Adarsh" forKey:@"displayName"];                  
+   [demodictionary setValue:@"github@applozic.com" forKey:@"email"];                   
+   [demodictionary setValue:@"https://www.applozic.com/resources/images/applozic_logo.gif"             
    forKey:@"contactImageUrl"];               
    [demodictionary setValue:nil forKey:@"localImageResourceName"];                   
     
