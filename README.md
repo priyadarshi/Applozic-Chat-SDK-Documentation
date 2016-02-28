@@ -741,7 +741,543 @@ ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
 </activity>
 ```
 
+ # IOS SDK           
 
+
+### Overview        
+
+
+
+
+Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.
+
+
+  
+
+
+
+
+
+
+
+
+### Getting Started                 
+
+
+
+
+**Create your Application**
+
+a )  [**Sign-up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
+
+b ) Once you signed up create your Application with required details on admin dashboard. Upload your push-notification certificate to our portal to enable real time notification.         
+
+
+
+
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-blank-page.png)         
+
+
+
+c) Once you create your application you can see your application key listed on admin dashboard. Please use same application key explained in further steps.          
+
+
+
+
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-content-page.png)         
+
+
+
+
+
+**Installing the iOS SDK** 
+
+**ADD APPLOZIC FRAMEWORK **
+Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK)
+Get the latest framework "Applozic.framework" from Applozic github repo [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/sampleapp)
+
+**Add framework to your project:**
+
+i ) Paste Applozic framework to root folder of your project. 
+ii ) Go to Build Phase. Expand  Embedded frameworks and add applozic framework.         
+
+
+
+
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-adding-applozic-framework.png)        
+
+
+**Quickly Launch your chat**
+
+
+You can test your chat quickly by adding below .h and .m file to your project.
+
+[**DemoChatManager.h**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.h)        
+
+[**DemoChatManager.m**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.m)  
+
+Change applicationID in DemoChatManager and you are ready to launch your chat from your controller :)
+
+Launch your chat
+
+```
+//Replace with your applicationId in DemoChatManager.h
+
+#define APPLICATION_ID @"applozic-sample-app" 
+
+
+//Launch your Chat from your controller.
+ DemoChatManager * demoChatManager = [[DemoChatManager alloc]init];
+    [demoChatManager launchChat:<yourcontrollerReference> ];
+
+```
+
+Detail about user creation and registraion:
+
+
+**USER REGISTRATION :**
+
+**Create a user : ** 
+After your app login validation, copy the following code to create applozic user and register your user with applozic server.           
+
+
+** Objective-C **   
+```
+ ALUser *user = [[ALUser alloc] init];           
+ [user setApplicationId:@"applozic-sample-app"]; // REPLACE SAMPLE ID with your application key                
+ [user setUserId:[self.userIdField text]]; //replace [self.userIdField text] with user's unique id here                    
+ [user setEmailId:[self.emailField text]]; //optional                       
+```
+   
+   
+   **Register user with Applozic server :**       
+   
+   
+** Objective-C **
+```
+  ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];           
+  [registerUserClientService initWithCompletion:user withCompletion:^(ALRegistrationResponse *rResponse, 
+  NSError *error)       
+  {             
+  if (error)        
+  {             
+     NSLog(@"%@",error);            
+     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Response"                
+     message:rResponse.message delegate: nil cancelButtonTitle:@"Ok"          
+     otherButtonTitles: nil, nil];            
+     [alertView show];             
+      return ;                  
+  }                      
+  
+   if (rResponse && [rResponse.message containsString: @"REGISTERED"])               
+   {                 
+     ALMessageClientService *messageClientService = [[ALMessageClientService alloc] init];             
+     [messageClientService addWelcomeMessage];             
+     }        
+     NSLog(@"Registration response from server:%@", rResponse);               
+   }];                                       
+```
+
+
+
+**PUSH NOTIFICATION REGISTRATION AND HANDLING **
+
+**a ) Send device token to applozic server:**
+
+In your AppDelegate’s **didRegisterForRemoteNotificationsWithDeviceToken **method  send device registration to applozic server after you get deviceToken from APNS. Sample code is as below:             
+
+
+
+
+** Objective-C **      
+```
+ - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)
+   deviceToken       
+   {                
+  
+    const unsigned *tokenBytes = [deviceToken bytes];            
+    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",                 
+    ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),             
+    ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),             
+    ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];              
+    
+    NSString *apnDeviceToken = hexToken;            
+    NSLog(@"apnDeviceToken: %@", hexToken);                  
+ 
+   //TO AVOID Multiple call to server check if previous apns token is same as recent one, 
+   if different call app lozic server.           
+
+    if (![[ALUserDefaultsHandler getApnDeviceToken] isEqualToString:apnDeviceToken])              
+    {                         
+       ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];          
+       [registerUserClientService updateApnDeviceTokenWithCompletion
+       :apnDeviceToken withCompletion:^(ALRegistrationResponse
+       *rResponse, NSError *error)       
+     {              
+       if (error)         
+          {          
+             NSLog(@"%@",error);             
+            return ;           
+          }              
+    NSLog(@"Registration response from server:%@", rResponse);                         
+    }]; } }                                 
+
+```
+
+
+**b) Receiving push notification:**
+
+Once your app receive notification, pass it to applozic handler for applozic notification processing.             
+
+
+** Objective-C **      
+  ```
+  - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)dictionary         
+  {            
+   NSLog(@"Received notification: %@", dictionary);           
+   
+   ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];        
+   BOOL applozicProcessed = [pushNotificationService processPushNotification:dictionary updateUI:
+   [[UIApplication sharedApplication]     applicationState] == UIApplicationStateActive];             
+  
+    //IF not a appplozic notification, process it            
+  
+    if (!applozicProcessed)            
+      {                
+         //Note: notification for app          
+    } }                                                           
+```
+
+
+**c) Handling app launch on notification click :**          
+
+
+** Objective-C **    
+```
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions    
+  {                     
+  // Override point for customization after application launch.                              
+  NSLog(@"launchOptions: %@", launchOptions);                  
+  if (launchOptions != nil)               
+  {             
+  NSDictionary *dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];         
+  if (dictionary != nil)             
+    {          
+      NSLog(@"Launched from push notification: %@", dictionary);        
+      ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];            
+      BOOL applozicProcessed = [pushNotificationService processPushNotification:dictionary updateUI:NO];               
+  if (!applozicProcessed)                 
+     {            
+       //Note: notification for app              
+     } } }                                   
+      return YES;                 
+  }                             
+
+```
+
+
+**Launching applozic message screen** 
+
+Below code will explain how to launch applozic message view. you can put this according to your need (like on click of any button, add any button at the navigation bar or tab ).            
+
+
+** Objective - C **     
+```
+   UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"              
+   bundle:[NSBundle bundleForClass:ALMessagesViewController.class]];              
+   UIViewController *theTabBar = [storyboard instantiateViewControllerWithIdentifier:@"messageTabBar"];          
+   [self presentViewController:theTabBar animated:YES completion:nil];                     
+```
+
+
+
+
+**Launching specific user's conversation:
+**
+To launch conversation for a particular user (most common use case is to launch customer support conversation directly), use below code:         
+
+
+
+
+** Objective - C **        
+```
+UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"                 
+bundle:[NSBundle bundleForClass:ALChatViewController.class]];             
+ALChatViewController *chatView =(ALChatViewController*) [storyboard 
+instantiateViewControllerWithIdentifier:@"ALChatViewController"];                
+chatView.contactIds =@"<USER_ID>";//SET specific USER'S ID                  
+UINavigationController *conversationViewNavController = 
+[[UINavigationController alloc] initWithRootViewController:chatView]; 
+[self presentViewController:conversationViewNavController animated:YES completion:nil];                               
+    
+```    
+    
+    
+ **Note : make sure you have already registered your login user(User Registration) and completed  push notification registration before launching Applozic message screen.**          
+    
+    
+    
+****Logout****           
+    
+    
+    
+    
+Paste the following code on logout.             
+    
+    
+** Objective - C **           
+  ```
+  ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];              
+  [registerUserClientService logout];                       
+  ```
+  
+  
+  
+### Building Contacts             
+
+
+
+
+Applozic framework provides convenient APIs for building your own contact. Developers can build and store contacts in three different ways. 
+
+ **Build your contact:** 
+
+** a ) Simple method to create your contact is to create contact object.
+**                 
+
+
+
+
+** Objective - C **        
+```
+ALContact *contact1 = [[ALContact alloc] init];              
+contact1.userId = @"adarshk"; // unique Id for user               
+contact1.fullName = @"Rathan"; // Fullname of the contact.               
+
+//Display name for contact. This name would be displayed to the user in chat and contact list.                  
+contact1.displayName = @"Rathan";               
+contact1.email = @"123@abc.com"; //Email Id for the contact.              
+//Contact image url. Contact image would be downloaded automatically from URL.                  
+ontact1.contactImageUrl =@" https://www.applozic.com/resources/images/applozic_logo.gif";        
+contact1.localImageResourceName = @"4.jpg"; // If this field is mentioned,
+Contact image will be taken from local storges.   
+```
+
+
+**b) Building contact from dictionary:
+**
+you can directly build contact from dictionary,all you have to do is just pass a dictionary while initialising obJect.          
+
+
+
+
+** Objective -C **  
+```
+  //Contact ------- Example with dictonary 
+  NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init]; 
+  [demodictionary setValue:@"aman999" forKey:@"userId"]; 
+  [demodictionary setValue:@"aman sharma" forKey:@"fullName"]; 
+  [demodictionary setValue:@"aman" forKey:@"displayName"];  
+  [demodictionary setValue:@"aman@applozic.com" forKey:@"email"]; 
+  [demodictionary setValue:@"http://images.landofnod.com/is/image/LandOfNod/ 
+  Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=
+  550&hei=550&/1308310656/not-giant-enough-letter-a.jpg" forKey:@"contactImageUrl"]; 
+  [demodictionary setValue:nil forKey:@"localImageResourceName"];              
+  ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                   
+```
+
+
+
+
+**b) Building contact from JSON:
+**           
+
+
+
+** Objective -C **       
+```
+//Contact -------- Example with json                   
+NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
+\"contactNumber\": \"9535008745\",\"displayName\":  \"Applozic Support\",
+\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",\"email\":       
+\"devashish@applozic.com\",\"localImageResourceName\":null}";                    
+ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                        
+ ```
+ 
+ 
+ 
+ **Save Your Contact:** 
+
+Once contacts has been created, you need to save it.  APIs are provided by Applozic to save contacts. 
+
+**saving single contact:
+**              
+
+
+** Objective - C **    
+ ```
+  ALContactDBService * alContactDBService = [[ALContactDBService alloc]init];                  
+  [ alContactDBService addContact:contact];                                 
+```
+
+
+You can build your contact service using applozic contact apis. Below is the sample ContactService given:               
+
+
+
+
+
+
+** Objective - C **            
+```
+ //                    
+ //  ALContactService.m                
+ //  ChatApp              
+ //                
+ //  Created by Adarsh on 23/10/15.                   
+ //  Copyright © 2015 AppLogic. All rights reserved.                  
+ //
+
+  #import "ALContactService.h"                 
+  #import "ALContactDBService.h"              
+  #import "ALDBHandler.h"                  
+
+  @implementation ALContactService                 
+
+  ALContactDBService * alContactDBService;                      
+
+  -(instancetype)  init{              
+     self= [super init];              
+     alContactDBService = [[ALContactDBService alloc]init];              
+     return self;                   
+   }                            
+
+  #pragma mark Deleting APIS               
+
+
+  //For purgeing single contacts              
+
+  -(BOOL)purgeContact:(ALContact *)contact{               
+   return [ alContactDBService purgeContact:contact];             
+   }                
+
+
+  //For purgeing multiple contacts                
+  -(BOOL)purgeListOfContacts:(NSArray *)contacts{                
+    
+  return [ alContactDBService purgeListOfContacts:contacts];               
+   }               
+
+
+  //For delting all contacts at once              
+
+  -(BOOL)purgeAllContact{                         
+  return  [alContactDBService purgeAllContact];              
+  }                     
+
+  #pragma mark Update APIS                 
+
+
+  -(BOOL)updateConatct:(ALContact *)contact{               
+   return [alContactDBService updateConatct:contact];                
+    
+   }                    
+
+
+   -(BOOL)updateListOfContacts:(NSArray *)contacts{                    
+   return [alContactDBService updateListOfContacts:contacts];               
+   } 
+
+
+    #pragma mark addition APIS               
+
+
+   -(BOOL)addListOfContacts:(NSArray *)contacts{              
+   return [alContactDBService updateListOfContacts:contacts];                           
+   }           
+
+   -(BOOL)addContact:(ALContact *)userContact{                 
+    return [alContactDBService addContact:userContact];             
+    }         
+
+    #pragma mark fetching APIS                 
+
+
+    - (ALContact *)loadContactByKey:(NSString *) key value:(NSString*) value{           
+    return [alContactDBService loadContactByKey:key value:value];           
+    }              
+
+
+   //-------------------------------------------------------------------------------------------------------         
+   // Helper method for demo purpose. This method shows possible ways to insert contact and save it in 
+      local database.       
+   //-------------------------------------------------------------------------------------------------------     
+
+    - (void) insertInitialContacts{                  
+
+    ALDBHandler * theDBHandler = [ALDBHandler sharedInstance];                       
+    
+    //contact 1              
+    ALContact *contact1 = [[ALContact alloc] init];                       
+    contact1.userId = @"adarshk";            
+    contact1.fullName = @"Rathan";               
+    contact1.displayName = @"Rathan";                
+    contact1.email = @"123@abc.com";                
+    contact1.contactImageUrl = nil;               
+    contact1.localImageResourceName = @"4.jpg";               
+    
+    // contact 2                 
+    ALContact *contact2 = [[ALContact alloc] init];               
+    contact2.userId = @"marvel";                  
+    contact2.fullName = @"abhishek thapliyal";                
+    contact2.displayName = @"abhishek";               
+    contact2.email = @"456@abc.com";           
+    contact2.contactImageUrl = nil;                  
+    contact2.localImageResourceName = @"4.jpg";                      
+    
+    
+    ALContact *contact3 = [[ALContact alloc] init];                   
+    contact3.userId = @"don";                 
+    contact3.fullName = @"DON";
+    contact3.displayName = @"DON";               
+    contact3.email = @"don@baba.com";                 
+    contact3.contactImageUrl = @"http://tinyhousetalk.com/wp-content/uploads/
+    320-Sq-Ft-Orange-Container-Guest-House-00.jpg";    
+    contact3.localImageResourceName = nil;                   
+    
+    //Contact -------- Example with json                             
+    
+    NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
+    \"contactNumber\": \"9535008745\",\"displayName\":
+    \"Applozic Support\",\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",
+    \"email\":
+    \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
+    
+    ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                              
+
+   //Contact ------- Example with dictonary                  
+    
+   NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init];                     
+   [demodictionary setValue:@"aman999" forKey:@"userId"];               
+   [demodictionary setValue:@"aman sharma" forKey:@"fullName"];                 
+   [demodictionary setValue:@"aman" forKey:@"displayName"];                  
+   [demodictionary setValue:@"aman@applozic.com" forKey:@"email"];                   
+   [demodictionary setValue:@"http://images.landofnod.com/is/image
+   /LandOfNod/Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=550&hei=
+   550&/1308310656/not-giant-enough-letter-a.jpg"             
+   forKey:@"contactImageUrl"];               
+   [demodictionary setValue:nil forKey:@"localImageResourceName"];                   
+    
+   ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                
+   [theDBHandler addListOfContacts:@[contact1, contact2, contact3, contact4, contact5]];                                
+   }                                                    
+  @end                     
+ ```          
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -2243,544 +2779,10 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
  
  
  
- # IOS SDK           
-
-
-### Overview        
-
-
-
-
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.
-
-
-  
-
-
-
-
-
-
-
-
-### Getting Started                 
-
-
-
-
-**Create your Application**
-
-a )  [**Sign-up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
-
-b ) Once you signed up create your Application with required details on admin dashboard. Upload your push-notification certificate to our portal to enable real time notification.         
-
-
-
-
-![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-blank-page.png)         
-
-
-
-c) Once you create your application you can see your application key listed on admin dashboard. Please use same application key explained in further steps.          
-
-
-
-
-![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-content-page.png)         
-
-
-
-
-
-**Installing the iOS SDK** 
-
-**ADD APPLOZIC FRAMEWORK **
-Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK)
-Get the latest framework "Applozic.framework" from Applozic github repo [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/sampleapp)
-
-**Add framework to your project:**
-
-i ) Paste Applozic framework to root folder of your project. 
-ii ) Go to Build Phase. Expand  Embedded frameworks and add applozic framework.         
-
-
-
-
-![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-adding-applozic-framework.png)        
-
-
-**Quickly Launch your chat**
-
-
-You can test your chat quickly by adding below .h and .m file to your project.
-
-[**DemoChatManager.h**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.h)        
-
-[**DemoChatManager.m**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.m)  
-
-Change applicationID in DemoChatManager and you are ready to launch your chat from your controller :)
-
-Launch your chat
-
-```
-//Replace with your applicationId in DemoChatManager.h
-
-#define APPLICATION_ID @"applozic-sample-app" 
-
-
-//Launch your Chat from your controller.
- DemoChatManager * demoChatManager = [[DemoChatManager alloc]init];
-    [demoChatManager launchChat:<yourcontrollerReference> ];
-
-```
-
-Detail about user creation and registraion:
-
-
-**USER REGISTRATION :**
-
-**Create a user : ** 
-After your app login validation, copy the following code to create applozic user and register your user with applozic server.           
-
-
-** Objective-C **   
-```
- ALUser *user = [[ALUser alloc] init];           
- [user setApplicationId:@"applozic-sample-app"]; // REPLACE SAMPLE ID with your application key                
- [user setUserId:[self.userIdField text]]; //replace [self.userIdField text] with user's unique id here                    
- [user setEmailId:[self.emailField text]]; //optional                       
-```
-   
-   
-   **Register user with Applozic server :**       
-   
-   
-** Objective-C **
-```
-  ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];           
-  [registerUserClientService initWithCompletion:user withCompletion:^(ALRegistrationResponse *rResponse, 
-  NSError *error)       
-  {             
-  if (error)        
-  {             
-     NSLog(@"%@",error);            
-     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Response"                
-     message:rResponse.message delegate: nil cancelButtonTitle:@"Ok"          
-     otherButtonTitles: nil, nil];            
-     [alertView show];             
-      return ;                  
-  }                      
-  
-   if (rResponse && [rResponse.message containsString: @"REGISTERED"])               
-   {                 
-     ALMessageClientService *messageClientService = [[ALMessageClientService alloc] init];             
-     [messageClientService addWelcomeMessage];             
-     }        
-     NSLog(@"Registration response from server:%@", rResponse);               
-   }];                                       
-```
-
-
-
-**PUSH NOTIFICATION REGISTRATION AND HANDLING **
-
-**a ) Send device token to applozic server:**
-
-In your AppDelegate’s **didRegisterForRemoteNotificationsWithDeviceToken **method  send device registration to applozic server after you get deviceToken from APNS. Sample code is as below:             
-
-
-
-
-** Objective-C **      
-```
- - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)
-   deviceToken       
-   {                
-  
-    const unsigned *tokenBytes = [deviceToken bytes];            
-    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",                 
-    ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),             
-    ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),             
-    ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];              
-    
-    NSString *apnDeviceToken = hexToken;            
-    NSLog(@"apnDeviceToken: %@", hexToken);                  
- 
-   //TO AVOID Multiple call to server check if previous apns token is same as recent one, 
-   if different call app lozic server.           
-
-    if (![[ALUserDefaultsHandler getApnDeviceToken] isEqualToString:apnDeviceToken])              
-    {                         
-       ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];          
-       [registerUserClientService updateApnDeviceTokenWithCompletion
-       :apnDeviceToken withCompletion:^(ALRegistrationResponse
-       *rResponse, NSError *error)       
-     {              
-       if (error)         
-          {          
-             NSLog(@"%@",error);             
-            return ;           
-          }              
-    NSLog(@"Registration response from server:%@", rResponse);                         
-    }]; } }                                 
-
-```
-
-
-**b) Receiving push notification:**
-
-Once your app receive notification, pass it to applozic handler for applozic notification processing.             
-
-
-** Objective-C **      
-  ```
-  - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)dictionary         
-  {            
-   NSLog(@"Received notification: %@", dictionary);           
-   
-   ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];        
-   BOOL applozicProcessed = [pushNotificationService processPushNotification:dictionary updateUI:
-   [[UIApplication sharedApplication]     applicationState] == UIApplicationStateActive];             
-  
-    //IF not a appplozic notification, process it            
-  
-    if (!applozicProcessed)            
-      {                
-         //Note: notification for app          
-    } }                                                           
-```
-
-
-**c) Handling app launch on notification click :**          
-
-
-** Objective-C **    
-```
- - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions    
-  {                     
-  // Override point for customization after application launch.                              
-  NSLog(@"launchOptions: %@", launchOptions);                  
-  if (launchOptions != nil)               
-  {             
-  NSDictionary *dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];         
-  if (dictionary != nil)             
-    {          
-      NSLog(@"Launched from push notification: %@", dictionary);        
-      ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];            
-      BOOL applozicProcessed = [pushNotificationService processPushNotification:dictionary updateUI:NO];               
-  if (!applozicProcessed)                 
-     {            
-       //Note: notification for app              
-     } } }                                   
-      return YES;                 
-  }                             
-
-```
-
-
-**Launching applozic message screen** 
-
-Below code will explain how to launch applozic message view. you can put this according to your need (like on click of any button, add any button at the navigation bar or tab ).            
-
-
-** Objective - C **     
-```
-   UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"              
-   bundle:[NSBundle bundleForClass:ALMessagesViewController.class]];              
-   UIViewController *theTabBar = [storyboard instantiateViewControllerWithIdentifier:@"messageTabBar"];          
-   [self presentViewController:theTabBar animated:YES completion:nil];                     
-```
-
-
-
-
-**Launching specific user's conversation:
-**
-To launch conversation for a particular user (most common use case is to launch customer support conversation directly), use below code:         
-
-
-
-
-** Objective - C **        
-```
-UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"                 
-bundle:[NSBundle bundleForClass:ALChatViewController.class]];             
-ALChatViewController *chatView =(ALChatViewController*) [storyboard 
-instantiateViewControllerWithIdentifier:@"ALChatViewController"];                
-chatView.contactIds =@"<USER_ID>";//SET specific USER'S ID                  
-UINavigationController *conversationViewNavController = 
-[[UINavigationController alloc] initWithRootViewController:chatView]; 
-[self presentViewController:conversationViewNavController animated:YES completion:nil];                               
-    
-```    
-    
-    
- **Note : make sure you have already registered your login user(User Registration) and completed  push notification registration before launching Applozic message screen.**          
-    
-    
-    
-****Logout****           
-    
-    
-    
-    
-Paste the following code on logout.             
-    
-    
-** Objective - C **           
-  ```
-  ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];              
-  [registerUserClientService logout];                       
-  ```
-  
-  
-  
-### Building Contacts             
-
-
-
-
-Applozic framework provides convenient APIs for building your own contact. Developers can build and store contacts in three different ways. 
-
- **Build your contact:** 
-
-** a ) Simple method to create your contact is to create contact object.
-**                 
-
-
-
-
-** Objective - C **        
-```
-ALContact *contact1 = [[ALContact alloc] init];              
-contact1.userId = @"adarshk"; // unique Id for user               
-contact1.fullName = @"Rathan"; // Fullname of the contact.               
-
-//Display name for contact. This name would be displayed to the user in chat and contact list.                  
-contact1.displayName = @"Rathan";               
-contact1.email = @"123@abc.com"; //Email Id for the contact.              
-//Contact image url. Contact image would be downloaded automatically from URL.                  
-ontact1.contactImageUrl =@" https://www.applozic.com/resources/images/applozic_logo.gif";        
-contact1.localImageResourceName = @"4.jpg"; // If this field is mentioned,
-Contact image will be taken from local storges.   
-```
-
-
-**b) Building contact from dictionary:
-**
-you can directly build contact from dictionary,all you have to do is just pass a dictionary while initialising obJect.          
-
-
-
-
-** Objective -C **  
-```
-  //Contact ------- Example with dictonary 
-  NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init]; 
-  [demodictionary setValue:@"aman999" forKey:@"userId"]; 
-  [demodictionary setValue:@"aman sharma" forKey:@"fullName"]; 
-  [demodictionary setValue:@"aman" forKey:@"displayName"];  
-  [demodictionary setValue:@"aman@applozic.com" forKey:@"email"]; 
-  [demodictionary setValue:@"http://images.landofnod.com/is/image/LandOfNod/ 
-  Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=
-  550&hei=550&/1308310656/not-giant-enough-letter-a.jpg" forKey:@"contactImageUrl"]; 
-  [demodictionary setValue:nil forKey:@"localImageResourceName"];              
-  ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                   
-```
-
-
-
-
-**b) Building contact from JSON:
-**           
-
-
-
-** Objective -C **       
-```
-//Contact -------- Example with json                   
-NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
-\"contactNumber\": \"9535008745\",\"displayName\":  \"Applozic Support\",
-\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",\"email\":       
-\"devashish@applozic.com\",\"localImageResourceName\":null}";                    
-ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                        
- ```
  
  
  
- **Save Your Contact:** 
-
-Once contacts has been created, you need to save it.  APIs are provided by Applozic to save contacts. 
-
-**saving single contact:
-**              
-
-
-** Objective - C **    
- ```
-  ALContactDBService * alContactDBService = [[ALContactDBService alloc]init];                  
-  [ alContactDBService addContact:contact];                                 
-```
-
-
-You can build your contact service using applozic contact apis. Below is the sample ContactService given:               
-
-
-
-
-
-
-** Objective - C **            
-```
- //                    
- //  ALContactService.m                
- //  ChatApp              
- //                
- //  Created by Adarsh on 23/10/15.                   
- //  Copyright © 2015 AppLogic. All rights reserved.                  
- //
-
-  #import "ALContactService.h"                 
-  #import "ALContactDBService.h"              
-  #import "ALDBHandler.h"                  
-
-  @implementation ALContactService                 
-
-  ALContactDBService * alContactDBService;                      
-
-  -(instancetype)  init{              
-     self= [super init];              
-     alContactDBService = [[ALContactDBService alloc]init];              
-     return self;                   
-   }                            
-
-  #pragma mark Deleting APIS               
-
-
-  //For purgeing single contacts              
-
-  -(BOOL)purgeContact:(ALContact *)contact{               
-   return [ alContactDBService purgeContact:contact];             
-   }                
-
-
-  //For purgeing multiple contacts                
-  -(BOOL)purgeListOfContacts:(NSArray *)contacts{                
-    
-  return [ alContactDBService purgeListOfContacts:contacts];               
-   }               
-
-
-  //For delting all contacts at once              
-
-  -(BOOL)purgeAllContact{                         
-  return  [alContactDBService purgeAllContact];              
-  }                     
-
-  #pragma mark Update APIS                 
-
-
-  -(BOOL)updateConatct:(ALContact *)contact{               
-   return [alContactDBService updateConatct:contact];                
-    
-   }                    
-
-
-   -(BOOL)updateListOfContacts:(NSArray *)contacts{                    
-   return [alContactDBService updateListOfContacts:contacts];               
-   } 
-
-
-    #pragma mark addition APIS               
-
-
-   -(BOOL)addListOfContacts:(NSArray *)contacts{              
-   return [alContactDBService updateListOfContacts:contacts];                           
-   }           
-
-   -(BOOL)addContact:(ALContact *)userContact{                 
-    return [alContactDBService addContact:userContact];             
-    }         
-
-    #pragma mark fetching APIS                 
-
-
-    - (ALContact *)loadContactByKey:(NSString *) key value:(NSString*) value{           
-    return [alContactDBService loadContactByKey:key value:value];           
-    }              
-
-
-   //-------------------------------------------------------------------------------------------------------         
-   // Helper method for demo purpose. This method shows possible ways to insert contact and save it in 
-      local database.       
-   //-------------------------------------------------------------------------------------------------------     
-
-    - (void) insertInitialContacts{                  
-
-    ALDBHandler * theDBHandler = [ALDBHandler sharedInstance];                       
-    
-    //contact 1              
-    ALContact *contact1 = [[ALContact alloc] init];                       
-    contact1.userId = @"adarshk";            
-    contact1.fullName = @"Rathan";               
-    contact1.displayName = @"Rathan";                
-    contact1.email = @"123@abc.com";                
-    contact1.contactImageUrl = nil;               
-    contact1.localImageResourceName = @"4.jpg";               
-    
-    // contact 2                 
-    ALContact *contact2 = [[ALContact alloc] init];               
-    contact2.userId = @"marvel";                  
-    contact2.fullName = @"abhishek thapliyal";                
-    contact2.displayName = @"abhishek";               
-    contact2.email = @"456@abc.com";           
-    contact2.contactImageUrl = nil;                  
-    contact2.localImageResourceName = @"4.jpg";                      
-    
-    
-    ALContact *contact3 = [[ALContact alloc] init];                   
-    contact3.userId = @"don";                 
-    contact3.fullName = @"DON";
-    contact3.displayName = @"DON";               
-    contact3.email = @"don@baba.com";                 
-    contact3.contactImageUrl = @"http://tinyhousetalk.com/wp-content/uploads/
-    320-Sq-Ft-Orange-Container-Guest-House-00.jpg";    
-    contact3.localImageResourceName = nil;                   
-    
-    //Contact -------- Example with json                             
-    
-    NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
-    \"contactNumber\": \"9535008745\",\"displayName\":
-    \"Applozic Support\",\"contactImageUrl\": \"https://applozic.com/resources/images/aboutus/rathan.jpg\",
-    \"email\":
-    \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
-    
-    ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                              
-
-   //Contact ------- Example with dictonary                  
-    
-   NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init];                     
-   [demodictionary setValue:@"aman999" forKey:@"userId"];               
-   [demodictionary setValue:@"aman sharma" forKey:@"fullName"];                 
-   [demodictionary setValue:@"aman" forKey:@"displayName"];                  
-   [demodictionary setValue:@"aman@applozic.com" forKey:@"email"];                   
-   [demodictionary setValue:@"http://images.landofnod.com/is/image
-   /LandOfNod/Letter_Giant_Enough_A_231533_LL/$web_zoom$&wid=550&hei=
-   550&/1308310656/not-giant-enough-letter-a.jpg"             
-   forKey:@"contactImageUrl"];               
-   [demodictionary setValue:nil forKey:@"localImageResourceName"];                   
-    
-   ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                
-   [theDBHandler addListOfContacts:@[contact1, contact2, contact3, contact4, contact5]];                                
-   }                                                    
-  @end                     
- ```          
- 
- 
- 
- 
- 
-  Contact us at ` growth@applozic.com `
+  Contact us at ` github@applozic.com `
  
  
  
