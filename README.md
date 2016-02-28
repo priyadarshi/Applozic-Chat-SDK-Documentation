@@ -424,26 +424,6 @@ ApplozicClient.getInstance(this).setHandleDisplayName(false);
 By default, the display name feature is enabled.
 
 
-** UI Customization **:
-
-Clone the repository : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
-
-Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui)  into your android project and add the following in the build.gradle file:
-
-compile project(':mobicomkitui')
-
-
-MobiComKitUI contains the ui related source code, icons, layouts and other resources which you can customize based on your design needs.
-
-For your custom contact list, replace MobiComKitPeopleActivity with your contact list activity.
-
-Sample app with integration is available under [app](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app)
-
-
-
-
-
-
 
 
 
@@ -679,7 +659,18 @@ ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
  ```
 
 
+For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
 
+Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui)  into your android project and add the following in the build.gradle file:
+
+compile project(':mobicomkitui')
+
+
+MobiComKitUI contains the ui related source code, icons, layouts and other resources which you can customize based on your design needs.
+
+For your custom contact list, replace MobiComKitPeopleActivity with your contact list activity.
+
+Sample app with integration is available under [app](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app)
 
 
 
