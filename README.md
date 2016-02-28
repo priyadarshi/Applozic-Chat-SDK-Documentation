@@ -16,8 +16,7 @@ Signup at [Applozic](https://www.applozic.com/) to get your application key.
 
 
 
-Integrate chat and messaging into your android app without developing or maintaining any infrastructure. 
-
+Android chat and messaging library that lets you enable real time chat without developing or maintaining any infrastructure. 
 
 ### Getting Started       
 
@@ -728,15 +727,7 @@ Sample app with integration is available under [app](https://github.com/AppLozic
 
 
 
-
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com to get the application key.
-
-
-  
-
-
-
-
+iOS chat and messaging library that lets you enable real time chat without developing or maintaining any infrastructure.
 
 
 
@@ -748,9 +739,9 @@ Integrate messaging into your mobile apps and website without developing or main
 
 **Create your Application**
 
-a )  [**Sign-up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
+a )  [**Sign up**](https://www.applozic.com/signup.html)  with applozic to get your application key.
 
-b ) Once you signed up create your Application with required details on admin dashboard. Upload your push-notification certificate to our portal to enable real time notification.         
+b ) Once you signed up create your Application with required details on admin dashboard. Upload your push notification certificate to our portal to enable real time notification.         
 
 
 
