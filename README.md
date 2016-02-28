@@ -1004,7 +1004,7 @@ Paste the following code on logout.
   
   
   
-### Building Contacts             
+### Contacts             
 
 
 
@@ -1106,7 +1106,7 @@ You can build your contact service using applozic contact apis. Below is the sam
  //  ChatApp              
  //                
  //  Created by Adarsh on 23/10/15.                   
- //  Copyright © 2015 AppLogic. All rights reserved.                  
+ //  Copyright © 2015 Applozic. All rights reserved.                  
  //
 
   #import "ALContactService.h"                 
