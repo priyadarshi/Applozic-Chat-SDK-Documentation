@@ -1378,7 +1378,7 @@ Json format of TOPIC_DETAIL :-
 Additional options to configure in plugin initialize code in step 3 :- 
 
 ```
-  getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
+  getTopicDetail : 'PUT_YOUR_FUNCTION_NAME_HERE'    // Type - FUNCTION
   topicBox :  true or false                                     //  Set true if want to display topic details in conversation box
   
  ```
@@ -1665,7 +1665,7 @@ JSON format of **TOPIC_DETAIL** :-
 Additional options to configure in plugin initialize code in step 3 :-
 
 ```
-  getTopicDetail : 'PUT_GET_TOPIC_DEATIL_FUNCTION_NAME_HERE'    // Type - FUNCTION
+  getTopicDetail : 'PUT_YOUR_FUNCTION_NAME_HERE'    // Type - FUNCTION
   topicBox :  true or false                                     // Set true if want to display topic details in conversation box
 
 ```
@@ -1755,9 +1755,9 @@ Create **APPLOZIC** instance by configuring your options
 **Note** :- Initialize plugin on page load probably inside  **$(document).ready()**. 
 function before **`</body>`** 
 
-**onInit**  callback function execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 4
+**onInit**  callback function execute after plugin initialized. You can write your own logic inside this function. Example given below
 
-Step 4: Sample code for **onInit()** function :-
+Sample code for **onInit()** function :-
 
 Sample code -
 
@@ -1778,29 +1778,29 @@ Following are the events with example:
 
 ```        
 applozic.events = {onConnect: function () {
-console.log('connected successfully');
-}, onConnectFailed: function () {
-console.log('connection failed');
-}, onMessageDelivered: function (obj) {
-console.log('onMessageDelivered: ' + obj);
-}, onMessageRead: function (obj) {
-console.log('onMessageRead: '  + obj);
-}, onMessageReceived: function (obj) {
-console.log('onMessageReceived: ' + obj);
-}, onMessageSentUpdate: function (obj) {
-console.log('onMessageSentUpdate: ' + obj);
-}, onUserConnect: function (obj) {
-console.log('onUserConnect: ' + obj);
-}, onUserDisconnect: function (obj) {
-console.log('onUserDisconnect: ' + obj);
-},
-};              
+                        console.log('connected successfully');
+                  }, onConnectFailed: function () {
+                       console.log('connection failed');
+                  }, onMessageDelivered: function (obj) {
+                       console.log('onMessageDelivered: ' + obj);
+                  }, onMessageRead: function (obj) {
+                       console.log('onMessageRead: '  + obj);
+                  }, onMessageReceived: function (obj) {
+                       console.log('onMessageReceived: ' + obj);
+                  }, onMessageSentUpdate: function (obj) {
+                       console.log('onMessageSentUpdate: ' + obj);
+                  }, onUserConnect: function (obj) {
+                       console.log('onUserConnect: ' + obj);
+                  }, onUserDisconnect: function (obj) {
+                       console.log('onUserDisconnect: ' + obj);
+                  },
+                };              
   ```               
   
   
 **Events description**:
 
-1) ** onConnect ** : triggered when user subscribed successfully. 
+1) ** onConnect** : triggered when user subscribed successfully. 
 2) **onConnectFailed** :  triggered when user failed to subscribe.
 3)  **onMessageDelivered** : triggered when message is delivered. Response contains message key.
  Response object- {'messageKey': 'delivered-message-key'}.
@@ -1815,15 +1815,12 @@ Response object -  {'message': message}  // Message json format given in Step 6.
 8) **onUserDisconnect** : triggered when some other user goes offline. Response contains user Id.
 Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in millsec'}
 
-
-
 Step 5 : Send Message function :-                  
 
 ```               
-applozic.sendMessage(message,
-                     {'callback': sendMessageCallbackFunction} 
-                     );
+applozic.sendMessage(message, {'callback': sendMessageCallbackFunction});
 ```        
+
 **message** json include :-         
 
 ```     
@@ -1837,7 +1834,7 @@ message = {'to': 'PUT_USERID_HERE',                          // receiver user id
 ```    
 response = {'status' : 'success',                                // or 'error'
             'data' : {'messageKey': 'MESSAGE_IDENTIFIER'
-                     'timeStamp': 'MESSAGE_CREATED_TIMESTAMP'    // in millisecond
+                      'timeStamp': 'MESSAGE_CREATED_TIMESTAMP'    // in millisecond
                      }                                 
            }        
 ```         
