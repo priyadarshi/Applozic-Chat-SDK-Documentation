@@ -1630,13 +1630,13 @@ These are attributes requires on chat button or anchor tag -
 
 Class Attribute - **applozic-wt-launcher**
 
-Data Attriutes - **mck-id, mck-name** and **mck-topicid*
+Data Attriutes - **mck-id, mck-name** and **mck-topicid**
 
 Example :-
 ```
-<a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
+<a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>       
 ```
-Define callback function in your code to return topic(product) details on basis of topicId ( detail should be in same JSON format as given below) :-
+Define callback function in your code to return topic(product) details on basis of topicId (detail should be in same JSON format as given below) :-
 
 ```
 function getTopicDetail(topicId) 
@@ -1645,8 +1645,7 @@ function getTopicDetail(topicId)
   }
 ```
 
-JSON format of TOPIC_DETAIL :-
-
+JSON format of **TOPIC_DETAIL** :-
 
 ```
  var TOPIC_DETAIL={'title': 'topic-title',      // Product title
@@ -1660,7 +1659,7 @@ JSON format of TOPIC_DETAIL :-
 
 ```
 
-**NOTE** - These detail will be displayed on conversation tab.
+**NOTE** :- These detail will be displayed on conversation tab.
 
 
 Additional options to configure in plugin initialize code in step 3 :-
@@ -1704,7 +1703,7 @@ function getUserDetail(response) {
  }
 ```
 
-Response Sample :-
+Response sample :-
 
 ```
 response = {'status' : 'success' ,                    // or error
