@@ -1510,7 +1510,7 @@ Sample  code :-
 ```
 
 
-Step 14: Function to get **USER DETAIL** :-
+Step 14: Function to get **USER DETAIL** (optional) :-
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -1633,10 +1633,10 @@ Sample :-
 ```   
  function contactDisplayName(USERID)  {                      
    var contact = CONTACT_JSON[USERID];               
-        if (typeof contact !== 'undefined')             
-          {                                      
-           return contact.displayName;                  
-         } 
+   if (typeof contact !== 'undefined')            
+      {                                      
+         return contact.displayName;                  
+      } 
  }                     
 ```
 
@@ -1717,7 +1717,7 @@ You can add the following html into your code to directly open a conversation wi
 <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
  ```        
  
- **Note** - Data attribute **mck-name** is optional in above tag          
+ **Note** - Data attribute **mck-name** is optional in above tag.          
  
 
 Step 14: To show **online/offline** status (optional) :-
@@ -1796,7 +1796,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-Step 16: Function to get **USER DETAIL** :-
+Step 16: Function to get **USER DETAIL** (optional) :-
 
 Call below given function to get user details like Total unread count, last seen at etc
 
@@ -1852,22 +1852,37 @@ via  Applozic functions.
 
 
 **Step 3**: Initialize Plugin - 
-Create **APPLOZIC** instance by passing options            
+Create **APPLOZIC** instance by configuring your options            
 
 
 
 ```      
  var applozic = new APPLOZIC({'baseUrl': "https://apps.applozic.com",
- 'userId': 'put-userId-here',
- 'appId': 'put-applicationKey-here',
-'onInit': initResponse // callback function called on initialization
+                              'userId': 'PUT_USERID_HERE',                   // LoggedIn userId
+                              'appId': 'PUT_APPLICATION_KEY_HERE',           // obtained from Step 1 (required)
+                              'onInit': 'PASS_YOUR_FUNCTION_NAME_HERE'       // Type - FUNCTION (optional)
 });        
 ```              
-
-
-
-*Note- Create **APPLOZIC** instance only after page load probably inside  **$(document).ready()**. 
+**Note** - Create **APPLOZIC** instance only after page load probably inside  **$(document).ready()**. 
 function before **`</body>`** 
+
+**onInit** callback function execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 4
+
+Step 4: Sample code for **onInit()** function :-
+
+You can write javascript function to execute your logic after plugin initialization
+
+Sample code -
+
+```
+  function onInit(response) {
+    if (response === "success")
+      {
+        // write your logic here
+      }
+  };
+
+```
 After  plugin initialization if **onInit** callback function response is  *`success` you can send and receive messages by calling  Applozic functions directly as explained in Step 5 and Step 6 
 
 
