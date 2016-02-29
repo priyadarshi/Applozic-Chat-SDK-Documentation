@@ -1727,9 +1727,9 @@ Integrate messaging plugin into your web application.
 Add Applozic messaging plugin into your web application for real time messaging communication 
 via  Applozic functions. 
 
-**Step 1**: Sign up at **https://www.applozic.com/** to get the application key.
+Step 1: Sign up at **https://www.applozic.com/** to get the application key.
 
-**Step 2**: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:                 
+Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:                 
 
 
 
@@ -1741,7 +1741,7 @@ via  Applozic functions.
 ```               
 
 
-**Step 3**: Initialize Plugin - 
+Step 3: Initialize Plugin :- 
 Create **APPLOZIC** instance by configuring your options            
 
 
@@ -1751,37 +1751,31 @@ Create **APPLOZIC** instance by configuring your options
                               'userId': 'PUT_USERID_HERE',                   // LoggedIn userId
                               'appId': 'PUT_APPLICATION_KEY_HERE',           // obtained from Step 1 (required)
                               'onInit': 'PASS_YOUR_FUNCTION_NAME_HERE'       // Type - FUNCTION (optional)
-});        
+                            });        
 ```              
-**Note** - Create **APPLOZIC** instance only after page load probably inside  **$(document).ready()**. 
+**Note** :- Initialize plugin on page load probably inside  **$(document).ready()**. 
 function before **`</body>`** 
 
-**onInit** callback function execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 4
+**onInit**  callback function execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 4
 
 Step 4: Sample code for **onInit()** function :-
-
-You can write javascript function to execute your logic after plugin initialization
 
 Sample code -
 
 ```
   function onInit(response) {
     if (response === "success")
-      {
-        // write your logic here
-      }
+       {
+         // write your logic here
+       }
   };
 
 ```
-After  plugin initialization if **onInit** callback function response is  *`success` you can send and receive messages by calling  Applozic functions directly as explained in Step 5 and Step 6 
+On **`success`** response of above **onInit** callback function you can send and receive messages by calling Applozic functions directly as explained in Step 5 and Step 6 
 
 
-Step 4:  Subscribe to Applozic events and implement your own logic:
+Step 4:  Subscribe to Applozic events and implement your own logic :-
 Following are the events with example:                    
-
-
-
-
 
 ```        
 applozic.events = {onConnect: function () {
@@ -1805,9 +1799,7 @@ console.log('onUserDisconnect: ' + obj);
   ```               
   
   
-  
-  
-  **Events description**:
+**Events description**:
 
 1) ** onConnect ** : triggered when user subscribed successfully. 
 2) **onConnectFailed** :  triggered when user failed to subscribe.
@@ -1817,7 +1809,7 @@ console.log('onUserDisconnect: ' + obj);
  Response object - {'messageKey': 'delivered-message-key'}.
 5) **onMessageReceived** : triggered when new message received. Response contains message
 Response object -  {'message': message}  // Message json format given in Step 6.
-6) **onMessageSentUpdate** : triggered when message sent successfully to server. Response contains      messageKey.
+6) **onMessageSentUpdate** : triggered when message sent successfully to server. Response contains messageKey.
  Response  object- {'messageKey': 'sent-message-key'}.
 7) **onUserConnect **: triggered when some other user comes online. Response contains user Id.
  Response object - {'userId': 'connected-user-Id'}
@@ -1826,118 +1818,68 @@ Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in
 
 
 
-**Step 5** : Send Message -                  
-
-
-
+Step 5 : Send Message function :-                  
 
 ```               
-applozic.sendMessage(message, {'callback': sendMessageCallbackFunction});
+applozic.sendMessage(message,
+                     {'callback': sendMessageCallbackFunction} 
+                     );
 ```        
-
-
-
-**message**  include -         
-
-
-
+**message** json include :-         
 
 ```     
-message = { 'to': 'put-userid-here',  // receiver userid
-'message': 'message-text' //  message text
-};     
+message = {'to': 'PUT_USERID_HERE',                          // receiver user id
+           'message': 'PUT_MESSAGE_TEXT_HERE'                //  message text
+          };     
 ```       
 
-
-
-**sendMessageCallbackFunction** response -                   
-
-
+**sendMessageCallback()** response :-                   
 
 ```    
-response = { 'status' : 'success', // or 'error'
-'response' :  // oblect 
-{  'messageKey': 'message-identifier'
-'timeStamp': 'message created timestamp'
-}                                 
-}        
+response = {'status' : 'success',                                // or 'error'
+            'data' : {'messageKey': 'MESSAGE_IDENTIFIER'
+                     'timeStamp': 'MESSAGE_CREATED_TIMESTAMP'    // in millisecond
+                     }                                 
+           }        
 ```         
 
 
 
-Step 6: **Get Message List** -         
-
-
-
+Step 6:  Get **Message List** function :-         
 
 ```
 applozic.messageList(params, {'callback': messageListCallbackFunction});
 ```        
 
+ **params** include :-           
 
-
- **params**  include-           
- 
- 
- 
- 
  
  ```
- params = { 'id': 'put-userid-here'};  // other userid with whom conversations fetch
+ params = { 'id': 'PUT_USERID_HERE'};               // other userid with whom conversations fetch
  ```            
  
- 
- 
- **messageListCallbackFunction** response -                
- 
- 
- 
- 
+ **messageListCallbackFunction** response :-                
+
  
  ```
- response = { 'status' : 'success', // or 'error'
- 'messages' :[]  // Array of messages  (message format given below)     
- }
+ response = {'status' : 'success',                 // or error
+             'messages' :[]                        // Array of messages  (message format given below)     
+           }
 ```         
 
-
-
-**message** json format-           
-
-
+**message** json format :-           
 
 ```
-message = {
-key: "message-identifier",
-from: "sender userid",         
-message: "message-text",
-type: 'inbox or outbox',
-status: "message status",  // outbox  (sent, delivered or read)
-// inbox (read, unread)
-timeStamp: 'message created timestamp',
-to: 'receiver userid'
- }
+message = {key: "MESSAGE_IDENTIFIER",
+           from: "SENDER_USERID",         
+           message: "MESSAGE_TEXT",
+           type: 'inbox or outbox',
+           status: "MESSAGE__CURRENT_STATUS",   // For outbox message  (sent, delivered or read)
+                                                // For inbox messsage (read, unread)
+           timeStamp: 'MESSAGE_CREATED_TIMESTAMP',
+           to: 'RECEIVER_USERID'
+          }
 ```              
-
-
-
-
-
-
-
- 
-
-
-
-
-
-   
-
-
-
-
-
-
 
 
 # PLATFORM API     
