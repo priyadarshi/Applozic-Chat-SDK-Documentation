@@ -1374,9 +1374,9 @@ Sample code -
  ```
 
  
- Step 8: If you want to load all contacts directly use below function (optional) :-
+Step 8: Function to **LOAD CONTACTS** (optional) :-
 
- Function used to load contacts - 
+If you want to load all contacts directly use below function - 
 ```
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
 ```
@@ -1510,7 +1510,7 @@ Sample  code :-
 ```
 
 
-Step 14: Function to get User Detail :-
+Step 14: Function to get **USER DETAIL** :-
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -1657,9 +1657,9 @@ Sample code :-
  ```
 
  
- Step 9: If you want to load all contacts directly use below function (optional) :-
+ Step 9: Function to **LOAD CONTACTS** (optional) :-
 
-Function used to load contacts :- 
+If you want to load all contacts directly use below function :- 
  
 ```
  $applozic.fn.applozic('loadContacts', 'PUT_CONTACT_LIST_JSON_HERE');
@@ -1796,7 +1796,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-Step 16: Function to get User Detail :-
+Step 16: Function to get **USER DETAIL** :-
 
 Call below given function to get user details like Total unread count, last seen at etc
 
