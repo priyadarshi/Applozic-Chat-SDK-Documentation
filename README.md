@@ -1069,176 +1069,66 @@ You can directly create contact from dictionary, all you have to do is just pass
 NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
 \"contactNumber\": \"9535008745\",\"displayName\":  \"Applozic Support\",
 \"contactImageUrl\": \"https://www.applozic.com/resources/images/applozic_logo.gif\",\"email\":       
-\"devashish@applozic.com\",\"localImageResourceName\":null}";                    
+\"devashish@applozic.com\",\"localImageResourceName\":\"sample.jpg\"}";                   
 ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                        
  ```
  
  
  
- **Save Your Contact:** 
+ **Add Your Contact:** 
 
-Below are the list of functions for saving and updating contacts.
 
-**Saving single contact:
-**              
+**Add single contact API
+**
 
 
 ** Objective - C **    
+
  ```
-  ALContactDBService * alContactDBService = [[ALContactDBService alloc]init];                  
-  [ alContactDBService addContact:contact];                                 
+ -(BOOL)addContact:(ALContact *)contact;
+ ```
+ 
+ Example:
+ ```
+ ALContact *contact  = [[ALContact alloc] init];              
+ contact.userId      = @"adarshk";      // Unique Id for user               
+ contact.fullName    = @"Adarsh Kumar"; // Fullname of the contact.  
+ contact.displayName = @"Adarsh";       // Name on display
+ 
+ ALContactService * alContactService = [[ALContactService alloc] init];                   
+ [alContactService addContact:contact]; 
 ```
 
 
-You can build your contact service using applozic contact APIs. Below is the sample ContactService given:               
-
-
-
-
-
+Below are additional APIs for contact load, update and delete and requires a ALContact object or array of ALContact objects. 
 
 ** Objective - C **            
 ```
- //                    
- //  ALContactService.m                
- //  ChatApp              
- //                
- //  Created by Adarsh on 23/10/15.                   
- //  Copyright © 2015 Applozic. All rights reserved.                  
- //
 
-  #import "ALContactService.h"                 
-  #import "ALContactDBService.h"              
-  #import "ALDBHandler.h"                  
-
-  @implementation ALContactService                 
-
-  ALContactDBService * alContactDBService;                      
-
-  -(instancetype)  init{              
-     self= [super init];              
-     alContactDBService = [[ALContactDBService alloc]init];              
-     return self;                   
-   }                            
-
-  #pragma mark Deleting APIS               
-
-
-  //For purgeing single contacts              
-
-  -(BOOL)purgeContact:(ALContact *)contact{               
-   return [ alContactDBService purgeContact:contact];             
-   }                
-
-
-  //For purgeing multiple contacts                
-  -(BOOL)purgeListOfContacts:(NSArray *)contacts{                
-    
-  return [ alContactDBService purgeListOfContacts:contacts];               
-   }               
-
-
-  //For delting all contacts at once              
-
-  -(BOOL)purgeAllContact{                         
-  return  [alContactDBService purgeAllContact];              
-  }                     
-
-  #pragma mark Update APIS                 
-
-
-  -(BOOL)updateContact:(ALContact *)contact{               
-   return [alContactDBService updateContact:contact];                
-    
-   }                    
-
-
-   -(BOOL)updateListOfContacts:(NSArray *)contacts{                    
-   return [alContactDBService updateListOfContacts:contacts];               
-   } 
-
-
-    #pragma mark addition APIS               
-
-
-   -(BOOL)addListOfContacts:(NSArray *)contacts{              
-   return [alContactDBService updateListOfContacts:contacts];                           
-   }           
-
-   -(BOOL)addContact:(ALContact *)userContact{                 
-    return [alContactDBService addContact:userContact];             
-    }         
-
-    #pragma mark fetching APIS                 
-
-
-    - (ALContact *)loadContactByKey:(NSString *) key value:(NSString*) value{           
-    return [alContactDBService loadContactByKey:key value:value];           
-    }              
-
-
-   //-------------------------------------------------------------------------------------------------------         
-   // Helper method for demo purpose. This method shows possible ways to insert contact and save it in 
-      local database.       
-   //-------------------------------------------------------------------------------------------------------     
-
-    - (void) insertInitialContacts{                  
-
-    ALDBHandler * theDBHandler = [ALDBHandler sharedInstance];                       
-    
-    //contact 1              
-    ALContact *contact1 = [[ALContact alloc] init];                       
-    contact1.userId = @"adarshk";            
-    contact1.fullName = @"Adarsh Kumar";               
-    contact1.displayName = @"Adarsh";                
-    contact1.email = @"github@applozic.com";                
-    contact1.contactImageUrl = nil;               
-    contact1.localImageResourceName = @"adarsh.jpg";               
-    
-    // contact 2                 
-    ALContact *contact2 = [[ALContact alloc] init];               
-    contact2.userId = @"marvel";                  
-    contact2.fullName = @"abhishek thapliyal";                
-    contact2.displayName = @"abhishek";               
-    contact2.email = @"abhishek@applozic.com";           
-    contact2.contactImageUrl = nil;                  
-    contact2.localImageResourceName = @"abhishek.jpg";                      
-    
-    
-    
-    //Contact -------- Example with json                             
-    
-    NSString *jsonString =@"{\"userId\": \"applozic\",\"fullName\": \"Applozic\",
-    \"contactNumber\": \"9535008745\",\"displayName\":
-    \"Applozic Support\",\"contactImageUrl\": \"https://www.applozic.com/resources/images/applozic_logo.gif\",
-    \"email\":
-    \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
-    
-    ALContact *contact3 = [[ALContact alloc] initWithJSONString:jsonString];                              
-
-   //Contact ------- Example with dictonary                  
-    
-   NSMutableDictionary *demodictionary = [[NSMutableDictionary alloc] init];                     
-   [demodictionary setValue:@"adarshk" forKey:@"userId"];               
-   [demodictionary setValue:@"Adarsh Kumar" forKey:@"fullName"];                 
-   [demodictionary setValue:@"Adarsh" forKey:@"displayName"];                  
-   [demodictionary setValue:@"github@applozic.com" forKey:@"email"];                   
-   [demodictionary setValue:@"https://www.applozic.com/resources/images/applozic_logo.gif"             
-   forKey:@"contactImageUrl"];               
-   [demodictionary setValue:nil forKey:@"localImageResourceName"];                   
-    
-   ALContact *contact4 = [[ALContact alloc] initWithDict:demodictionary];                
-   [theDBHandler addListOfContacts:@[contact1, contact2, contact3, contact4]];                                
-   }                                                    
-  @end                     
- ```          
+#  Fetch/Load contact API
+/*  Use "userId" for <key> and contact's user id string as <value> for below API */
+  - (ALContact *)loadContactByKey:(NSString *) key value:(NSString*) value
+  
+#   Update APIS                 
+  -(BOOL)updateContact:(ALContact *)contact                    
+  -(BOOL)updateListOfContacts:(NSArray *)contacts
  
+#  Add contact(s) APIs              
+  -(BOOL)addListOfContacts:(NSArray *)contacts          
+  -(BOOL)addContact:(ALContact *)contact
  
+#    Deleting APIS               
+  //For purging single contact 
+  -(BOOL)purgeContact:(ALContact *)contact             
+  
+  //For purging multiple contacts                
+  -(BOOL)purgeListOfContacts:(NSArray *)contacts
+  
+  //For purging all contacts at once              
+  -(BOOL)purgeAllContacts 
+  
+ ```
  
- 
- 
-
-
 
 # APPLOZIC WEB PLUGIN     
 
