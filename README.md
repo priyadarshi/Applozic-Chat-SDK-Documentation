@@ -1147,8 +1147,8 @@ You can build your contact service using applozic contact APIs. Below is the sam
   #pragma mark Update APIS                 
 
 
-  -(BOOL)updateConatct:(ALContact *)contact{               
-   return [alContactDBService updateConatct:contact];                
+  -(BOOL)updateContact:(ALContact *)contact{               
+   return [alContactDBService updateContact:contact];                
     
    }                    
 
@@ -1214,7 +1214,7 @@ You can build your contact service using applozic contact APIs. Below is the sam
     \"email\":
     \"devashish@applozic.com\",\"localImageResourceName\":null}";                    
     
-    ALContact *contact4 = [[ALContact alloc] initWithJSONString:jsonString];                              
+    ALContact *contact3 = [[ALContact alloc] initWithJSONString:jsonString];                              
 
    //Contact ------- Example with dictonary                  
     
@@ -1227,8 +1227,8 @@ You can build your contact service using applozic contact APIs. Below is the sam
    forKey:@"contactImageUrl"];               
    [demodictionary setValue:nil forKey:@"localImageResourceName"];                   
     
-   ALContact *contact5 = [[ALContact alloc] initWithDict:demodictionary];                
-   [theDBHandler addListOfContacts:@[contact1, contact2, contact3, contact4, contact5]];                                
+   ALContact *contact4 = [[ALContact alloc] initWithDict:demodictionary];                
+   [theDBHandler addListOfContacts:@[contact1, contact2, contact3, contact4]];                                
    }                                                    
   @end                     
  ```          
