@@ -1832,10 +1832,15 @@ message = {'to': 'PUT_USERID_HERE',                          // receiver user id
 **sendMessageCallback()** response :-                   
 
 ```    
-response = {'status' : 'success',                                // or 'error'
-            'data' : {'messageKey': 'MESSAGE_IDENTIFIER'
-                      'timeStamp': 'MESSAGE_CREATED_TIMESTAMP'    // in millisecond
-                     }                                 
+response = {'status' : 'success',                                     // or 'error'
+            'message' : {'key': 'MESSAGE_IDENTIFIER',
+                         'from': "SENDER_USERID",   
+                         'to': 'RECEIVER_USERID',
+                         'message': "MESSAGE_TEXT",
+                         'type': 'outbox',
+                         'timeStamp': 'MESSAGE_CREATED_TIMESTAMP'    // in milliseconds
+                         'status': "MESSAGE__CURRENT_STATUS"        // (sent, delivered or read)
+                        }                                 
            }        
 ```         
 
@@ -1868,13 +1873,12 @@ applozic.messageList(params, {'callback': messageListCallbackFunction});
 ```
 message = {key: "MESSAGE_IDENTIFIER",
            from: "SENDER_USERID",         
+           to: 'RECEIVER_USERID',
            message: "MESSAGE_TEXT",
            type: 'inbox or outbox',
            status: "MESSAGE__CURRENT_STATUS",   // For outbox message  (sent, delivered or read)
                                                 // For inbox messsage (read, unread)
-           timeStamp: 'MESSAGE_CREATED_TIMESTAMP',
-           to: 'RECEIVER_USERID'
-          }
+           timeStamp: 'MESSAGE_CREATED_TIMESTAMP'          }
 ```              
 
 
