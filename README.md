@@ -2553,8 +2553,11 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
   Contact us at ` github@applozic.com `
  
  
- 
 
+
+#Message Fallback Time
+
+Message Fallback Time is the duration in which if message is not delivered to end user then message will be delivered though mail as a fallback. For message fallback our api requires user emailId which client need to pass during registration and also you have to configure message delivery fallback time in dashboard for your app.  
 
 
 
