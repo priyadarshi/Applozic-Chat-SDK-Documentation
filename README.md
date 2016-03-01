@@ -22,7 +22,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-** Step 1: Add the following in build.gradle **:      
+**Step 1: Add the following in your build.gradle dependency**:      
 
 
 
@@ -33,86 +33,55 @@ Add the following in gradle android target:
 
 
 ```
-packagingOptions    
- {           
- exclude 'META-INF/DEPENDENCIES'      
- exclude 'META-INF/NOTICE'         
- exclude 'META-INF/LICENSE'      
- exclude 'META-INF/LICENSE.txt'    
- exclude 'META-INF/NOTICE.txt' 
- exclude 'META-INF/ECLIPSE_.SF'
- exclude 'META-INF/ECLIPSE_.RSA'
- }                
+android {
+
+        packagingOptions    
+         {           
+           exclude 'META-INF/DEPENDENCIES'      
+           exclude 'META-INF/NOTICE'         
+           exclude 'META-INF/LICENSE'      
+           exclude 'META-INF/LICENSE.txt'    
+           exclude 'META-INF/NOTICE.txt' 
+           exclude 'META-INF/ECLIPSE_.SF'
+           exclude 'META-INF/ECLIPSE_.RSA'
+         }    
+    }
+                
 ```
 
 **Step 2: Addition of Permissions, Services and Receivers in androidmanifest.xml**:
-
-Applozic Application Key:     
-
-
-
+           
 ```
+
 <meta-data android:name="com.applozic.application.key"
-           android:value="YOUR_APPLOZIC_APPLICATION_KEY" /> 
+           android:value="YOUR_APPLOZIC_APPLICATION_KEY" /> <!-- Applozic Application Key -->
 
-```         
-   
-Applozic Application URL:        
-   
-   
-   ```
 <meta-data android:name="com.applozic.server.url"
-           android:value="https://apps.applozic.com" /> 
-   ```
-    
- Applozic MQTT URL:
- 
- ```
+           android:value="https://apps.applozic.com" />  <!-- Applozic Application URL -->
+
  <meta-data android:name="com.applozic.mqtt.server.url"
-            android:value="tcp://apps.applozic.com" />
-   ```
+            android:value="tcp://apps.applozic.com" />  <!-- Applozic MQTT URL -->
     
- Applozic Notification package name and launcher icon:        
- 
- 
-```
 <meta-data android:name="com.applozic.mobicomkit.notification.icon" 
-           android:resource="YOUR_LAUNCHER_ICON" />  
-          
-```   
-```
+           android:resource="YOUR_LAUNCHER_ICON" />  <!-- Launcher Icon -->
+
 <meta-data android:name="com.applozic.mobicomkit.notification.smallIcon"
-           android:resource="YOUR_LAUNCHER_SMALL_ICON" />
-```
-```
+           android:resource="YOUR_LAUNCHER_SMALL_ICON" /> <!-- Launcher white Icon -->
+           
+<meta-data android:name="share_text"
+           android:value="YOUR INVITE MESSAGE" />  <!-- Invite Message -->
+           
+<meta-data android:name="main_folder_name"
+           android:value="@string/default_media_location_folder" /> <!-- Attachment Folder Name -->
+           
 <meta-data android:name="com.package.name" 
            android:value="${applicationId}" /> 
            
 ```
-   
-   
    **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
-Invite Message:
-
-
-```
-<meta-data android:name="share_text"
-          android:value="YOUR INVITE MESSAGE" />
-  ```
-
-Attachment Folder configuration:         
-
-
-    
-```
-<meta-data android:name="main_folder_name"
-           android:value="@string/default_media_location_folder" /> 
-```
   
   Define below in your string.xml.          
-  
-  
      
 ```
 <string name="default_media_location_folder"><YOUR_APP_NAME></string> 
@@ -265,19 +234,22 @@ UserLoginTask.TaskListener listener = new UserLoginTask.TaskListener() {
 
 @Override          
 public void onSuccess(RegistrationResponse registrationResponse, Context context)         
-{              
+{           
+   // After successful registration with Applozic server the callback will come here 
+    ApplozicSetting.getInstance(context).showStartNewButton();//To show contact list.
 }                       
 
 @Override             
 public void onFailure(RegistrationResponse registrationResponse, Exception exception)         
-{         
+{  
+    // If any failure in registration the callback  will come here 
 }};                      
 
 User user = new User();          
-user.setUserId(userId); 
-user.setDisplayName(displayName); 
+user.setUserId(userId); //userId it can be any unique user identifier
+user.setDisplayName(displayName); //displayName can be user name of the user
 user.setEmail(email); //optional                        
-new UserLoginTask(user, listener, this).execute((Void) null);                                      
+new UserLoginTask(user, listener, this).execute((Void) null);                                   
 ```
 
 If it is a new user, new user account will get created else existing user will be logged in to the application.
@@ -357,24 +329,6 @@ intent.putExtra(ConversationUIService.USER_ID, "devashish@applozic.com");
 intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put it for displaying the title.             
 startActivity(intent);                              
 ```
-
-
-For easy insertion of Admin/Support Contact information, please change following values in string.xml. You can take sample app method ( MainActivity.buildSupportContactData() ) as reference for contact information insertion.          
-
-
-
-
-          
-```
-<string name="support_contact_display_name">AppLozic Support</string>               
-<string name="support_contact_userId">applozic</string>             
-<string name="support_contact_emailId">devashish@applozic.com</string>              
-<string name="support_contact_number">918042028425</string>              
-<string name="support_contact_image_url">R.drawable.ic_launcher</string>                                  
-```
-
-support_contact_image_url also supports url eg:
- https://www.applozic.com/resources/sidebox/images/applozic.png
 
 **Step 7: On logout, call the following**:       
 
@@ -630,8 +584,7 @@ new Thread(new Runnable() {
 
 ### UI Customization
 
-
-***1.Changing the Chat Bubble Color***
+***1.Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()***
 
 Sent Message bubble color
  ```
@@ -643,19 +596,27 @@ Received Message bubble color
 ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
 
-***2.Changing the Send Bubble Color***
+***2.Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()***
 
  ```
 ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // it accepts the R.color.name
-
  ```
 
-***3.To show the Online in Quick Chat Screen***
+***3.To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()***
 
  ```
 ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
-
  ```
+ ***4.To show contact list add this line inside the UserLoginTask onSuccess()***
+ 
+ ```
+ ApplozicSetting.getInstance(context).showStartNewButton();
+```
+ ***5.To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()***
+ 
+```
+ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
+```
 
 
 For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
