@@ -660,7 +660,7 @@ new Thread(new Runnable() {
 
 
 
-###  Migrating from 3.21
+###  Migrating from v3.21
 
 
 
@@ -673,7 +673,7 @@ new Thread(new Runnable() {
 
 `compile 'com.applozic.communication.uiwidget:mobicomkitui:3.23' `
 
-**Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
+**Add below activities in androidmanifest.xml**
 
 ```
 <activity
