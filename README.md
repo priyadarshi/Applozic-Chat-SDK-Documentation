@@ -432,55 +432,6 @@ For your custom contact list, replace MobiComKitPeopleActivity with your contact
 Sample app with integration is available under [app](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app)
 
 
-
-
-
-
-
-
-###  Migrating from 3.019
-
-
-
-***Migrating to latest version of Applozic android Sdk***
-
-
-
-**Replace the following in build.gradle :**
-
-
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `
-
-**Add meta data in  androidmanifest.xml** 
-
-```
- <meta-data android:name="com.applozic.mqtt.server.url"
-            android:value="tcp://apps.applozic.com" />
-```
-
-**Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
-
-```
-<activity android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
-          android:configChanges="keyboardHidden|orientation|screenSize"
-          android:label="@string/activity_contacts_list"
-          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-          android:theme="@style/Applozic.People.Theme"
-          android:windowSoftInputMode="adjustResize">
-     <!-- Parent activity meta-data to support API level 7+ -->
-<meta-data
-          android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-         <intent-filter>
-                 <action android:name="android.intent.action.SEARCH" />
-         </intent-filter>
-<meta-data
-          android:name="android.app.searchable"
-          android:resource="@xml/searchable_contacts" />
-</activity>
-```
-
-
 ### Messages             
 Refer to the below documentation for a deeper integration if you wish to perform chat operation directly from your app's interface without using the Applozic UI toolkit:
 
@@ -620,6 +571,7 @@ AppContactService.java provides methods you need to add, delete and update conta
 
 
 
+
 ### Group 
 
 
@@ -678,6 +630,55 @@ new Thread(new Runnable() {
  ```
 
 
+
+
+
+
+
+
+
+
+###  Migrating from 3.019
+
+
+
+***Migrating to latest version of Applozic android Sdk***
+
+
+
+**Replace the following in build.gradle :**
+
+
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `
+
+**Add meta data in  androidmanifest.xml** 
+
+```
+ <meta-data android:name="com.applozic.mqtt.server.url"
+            android:value="tcp://apps.applozic.com" />
+```
+
+**Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
+
+```
+<activity android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
+          android:configChanges="keyboardHidden|orientation|screenSize"
+          android:label="@string/activity_contacts_list"
+          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+          android:theme="@style/Applozic.People.Theme"
+          android:windowSoftInputMode="adjustResize">
+     <!-- Parent activity meta-data to support API level 7+ -->
+<meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+         <intent-filter>
+                 <action android:name="android.intent.action.SEARCH" />
+         </intent-filter>
+<meta-data
+          android:name="android.app.searchable"
+          android:resource="@xml/searchable_contacts" />
+</activity>
+```
 
 
 
