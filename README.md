@@ -26,7 +26,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `      
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.23' `      
 
 
 Add the following in gradle android target:      
@@ -176,6 +176,28 @@ Paste the following in your androidmanifest.xml:
  android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
           android:theme="@style/Applozic_FullScreen_Theme">
     <!-- Parent activity meta-data to support API level 7+ -->
+<meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+</activity>
+
+<activity
+    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:launchMode="singleTop"
+    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+    android:theme="@style/ApplozicTheme">
+ <meta-data
+           android:name="android.support.PARENT_ACTIVITY"
+           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+</activity>
+
+<activity
+    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:launchMode="singleTop"
+    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+    android:theme="@style/ApplozicTheme">
 <meta-data
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
@@ -638,7 +660,7 @@ new Thread(new Runnable() {
 
 
 
-###  Migrating from 3.019
+###  Migrating from 3.21
 
 
 
@@ -649,34 +671,31 @@ new Thread(new Runnable() {
 **Replace the following in build.gradle :**
 
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `
-
-**Add meta data in  androidmanifest.xml** 
-
-```
- <meta-data android:name="com.applozic.mqtt.server.url"
-            android:value="tcp://apps.applozic.com" />
-```
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.23' `
 
 **Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
 
 ```
-<activity android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
-          android:configChanges="keyboardHidden|orientation|screenSize"
-          android:label="@string/activity_contacts_list"
-          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-          android:theme="@style/Applozic.People.Theme"
-          android:windowSoftInputMode="adjustResize">
-     <!-- Parent activity meta-data to support API level 7+ -->
+<activity
+    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:launchMode="singleTop"
+    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+    android:theme="@style/ApplozicTheme">
 <meta-data
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-         <intent-filter>
-                 <action android:name="android.intent.action.SEARCH" />
-         </intent-filter>
+</activity>
+
+<activity
+    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize"
+    android:launchMode="singleTop"
+    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+    android:theme="@style/ApplozicTheme">
 <meta-data
-          android:name="android.app.searchable"
-          android:resource="@xml/searchable_contacts" />
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
 </activity>
 ```
 
