@@ -381,9 +381,108 @@ By default, the display name feature is enabled.
 
 
 
-### Messages             
+### UI Customization
 
-Classes ending with *ClientService.java interacts with the server.
+***1.Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()***
+
+Sent Message bubble color
+ ```
+ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
+ ```
+Received Message bubble color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
+ ```
+
+***2.Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()***
+
+ ```
+ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // it accepts the R.color.name
+ ```
+
+***3.To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()***
+
+ ```
+ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
+ ```
+ ***4.To show contact list add this line inside the UserLoginTask onSuccess()***
+ 
+ ```
+ ApplozicSetting.getInstance(context).showStartNewButton();
+```
+ ***5.To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()***
+ 
+```
+ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
+```
+
+
+For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
+
+Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui)  into your android project and add the following in the build.gradle file:
+
+compile project(':mobicomkitui')
+
+
+MobiComKitUI contains the ui related source code, icons, layouts and other resources which you can customize based on your design needs.
+
+For your custom contact list, replace MobiComKitPeopleActivity with your contact list activity.
+
+Sample app with integration is available under [app](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app)
+
+
+
+
+
+
+
+
+###  Migrating from 3.019
+
+
+
+***Migrating to latest version of Applozic android Sdk***
+
+
+
+**Replace the following in build.gradle :**
+
+
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `
+
+**Add meta data in  androidmanifest.xml** 
+
+```
+ <meta-data android:name="com.applozic.mqtt.server.url"
+            android:value="tcp://apps.applozic.com" />
+```
+
+**Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
+
+```
+<activity android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
+          android:configChanges="keyboardHidden|orientation|screenSize"
+          android:label="@string/activity_contacts_list"
+          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+          android:theme="@style/Applozic.People.Theme"
+          android:windowSoftInputMode="adjustResize">
+     <!-- Parent activity meta-data to support API level 7+ -->
+<meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+         <intent-filter>
+                 <action android:name="android.intent.action.SEARCH" />
+         </intent-filter>
+<meta-data
+          android:name="android.app.searchable"
+          android:resource="@xml/searchable_contacts" />
+</activity>
+```
+
+
+### Messages             
+Refer to the below documentation for a deeper integration if you wish to perform chat operation directly from your app's interface without using the Applozic UI toolkit:
 
 
 **1. Account registration**:      
@@ -582,104 +681,6 @@ new Thread(new Runnable() {
 
 
 
-### UI Customization
-
-***1.Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()***
-
-Sent Message bubble color
- ```
-ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
- ```
-Received Message bubble color
-
- ```
-ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
- ```
-
-***2.Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()***
-
- ```
-ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // it accepts the R.color.name
- ```
-
-***3.To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()***
-
- ```
-ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
- ```
- ***4.To show contact list add this line inside the UserLoginTask onSuccess()***
- 
- ```
- ApplozicSetting.getInstance(context).showStartNewButton();
-```
- ***5.To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()***
- 
-```
-ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
-```
-
-
-For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
-
-Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui)  into your android project and add the following in the build.gradle file:
-
-compile project(':mobicomkitui')
-
-
-MobiComKitUI contains the ui related source code, icons, layouts and other resources which you can customize based on your design needs.
-
-For your custom contact list, replace MobiComKitPeopleActivity with your contact list activity.
-
-Sample app with integration is available under [app](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app)
-
-
-
-
-
-
-
-
-###  Migrating from 3.019
-
-
-
-***Migrating to latest version of Applozic android Sdk***
-
-
-
-**Replace the following in build.gradle :**
-
-
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.21' `
-
-**Add meta data in  androidmanifest.xml** 
-
-```
- <meta-data android:name="com.applozic.mqtt.server.url"
-            android:value="tcp://apps.applozic.com" />
-```
-
-**Replace the old Theme style  of MobiComKitPeopleActivity.java in androidmanifest.xml with @style/Applozic.People.Theme Like below**
-
-```
-<activity android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
-          android:configChanges="keyboardHidden|orientation|screenSize"
-          android:label="@string/activity_contacts_list"
-          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-          android:theme="@style/Applozic.People.Theme"
-          android:windowSoftInputMode="adjustResize">
-     <!-- Parent activity meta-data to support API level 7+ -->
-<meta-data
-          android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-         <intent-filter>
-                 <action android:name="android.intent.action.SEARCH" />
-         </intent-filter>
-<meta-data
-          android:name="android.app.searchable"
-          android:resource="@xml/searchable_contacts" />
-</activity>
-```
 
  # IOS SDK           
 
