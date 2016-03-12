@@ -389,6 +389,7 @@ Open project in Android Studio to run the sample app in your device. Send messag
 
 You can either choose to handle display name from your app or have Applozic handle it.
 From your app's first activity, set the following to disable display name feature:
+
 ApplozicClient.getInstance(this).setHandleDisplayName(false);
 By default, the display name feature is enabled.
 
