@@ -1114,7 +1114,7 @@ Below are additional APIs for contact load, update and delete and requires a ALC
 ### Overview      
 
 
-Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Register at https://www.applozic.com         
+Integrate messaging into your mobile apps and website without developing or maintaining any infrastructure. Sign up at https://www.applozic.com         
 
 
 ### Getting Started          
