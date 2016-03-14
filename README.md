@@ -2001,13 +2001,6 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| AppKey | Yes  |   | Application key of the application in which the user is created  |
-
-
-
-
 
 
 **Response**:  success Response Json to the request
