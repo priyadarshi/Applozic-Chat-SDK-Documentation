@@ -2031,12 +2031,11 @@ Apz-AppId: application key of application for which admin want to send message.
 
 ** request should contain these 4 headers** -           
 
-
-| Apz-Token: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Apz-AppId:  application key got in admin dashboard  |  
-| Content-Type:  application/json  |  
+| Header | Value  |
+| ------------- | ----------- |
+| Apz-Token | Authorization Code  |
+| Apz-AppId | application key got in admin dashboard  |  
+| Content-Type |  application/json  |  
 
 
 
