@@ -1109,6 +1109,60 @@ Below are additional APIs for contact load, update and delete and requires a ALC
  ```
  
 
+### **Create Context-based Conversation**
+ 
+ Applozic SDK provide APIs which let you set and customise the chat’s context. Developers can create a ‘Conversation’ and launch a chat with context set. 
+
+The picture below shown depicts the context header set below the navigation bar.Suppose a buyer want to have context chat with seller 'Adarsh' on product macbook pro.
+
+ ![picture alt](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/images/contextBased.png "Context-based header view")
+
+__ALConversationProxy__ is a class which let you build your conversation context
+
+ALConversationProxy have three type of properties as following:
+   1.  __topicId__: A unique ID for your Topic/context you want to chat.
+   2.  __userId__ : User ID of person you like to start your chat with.
+   3.  __alTopicDetail__ :
+ * Topic __title__
+ * Topic __subtitle__
+ * Image __link__
+ * __key1__ and __value1__: 
+                *  For ex. key1 be “Product ID” and value1 be “569-01”
+ * __key2__ and __value2__:
+                *  For ex. key1 be “Price” and value2 be “Rs.1,50,00”
+
+
+__Key1 and Key2 is a placeholder to store with respective value1 and value2 values__
+
+** Objective - C **            
+
+```
+ALConversationProxy * alConversationProxy = [[ALConversationProxy alloc] init];
+alConversationProxy.topicId = @”buyMacPro";
+alConversationProxy.userId = @"adarshk"
+   
+ALTopicDetail * alTopicDetail	= [[ALTopicDetail alloc] init];
+alTopicDetail.title 		 	= @”Mac Book Pro";
+alTopicDetail.subtitle 	  	= @"13’ Retina";
+alTopicDetail.link = @"http://d.ibtimes.co.uk/en/full/319949/macbook-pro-13in-retina.jpg";
+alTopicDetail.key1      	 	= @"Product ID";
+alTopicDetail.value1    		= @"mac-pro-r-13";
+alTopicDetail.key2      		= @"Price”;
+alTopicDetail.value2    		= @"Rs.1,04,999.0";
+
+NSData *jsonData = [NSJSONSerialization dataWithJSONObject:alTopicDetail.dictionary  
+options:NSJSONWritingPrettyPrinted error:nil];
+NSString *topicDetails = [[NSString alloc] initWithData:jsonData    encoding:NSUTF8StringEncoding];
+ 
+alConversationProxy.topicDetailJson = topicDetails;
+```
+
+**       API to create conversation using ALConversationProxy object            **
+
+```
+-(void)createConversation:(ALConversationProxy *)alConversationProxy withCompletion:(void(^)(NSError *error,ALConversationProxy * proxy ))completion;
+```
+
 # APPLOZIC WEB PLUGIN     
 
 ### Overview      
