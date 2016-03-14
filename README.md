@@ -1905,6 +1905,8 @@ Application To User Messaging provides an API by using which admin user can send
 | senderUser | Yes  |   | unique Id of  message sender user  |
 | receiverUser | Yes  |   | unique Id of message receiver user  |
 | content  | Yes |   | message content to be passed  |
+| timestamp  | No |   | create message  timestamp   |
+
 
 
 
