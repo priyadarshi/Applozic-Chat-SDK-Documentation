@@ -685,10 +685,9 @@ new Thread(new Runnable() {
 
 **Add below permission :**
 
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26' `
-
+```
+<uses-permission android:name="android.permission.RECORD_AUDIO" />`
+```
 **Add below activity in androidmanifest.xml**
 
 ```
