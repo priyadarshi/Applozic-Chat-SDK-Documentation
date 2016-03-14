@@ -1996,7 +1996,6 @@ Apz-AppId: application key of application for which admin want to send message.
 
 **Content-Type**: application/json
 
-**Parameters**: Parameters required for API call :- 
 
 
 
