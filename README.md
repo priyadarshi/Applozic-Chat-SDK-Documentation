@@ -402,7 +402,7 @@ By default, the display name feature is enabled.
 
 ### UI Customization
 
-***1.Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()***
+**1.Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()**
 
 Sent Message bubble color
  ```
@@ -414,23 +414,23 @@ Received Message bubble color
 ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
 
-***2.Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()***
+**2.Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()**
 
  ```
 ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // it accepts the R.color.name
  ```
 
-***3.To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()***
+**3.To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()**
 
  ```
 ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
  ```
- ***4.To show contact list add this line inside the UserLoginTask onSuccess()***
+ **4.To show contact list add this line inside the UserLoginTask onSuccess()**
  
  ```
  ApplozicSetting.getInstance(context).showStartNewButton();
 ```
- ***5.To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()***
+ **5.To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()**
  
 ```
 ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
@@ -594,7 +594,7 @@ AppContactService.java provides methods you need to add, delete and update conta
 ### Group 
 
 
-***1) Group create Method***  
+**1) Group create Method**  
 
 Create the Group with Group Name and Group Members. The below code illustrator creation of group 
 
@@ -623,7 +623,7 @@ new Thread(new Runnable() {
  ```
  
 
-***2) Add Member to group*** 
+**2) Add Member to group** 
 
  ``` 
  Intent addUserIntent = new Intent(context, ApplozicChannelIntentService.class);
@@ -632,7 +632,7 @@ new Thread(new Runnable() {
  startService(addUserIntent);
  ```
  
- ***3) Remove Member From the group***
+ **3) Remove Member From the group**
   ```
  Intent removeUserIntent = new Intent(context, ApplozicChannelIntentService.class);
  removeUserIntent.putExtra(ApplozicChannelIntentService.CHANNEL_KEY, "channelKey");//Replace channelKey with your channelKey i.e groupId
@@ -640,7 +640,7 @@ new Thread(new Runnable() {
  startService(removeUserIntent);
  ```
  
- ***4)To Change the Group Name***
+ **4)To Change the Group Name**
  ```
   Intent changeGroupNameIntent = new Intent(context, ApplozicChannelIntentService.class);
   changeGroupNameIntent.putExtra(ApplozicChannelIntentService.CHANNEL_KEY, "channelKey");//Replace channelKey with your channelKey i.e groupId
@@ -1132,9 +1132,9 @@ Javascript chat and messaging plugin that lets you enable real time chat using w
 Add Applozic messaging plugin into your web application :-
 
 
-Step 1: Sign up at **https://www.applozic.com/** to get the application key.
+**Step 1: Sign up at **https://www.applozic.com/** to get the application key.**
 
-Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page :-               
+**Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page :- **              
 
 ```
 <script type="text/javascript">
@@ -1150,7 +1150,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
 </script>
 ```
  
-Step 3: Copy and paste below script before **`</body>`** to initialize plugin :- 
+**Step 3: Copy and paste below script before **`</body>`** to initialize plugin :-** 
 
 ``` 
 <script type="text/javascript">
@@ -1171,7 +1171,7 @@ Above options description :-
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
 
-Step 4: Some additional options which you can configure while plugin initialization in Step 3 :-
+**Step 4: Some additional options which you can configure while plugin initialization in Step 3 :-**
 
 ```
  1) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // Type - FUNCTION (optional)
@@ -1181,7 +1181,7 @@ Step 4: Some additional options which you can configure while plugin initializat
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 7
 ```
-Step 5: Sample code for **onInit()** function :- 
+**Step 5: Sample code for **onInit()** function :-** 
 
 You can write javascript function to execute your logic on plugin initialization -
 
@@ -1210,7 +1210,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
  ```
 
 
-Step 6: Sample code for **contactDisplayName()** function :- 
+**Step 6: Sample code for **contactDisplayName()** function :-** 
 
 You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
@@ -1226,7 +1226,7 @@ Sample :
  }                     
 ```
 
-Step 7: Sample code for **contactDisplayImage()** function :- 
+**Step 7: Sample code for **contactDisplayImage()** function :-** 
 
 You can write javascript function to return USER IMAGE LINK on basis of userId 
 
@@ -1243,7 +1243,7 @@ Sample code -
  ```
 
  
-Step 8: Function to **LOAD CONTACTS** (optional) :-
+**Step 8: Function to **LOAD CONTACTS** (optional) :-**
 
 If you want to load all contacts directly use below function - 
 ```
@@ -1269,14 +1269,14 @@ var CONTACT_LIST_JSON =
 
 You don't need to use functions explained in Step 6 and Step 7 if loading all contacts dynamically as explaind in Step 8  
 
-Step 9: Function to load(open) individual tab conversation dynamically (optional) :-
+**Step 9: Function to load(open) individual tab conversation dynamically (optional) :-**
 
 ```
  $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
 
  ``` 
  
-Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :-
+**Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional) :-**
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -1287,7 +1287,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag          
  
  
-Step 11: To add auto suggest users list in search field use below html element id (optional) :- 
+**Step 11: To add auto suggest users list in search field use below html element id (optional) :-** 
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -1295,7 +1295,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-Step 12: To show **online/offline** status (optional) :- 
+**Step 12: To show **online/offline** status (optional) :- **
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -1311,7 +1311,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
+**Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-**
 
 
 These are attributes requires on chat button or anchor tag -
@@ -1379,7 +1379,7 @@ Sample  code :-
 ```
 
 
-Step 14: Function to get **USER DETAIL** (optional) :-
+**Step 14: Function to get **USER DETAIL** (optional) :-**
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -1425,21 +1425,21 @@ A small jQuery plugin for integrating messaging into your web page to directly s
 Add Applozic messaging plugin into your web application :
 
 
-Step 1: Sign up at **https://www.applozic.com/** to get the application key.
+**Step 1: Sign up at **https://www.applozic.com/** to get the application key.**
 
 
-Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced**
+**Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced**
 
 Open **message.html**  file as a reference and add all scripts and html in your web page in same order as given in message.html. 
 
 
-Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :-  
+**Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :-**  
 
 ```
   $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
 
-Step 4: Configure value in above script :-     
+**Step 4: Configure value in above script :-**     
 
 description - 
 
@@ -1451,7 +1451,7 @@ description -
 ```
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
-Step 5: Some additional options which you can configure while plugin initialization in Step 3 :-
+**Step 5: Some additional options which you can configure while plugin initialization in Step 3 :-**
 
 
 ```
@@ -1464,7 +1464,7 @@ Step 5: Some additional options which you can configure while plugin initializat
 ```
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
-Step 6: Sample code for **onInit()** function :- 
+**Step 6: Sample code for **onInit()** function :-** 
 
 You can write javascript function to execute your logic after plugin initialization
 
@@ -1493,7 +1493,7 @@ var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
  ```
 
 
-Step 7: Sample code for **contactDisplayName()** function :- 
+**Step 7: Sample code for **contactDisplayName()** function :- **
 
 You  can write javascript function which return USER DISPLAY NAME on basis of userId
 
@@ -1509,7 +1509,7 @@ Sample :-
  }                     
 ```
 
-Step 8: Sample code for **contactDisplayImage()** function :- 
+**Step 8: Sample code for **contactDisplayImage()** function :- **
 
 You can write javascript function to return USER IMAGE LINK on basis of userId 
 
@@ -1526,7 +1526,7 @@ Sample code :-
  ```
 
  
- Step 9: Function to **LOAD CONTACTS** (optional) :-
+** Step 9: Function to **LOAD CONTACTS** (optional) :-**
 
 If you want to load all contacts directly use below function :- 
  
@@ -1554,7 +1554,7 @@ var CONTACT_LIST_JSON =
 You don't need to use functions explained in step 7 and step 8 if loading all contacts dynamically as explaind in step 9  
 
 
-Step 10 : To customize layout of plugin :-
+**Step 10 : To customize layout of plugin :-**
 
 You can modify **mck-sidebox-1.0.css** class located at -      
 
@@ -1562,7 +1562,7 @@ You can modify **mck-sidebox-1.0.css** class located at -
   https://github.com/AppLozic/Applozic-Web-Plugin/blob/master/message/advanced/css/app/mck-sidebox-1.0.css 
 ```
 
-Step 11: To add auto suggest users list in search field (optional) :-
+**Step 11: To add auto suggest users list in search field (optional) :-**
 
 You can bind auto suggest plugin on input search field with id given below -
 
@@ -1571,14 +1571,14 @@ mck-search
 ```
 
 
-Step 12: Function to load(open) individual tab conversation dynamically (optional) :-
+**Step 12: Function to load(open) individual tab conversation dynamically (optional) :-**
 
 ```
  $applozic.fn.applozic('loadTab', 'PUT_OTHER_USERID_HERE');  // user Id of other person with whom you want to open conversation 
 
  ``` 
  
-Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional) :-
+**Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional) :-**
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -1589,7 +1589,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag.          
  
 
-Step 14: To show **online/offline** status (optional) :-
+**Step 14: To show **online/offline** status (optional) :-**
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -1603,7 +1603,7 @@ Example :-
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-
+**Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional) :-**
 
 These are attributes requires on chat button or anchor tag -
 
@@ -1705,9 +1705,9 @@ Integrate messaging plugin into your web application.
 Add Applozic messaging plugin into your web application for real time messaging communication 
 via  Applozic functions. 
 
-Step 1: Sign up at **https://www.applozic.com/** to get the application key.
+**Step 1: Sign up at **https://www.applozic.com/** to get the application key.**
 
-Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:                 
+**Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:   **              
 
 
 
@@ -1719,7 +1719,7 @@ Step 2: For the standard user interface, add the following Applozic messaging pl
 ```               
 
 
-Step 3: Initialize Plugin :- 
+**Step 3: Initialize Plugin :- **
 Create **APPLOZIC** instance by configuring your options            
 
 
@@ -1752,7 +1752,7 @@ Sample code -
 On **`success`** response of above **onInit** callback function you can send and receive messages by calling Applozic functions directly as explained in Step 5 and Step 6 
 
 
-Step 4:  Subscribe to Applozic events and implement your own logic :-
+**Step 4:  Subscribe to Applozic events and implement your own logic :-**
 Following are the events with example:                    
 
 ```        
@@ -1794,7 +1794,7 @@ Response object -  {'message': message}  // Message json format given in Step 6.
 8) **onUserDisconnect** : triggered when some other user goes offline. Response contains user Id.
 Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in millsec'}
 
-Step 5 : Send Message function :-                  
+**Step 5 : Send Message function :- **                 
 
 ```               
 applozic.sendMessage(message, {'callback': sendMessageCallbackFunction});
@@ -1825,7 +1825,7 @@ response = {'status' : 'success',                                     // or 'err
 
 
 
-Step 6:  Get **Message List** function :-         
+**Step 6:  Get **Message List** function :- **        
 
 ```
 applozic.messageList(params, {'callback': messageListCallbackFunction});
