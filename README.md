@@ -1989,8 +1989,92 @@ Apz-AppId: application key of application for which admin want to send message.
 
 ****Create User API****        
 
+**URL**: https://apps.applozic.com/rest/ws/user/create
+
+**Method Type**: POST
+
+**Content-Type**: application/json
+
+**Parameters**: Parameters required for API call :- 
 
 
+
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| AppKey | Yes  |   | Application key of the application in which the user is created  |
+
+
+
+
+
+
+**Response**:  success Response Json to the request
+
+
+
+
+** json **                         
+```
+{
+        "userName": "DemoUser", 
+        "displayName": "Display Demo User Name", 
+        "imageLink": "User profile image url", 
+        "email": "User Email", 
+        "createdAt": 1456148218000
+}
+```
+
+
+
+
+
+
+****Required Authentication Headers****    
+
+
+
+
+** request should contain these 4 headers** -           
+
+
+| Apz-Token: Authorization Code  |
+| ------------- |
+| UserId-Enabled:true |
+| Apz-AppId:  application key got in admin dashboard  |  
+| Content-Type:  application/json  |  
+
+
+
+
+Authentication is done using BASIC authentication. It is combination of email & password of admin user .
+
+
+ 
+**Apz-Token** : Basic Base64Encode of email:password
+
+
+
+
+**Example**- 
+
+If the email of the admin(Logged in Applozic Dashboard) is  **jack** and password is **adminLoggedInApplozicDashboard**, 
+then the Apz-Token will be:
+
+Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
+
+Apz-AppId: application key of application for which admin want to send message. 
+
+
+
+
+
+
+
+
+
+
+****Register User API****        
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
 
