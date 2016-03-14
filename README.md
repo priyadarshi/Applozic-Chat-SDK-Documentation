@@ -26,7 +26,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.23' `      
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26' `      
 
 
 Add the following in gradle android target:      
@@ -108,6 +108,7 @@ Permissions:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
   ```
 
 
@@ -196,6 +197,18 @@ Paste the following in your androidmanifest.xml:
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
 </activity>
+
+<activity
+     android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobiComAttachmentSelectorActivity"
+     android:configChanges="keyboardHidden|orientation|screenSize"
+     android:launchMode="singleTop"
+     android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+     android:theme="@style/ApplozicTheme"
+     android:windowSoftInputMode="stateHidden|adjustResize">
+ <meta-data 
+           android:name="android.support.PARENT_ACTIVITY"
+           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+  </activity>
                    
 <service android:name="com.applozic.mobicomkit.api.conversation.MessageIntentService"
           android:exported="false" />
@@ -657,7 +670,7 @@ new Thread(new Runnable() {
 
 
 
-###  Migrating from v3.21
+###  Migrating from v3.23
 
 
 
@@ -667,33 +680,29 @@ new Thread(new Runnable() {
 
 **Replace the following in build.gradle :**
 
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26'`
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.23' `
 
-**Add below activities in androidmanifest.xml**
+**Add below permission :**
+
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26' `
+
+**Add below activity in androidmanifest.xml**
 
 ```
 <activity
-    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:launchMode="singleTop"
-    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-    android:theme="@style/ApplozicTheme">
-<meta-data
-          android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-</activity>
-
-<activity
-    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:launchMode="singleTop"
-    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-    android:theme="@style/ApplozicTheme">
-<meta-data
-          android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-</activity>
+     android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobiComAttachmentSelectorActivity"
+     android:configChanges="keyboardHidden|orientation|screenSize"
+     android:launchMode="singleTop"
+     android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+     android:theme="@style/ApplozicTheme"
+     android:windowSoftInputMode="stateHidden|adjustResize">
+ <meta-data 
+           android:name="android.support.PARENT_ACTIVITY"
+           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+  </activity>
 ```
 
 
