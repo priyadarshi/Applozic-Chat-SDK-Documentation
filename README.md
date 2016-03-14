@@ -1,6 +1,6 @@
 # QUICK START
 
-#### Overview 
+### Overview 
 
 Applozic Chat & Messaging SDK for your mobile and web apps
 
