@@ -253,7 +253,7 @@ public void onSuccess(RegistrationResponse registrationResponse, Context context
 {           
    // After successful registration with Applozic server the callback will come here 
     ApplozicSetting.getInstance(context).showStartNewButton();//To show contact list.
-    ApplozicSetting.getInstance(getActivity()).showStartNewGroupButton();//To enable group messaging
+    ApplozicSetting.getInstance(context).showStartNewGroupButton();//To enable group messaging
 }                       
 
 @Override             
