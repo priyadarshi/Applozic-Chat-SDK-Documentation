@@ -1172,6 +1172,122 @@ alConversationProxy.topicDetailJson = topicDetails;
 -(void)createConversation:(ALConversationProxy *)alConversationProxy withCompletion:(void(^)(NSError *error,ALConversationProxy * proxy ))completion;
 ```
 
+## Channel API Documentation 
+
+This section explain about convenient SDK APIs  related to group.  
+
+__Class to import :__ Applozic/ALChannelService.h 
+
+#### 1. Add new Channel
+
+You can create a Channel/Group by simply calling createChannel method. The callback argument (channelKey) will be unique ChannelId/GroupId created by applozic server. You need to store this for any further operations( like : add member, remove  member, delete group/channel etc) on Channel/Group.  
+```
+-(void) createChannel:(NSString *) channnelName andMemberList:(NSMutableArray *) memberArray withCompletion:(void(^)(NSNumber *channelKey)) completion
+```
+__Parameters:__
+
+__channelName :__ Name of group
+
+__memberArray :__ Array of contactId/userid of members
+
+ 
+#### 2. Add New member to Channel
+ ```
+-(BOOL) addMemberToChannel:(NSString *) userId andChannelKey:(NSNumber *) channelKey
+ ``` 	  	
+__Parameters:__
+
+__userId :__ contactId/userId
+
+__channelkey :__ channel key/GroupId of your channel where member will be added.
+
+__Return Type :__ BOOL
+
+If member added successfully then it will return YES else NO. 
+ 
+__NOTE:__ Only admin can add member to the group/channel. For more detail see check Admin section.
+
+
+#### 3.  Remove Member from Channel
+ ```
+-(BOOL) removeMemberFromChannel:(NSString *)userId andChannelKey:(NSNumber *)channelKey
+ ```
+__Parameters:__
+
+__userId :__ contactId OR userId
+
+__channelkey :__ channel key of your channel from which member will be removed.
+
+__Return Type :__ BOOL
+
+If member removed successfully then it will return YES else NO. 
+
+__NOTE:__ Only admin can add member to the group/channel. For more detail see check Admin section.
+ 
+
+#### 4.   Delete Channel
+```
+-(BOOL) deleteChannel:(NSNumber *) channelKey
+```
+__Parameters:__
+
+__channelkey :__ channel key of your channel from which member will be removed.
+
+__Return Type :__ BOOL
+
+If channel deleted successfully then it will return YES else NO. 
+
+__NOTE:__ Only admin can add member to the group/channel. For more detail see check Admin section.
+ 
+
+#### 5.   Leave Channel
+```
+-(BOOL) leaveChannel:(NSNumber *) channelKey
+      andUserId:(NSString *) userId
+```
+__Parameters:__
+
+__channelkey :__ channel key of your channel whom you are leaving.
+
+__userId:__ userid  of leaving user
+
+__Return Type :__ BOOL
+
+If member leaved successfully then it will return YES else NO. 
+
+
+#### 6. Rename Channel
+ ```
+-(BOOL) renameChannel:(NSNumber *) channelKey 
+      andNewName:(NSString *) newName
+ ```
+__Parameters:__
+
+__newName :__ new name of channel you wish to give
+__channelkey :__ channel key of your channel whom you are renaming.
+
+__Return Type :__ BOOL
+
+If renamed successfully then it will return YES else NO. 
+
+
+#### 7. Check Admin
+
+This method is to check whether the current user is channel/group admin or not.
+As group admin have rights to do delete channel, remove  channel and add new member to channel. it is suggested to call this method to check admin rights before performing operations.
+```
+-(BOOL) checkAdmin:(NSNumber *) channelKey
+```
+__Parameters:__
+
+__channelkey :__ channel key of your channel
+
+__Return Type :__ BOOL
+
+If renamed successfully then it will return YES else NO. 
+
+
+
 # APPLOZIC WEB PLUGIN     
 
 ### Overview      
