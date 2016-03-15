@@ -1194,7 +1194,7 @@ Javascript chat and messaging plugin that lets you enable real time chat using w
 Add Applozic messaging plugin into your web application :-
 
 
-**Step 1: Sign up at  **`https://www.applozic.com/`**  to get the application key.**
+**Step 1: Sign up at  https://www.applozic.com/  to get the application key.**
 
 **Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page :- **              
 
