@@ -751,7 +751,7 @@ c) After creating application, you will see your application key listed on admin
 **Installing the iOS SDK** 
 
 **ADD APPLOZIC FRAMEWORK **
-Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK)
+Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/Framework/Applozic.framework)
 Get the latest framework "Applozic.framework" from Applozic github repo [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/sampleapp)
 
 **Add framework to your project:**
@@ -1127,20 +1127,20 @@ The picture below shown depicts the context header set below the navigation bar.
 
 __ALConversationProxy__ is a class which let you build your conversation context
 
-ALConversationProxy have three type of properties as following:
-   1.  __topicId__: A unique ID for your Topic/context you want to chat.
-   2.  __userId__ : User ID of person you like to start your chat with.
-   3.  __alTopicDetail__ :
- * Topic __title__
- * Topic __subtitle__
- * Image __link__
- * __key1__ and __value1__: 
-                *  For ex. key1 be “Product ID” and value1 be “569-01”
- * __key2__ and __value2__:
-                *  For ex. key1 be “Price” and value2 be “Rs.1,50,00”
+ALConversationProxy have three type of properties as following:          
 
 
-__Key1 and Key2 is a placeholder to store with respective value1 and value2 values__
+   1.**topicId**: A unique ID for your Topic/context you want to chat.                        
+   2.**userId**: User ID of person you like to start your chat with.                    
+   3.**alTopicDetail**:             
+          Topic **title**
+          Topic **subtitle**
+          Image **link**
+          **key1**  and  **value1**: For ex. key1 be “Product ID” and value1 be “569-01”
+          **key2**  and  **value2**: For ex. key1 be “Price” and value2 be “Rs.1,50,00”        
+
+
+**Key1 and Key2 is a placeholder to store with respective value1 and value2 values**
 
 ** Objective - C **            
 
