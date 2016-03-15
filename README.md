@@ -1242,8 +1242,7 @@ __NOTE:__ Only admin can add member to the group/channel. For more detail see ch
 
 #### 5.   Leave Channel
 ```
--(BOOL) leaveChannel:(NSNumber *) channelKey
-      andUserId:(NSString *) userId
+-(BOOL) leaveChannel:(NSNumber *) channelKey andUserId:(NSString *) userId
 ```
 __Parameters:__
 
@@ -1258,8 +1257,7 @@ If member leaved successfully then it will return YES else NO.
 
 #### 6. Rename Channel
  ```
--(BOOL) renameChannel:(NSNumber *) channelKey 
-      andNewName:(NSString *) newName
+-(BOOL) renameChannel:(NSNumber *) channelKey andNewName:(NSString *) newName
  ```
 __Parameters:__
 
