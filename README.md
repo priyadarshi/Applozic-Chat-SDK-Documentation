@@ -1487,12 +1487,12 @@ A small jQuery plugin for integrating messaging into your web page to directly s
 Add Applozic messaging plugin into your web application :
 
 
-**Step 1: Sign up at **https://www.applozic.com/** to get the application key.**
+**Step 1: Sign up at  https://www.applozic.com/  to get the application key.**
 
 
-**Step 2: For customization the UI, checkout **https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced**
+**Step 2: For customization the UI, checkout  https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced 
 
-Open **message.html**  file as a reference and add all scripts and html in your web page in same order as given in message.html. 
+Open  message.html  file as a reference and add all scripts and html in your web page in same order as given in message.html.**
 
 
 **Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :-**  
@@ -1707,7 +1707,7 @@ Additional options to configure in plugin initialize code in step 3 :-
 
 ```
   getTopicDetail : 'PUT_YOUR_FUNCTION_NAME_HERE'    // Type - FUNCTION
-  topicBox :  true or false                                     // Set true if want to display topic details in conversation box
+  topicBox :  true or false                        // Set true if want to display topic details in conversation box
 
 ```
 
@@ -1726,7 +1726,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-Step 16: Function to get **USER DETAIL** (optional) :-
+**Step 16: Function to get USER DETAIL  (optional) :-**
 
 Call below given function to get user details like Total unread count, last seen at etc
 
@@ -1767,7 +1767,7 @@ Integrate messaging plugin into your web application.
 Add Applozic messaging plugin into your web application for real time messaging communication 
 via  Applozic functions. 
 
-**Step 1: Sign up at **https://www.applozic.com/** to get the application key.**
+**Step 1: Sign up at  https://www.applozic.com/   to get the application key.**
 
 **Step 2: For the standard user interface, add the following Applozic messaging plugin script file before **`</head>`** into your web page:   **              
 
@@ -1814,7 +1814,9 @@ Sample code -
 On **`success`** response of above **onInit** callback function you can send and receive messages by calling Applozic functions directly as explained in Step 5 and Step 6 
 
 
-**Step 4:  Subscribe to Applozic events and implement your own logic :-**
+**Step 4:  Subscribe to Applozic events and implement your own logic :-**         
+
+
 Following are the events with example:                    
 
 ```        
@@ -1841,20 +1843,38 @@ applozic.events = {onConnect: function () {
   
 **Events description**:
 
-1) ** onConnect** : triggered when user subscribed successfully. 
-2) **onConnectFailed** :  triggered when user failed to subscribe.
-3)  **onMessageDelivered** : triggered when message is delivered. Response contains message key.
- Response object- {'messageKey': 'delivered-message-key'}.
+1) ** onConnect** : triggered when user subscribed successfully.      
+
+
+2) **onConnectFailed** :  triggered when user failed to subscribe.         
+
+3)  **onMessageDelivered** : triggered when message is delivered. Response contains message key.  Response object- {'messageKey': 'delivered-message-key'}.      
+
+
 4) **onMessageRead** : triggered when delivered message is read on other end. Response contains message key.
- Response object - {'messageKey': 'delivered-message-key'}.
+ Response object - {'messageKey': 'delivered-message-key'}.       
+ 
+ 
 5) **onMessageReceived** : triggered when new message received. Response contains message
-Response object -  {'message': message}  // Message json format given in Step 6.
+Response object -  {'message': message}  // Message json format given in Step 6.         
+
+
+
 6) **onMessageSentUpdate** : triggered when message sent successfully to server. Response contains messageKey.
- Response  object- {'messageKey': 'sent-message-key'}.
+ Response  object- {'messageKey': 'sent-message-key'}.      
+ 
+ 
+ 
 7) **onUserConnect **: triggered when some other user comes online. Response contains user Id.
- Response object - {'userId': 'connected-user-Id'}
+ Response object - {'userId': 'connected-user-Id'}           
+ 
+ 
+ 
 8) **onUserDisconnect** : triggered when some other user goes offline. Response contains user Id.
-Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in millsec'}
+Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in millsec'}           
+
+
+
 
 **Step 5 : Send Message function :- **                 
 
@@ -1904,8 +1924,8 @@ applozic.messageList(params, {'callback': messageListCallbackFunction});
 
  
  ```
- response = {'status' : 'success',                 // or error
-             'messages' :[]                        // Array of messages  (message format given below)     
+ response = {'status' : 'success',                     // or error
+             'messages' :[]                           // Array of messages  (message format given below)     
            }
 ```         
 
@@ -1917,9 +1937,10 @@ message = {key: "MESSAGE_IDENTIFIER",
            to: 'RECEIVER_USERID',
            message: "MESSAGE_TEXT",
            type: 'inbox or outbox',
-           status: "MESSAGE__CURRENT_STATUS",   // For outbox message  (sent, delivered or read)
-                                                // For inbox messsage (read, unread)
-           timeStamp: 'MESSAGE_CREATED_TIMESTAMP'          }
+           status: "MESSAGE__CURRENT_STATUS",        // For outbox message  (sent, delivered or read)
+                                                    // For inbox messsage (read, unread)
+           timeStamp: 'MESSAGE_CREATED_TIMESTAMP'          
+           }
 ```              
 
 
