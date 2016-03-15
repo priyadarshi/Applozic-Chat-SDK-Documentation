@@ -1262,7 +1262,7 @@ Sample :
 Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 :-     
 
 ```
-var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
+var CONTACT_JSON ={"USERID_1": {"displayName": "Devashish",
                       "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
                     "USERID_2": { "displayName": "Adarsh", "photoLink":    
                         "https://www.applozic.com/resources/images/applozic_icon.png"}, 
@@ -1689,7 +1689,7 @@ function getTopicDetail(topicId)
 JSON format of **TOPIC_DETAIL** :-
 
 ```
- var TOPIC_DETAIL={'title': 'topic-title',      // Product title
+ var TOPIC_DETAIL={'title': 'topic-title',        // Product title
                      'subtitle': 'sub-title',     // Product subTitle or Product Id
                      'link' :'image-link',        // Product image link
                      'key1':'key1' ,              // Small text anything like Qty (Optional)
