@@ -2375,6 +2375,49 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
+**** Multi Send Message ****   
+
+
+
+
+**URL**: https://apps.applozic.com/rest/ws/message/sendall
+
+**Method Type**: POST
+
+**Content-Type**: application/json, application/xml
+
+**Parameters**:json will be passed as a parameter with following properties :-               
+
+
+
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userNames  | No  |   | User Names to which you want to send message |
+| groupIds  | No  |   | Group Ids to which you want to send message |
+| messageObject  | Yes  |   | Message Container Object |
+| message  | Yes  |   | Text Message |
+
+
+
+
+** json **                         
+```
+{
+        "userNames" : ["UserName1", "UserName2", "UserName3"],
+        "groupIds" : [1, 2, 3],
+        "messageObject" : {
+                "message":"Hi John"
+        }
+}
+```
+
+
+
+**Response**:- success Response Json to the request
+
+
+
 
 ****Message List****        
 
@@ -2805,148 +2848,3 @@ Webhook Url is configured by application admin in applozic dashbaord for getting
 {"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015","from":"lee","to":"kevin","message":"hello","timeStamp":1457958424000}  
 
  ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-   
-   
-
-
-
-
-
-
-   
-   
-   
-   
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-  
-
-    
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-   
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
