@@ -1980,19 +1980,24 @@ Application To User Messaging provides an API by using which admin user can send
 
 **Content-Type**: application/json
 
-**Parameters**: Parameters required for API call :- 
-
-
+**Parameters**:json will be passed as a parameter with following properties :- 
 
 
 | Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
-| senderUser | Yes  |   | unique Id of  message sender user  |
-| receiverUser | Yes  |   | unique Id of message receiver user  |
-| content  | Yes |   | message content to be passed  |
-| timestamp  | No |   | create message  timestamp   |
+| senderName | Yes  |   | unique Id of  message sender user  |
+| to | Yes  |   | unique Id of message receiver user  |
+| message  | Yes |   | message content to be passed  |
+| oldTimestamp  | No |   | create message  timestamp   |
 
 
+
+** json **                         
+```
+{
+ "message":"HI STEVE","senderName":"john", "to": "steve"   
+}
+```
 
 
 
@@ -2013,6 +2018,52 @@ Application To User Messaging provides an API by using which admin user can send
 ```
 {"messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362", "createdAt": 1456148218000}
 ```
+
+
+
+
+**Note**: API can be used for contextual based messaging also.
+
+
+
+
+
+**Json required for contextual based messaging**
+
+
+
+
+** json **                         
+```
+{
+ "message":"Can we chat on product?", "senderName":"john","to": "steve",
+  "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
+ }   
+}
+
+
+
+
+
+
+**Response**:  success Response Json to the request with following properties :-         
+
+
+
+| Response  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
+| conversationId | open conversation to chat on topic |
+
+
+
+
+** json **                         
+```
+{"messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283","conversationId":456,"createdAt":1458039322000}
+```
+
 
 
 
