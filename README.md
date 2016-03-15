@@ -2040,7 +2040,7 @@ Application To User Messaging provides an API by using which admin user can send
   "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
  }   
 }
-
+```
 
 
 
