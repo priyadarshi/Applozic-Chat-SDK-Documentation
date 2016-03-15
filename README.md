@@ -1132,7 +1132,9 @@ ALConversationProxy have three type of properties as following:
 
    1.**topicId**: A unique ID for your Topic/context you want to chat.                        
    2.**userId**: User ID of person you like to start your chat with.                    
-   3.**alTopicDetail**:                                                
+   3.**alTopicDetail**:
+   
+   
                         Topic **title**                                               
                         Topic **subtitle**             
                         Image **link**                
