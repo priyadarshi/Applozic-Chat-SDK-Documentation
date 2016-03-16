@@ -1402,6 +1402,7 @@ If member leaved successfully then it will return YES else NO.
 __Parameters:__
 
 __newName :__ new name of channel you wish to give
+
 __channelkey :__ channel key of your channel whom you are renaming.
 
 __Return Type :__ BOOL
