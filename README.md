@@ -3102,3 +3102,6 @@ Webhook Url is configured by application admin in applozic dashbaord for getting
 {"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015","from":"lee","to":"kevin","message":"hello","timeStamp":1457958424000}  
 
  ```
+
+
+https://www.applozic.com/developers.html
