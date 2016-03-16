@@ -1117,7 +1117,7 @@ Below are additional APIs for contact load, update and delete and requires a ALC
  ```
  
 
-### **Create Context-based Conversation**
+### ** Contextual Conversation **
  
  Applozic SDK provide APIs which let you set and customise the chat’s context. Developers can create a ‘Conversation’ and launch a chat with context set. 
 
