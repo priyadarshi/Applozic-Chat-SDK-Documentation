@@ -3067,17 +3067,69 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 {"status":"success","generatedAt":1452347180639,"response":"success"}   
 
  ```
+
+
+
+
+****Block User****     
+
+
+
+
+**BLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/block
+
+**Method Type**: GET 
+
+**Parameters**:         
+
+
+
+| Parameter  | Response | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user you want to block  |
+
+
+
+
+**Response**:  Response Json with success status :-  
+
+
+
+ ```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}   
+
+ ```
+
+ 
+ 
+
+**UNBLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/unblock
+
+**Method Type**: GET 
+
+**Parameters**:         
+
+
+
+| Parameter  | Response | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user you want to unblock  |
+
+
+
+
+**Response**:  Response Json with success status :-  
+
+
+
+ ```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}   
+
+ ``` 
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
+
   Contact us at ` github@applozic.com `
  
  
