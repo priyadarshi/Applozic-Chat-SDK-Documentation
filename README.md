@@ -1312,7 +1312,7 @@ This method is used when group feature is required . It will disable group funct
 
 
 
-## Channel API Documentation 
+## Channel API 
 
 This section explain about convenient SDK APIs  related to group.  
 
