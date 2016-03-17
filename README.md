@@ -2756,20 +2756,26 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-****Conversation API****        
+***Conversation API***
 
-**URL**: https://apps.applozic.com//rest/ws/conversation/id
+**URL**: https://apps.applozic.com/rest/ws/conversation/id
 
 **Method Type**: POST
 
 **Content-Type**: application/json
 
 **Behavior**
+
 1. Call retrieve conversation api with Status flag as NEW, OPEN, DEFAULT.
+
 2. If no conversation is found, create a new conversation.
+
 Status Behavior
+
 NEW: the previous conversation should be ended and new conversation is created.
+
 OPEN: If the conversation is closed the OPEN it.
+
 DEFAULT: return the conversation as it is.
 
 **Request Body**
@@ -2784,7 +2790,7 @@ DEFAULT: return the conversation as it is.
 }
 ```
 
-****Required Authentication Headers****    
+***Required Authentication Headers***
 
 **request should contain these 3 headers** -
 
