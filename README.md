@@ -2397,7 +2397,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-** json **                         
+**Request Body**                         
 ```
 {
         "userName": "DemoUser", 
@@ -2493,7 +2493,7 @@ Apz-AppId: application key of application for which admin want to send message.
 ```
 
 
-**Response**:  success Response Json to the request with following properties :-         
+**Response** : success Response Json to the request with following properties :-         
 
 
 
@@ -2754,6 +2754,73 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | error  |This will come if any exception occurs on server. In case of any exception contact devashish@applozic.com  |
 
 
+
+
+****Conversation API****        
+
+**URL**: https://apps.applozic.com//rest/ws/conversation/id
+
+**Method Type**: POST
+
+**Content-Type**: application/json
+
+**Behavior**
+1. Call retrieve conversation api with Status flag as NEW, OPEN, DEFAULT.
+2. If no conversation is found, create a new conversation.
+Status Behavior
+NEW: the previous conversation should be ended and new conversation is created.
+OPEN: If the conversation is closed the OPEN it.
+DEFAULT: return the conversation as it is.
+
+**Request Body**
+```
+{
+        "topicId" : "Topic id of the conversation",
+        "userId" : "Topic detail of the conversation",
+        "supportIds" : "List of the Support User names",
+        "applicationKey" : "Application key",
+        "groupId" : "Group Id of the conversation group",
+        "status" : "Status flag of the conversation"
+}
+```
+
+****Required Authentication Headers****    
+
+**request should contain these 3 headers** -
+
+| Header | Value |
+| ------------- | ------------ |
+| Authorization | Authorization Code  |
+| UserId-Enabled | true |
+| Application-Key | Your Application Key  |  
+| Device-Key | Received in registration response  | 
+
+
+Authentication is done using BASIC authentication. It is combination of email & password of admin user .
+
+**Response**:  success Response Json to the request
+```
+{
+        "status" : "success",
+        "response" : {
+                "id" : Group Id (integer),
+                "name" : "Group Name",
+                "adminName" : "Group Admin User Name",
+                "membersName" : [ List of members user names],
+                "unreadCount" : (Int) message unread count for the logged in user,
+                "type" : Group type,
+                "conversationPxy" : {
+                        "id" : (Int)Conversation id,
+                        "topicId" : "Topic id of the conversation",
+                        "topicDetail" : "Topic Detail for the conversation",
+                        "supportIds" : [ List of support users - user names ],
+                        "created" : (true/false) if the conversation is created or not in this api,
+                        "closed" : (true/false) if the conversation is closed,
+                        "groupId" : (Int) Group id of the respected group,
+                }
+        }
+}
+```
 
 
 ****Delete Conversation Thread ****           
