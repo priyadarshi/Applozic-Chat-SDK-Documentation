@@ -2846,8 +2846,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Group Creation **** 
-
+***Group Creation***
 
 
 **GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create 
@@ -2856,11 +2855,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **ContentType**: application/json, application/xml
 
-
-
 **Parameters**: Json will be passed as a parameter with following properties :-    
-
-
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -2868,33 +2863,29 @@ Authentication is done using BASIC authentication. It is combination of email & 
 | groupMemberList | Yes  |   |List of names of the  group members |
 | type | No  | public  | Type of the group |
 
+"type" parameters possible values
 
-
+| Value  | Description |
+| ------------- | ------------- |
+| 1 | Private group : other users are not able to join this group voluntarily |
+| 2 | Public Group : Users are able to search and join the group |
+| 5 | Broadcast Group : User can send personal message to a group of Users |
+    
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
-
-
-** json **  
-
+**Request Body**  
 ```
 {"groupName":"BOYZZ","groupMemberList":["A","B","C"]}
 ```
 
+**Response** : Response Json  with success status :-  
 
- 
-**Response**: Response Json  with success status :-  
-
-
-
-** json **                         
+**json**                         
 ```
 {"status":"success","generatedAt":1452342819495,"response":{"id":176,"name":"BOYZZ","adminName":"TestUser","membersName":["A","TestUser","B","C"],"unreadCount":0,"type":2}}
 ```
 
 
-
-
-**Note**: "type":2 represents the public Group.
 
 
 ****Groups List Of User**** 
