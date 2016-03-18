@@ -2630,9 +2630,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-**** Multi Send Message ****   
-
-
+***Multi Send Message***
 
 
 **URL**: https://apps.applozic.com/rest/ws/message/sendall
@@ -2641,9 +2639,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Content-Type**: application/json, application/xml
 
-**Parameters**:json will be passed as a parameter with following properties :-               
-
-
+**Parameters** : Json will be passed as a parameter with following properties :-               
 
 
 | Parameter  | Required | Default  | Description |
@@ -2654,9 +2650,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | message  | Yes  |   | Text Message |
 
 
-
-
-** json **                         
+**Request Body**                         
 ```
 {
         "userNames" : ["UserName1", "UserName2", "UserName3"],
@@ -2667,25 +2661,15 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 }
 ```
 
-
-
-**Response**:- success Response Json to the request
-
-
-
+**Response** :- success Response Json to the request
 
 ****Message List****        
-
-
-
 
 **MESSAGE LIST URL**: https://apps.applozic.com/rest/ws/message/list
 
 **Method Type**: GET
 
 **Parameters**:        
-
-
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -2699,7 +2683,6 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 **Note**: For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
-
 
 **Response**:         
 
