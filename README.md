@@ -1174,7 +1174,10 @@ alConversationProxy.topicDetailJson = topicDetails;
 
 
 
-### **UI Customization**
+### UI Customization           
+
+
+
 
 Applozic SDK provides various UI settings to customise chat view eaisly. If you are using __DemoChatManager.h__ explained in the  earlier section, you can put all your settings in below method. 
 
