@@ -1176,6 +1176,17 @@ alConversationProxy.topicDetailJson = topicDetails;
 
 ### **UI Customization**
 
+Applozic SDK provides various UI settings to customise chat view eaisly. If you are using __DemoChatManager.h__ explained in the  earlier section, you can put all your settings in below method. 
+
+```
+-(void)ALDefaultChatViewSettings;
+```
+
+If you have your own implementation, you should set UI Customization setting before launching chat.
+
+Below section will explain UI settings provided by Applozic SDK.
+
+
 #### Received Message bubble color
 
 __Objective-C__
