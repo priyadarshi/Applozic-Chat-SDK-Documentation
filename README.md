@@ -1182,7 +1182,7 @@ Applozic SDK provides various UI settings to customise chat view eaisly. If you 
 -(void)ALDefaultChatViewSettings;
 ```
 
-If you have your own implementation, you should set UI Customization setting before launching chat.
+If you have your own implementation, you should set UI Customization setting on successfull registration of user.
 
 Below section will explain UI settings provided by Applozic SDK.
 
