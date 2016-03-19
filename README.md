@@ -1434,7 +1434,12 @@ __channelkey :__ channel key of your channel
 
 __Return Type :__ BOOL
 
-If renamed successfully then it will return YES else NO. 
+If renamed successfully then it will return YES else NO.                   
+
+
+
+
+
 
 
 
