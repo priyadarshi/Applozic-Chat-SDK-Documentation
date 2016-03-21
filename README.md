@@ -1757,17 +1757,15 @@ response = {'status' : 'success' ,                     // or error
 
 Integrate messaging plugin into your web application.
 
-A small jQuery plugin for integrating messaging into your web page to directly send and receive messages to other users via **Applozic** messaging platform and also to see your latest conversations.
-
-Add Applozic messaging plugin into your web application :
+A light weight jQuery plugin for integrating chat and messaging into your web page to directly send and receive messages to other users via **Applozic** messaging platform and also to see your latest conversations.
 
 
-**Step 1: Sign up at  https://www.applozic.com/  to get the application key.**
+**Step 1: Sign up at https://www.applozic.com/  to get the application key.**
 
 
-**Step 2: For customization the UI, checkout  https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced 
+**Step 2: For UI customization, checkout  https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced 
 
-Open  message.html  file as a reference and add all scripts and html in your web page in same order as given in message.html.**
+Open  message.html file as a reference and add all scripts and html in your web page in same order as given in message.html.**
 
 
 **Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) :-**  
