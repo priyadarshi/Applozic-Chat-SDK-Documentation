@@ -2235,7 +2235,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 ****Application To User Messaging****
 
-Application To User Messaging provides an API by using which admin user can send message to any user of the application.
+Application can send automated in-app messages to users using Application to User Messaging API.
 
 
 
@@ -2252,7 +2252,7 @@ Application To User Messaging provides an API by using which admin user can send
 
 **Content-Type**: application/json
 
-**Parameters**:json will be passed as a parameter with following properties :- 
+**Request body**:  Json with the following properties: 
 
 
 | Parameter  | Required | Default | Description |
@@ -2264,7 +2264,7 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-** json **                         
+** sample request **                         
 ```
 {
  "message":"HI STEVE","senderName":"john", "to": "steve"   
@@ -2274,27 +2274,20 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-**Response**:  success Response Json to the request with following properties :-         
+**Response**:
 
-
-
-| Response  | Description |
+| Parameters  | Description |
 | ------------- | ------------- |
 | messageKey |message key  |
 | createdAt | Time in miliseconds when response is return from server |
 
 
-
-
-** json **                         
+** sample response **                         
 ```
 {"messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362", "createdAt": 1456148218000}
 ```
 
 
-
-
-**Note**: API can be used for contextual based messaging also.
 
 
 
@@ -2308,7 +2301,7 @@ Application To User Messaging provides an API by using which admin user can send
 ** json **                         
 ```
 {
- "message":"Can we chat on product?", "senderName":"john","to": "steve",
+ "message":"Hello, I am interested in the produc, can we chat?", "senderName":"john","to": "steve",
   "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
  }   
 }
@@ -2318,11 +2311,11 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-**Response**:  success Response Json to the request with following properties :-         
+**Response**:      
 
 
 
-| Response  | Description |
+| Parameters  | Description |
 | ------------- | ------------- |
 | messageKey |message key  |
 | createdAt | Time in miliseconds when response is return from server |
@@ -2339,15 +2332,11 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-
-
-
 ****Required Authentication Headers****    
 
 
 
-
-** request should contain these 4 headers** -           
+** Request must contain the following 4 headers** -           
 
 
 | Apz-Token: Authorization Code  |
@@ -2358,11 +2347,10 @@ Application To User Messaging provides an API by using which admin user can send
 
 
 
-
 Authentication is done using BASIC authentication. It is combination of email & password of admin user .
 
 
- 
+
 **Apz-Token** : Basic Base64Encode of email:password
 
 
@@ -2370,16 +2358,12 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **Example**- 
 
-If the email of the admin(Logged in Applozic Dashboard) is  **jack** and password is **adminLoggedInApplozicDashboard**, 
+If the email of the admin account used for registering to Applzoic is  **jack@gmail.com** and password is **test**, 
 then the Apz-Token will be:
 
-Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
+Apz-Token: Basic amFja0BnbWFpbC5jb206dGVzdA==
 
-Apz-AppId: application key of application for which admin want to send message. 
-
-
-
-
+Apz-AppId: Application Key as shown in Applozic dashboard page.
 
 
 
@@ -2391,10 +2375,6 @@ Apz-AppId: application key of application for which admin want to send message.
 
   
 
-
-
-
-
 ****Create User API****        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
@@ -2405,11 +2385,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-
-
-
-
-**Response**:  success Response Json to the request
+**Response**: {"Success"}
 
 
 
@@ -2428,10 +2404,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-
-
 ****Required Authentication Headers****    
-
 
 
 
@@ -2446,7 +2419,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-Authentication is done using BASIC authentication. It is combination of email & password of admin user .
+Authentication is done using BASIC authentication. It is combination of email & password of admin user.
 
 
  
@@ -2493,12 +2466,9 @@ Apz-AppId: application key of application for which admin want to send message.
 | password  | No  | null  | User account password  |
 | displayName  | No  |   | Name you want to display to other user  |  
 | applicationId  | Yes  |   | Your Applozic Application key configured in dashboard  |
-| deviceType  | Yes  |   | 1 or 4   | 
+| deviceType  | Yes  |   | 1 for Android, 4 for Apple   | 
 
 
-
-
-**Note**:-  deviceType value should be **1** for Android device and **4** for Ios device.
 
 
 
@@ -2538,7 +2508,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-If registration process failed then json response with description :-
+The following will come in response in case of incomplete email and invalid application key resepectively:
 
 
 
@@ -2565,7 +2535,7 @@ If registration process failed then json response with description :-
 
 Authentication is done using BASIC authentication.
 
-Use **deviceKey** from above  registration response to create Authorization Code and send **deviceKey** also  in request header.
+Use **deviceKey** from above registration response to create Authorization Code and send **deviceKey** also  in request header.
  
 **Authorization Code** : Basic Base64Encode of userId:deviceKey
 
@@ -2580,7 +2550,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-**All request  from Device should contain these 4 headers** -           
+**All request from Device must contain the following 4 headers** -           
 
 
 | Authorization: Authorization Code  |
@@ -2605,11 +2575,9 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Method Type**: POST
 
-**Content-Type**: application/json, application/xml
+**Content-Type**: application/json
 
-**Parameters**:json will be passed as a parameter with following properties :-               
-
-
+**Request Body**:
 
 
 | Parameter  | Required | Default  | Description |
@@ -2619,8 +2587,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-
-** json **                         
+** sample **                         
 ```
 { "to":"John", "message":"Hi John" }
 ```
@@ -2639,7 +2606,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-** json **                         
+** sample **                         
 ```
 { "messageKey": "5-22bf4626-9019-4a4a-8565-6c0e40ecda96-1454398305364",
   "createdAt": 1454398305000}
@@ -2654,9 +2621,9 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Method Type**: POST
 
-**Content-Type**: application/json, application/xml
+**Content-Type**: application/json
 
-**Parameters** : Json will be passed as a parameter with following properties :-               
+**Request Body** :               
 
 
 | Parameter  | Required | Default  | Description |
@@ -2667,7 +2634,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | message  | Yes  |   | Text Message |
 
 
-**Request Body**                         
+**sample**                         
 ```
 {
         "userNames" : ["UserName1", "UserName2", "UserName3"],
@@ -2680,13 +2647,15 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Response** :- success Response Json to the request
 
+
+
 ****Message List****        
 
 **MESSAGE LIST URL**: https://apps.applozic.com/rest/ws/message/list
 
 **Method Type**: GET
 
-**Parameters**:        
+**Request Body**:        
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -2766,15 +2735,16 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Behavior**
 
-1. Call retrieve conversation api with Status flag as NEW, OPEN, DEFAULT.
+1. Call retrieve conversation API with Status flag as NEW, OPEN, DEFAULT.
 
-2. If no conversation is found, create a new conversation.
+2. If no conversation is found, new conversation will be created.
+
 
 Status Behavior
 
-NEW: the previous conversation should be ended and new conversation is created.
+NEW: The previous conversation will get ended and new conversation will be created.
 
-OPEN: If the conversation is closed the OPEN it.
+OPEN: If the conversation is closed, it will be re-opened.
 
 DEFAULT: return the conversation as it is.
 
@@ -2857,7 +2827,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 | Parameter  | Description | 
 | ------------- | ------------- | 
 | success  | Request is successfully processedl  |
-| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact devashish@applozic.com  |
+| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
       
 
 
@@ -2872,7 +2842,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **ContentType**: application/json, application/xml
 
-**Parameters**: Json will be passed as a parameter with following properties :-    
+**Request Body**:   
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -2890,7 +2860,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
     
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
-**Request Body**  
+**sample**  
 ```
 {"groupName":"BOYZZ","groupMemberList":["A","B","C"]}
 ```
@@ -2899,7 +2869,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **json**                         
 ```
-{"status":"success","generatedAt":1452342819495,"response":{"id":176,"name":"BOYZZ","adminName":"TestUser","membersName":["A","TestUser","B","C"],"unreadCount":0,"type":2}}
+{"status":"success","generatedAt":1452342819495,"response":{"id":176,"name":"applozic","adminName":"nitin","membersName":["john","snow","krishi","lee"],"unreadCount":0,"type":2}}
 ```
 
 
@@ -2936,7 +2906,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Note**: Next time when sync to  the server you have option to get information about only modified group and newly added group of that user,for that you have to pass "updatedAt" parameter in Api call. Whenever last time you interacted our server,in response Json you get "generatedAt" parameter ,that value will be used for "updatedAt"("generatedAt":1452345715245) to get the list of only newly added  and modified groups  of the user.
+**Note**: For the next sync call, pass "updatedAt" parameter to get details of only the modified group and newly added group of that user. Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "updatedAt" for your next sync call.
 
 
 
@@ -2962,7 +2932,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Response**:  Response Json  with success status :-  
+**Response**:  Json with success status :-  
 
 
 
@@ -2973,13 +2943,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Note**:Only Admin User can delete the group otherwise you can get following error.
-
-
-
-**Response**:  Json with error status :-  
-
-
+**Note**: Only Admin can delete the group otherwise the following error will come:
 
  ```  
 {"status":"error","errorResponse":[{"errorCode":"AL-UN-01","description":"unauthorized user","displayMessage":"Unable to process"}],"generatedAt":1452348983616} 
@@ -3021,11 +2985,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Note**:Only Admin User can remove the grop member otherwise you can get following error.
-
-
-
-**Response**: Json with error status :-  
+**Note**: Only Admin can remove the grop member otherwise the following error will come:
 
 
 
@@ -3109,11 +3069,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **ContentType**: application/json, application/xml
 
-
-
-**Parameters**:  Json will be passed as a parameter with following properties :-    
-
-
+**Request Body**:  
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -3122,10 +3078,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-
 **Response**: Response Json with success status :-  
-
-
 
  ```  
 {"status":"success","generatedAt":1452347180639,"response":"success"}   
@@ -3136,7 +3089,6 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 ****Block User****     
-
 
 
 
@@ -3208,11 +3160,9 @@ Message Fallback Time is the duration in which if message is not delivered to en
 
 #Webhook Url
 
-Webhook Url is configured by application admin in applozic dashbaord for getting json of each message send by one user to another user.This webhook url can be configured by admin in applozic dashboard by editing the application.
+Webhook Url is configured by application admin in Applozic Dashbaord for getting json of each message sent by one user to another.
 
 **Response**: Response json received on configured url:
-
-
 
 
  ```  
