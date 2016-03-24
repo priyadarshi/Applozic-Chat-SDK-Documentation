@@ -101,7 +101,7 @@ Permissions:
 <uses-permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" />
 <uses-permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" />
 <permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
- <permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+<permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  />
@@ -692,47 +692,6 @@ new Thread(new Runnable() {
  ```
 
 
-
-
-
-
-
-
-
-
-###  Migrating from v3.23
-
-
-
-***Migrating to latest version of Applozic android Sdk***
-
-
-
-**Replace the following in build.gradle :**
-
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26'`
-
-
-**Add below permission :**
-
-```
-<uses-permission android:name="android.permission.RECORD_AUDIO" />`
-```
-**Add below activity in androidmanifest.xml**
-
-```
-<activity
-     android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobiComAttachmentSelectorActivity"
-     android:configChanges="keyboardHidden|orientation|screenSize"
-     android:launchMode="singleTop"
-     android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-     android:theme="@style/ApplozicTheme"
-     android:windowSoftInputMode="stateHidden|adjustResize">
- <meta-data 
-           android:name="android.support.PARENT_ACTIVITY"
-           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-  </activity>
-```
 
 
 
