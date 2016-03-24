@@ -2205,7 +2205,9 @@ message = {key: "MESSAGE_IDENTIFIER",
            timeStamp: 'MESSAGE_CREATED_TIMESTAMP'          
            }
 ```              
+# PLATFORM API   
 
+**For Platform API vist : https://www.applozic.com/platform.html ** 
 
 #Message Fallback Time
 
