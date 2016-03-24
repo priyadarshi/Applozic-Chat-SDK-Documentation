@@ -22,14 +22,15 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-**Step 1: Add the following in your build.gradle dependency**:      
+**Step 1: Add dependency in build.gradle**:      
 
 
+```
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.27'    
+```
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.27' `      
 
-
-Add the following in gradle android target:      
+Add packagingOptions in gradle android target:      
 
 
 ```
@@ -79,7 +80,7 @@ android {
    **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
   
-  Define below in your string.xml.          
+  Configure media location folder in your string.xml          
      
 ```
 <string name="default_media_location_folder"><YOUR_APP_NAME></string> 
@@ -91,10 +92,6 @@ android {
   Register at [Applozic](https://www.applozic.com/) to get the application key.
 
 Permissions:          
-
-
-
-
 
 
 ```
@@ -135,9 +132,7 @@ Broadcast Registration For PushNotification:
 
 
 
-Paste the following in your androidmanifest.xml:       
-
-
+Add activity, services and receiver in your androidmanifest.xml:       
 
 
    
@@ -277,15 +272,10 @@ Paste the following in your androidmanifest.xml:
 ```
 
 
-
-
-
-
 Replace APP_PARENT_ACTIVITY with your app's parent activity.        
 
+
 **Step 3: Register user account**:     
-
-
 
      
 ```
@@ -314,6 +304,7 @@ new UserLoginTask(user, listener, this).execute((Void) null);
 
 If it is a new user, new user account will get created else existing user will be logged in to the application.
 
+
 **Step 4: Updating GCM registration id:**
 
 In case, if you don't have the existing GCM related code, then copy the files from https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification
@@ -323,8 +314,6 @@ To Enable Android Push Notification using Google Cloud Messaging (GCM) visit the
 
 After Registering project at https://console.developers.google.com Replace the value of GCM_SENDER_ID in GCMRegistrationUtils.java with your own project gcm sender id.
 SenderId is a unique numerical value created when you configure your API project (given as "Project Number" in the Google Developers Console).            
-
-
 
 
 ```
@@ -346,7 +335,9 @@ public void onSuccess(RegistrationResponse registrationResponse)
 @Override          
 public void onFailure(RegistrationResponse registrationResponse, Exception exception)      
 {             
-} };                    
+} 
+
+};                    
 
 pushNotificationTask = new PushNotificationTask(pushnotificationId, listener, mActivity);            
 pushNotificationTask.execute((Void) null);                          
@@ -356,10 +347,6 @@ pushNotificationTask.execute((Void) null);
 **Step 5: Handling push notification
 **
 Add the following in your GcmBroadcastReceiver's onReceive method.     
-
-
-
-
 
        
 ```
@@ -393,17 +380,12 @@ startActivity(intent);
 **Step 7: On logout, call the following**:       
 
 
-
-
+```
  new UserClientService(this).logout();      
- 
+```
  
  
  Note: If you are running ProGuard, please add following lines:        
- 
- 
- 
- 
  
 ```
  #keep json classes                
@@ -417,10 +399,6 @@ startActivity(intent);
 -keep class com.google.gson.examples.android.model.** { *; }            
 -keep class org.eclipse.paho.client.mqttv3.logging.JSR47Logger { *; }                                    
  ``` 
-   
-   
-   
-   
 
 
 
@@ -434,12 +412,11 @@ Open project in Android Studio to run the sample app in your device. Send messag
 You can either choose to handle display name from your app or have Applozic handle it.
 From your app's first activity, set the following to disable display name feature:
 
+```
 ApplozicClient.getInstance(this).setHandleDisplayName(false);
+```
 
 By default, the display name feature is enabled.
-
-
-
 
 
 
@@ -451,6 +428,7 @@ Sent Message bubble color
  ```
 ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
+ 
 Received Message bubble color
 
  ```
@@ -500,8 +478,9 @@ Refer to the below documentation for a deeper integration if you wish to perform
 
 **1. Account registration**:      
    
+```
 Class: com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
-
+```
 
 
 ```
@@ -511,8 +490,9 @@ new RegisterUserClientService(activity).createAccount
 
 **2. Send message**:    
 
+```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService         
-
+```
 
 
 ```
@@ -522,20 +502,20 @@ Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
  }                
 ```
 
-Example: new MobiComConversationService(activity).sendMessage(new     
+Example: 
+```
+new MobiComConversationService(activity).sendMessage(new     
 Message("contact@applozic.com", "hello test"));         
-
+```
 
 
 **3. Message list**:      
 
+```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
-
+```
   
 i) Get single latest message from each conversation        
-
-
-
 
 ```
  public synchronized List<Message> getLatestMessagesGroupByPeople()        
@@ -547,8 +527,6 @@ i) Get single latest message from each conversation
 
 ii) Get messages of logged in user with another user by passing userId, startTime and      
  endTime. startTime and endTime are considered in time in milliseconds from 1970.       
-
-
 
 
 ```
@@ -572,8 +550,6 @@ You can create the contact list in two easy steps by using AppContactService.jav
 
 **Step 1: Creating contact object:**         
 
-
-
 ```
     Contact contact = new Contact();            
     contact.setUserId(<userId>);           
@@ -585,7 +561,6 @@ You can create the contact list in two easy steps by using AppContactService.jav
 ```
 
 Example :        
-
 
 ```
     Contact contact = new Contact();                 
@@ -601,8 +576,6 @@ After creating contact object in Step 1, add the contact using AppContactService
  
 Example :        
 
-
-
 ```
     Context context = getApplicationContext();           
     AppContactService appContactService = new AppContactService(context);            
@@ -617,20 +590,40 @@ Example :
 
 AppContactService.java provides methods you need to add, delete and update contacts.
 
-**add(Contact contact)** :  Add single contact.
+Add single contact
+```
+add(Contact contact)
+```
 
-**addAll(List<Contact> contactList)** : Add multiple contacts.
+Add multiple contacts
+```
+addAll(List<Contact> contactList)
+```
 
-**deleteContact(Contact contact)** : Delete contact.
+Delete contact
+```
+deleteContact(Contact contact)
+```
 
-**deleteContactById(String contactId)** : Delete contact by Id.
+Delete contact by Id
+```
+deleteContactById(String contactId)
+```
 
-**getContactById(String contactId )** : Read contact by Id.
+Read contact by Id
+```
+getContactById(String contactId )
+```
 
-**updateContact(Contact contact)** : Update contact.
+Update contact
+```
+updateContact(Contact contact)
+```
 
-**upsert(Contact contact)** : update or insert contact.      
-
+Update or Insert contact
+```
+upsert(Contact contact)
+```
 
 
 
