@@ -50,7 +50,7 @@ android {
                 
 ```
 
-**Step 2: Addition of Permissions, Services and Receivers in androidmanifest.xml**:
+**Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml**:
            
 ```
 
@@ -87,8 +87,6 @@ android {
 ```
   
   
-  
-  
   Register at [Applozic](https://www.applozic.com/) to get the application key.
 
 Permissions:          
@@ -117,8 +115,6 @@ Permissions:
 
 
 Broadcast Registration For PushNotification:        
-
-
    
 ```
 <receiver android:name="com.applozic.mobicomkit.uiwidgets.notification.MTNotificationBroadcastReceiver">
@@ -131,9 +127,7 @@ Broadcast Registration For PushNotification:
 **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
 
-
 Add activity, services and receiver in your androidmanifest.xml:       
-
 
    
 ```
