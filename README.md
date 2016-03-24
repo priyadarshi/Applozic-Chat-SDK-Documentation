@@ -99,6 +99,7 @@ Permissions:
 
 ```
 <uses-permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" />
+<uses-permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" />
 <permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
  <permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
