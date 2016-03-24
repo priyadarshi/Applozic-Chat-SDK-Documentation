@@ -1540,8 +1540,11 @@ Above options description :-
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 7
  4) accessToken: 'PASS_USER_ACCESS_TOKEN_HERE'                            //Type - String (optional)    
- Access token is to authenticate user from your end.To enable access token authentication you have to configure authentication url in admin dashboard. For more detail read :**https://www.applozic.com/developers.html#authentication-url**. 
+ Access token is to authenticate user from your end.To enable access token authentication you have to configure authentication url in admin dashboard. 
 ```
+For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
+
+
 **Step 5: Sample code for **onInit()** function :-** 
 
 You can write javascript function to execute your logic on plugin initialization -
@@ -1821,8 +1824,10 @@ description -
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
   Function should return USER_IMAGE_URL by taking USERID as a input parameter. Example given in Step 8
  4) accessToken: 'PASS_USER_ACCESS_TOKEN_HERE'                            //Type - String (optional)    
- Access token is to authenticate user from your end.To enable access token authentication you have to configure authentication url in admin dashboard. For more detail read :**https://www.applozic.com/developers.html#authentication-url**. 
+ Access token is to authenticate user from your end.To enable access token authentication you have to configure authentication url in admin dashboard. 
 ```
+For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
+
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
 **Step 6: Sample code for **onInit()** function :-** 
