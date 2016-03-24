@@ -50,7 +50,8 @@ android {
                 
 ```
 
-**Step 2: Addition of Permissions, Services and Receivers in androidmanifest.xml**:
+
+**Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml**:
            
 ```
 
