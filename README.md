@@ -22,7 +22,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-**Step 1: Add dependency in build.gradle**:      
+###Step 1: Add dependency in build.gradle:      
 
 
 ```
@@ -51,7 +51,7 @@ android {
 ```
 
 
-**Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml**:
+###Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml:
            
 ```
 
@@ -276,7 +276,7 @@ Add activity, services and receiver in your androidmanifest.xml:
 Replace APP_PARENT_ACTIVITY with your app's parent activity.        
 
 
-**Step 3: Register user account**:     
+###Step 3: Register user account:     
 
      
 ```
@@ -306,7 +306,7 @@ new UserLoginTask(user, listener, this).execute((Void) null);
 If it is a new user, new user account will get created else existing user will be logged in to the application.
 
 
-**Step 4: Updating GCM registration id:**
+###Step 4: Updating GCM registration id:
 
 In case, if you don't have the existing GCM related code, then copy the files from https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification
 to your project and add the following lines in the "onSuccess" method mentioned in Step 3.
@@ -345,8 +345,7 @@ pushNotificationTask.execute((Void) null);
 ```
 
 
-**Step 5: Handling push notification
-**
+###Step 5: Handling push notification
 Add the following in your GcmBroadcastReceiver's onReceive method.     
 
        
@@ -359,7 +358,7 @@ return;
 ```
 
 
-**Step 6: For starting the messaging activity**:        
+###Step 6: For starting the messaging activity:        
 
       
 ```
@@ -378,8 +377,7 @@ intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put 
 startActivity(intent);                              
 ```
 
-**Step 7: On logout, call the following**:       
-
+###Step 7: On logout, call the following:       
 
 ```
  new UserClientService(this).logout();      
@@ -402,8 +400,7 @@ startActivity(intent);
  ``` 
 
 
-
-** Running demo app **:   
+### Running demo app:   
 
 Open project in Android Studio to run the sample app in your device. Send messages between multiple devices. 
 
