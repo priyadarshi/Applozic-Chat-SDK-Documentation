@@ -14,20 +14,17 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 
 
-****Application To User Messaging****
+## Application To User
 
 Application can send automated in-app messages to users using Application to User Messaging API.
 
 
 
 
-
-### DISPATCH MESSAGE API        
-
+### Dispatch Message      
 
 
-
-**DISPATCH URL**: https://apps.applozic.com/rest/ws/message/dispatch
+**DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
 
 **Method Type**: POST
 
@@ -148,15 +145,7 @@ Apz-AppId: Application Key as shown in Applozic dashboard page.
 
 
 
-
-****User To User Messaging****
-
-
-
-
-  
-
-****Create User API****        
+### Create User        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
 
@@ -217,7 +206,6 @@ then the Apz-Token will be:
 Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
 
 Apz-AppId: application key of application for which admin want to send message. 
-
 
 
 
