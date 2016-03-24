@@ -3193,7 +3193,7 @@ Webhook Url is configured by application admin in Applozic Dashbaord for getting
  
 #Authentication Url
 
-Authentication Url is configured by application admin in Applozic Dashbaord for custom authenticating the application users. The Url should accept POST request with following two paramters.
+Authentication Url is configured by application admin in Applozic Dashbaord for authenticating users from your side. The Url should accept POST request with following two paramters.
 The user should provide the access token in the "accessToken" option while plugin initialization.
 
 | Parameter  | Description |
