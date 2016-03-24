@@ -14,7 +14,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 
 
-## Application To User
+ **Application To User**
 
 Application can send automated in-app messages to users using Application to User Messaging API.
 
@@ -144,7 +144,6 @@ Apz-Token: Basic amFja0BnbWFpbC5jb206dGVzdA==
 Apz-AppId: Application Key as shown in Applozic dashboard page.
 
 
-
 ### Create User        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
@@ -215,7 +214,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-### Register User API        
+### Register User    
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
 
@@ -331,7 +330,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-
+#Message API
 
 
 
@@ -492,9 +491,42 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | error  |This will come if any exception occurs on server. In case of any exception contact devashish@applozic.com  |
 
 
+### Delete Conversation Thread           
 
 
-### Retreive Conversation
+
+**DELETE CONVERSATION THREAD URL** : https://apps.applozic.com/rest/ws/message/delete/conversation
+
+**Method Type**: GET 
+
+**Parameters**:          
+
+
+
+| Parameter  | Response | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId  | Yes  |   | User for which you want to delete thread  |         
+
+
+
+
+
+**Response**:           
+
+
+
+
+| Parameter  | Description | 
+| ------------- | ------------- | 
+| success  | Request is successfully processedl  |
+| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
+      
+
+
+# Topic Based Conversation
+
+
+### Retreive Topic Conversation
 
 **URL**: https://apps.applozic.com/rest/ws/conversation/id
 
@@ -567,40 +599,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 }
 ```
 
-
-### Delete Conversation Thread           
-
-
-
-**DELETE CONVERSATION THREAD URL** : https://apps.applozic.com/rest/ws/message/delete/conversation
-
-**Method Type**: GET 
-
-**Parameters**:          
-
-
-
-| Parameter  | Response | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| userId  | Yes  |   | User for which you want to delete thread  |         
-
-
-
-
-
-**Response**:           
-
-
-
-
-| Parameter  | Description | 
-| ------------- | ------------- | 
-| success  | Request is successfully processedl  |
-| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
-      
-
-
-
+# Group API
 
 ### Group Creation
 
@@ -642,9 +641,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 ```
 
 
-
-
-### Groups List Of User
+### User's Group List
 
 
 
@@ -681,7 +678,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-### Delete group
+### Delete Group
 
 
 
@@ -722,7 +719,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-### Remove  Group member 
+### Remove Group Member 
 
 
 
@@ -854,8 +851,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
  ```
 
-
-
+# Block/Unblock API
 
 ### Block User     
 
