@@ -776,7 +776,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
  ```
 
-# Topic/Product Chat API 
+# Topic/Product API 
 
 
 ### Retreive Conversation Id
