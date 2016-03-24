@@ -3188,8 +3188,23 @@ Webhook Url is configured by application admin in Applozic Dashbaord for getting
 
 
  ```  
-{"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015","from":"lee","to":"kevin","message":"hello","timeStamp":1457958424000}  
+{"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015","from":"lee","to":"kevin","message":"hello","timeStamp":1457958424000}
+ ```
+ 
+#Authentication Url
 
+Authentication Url is configured by application admin in Applozic Dashbaord for custom authenticating the application users. The Url should accept POST request with following two paramters
+
+| Parameter  | Description |
+| ------------- | ------------- |
+| username | UserName of the user who should be authenticated |
+| token | Access token for the specified user |
+
+**Response**: Response text received on configured url:
+
+ ```  
+true : If user is authenticated
+false : If user is not authenticated.
  ```
 
 
