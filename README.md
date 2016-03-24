@@ -26,7 +26,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.26' `      
+`compile 'com.applozic.communication.uiwidget:mobicomkitui:3.27' `      
 
 
 Add the following in gradle android target:      
@@ -67,10 +67,14 @@ android {
            
 <meta-data android:name="main_folder_name"
            android:value="@string/default_media_location_folder" /> <!-- Attachment Folder Name -->
+
+<meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_GEO_API_KEY" />  <!-- Google maps geo API KEY  -->
            
 <meta-data android:name="com.package.name" 
            android:value="${applicationId}" /> 
            
+        
 ```
    **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
@@ -96,6 +100,7 @@ Permissions:
 ```
 <uses-permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" />
 <permission android:name="<APP_PKG_NAME>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+ <permission android:name="<APP_PKG_NAME>.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  />
@@ -109,6 +114,7 @@ Permissions:
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
   ```
 
 
@@ -176,27 +182,42 @@ Paste the following in your androidmanifest.xml:
           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
 </activity>
 
-<activity
-    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:launchMode="singleTop"
-    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-    android:theme="@style/ApplozicTheme">
- <meta-data
-           android:name="android.support.PARENT_ACTIVITY"
-           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+<activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme">
+   <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+ </activity>
+
+<activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
+          android:configChanges="keyboardHidden|orientation|screenSize"
+          android:launchMode="singleTop"
+          android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+          android:theme="@style/ApplozicTheme">
+     <meta-data
+              android:name="android.support.PARENT_ACTIVITY"
+              android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
 </activity>
 
-<activity
-    android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
-    android:configChanges="keyboardHidden|orientation|screenSize"
-    android:launchMode="singleTop"
-    android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
-    android:theme="@style/ApplozicTheme">
-<meta-data
-          android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+ <activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelNameActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+           android:theme="@style/ApplozicTheme">
 </activity>
+
+ <activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelInfoActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+           android:theme="@style/ApplozicTheme">
+  <meta-data
+           android:name="android.support.PARENT_ACTIVITY"
+           android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+ </activity>
 
 <activity
      android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobiComAttachmentSelectorActivity"
@@ -208,7 +229,15 @@ Paste the following in your androidmanifest.xml:
  <meta-data 
            android:name="android.support.PARENT_ACTIVITY"
            android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-  </activity>
+ </activity>
+ 
+ <activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobicomLocationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme"
+            android:windowSoftInputMode="adjustResize">
+ </activity>
+  
                    
 <service android:name="com.applozic.mobicomkit.api.conversation.MessageIntentService"
           android:exported="false" />
