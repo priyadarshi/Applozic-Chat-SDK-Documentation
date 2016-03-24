@@ -731,8 +731,13 @@ a )  [**Sign up**](https://www.applozic.com/signup.html) with Applozic to get yo
 b ) Once you signed up create your Application with required details on admin dashboard. Upload your push notification certificate to our portal to enable real time notification.         
 
 
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-blank-page.png)         
+
+
 c) After creating application, you will see your application key listed on admin dashboard. Please use same application key explained in further steps.          
 
+
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-dashboard-content-page.png)         
 
 
 
@@ -743,6 +748,9 @@ Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK/tree/mas
 Get the latest framework "Applozic.framework" from Applozic github repo [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/sampleapp)
 
 **Add framework to your project:**
+
+![dashboard-blank-content](https://raw.githubusercontent.com/AppLozic/Applozic-Chat-SDK-Documentation/master/Resized-adding-applozic-framework.png)        
+
 
 i ) Paste Applozic framework to root folder of your project. 
 ii ) Go to Build Phase. Expand  Embedded frameworks and add applozic framework.         
@@ -1105,7 +1113,9 @@ Below are additional APIs for contact load, update and delete and requires a ALC
  
  Applozic SDK provide APIs which let you set and customise the chat’s context. Developers can create a ‘Conversation’ and launch a chat with context set. 
 
+The picture below shown depicts the context header set below the navigation bar.Suppose a buyer want to have context chat with seller 'Adarsh' on product macbook pro.
 
+ ![picture alt](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/images/contextBased.png "Context-based header view")
 
 __ALConversationProxy__ is a class which let you build your conversation context
 
