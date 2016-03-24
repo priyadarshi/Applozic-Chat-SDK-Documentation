@@ -7,7 +7,7 @@ Integrate native app message communication to your product without developing an
 Are you looking for platform-native Sdks to integrate into your app. All you need to do is include the Applozic SDK as a library in your project and a couple of lines of code. We will take care of rest things from server hosting, database, maintenance to analytics.     
 
 
-### Rest API       
+# Rest API       
 
 
 
@@ -22,7 +22,7 @@ Application can send automated in-app messages to users using Application to Use
 
 
 
-****DISPATCH MESSAGE API****        
+### DISPATCH MESSAGE API        
 
 
 
@@ -227,7 +227,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-****Register User API****        
+### Register User API        
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
 
@@ -347,7 +347,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-****Send Message****   
+### Send Message   
 
 
 
@@ -395,7 +395,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-***Multi Send Message***
+### Multi User Send Message
 
 
 **URL**: https://apps.applozic.com/rest/ws/message/sendall
@@ -430,7 +430,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-****Message List****        
+### Message List        
 
 **MESSAGE LIST URL**: https://apps.applozic.com/rest/ws/message/list
 
@@ -474,7 +474,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-****Delete Message****     
+### Delete Message     
 
 
 
@@ -506,7 +506,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-***Conversation API***
+### Retreive Conversation
 
 **URL**: https://apps.applozic.com/rest/ws/conversation/id
 
@@ -580,7 +580,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 ```
 
 
-****Delete Conversation Thread ****           
+### Delete Conversation Thread           
 
 
 
@@ -614,7 +614,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-***Group Creation***
+### Group Creation
 
 
 **GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create 
@@ -656,7 +656,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Groups List Of User**** 
+### Groups List Of User
 
 
 
@@ -693,7 +693,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Delete group**** 
+### Delete group
 
 
 
@@ -734,7 +734,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Remove  Group member**** 
+### Remove  Group member 
 
 
 
@@ -776,7 +776,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
  ```
 
 
-****Leave Group**** 
+### Leave Group 
 
 
 
@@ -808,7 +808,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Add Group Member****
+### Add Group Member
 
 
 
@@ -840,7 +840,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Change Group Name****
+### Change Group Name
 
 
 
@@ -869,7 +869,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Block User****     
+### Block User     
 
 
 
@@ -897,7 +897,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
  ```
 
- 
+ ### Unblock User    
  
 
 **UNBLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/unblock
