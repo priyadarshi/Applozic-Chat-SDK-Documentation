@@ -434,6 +434,7 @@ By default, the display name feature is enabled.
 ####Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()
 
 Sent Message bubble color
+
  ```
 ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
