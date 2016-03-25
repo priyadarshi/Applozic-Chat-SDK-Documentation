@@ -1754,18 +1754,19 @@ A light weight jQuery plugin for integrating chat and messaging into your web pa
 #### Step 1: Sign up at https://www.applozic.com/  to get the application key
 
 
-#### Step 2: For UI customization, checkout  https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced 
+#### Step 2: For UI customization, checkout
 
+https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced 
 Open  message.html file as a reference and add all scripts and html in your web page in same order as given in message.html
 
 
-Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) 
+#### Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) 
 
 ```
   $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
 
-Step 4: Configure value in above script     
+#### Step 4: Configure value in above script     
 
 description - 
 
@@ -1777,7 +1778,7 @@ description -
 ```
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
-Step 5: Some additional options which you can configure while plugin initialization in Step 3
+#### Step 5: Some additional options which you can configure while plugin initialization in Step 3
 
 
 ```
@@ -1794,7 +1795,7 @@ For more detail about access token, read :**https://www.applozic.com/developers.
 
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
-Step 6: Sample code for **onInit()** function
+#### Step 6: Sample code for **onInit()** function
 
 You can write javascript function to execute your logic after plugin initialization
 
@@ -1908,7 +1909,7 @@ mck-search
 
  ``` 
  
-####Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional)
+#### Step 13: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
