@@ -22,7 +22,7 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-####Step 1
+####Step 1: Dependency
 
 Add dependency in build.gradle
 
@@ -54,8 +54,8 @@ android {
 
 ####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml:
            
+           
 ```
-
 <meta-data android:name="com.applozic.application.key"
            android:value="YOUR_APPLOZIC_APPLICATION_KEY" /> <!-- Applozic Application Key -->
 
@@ -274,6 +274,7 @@ Replace APP_PARENT_ACTIVITY with your app's parent activity.
 
 
 ####Step 3: Register user account:     
+
 
      
 ```
