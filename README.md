@@ -1615,7 +1615,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag          
  
  
-### Step 11: To add auto suggest users list in search field use below html element id (optional)
+#### Step 11: To add auto suggest users list in search field use below html element id (optional)
 
 You can bind auto suggest plugin on input search field of id given below -      
 
