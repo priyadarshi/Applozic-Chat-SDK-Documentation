@@ -54,7 +54,7 @@ android {
 
 ####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml:
            
-        Meta-data
+Meta-data
         
 ```
 <meta-data android:name="com.applozic.application.key"
