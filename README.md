@@ -22,7 +22,9 @@ Android chat and messaging library that lets you enable real time chat without d
 
 
 
-####Step 1: Add dependency in build.gradle:      
+####Step 1
+
+Add dependency in build.gradle
 
 
 ```
