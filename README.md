@@ -386,9 +386,9 @@ intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put 
 startActivity(intent);                              
 ```
 
-####Step 7: On logout, call the following:       
+####Step 7: Logout:       
 
-Logout
+On user logout, calling the following to logout user from Applozic
 
 ```
  new UserClientService(this).logout();      
