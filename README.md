@@ -1760,8 +1760,9 @@ https://github.com/AppLozic/Applozic-Web-Plugin/tree/master/message/advanced
 Open  message.html file as a reference and add all scripts and html in your web page in same order as given in message.html
 
 
-#### Step 3: Initialize plugin using script given below (Initialize once page load completely, preferable in document.ready function) 
+#### Step 3: Initialize plugin 
 
+Initialize plugin using script (Initialize once page load completely, preferable in document.ready function)
 ```
   $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
@@ -2136,7 +2137,7 @@ Response object - {'userId': 'disconnected-user-id', 'lastSeenAtTime' : 'time in
 
 
 
-#### Step 5 : Send Message function :- **                 
+#### Step 5 : Send Message function                
 
 ```               
 applozic.sendMessage(message, {'callback': sendMessageCallbackFunction});
