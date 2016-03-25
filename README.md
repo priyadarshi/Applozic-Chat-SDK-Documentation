@@ -54,7 +54,8 @@ android {
 
 ####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml:
            
-           
+        Meta-data
+        
 ```
 <meta-data android:name="com.applozic.application.key"
            android:value="YOUR_APPLOZIC_APPLICATION_KEY" /> <!-- Applozic Application Key -->
@@ -131,8 +132,7 @@ Broadcast Registration For PushNotification:
 **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
 
-Add activity, services and receiver in your androidmanifest.xml:       
-
+Activity
    
 ```
  <activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
@@ -231,8 +231,12 @@ Add activity, services and receiver in your androidmanifest.xml:
             android:theme="@style/ApplozicTheme"
             android:windowSoftInputMode="adjustResize">
  </activity>
+ ```
   
-                   
+  
+  Service
+         
+```          
 <service android:name="com.applozic.mobicomkit.api.conversation.MessageIntentService"
           android:exported="false" />
               
@@ -243,7 +247,12 @@ Add activity, services and receiver in your androidmanifest.xml:
              
 <service android:name="com.applozic.mobicomkit.api.conversation.ApplozicMqttIntentService"
          android:exported="false" />
+```
 
+
+Receiver
+
+```
 <receiver android:name="com.applozic.mobicomkit.broadcast.NotificationBroadcastReceiver">
          <intent-filter>
                  <action android:name="applozic.LAUNCH_APP" />
@@ -275,7 +284,7 @@ Replace APP_PARENT_ACTIVITY with your app's parent activity.
 
 ####Step 3: Register user account:     
 
-
+UserLoginTask
      
 ```
 UserLoginTask.TaskListener listener = new UserLoginTask.TaskListener() {                  
@@ -357,8 +366,9 @@ return;
 ```
 
 
-####Step 6: For starting the messaging activity:        
+####Step 6: Start chat activity:        
 
+ConversationActivity
       
 ```
 Intent intent = new Intent(this, ConversationActivity.class);            
@@ -378,6 +388,7 @@ startActivity(intent);
 
 ####Step 7: On logout, call the following:       
 
+Logout
 
 ```
  new UserClientService(this).logout();      
