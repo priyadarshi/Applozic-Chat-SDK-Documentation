@@ -646,9 +646,9 @@ upsert(Contact contact)
 
 Create the Group with Group Name and Group Members. The below code illustrator creation of group 
 
-  Class to import : com.applozic.mobicomkit.api.people.ChannelCreate            
+  Class to import :com.applozic.mobicomkit.api.people.ChannelCreate            
   
-  Class to import : com.applozic.mobicomkit.channel.service.ChannelService
+  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
   
   ```
 new Thread(new Runnable() {
@@ -671,29 +671,89 @@ new Thread(new Runnable() {
  ```
  
 
-**2) Add Member to group** 
-
+**2) Add Member to group**
+  
+  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
+  
+  __Parameters:__
+  
+  __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
+  
+  __userId__:Unique userId of string type to whom u want to add to group/cahnnel
+  
+   __Return response__: If user added successfully in group/cahnnel it returns success else error 
  ``` 
- Intent addUserIntent = new Intent(context, ApplozicChannelIntentService.class);
- addUserIntent.putExtra(ApplozicChannelIntentService.CHANNEL_KEY, "channelKey"); //Replace channelKey with your channelKey i.e groupId
- addUserIntent.putExtra(ApplozicChannelIntentService.ADD_USER_TO_CHANNEL, "userId");// Replace the userId with which u want add the user into the group
- startService(addUserIntent);
+ new Thread(new Runnable() {
+        @Override
+             public void run() {
+        String response = ChannelService.getInstance(context).addMemberToChannelProcess(channelKey, userId);
+         }
+    }).start();
  ```
  
  **3) Remove Member From the group**
-  ```
- Intent removeUserIntent = new Intent(context, ApplozicChannelIntentService.class);
- removeUserIntent.putExtra(ApplozicChannelIntentService.CHANNEL_KEY, "channelKey");//Replace channelKey with your channelKey i.e groupId
- removeUserIntent.putExtra(ApplozicChannelIntentService.REMOVE_USER_ID_FROM_CHANNEL, "userId");// Replace the userId that which u want to Remove  user from the group
- startService(removeUserIntent);
- ```
  
- **4)To Change the Group Name**
+  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
+  
+  __Parameters:__
+  
+ __channelKey__:Is a Unique Integer type from which u want to remove member
+ 
+ __userId__:Unique userId of string type whome u want to remove from group/channel
+
+ __Return response__: If user Removed successfully from group/cahnnel it returns success else error 
+ 
+ 
+  __NOTE:__ Only admin can remove member from the group/channel.
+  ```
+ new Thread(new Runnable() {
+         @Override
+         public void run() {
+    String response = ChannelService.getInstance(context).removeMemberFromChannelProcess(channelKey, userId);
+                 }
+       }).start();
  ```
-  Intent changeGroupNameIntent = new Intent(context, ApplozicChannelIntentService.class);
-  changeGroupNameIntent.putExtra(ApplozicChannelIntentService.CHANNEL_KEY, "channelKey");//Replace channelKey with your channelKey i.e groupId
-  changeGroupNameIntent.putExtra(ApplozicChannelIntentService.CHANGE_CHANNEL_NAME, "newName"); //Replace the newName with group name
-  startService(changeGroupNameIntent);
+ **4) Leave Member From the group**
+ 
+ Class to import :com.applozic.mobicomkit.channel.service.ChannelService
+  
+  __Parameters:__
+ 
+ __channelKey__:Unique Integer type 
+ 
+ __userId__ :Unique userId of string type
+ 
+ __Return response__: success or error 
+
+  ```
+   new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+       String response = ChannelService.getInstance(context).leaveMemberFromChannelProcess(channelKey,userId);
+              }
+        }).start();
+  ```
+ 
+ 
+ **5)To Change the  Group Name**
+
+ Class to import:com.applozic.mobicomkit.feed.ChannelName
+  
+  Class to import:com.applozic.mobicomkit.channel.service.ChannelService
+  
+  __Return response__: If group/cahnnel name successfully changed it returns success else error 
+
+```
+ new Thread(new Runnable() {
+        @Override
+              public void run() {
+              Integer channelKey = 1234;
+              Strin newChannelName = "ApplozicGroup";
+              ChannelName channeName = new ChannelName(newChannelName,channelKey);//it accepts the new channel Name and channelKey 
+                String response = ChannelService.getInstance(context).updateNewChannelNameProcess(channelName);
+          }
+     }).start();
+
  ```
 
 
