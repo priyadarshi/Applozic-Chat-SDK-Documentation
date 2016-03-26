@@ -394,7 +394,7 @@ intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put 
 startActivity(intent);                              
 ```
 
-####Step 7: Logout:       
+####Step 7: Logout       
 
 On user logout, calling the following to logout user from Applozic
 
@@ -442,42 +442,41 @@ By default, the display name feature is enabled.
 
 ### UI Customization
 
-####Changing the Chat Bubble Color add this line inside the UserLoginTask onSuccess()
 
-Sent Message bubble color
+####Put the UI customization setting inside UserLoginTask "onSuccess" method
+
+Sent Message Chat Bubble Color
 
  ```
 ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
  
-Received Message bubble color
+Received Message Chat Bubble Color
 
  ```
 ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
  ```
 
-####Changing the Send Bubble Color add this line inside the UserLoginTask onSuccess()
 
- ```
-ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // it accepts the R.color.name
- ```
-
-####To show the Online in Quick Chat Screen add this line inside the UserLoginTask onSuccess()
+Show/Hide Green Dot for Online
 
  ```
 ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
+ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
  ```
 
-####To show contact list add this line inside the UserLoginTask onSuccess()
+Show/hide 'Start New Conversation' Plus (+) Button 
  
  ```
  ApplozicSetting.getInstance(context).showStartNewButton();
+ ApplozicSetting.getInstance(context).hideStartNewButton();
 ```
 
-####To show contact list FloatingActionButton  add this line inside the UserLoginTask onSuccess()
- 
+Show/hide 'Start New' FloatingActionButton
+
 ```
 ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
+ApplozicSetting.getInstance(context).hideStartNewFloatingActionButton();
 ```
 
 
