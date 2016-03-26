@@ -504,9 +504,12 @@ Refer to the below documentation for a deeper integration if you wish to perform
 
 ####Account registration   
    
+Import
+```
+import com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
+```
 
-Class: com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
-
+Code
 ```
 new RegisterUserClientService(activity).createAccount
 (USER_EMAIL, USER_ID, USER_PHONE_NUMBER, GCM_REGISTRATION_ID);         
@@ -514,10 +517,12 @@ new RegisterUserClientService(activity).createAccount
 
 ####Send message   
 
-
+Import
+```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService         
+```
 
-
+Code
 ```
  public void sendMessage(Message message)        
  {             
@@ -526,7 +531,6 @@ Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
 ```
 
 Example
-
 ```
 new MobiComConversationService(activity).sendMessage(new     
 Message("contact@applozic.com", "hello test"));         
@@ -535,13 +539,15 @@ Message("contact@applozic.com", "hello test"));
 
 ####Message list      
 
-
-Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
+Import
+```
+import com.applozic.mobicomkit.api.conversation.MobiComConversationService
+```
 
   
 i) Get single latest message from each conversation    
 
-
+Code
 ```
  public synchronized List<Message> getLatestMessagesGroupByPeople()        
  {            
@@ -553,7 +559,7 @@ i) Get single latest message from each conversation
 ii) Get messages of logged in user with another user by passing userId, startTime and      
  endTime. startTime and endTime are considered in time in milliseconds from 1970.       
 
-
+Code
 ```
  public List<Message> getMessages(String userId, Long startTime, Long endTime)        
  {            
