@@ -363,7 +363,7 @@ pushNotificationTask.execute((Void) null);
 
 ####Step 5: Handling Push Notification
 
-Add the following in your GcmBroadcastReceiver's onReceive method.     
+Add MobiComPushReceiver in your GcmBroadcastReceiver's onReceive method.     
 
        
 ```
