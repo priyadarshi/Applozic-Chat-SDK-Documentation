@@ -573,7 +573,7 @@ ii) Get messages of logged in user with another user by passing userId, startTim
 
 You can create the contact list in two easy steps by using AppContactService.java api. Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
 
-**Step 1: Creating contact object:**         
+**Step 1: Creating contact:**         
 
 ```
     Contact contact = new Contact();            
@@ -1059,7 +1059,7 @@ Applozic framework provides convenient APIs for building your own contact. Devel
 
  **Build your contact:** 
 
-** a ) Simple method to create your contact is to create contact object.
+** a ) Simple method to create your contact is to create contact.
 **                 
 
 
