@@ -415,6 +415,9 @@ On user logout, calling the following to logout user from Applozic
 
 Open project in Android Studio to run the sample app in your device. Send messages between multiple devices. 
 
+ ``` 
+https://github.com/AppLozic/Applozic-Android-SDK
+ ``` 
 
 #### Display name for users
 
