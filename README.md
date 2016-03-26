@@ -655,15 +655,16 @@ upsert(Contact contact)
 ### Group 
 
 
-**1) Group create Method**  
+####1) Group create Method
 
 Create the Group with Group Name and Group Members. The below code illustrator creation of group 
+Classes to import
 
-  Class to import :com.applozic.mobicomkit.api.people.ChannelCreate            
-  
-  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
-  
-  ```
+```
+import com.applozic.mobicomkit.api.people.ChannelCreate            
+import com.applozic.mobicomkit.channel.service.ChannelService
+```
+
 new Thread(new Runnable() {
      @Override
            public void run() {
@@ -684,10 +685,13 @@ new Thread(new Runnable() {
  ```
  
 
-**2) Add Member to group**
+####2) Add Member to group
   
-  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
-  
+  Class to import
+```
+  import com.applozic.mobicomkit.channel.service.ChannelService
+```
+   
   __Parameters:__
   
   __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
@@ -695,6 +699,7 @@ new Thread(new Runnable() {
   __userId__:Unique userId of string type to whom u want to add to group/cahnnel
   
    __Return response__: If user added successfully in group/cahnnel it returns success else error 
+   
  ``` 
  new Thread(new Runnable() {
         @Override
@@ -704,9 +709,12 @@ new Thread(new Runnable() {
     }).start();
  ```
  
- **3) Remove Member From the group**
+###3) Remove Member From the group
  
-  Class to import :com.applozic.mobicomkit.channel.service.ChannelService
+  Class to import
+   ```
+   com.applozic.mobicomkit.channel.service.ChannelService
+    ```
   
   __Parameters:__
   
@@ -718,6 +726,7 @@ new Thread(new Runnable() {
  
  
   __NOTE:__ Only admin can remove member from the group/channel.
+  
   ```
  new Thread(new Runnable() {
          @Override
@@ -726,9 +735,13 @@ new Thread(new Runnable() {
                  }
        }).start();
  ```
- **4) Leave Member From the group**
  
- Class to import :com.applozic.mobicomkit.channel.service.ChannelService
+####4) Leave Member From the group
+ 
+ Class to import
+```
+  import com.applozic.mobicomkit.channel.service.ChannelService
+```
   
   __Parameters:__
  
@@ -748,11 +761,14 @@ new Thread(new Runnable() {
   ```
  
  
- **5)To Change the  Group Name**
+####5)To Change the  Group Name
 
- Class to import:com.applozic.mobicomkit.feed.ChannelName
-  
-  Class to import:com.applozic.mobicomkit.channel.service.ChannelService
+ Classes to import
+
+```
+  com.applozic.mobicomkit.feed.ChannelName
+  com.applozic.mobicomkit.channel.service.ChannelService
+```
   
   __Return response__: If group/cahnnel name successfully changed it returns success else error 
 
@@ -768,8 +784,6 @@ new Thread(new Runnable() {
      }).start();
 
  ```
-
-
 
 
 
