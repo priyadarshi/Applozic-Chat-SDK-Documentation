@@ -698,7 +698,7 @@ Code
  ```
  
 
-####2) Add Member to group
+####2) Add Member to Group
   
 Import
 ```
@@ -724,7 +724,7 @@ Code
    __Return response__: If user added successfully in group/channel it returns success else error 
  
  
-####3) Remove Member From the group
+####3) Remove Member from Group
  
 Import  
 ```
@@ -753,7 +753,7 @@ Code
   __NOTE:__ Only admin can remove member from the group/channel.
   
  
-####4) Leave Member From the group
+####4) Leave Group
  
 Import
 ```
