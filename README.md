@@ -726,7 +726,7 @@ Code
  
 Import  
 ```
-   com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.channel.service.ChannelService
 ```
 
 Code
@@ -782,8 +782,8 @@ Code
 Import
 
 ```
-  com.applozic.mobicomkit.feed.ChannelName
-  com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.feed.ChannelName
+  import com.applozic.mobicomkit.channel.service.ChannelService
 ```
   
 Code
