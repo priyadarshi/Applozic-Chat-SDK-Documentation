@@ -660,16 +660,18 @@ upsert(Contact contact)
 ### Group 
 
 
-####1) Group create Method
+####1) Create Group
 
-Create the Group with Group Name and Group Members. The below code illustrator creation of group 
-Classes to import
+Create the Group with Group Name and Group Members. 
+
+Import
 
 ```
 import com.applozic.mobicomkit.api.people.ChannelCreate;            
 import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
 
+Code
  ```
 new Thread(new Runnable() {
      @Override
@@ -683,8 +685,9 @@ new Thread(new Runnable() {
 
  ```
  
-After adding group Members to List then pass the Group Name and Group Member List to constructor below
+After adding group Members to list, pass the Group Name and Group Member List to constructor below
 
+Code
  ```
   ChannelCreate channelCreate = new ChannelCreate(groupName, groupMemberList); // The Constructor accepts the two parameter String Group Name and List of Group Members.
    
@@ -698,7 +701,6 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 ####2) Add Member to group
   
 Import
-
 ```
   import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
