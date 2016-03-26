@@ -315,19 +315,24 @@ If it is a new user, new user account will get created else existing user will b
 
 ####Step 4: Updating GCM registration id
 
-In case, if you don't have the existing GCM related code, then copy the files from https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification
-to your project and add the following lines in the "onSuccess" method mentioned in Step 3.
+In case, if you don't have the existing GCM related code, then copy the push notification related files from Applozic sample app to your project
+
+``` 
+https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification
+``` 
+  
+Setup GCM in UserLoginTask "onSuccess" (refer Step 3).
+
+```
+ GCMRegistrationUtils gcmRegistrationUtils = new GCMRegistrationUtils(activity);          
+ gcmRegistrationUtils.setUpGcmNotification();                      
+```
 
 To Enable Android Push Notification using Google Cloud Messaging (GCM) visit the below link http://www.applozic.com/blog/enable-android-push-notification-using-google-cloud-messaging-gcm/
 
 After Registering project at https://console.developers.google.com Replace the value of GCM_SENDER_ID in GCMRegistrationUtils.java with your own project gcm sender id.
 SenderId is a unique numerical value created when you configure your API project (given as "Project Number" in the Google Developers Console).            
 
-
-```
- GCMRegistrationUtils gcmRegistrationUtils = new GCMRegistrationUtils(activity);          
- gcmRegistrationUtils.setUpGcmNotification();                      
-```
 
 If you already have a GCM code in your app, then copy the following code at the place where you are getting the GCM registration id.       
      
