@@ -443,7 +443,7 @@ By default, the display name feature is enabled.
 ### UI Customization
 
 
-####Put the UI customization setting inside UserLoginTask "onSuccess" method
+**Add UI customization setting inside UserLoginTask "onSuccess" method**
 
 Sent Message Chat Bubble Color
 
