@@ -699,11 +699,6 @@ After adding group Members to List then pass the Group Name and Group Member Lis
    
   __Parameters:__
   
-  __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
-  
-  __userId__:Unique userId of string type to whom u want to add to group/cahnnel
-  
-   __Return response__: If user added successfully in group/cahnnel it returns success else error 
    
  ``` 
  new Thread(new Runnable() {
@@ -713,6 +708,13 @@ After adding group Members to List then pass the Group Name and Group Member Lis
          }
     }).start();
  ```
+
+  __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
+  
+  __userId__:Unique userId of string type to whom u want to add to group/cahnnel
+  
+   __Return response__: If user added successfully in group/cahnnel it returns success else error 
+ 
  
 ###3) Remove Member From the group
  
