@@ -504,9 +504,8 @@ Refer to the below documentation for a deeper integration if you wish to perform
 
 ####Account registration   
    
-```
+
 Class: com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
-```
 
 ```
 new RegisterUserClientService(activity).createAccount
@@ -516,9 +515,7 @@ new RegisterUserClientService(activity).createAccount
 ####Send message   
 
 
-```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService         
-```
 
 
 ```
@@ -528,7 +525,8 @@ Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
  }                
 ```
 
-Example: 
+Example
+
 ```
 new MobiComConversationService(activity).sendMessage(new     
 Message("contact@applozic.com", "hello test"));         
@@ -538,9 +536,8 @@ Message("contact@applozic.com", "hello test"));
 ####Message list      
 
 
-```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
-```
+
   
 i) Get single latest message from each conversation    
 
