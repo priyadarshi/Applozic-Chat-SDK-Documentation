@@ -315,6 +315,7 @@ If it is a new user, new user account will get created else existing user will b
 
 ####Step 4: Updating GCM registration id
 
+**Don't have GCM setup?**
 In case, if you don't have the existing GCM related code, then copy the push notification related files from Applozic sample app to your project
 
 ``` 
@@ -334,6 +335,7 @@ After Registering project at https://console.developers.google.com Replace the v
 SenderId is a unique numerical value created when you configure your API project (given as "Project Number" in the Google Developers Console).            
 
 
+**GCM is already enabled in my app**
 If you already have a GCM code in your app, then copy the following code at the place where you are getting the GCM registration id.       
      
 ```
