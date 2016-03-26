@@ -575,6 +575,7 @@ You can create the contact list in two easy steps by using AppContactService.jav
 
 ####Step 1: Creating contact   
 
+Create
 ```
     Contact contact = new Contact();            
     contact.setUserId(<userId>);           
@@ -595,9 +596,9 @@ Example :
     contact.setEmailId("github@applozic.com");                
 ```
 
-####Step 2: Add contacts
+####Step 2: Save contact
 
-After creating contact object in Step 1, add the contact using AppContactService.java add() method.
+After creating contact object in Step 1, save the contact using AppContactService.java add() method.
  
 Example :        
 
