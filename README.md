@@ -691,12 +691,13 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 
 ####2) Add Member to group
   
-  Class to import
-  
+Import
+
 ```
   import com.applozic.mobicomkit.channel.service.ChannelService
 ```
 
+Code
  ``` 
  new Thread(new Runnable() {
         @Override
@@ -717,12 +718,12 @@ After adding group Members to List then pass the Group Name and Group Member Lis
  
 ####3) Remove Member From the group
  
-  Class to import
-  
+Import  
 ```
    com.applozic.mobicomkit.channel.service.ChannelService
 ```
 
+Code
   ```
  new Thread(new Runnable() {
          @Override
@@ -746,19 +747,11 @@ After adding group Members to List then pass the Group Name and Group Member Lis
  
 ####4) Leave Member From the group
  
- Class to import
-```
+Import```
   import com.applozic.mobicomkit.channel.service.ChannelService
 ```
   
-  __Parameters:__
- 
- __channelKey__:Unique Integer type 
- 
- __userId__ :Unique userId of string type
- 
- __Return response__: success or error 
-
+Code
   ```
    new Thread(new Runnable() {
                     @Override
@@ -768,17 +761,25 @@ After adding group Members to List then pass the Group Name and Group Member Lis
         }).start();
   ```
  
+   __Parameters:__
+ 
+ __channelKey__:Unique Integer type 
+ 
+ __userId__ :Unique userId of string type
+ 
+ __Return response__: success or error 
+ 
  
 ####5)To Change the  Group Name
 
- Classes to import
+Import
 
 ```
   com.applozic.mobicomkit.feed.ChannelName
   com.applozic.mobicomkit.channel.service.ChannelService
 ```
   
-  __Return response__: If group/channel name successfully changed it returns success else error 
+Code
 
 ```
  new Thread(new Runnable() {
@@ -793,6 +794,7 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 
  ```
 
+  __Return response__: If group/channel name successfully changed it returns success else error 
 
 
 
