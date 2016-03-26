@@ -598,10 +598,8 @@ Example :
 
 ####Step 2: Save contact
 
-After creating contact object in Step 1, save the contact using AppContactService.java add() method.
+Save the contact using AppContactService.java add() method.
  
-Example :        
-
 ```
     Context context = getApplicationContext();           
     AppContactService appContactService = new AppContactService(context);            
