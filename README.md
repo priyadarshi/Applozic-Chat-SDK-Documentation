@@ -52,7 +52,7 @@ android {
                 
 ```
 
-####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml:
+####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml
            
 Meta-data
         
@@ -282,7 +282,7 @@ Receiver
 Replace APP_PARENT_ACTIVITY with your app's parent activity.        
 
 
-####Step 3: Register user account:     
+####Step 3: Register user account 
 
 UserLoginTask
      
@@ -316,6 +316,7 @@ If it is a new user, new user account will get created else existing user will b
 ####Step 4: Updating GCM registration id
 
 **Don't have GCM setup?**
+
 In case, if you don't have the existing GCM related code, then copy the push notification related files from Applozic sample app to your project
 
 ``` 
@@ -336,7 +337,8 @@ SenderId is a unique numerical value created when you configure your API project
 
 
 **GCM is already enabled in my app**
-If you already have a GCM code in your app, then copy the following code at the place where you are getting the GCM registration id.       
+
+If you already have GCM enabled in your app, then paste PushNotificationTask code at the place where you are getting the GCM registration id in your app.       
      
 ```
 PushNotificationTask pushNotificationTask = null         
@@ -359,21 +361,20 @@ pushNotificationTask.execute((Void) null);
 ```
 
 
-####Step 5: Handling push notification
+####Step 5: Handling Push Notification
 
 Add the following in your GcmBroadcastReceiver's onReceive method.     
 
        
 ```
-if(MobiComPushReceiver.isMobiComPushNotification(intent))       
-{            
-MobiComPushReceiver.processMessageAsync(context, intent);               
-return;          
+if(MobiComPushReceiver.isMobiComPushNotification(intent)) {            
+        MobiComPushReceiver.processMessageAsync(context, intent);               
+        return;          
 }                     
 ```
 
 
-####Step 6: Start chat activity:        
+####Step 6: Start Chat Activity     
 
 ConversationActivity
       
