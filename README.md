@@ -448,13 +448,13 @@ By default, the display name feature is enabled.
 Sent Message Chat Bubble Color
 
  ```
-ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // it accepts the R.color.name
+ApplozicSetting.getInstance(context).setSentMessageBackgroundColor(int color); // accepts the R.color.name
  ```
  
 Received Message Chat Bubble Color
 
  ```
-ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // it accepts the R.color.name
+ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // accepts the R.color.name
  ```
 
 
@@ -480,14 +480,18 @@ ApplozicSetting.getInstance(context).hideStartNewFloatingActionButton();
 ```
 
 
-For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs : [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
+For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs :
+```
+[https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
+```
 
-Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui)  into your android project and add the following in the build.gradle file:
+Import [MobiComKitUI Library](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/mobicomkitui) into your android project and add the following in the build.gradle file:
 
+```
 compile project(':mobicomkitui')
+```
 
-
-MobiComKitUI contains the ui related source code, icons, layouts and other resources which you can customize based on your design needs.
+MobiComKitUI contains the UI related source code, icons, layouts and other resources which you can customize based on your design needs.
 
 For your custom contact list, replace MobiComKitPeopleActivity with your contact list activity.
 
@@ -504,13 +508,13 @@ Refer to the below documentation for a deeper integration if you wish to perform
 Class: com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
 ```
 
-
 ```
 new RegisterUserClientService(activity).createAccount
 (USER_EMAIL, USER_ID, USER_PHONE_NUMBER, GCM_REGISTRATION_ID);         
  ``` 
 
 ####Send message   
+
 
 ```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService         
@@ -533,11 +537,13 @@ Message("contact@applozic.com", "hello test"));
 
 ####Message list      
 
+
 ```
 Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService
 ```
   
-i) Get single latest message from each conversation        
+i) Get single latest message from each conversation    
+
 
 ```
  public synchronized List<Message> getLatestMessagesGroupByPeople()        
