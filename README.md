@@ -710,9 +710,9 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 
   __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
   
-  __userId__:Unique userId of string type to whom u want to add to group/cahnnel
+  __userId__:Unique userId of string type to whom u want to add to group/channel
   
-   __Return response__: If user added successfully in group/cahnnel it returns success else error 
+   __Return response__: If user added successfully in group/channel it returns success else error 
  
  
 ####3) Remove Member From the group
@@ -738,7 +738,7 @@ After adding group Members to List then pass the Group Name and Group Member Lis
  
  __userId__:Unique userId of string type whome u want to remove from group/channel
 
- __Return response__: If user Removed successfully from group/cahnnel it returns success else error 
+ __Return response__: If user Removed successfully from group/channel it returns success else error 
  
  
   __NOTE:__ Only admin can remove member from the group/channel.
@@ -778,7 +778,7 @@ After adding group Members to List then pass the Group Name and Group Member Lis
   com.applozic.mobicomkit.channel.service.ChannelService
 ```
   
-  __Return response__: If group/cahnnel name successfully changed it returns success else error 
+  __Return response__: If group/channel name successfully changed it returns success else error 
 
 ```
  new Thread(new Runnable() {
