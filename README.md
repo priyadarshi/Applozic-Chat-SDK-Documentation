@@ -573,7 +573,7 @@ ii) Get messages of logged in user with another user by passing userId, startTim
 
 You can create the contact list in two easy steps by using AppContactService.java api. Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
 
-**Step 1: Creating contact:**         
+####Step 1: Creating contact   
 
 ```
     Contact contact = new Contact();            
@@ -595,7 +595,7 @@ Example :
     contact.setEmailId("github@applozic.com");                
 ```
 
-**Step 2: Add contacts :**
+####Step 2: Add contacts
 
 After creating contact object in Step 1, add the contact using AppContactService.java add() method.
  
@@ -665,6 +665,7 @@ import com.applozic.mobicomkit.api.people.ChannelCreate
 import com.applozic.mobicomkit.channel.service.ChannelService
 ```
 
+ ```
 new Thread(new Runnable() {
      @Override
            public void run() {
@@ -675,9 +676,13 @@ new Thread(new Runnable() {
                 groupMemberList.add("member3");
                 groupMemberList.add("member4");
 
-  // After adding group Members to List then pass the Group Name and Group Member List to constructor below
+ ```
+ 
+After adding group Members to List then pass the Group Name and Group Member List to constructor below
 
+ ```
   ChannelCreate channelCreate = new ChannelCreate(groupName, groupMemberList); // The Constructor accepts the two parameter String Group Name and List of Group Members.
+   
 
   Channel channel = ChannelService.getInstance(context).createChannel(channelCreate); // Instantiating the  group create and it accept the ChannelCreate object.
                }
@@ -688,6 +693,7 @@ new Thread(new Runnable() {
 ####2) Add Member to group
   
   Class to import
+  
 ```
   import com.applozic.mobicomkit.channel.service.ChannelService
 ```
@@ -712,9 +718,10 @@ new Thread(new Runnable() {
 ###3) Remove Member From the group
  
   Class to import
-   ```
+  
+```
    com.applozic.mobicomkit.channel.service.ChannelService
-    ```
+```
   
   __Parameters:__
   
