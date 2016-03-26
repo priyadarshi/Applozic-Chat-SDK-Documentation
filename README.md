@@ -696,10 +696,7 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 ```
   import com.applozic.mobicomkit.channel.service.ChannelService
 ```
-   
-  __Parameters:__
-  
-   
+
  ``` 
  new Thread(new Runnable() {
         @Override
@@ -708,6 +705,8 @@ After adding group Members to List then pass the Group Name and Group Member Lis
          }
     }).start();
  ```
+   
+  __Parameters:__
 
   __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
   
@@ -716,13 +715,22 @@ After adding group Members to List then pass the Group Name and Group Member Lis
    __Return response__: If user added successfully in group/cahnnel it returns success else error 
  
  
-###3) Remove Member From the group
+####3) Remove Member From the group
  
   Class to import
   
 ```
    com.applozic.mobicomkit.channel.service.ChannelService
 ```
+
+  ```
+ new Thread(new Runnable() {
+         @Override
+         public void run() {
+    String response = ChannelService.getInstance(context).removeMemberFromChannelProcess(channelKey, userId);
+                 }
+       }).start();
+ ```
   
   __Parameters:__
   
@@ -735,14 +743,6 @@ After adding group Members to List then pass the Group Name and Group Member Lis
  
   __NOTE:__ Only admin can remove member from the group/channel.
   
-  ```
- new Thread(new Runnable() {
-         @Override
-         public void run() {
-    String response = ChannelService.getInstance(context).removeMemberFromChannelProcess(channelKey, userId);
-                 }
-       }).start();
- ```
  
 ####4) Leave Member From the group
  
