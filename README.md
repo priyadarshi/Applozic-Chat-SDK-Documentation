@@ -506,7 +506,7 @@ Refer to the below documentation for a deeper integration if you wish to perform
    
 Import
 ```
-import com.applozic.mobicomkit.api.account.register.RegisterUserClientService      
+import com.applozic.mobicomkit.api.account.register.RegisterUserClientService;      
 ```
 
 Code
@@ -519,7 +519,7 @@ new RegisterUserClientService(activity).createAccount
 
 Import
 ```
-Class: com.applozic.mobicomkit.api.conversation.MobiComConversationService         
+import com.applozic.mobicomkit.api.conversation.MobiComConversationService;         
 ```
 
 Code
@@ -541,7 +541,7 @@ Message("contact@applozic.com", "hello test"));
 
 Import
 ```
-import com.applozic.mobicomkit.api.conversation.MobiComConversationService
+import com.applozic.mobicomkit.api.conversation.MobiComConversationService;
 ```
 
   
@@ -666,8 +666,8 @@ Create the Group with Group Name and Group Members. The below code illustrator c
 Classes to import
 
 ```
-import com.applozic.mobicomkit.api.people.ChannelCreate            
-import com.applozic.mobicomkit.channel.service.ChannelService
+import com.applozic.mobicomkit.api.people.ChannelCreate;            
+import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
 
  ```
@@ -700,7 +700,7 @@ After adding group Members to List then pass the Group Name and Group Member Lis
 Import
 
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
 
 Code
@@ -726,7 +726,7 @@ Code
  
 Import  
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
 
 Code
@@ -755,7 +755,7 @@ Code
  
 Import
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
   
 Code
@@ -782,8 +782,8 @@ Code
 Import
 
 ```
-  import com.applozic.mobicomkit.feed.ChannelName
-  import com.applozic.mobicomkit.channel.service.ChannelService
+  import com.applozic.mobicomkit.feed.ChannelName;
+  import com.applozic.mobicomkit.channel.service.ChannelService;
 ```
   
 Code
