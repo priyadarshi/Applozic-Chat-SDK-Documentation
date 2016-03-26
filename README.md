@@ -771,7 +771,7 @@ Code
  __Return response__: success or error 
  
  
-####5)To Change the  Group Name
+####5) Change Group Name
 
 Import
 
