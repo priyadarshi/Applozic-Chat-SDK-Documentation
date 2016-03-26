@@ -556,8 +556,8 @@ Code
 ```
 
 
-ii) Get messages of logged in user with another user by passing userId, startTime and      
- endTime. startTime and endTime are considered in time in milliseconds from 1970.       
+ii) Get messages of logged in user with another user by passing userId, startTime and endTime. 
+startTime and endTime are considered in time in milliseconds from 1970.       
 
 Code
 ```
@@ -576,8 +576,8 @@ Code
 ***Creating Contact list***         
 
 
-
-You can create the contact list in two easy steps by using AppContactService.java api. Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
+You can create the contact list in two easy steps by using AppContactService.java api. 
+Sample method **buildContactData()** for adding contacts is present in sample app MainActivity.java.
 
 ####Step 1: Creating contact   
 
