@@ -788,6 +788,18 @@ Apz-AppId: Application Key as shown in Applozic dashboard page.
 
 **Content-Type**: application/json
 
+**Request Body**
+```
+{
+        "topicId" : "Topic id of the conversation",
+        "userId" : "Topic detail of the conversation",
+        "supportIds" : "List of the Support User names",
+        "applicationKey" : "Application key",
+        "groupId" : "Group Id of the conversation group",
+        "status" : "Status flag of the conversation"
+}
+```
+
 **Behavior**
 
 1. Call retrieve conversation API with Status flag as NEW, OPEN, DEFAULT.
@@ -803,17 +815,6 @@ OPEN: If the conversation is closed, it will be re-opened.
 
 DEFAULT: return the conversation as it is.
 
-**Request Body**
-```
-{
-        "topicId" : "Topic id of the conversation",
-        "userId" : "Topic detail of the conversation",
-        "supportIds" : "List of the Support User names",
-        "applicationKey" : "Application key",
-        "groupId" : "Group Id of the conversation group",
-        "status" : "Status flag of the conversation"
-}
-```
 
 ***Required Authentication Headers***
 
