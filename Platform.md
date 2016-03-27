@@ -19,131 +19,6 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 Application can send automated in-app messages to users using Application to User Messaging API.
 
 
-
-
-### Dispatch Message      
-
-
-**DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
-
-**Method Type**: POST
-
-**Content-Type**: application/json
-
-**Request body**:  Json with the following properties: 
-
-
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| senderName | Yes  |   | unique Id of  message sender user  |
-| to | Yes  |   | unique Id of message receiver user  |
-| message  | Yes |   | message content to be passed  |
-| oldTimestamp  | No |   | create message  timestamp   |
-
-
-
-** sample request **                         
-```
-{
- "message":"HI STEVE","senderName":"john", "to": "steve"   
-}
-```
-
-
-
-
-**Response**:
-
-| Parameters  | Description |
-| ------------- | ------------- |
-| messageKey |message key  |
-| createdAt | Time in miliseconds when response is return from server |
-
-
-** sample response **                         
-```
-{"messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362", "createdAt": 1456148218000}
-```
-
-
-
-
-
-
-
-**Json required for contextual based messaging**
-
-
-
-
-** json **                         
-```
-{
- "message":"Hello, I am interested in the produc, can we chat?", "senderName":"john","to": "steve",
-  "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
- }   
-}
-```
-
-
-
-
-
-**Response**:      
-
-
-
-| Parameters  | Description |
-| ------------- | ------------- |
-| messageKey |message key  |
-| createdAt | Time in miliseconds when response is return from server |
-| conversationId | open conversation to chat on topic |
-
-
-
-
-** json **                         
-```
-{"messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283","conversationId":456,"createdAt":1458039322000}
-```
-
-
-
-
-****Required Authentication Headers****    
-
-
-
-** Request must contain the following 4 headers** -           
-
-
-| Apz-Token: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Apz-AppId:  application key got in admin dashboard  |  
-| Content-Type:  application/json  |  
-
-
-
-Authentication is done using BASIC authentication. It is combination of email & password of admin user .
-
-
-
-**Apz-Token** : Basic Base64Encode of email:password
-
-
-
-
-**Example**- 
-
-If the email of the admin account used for registering to Applzoic is  **jack@gmail.com** and password is **test**, 
-then the Apz-Token will be:
-
-Apz-Token: Basic amFja0BnbWFpbC5jb206dGVzdA==
-
-Apz-AppId: Application Key as shown in Applozic dashboard page.
-
-
 ### Create User        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
@@ -414,6 +289,129 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 ```
 
 **Response** :- success Response Json to the request
+
+
+###Dispatch Message      
+
+
+**DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
+
+**Method Type**: POST
+
+**Content-Type**: application/json
+
+**Request body**:  Json with the following properties: 
+
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| senderName | Yes  |   | unique Id of  message sender user  |
+| to | Yes  |   | unique Id of message receiver user  |
+| message  | Yes |   | message content to be passed  |
+| oldTimestamp  | No |   | create message  timestamp   |
+
+
+
+** sample request **                         
+```
+{
+ "message":"HI STEVE","senderName":"john", "to": "steve"   
+}
+```
+
+
+
+
+**Response**:
+
+| Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
+
+
+** sample response **                         
+```
+{"messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362", "createdAt": 1456148218000}
+```
+
+
+
+
+
+
+
+**Json required for contextual based messaging**
+
+
+
+
+** json **                         
+```
+{
+ "message":"Hello, I am interested in the produc, can we chat?", "senderName":"john","to": "steve",
+  "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
+ }   
+}
+```
+
+
+
+
+
+**Response**:      
+
+
+
+| Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
+| conversationId | open conversation to chat on topic |
+
+
+
+
+** json **                         
+```
+{"messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283","conversationId":456,"createdAt":1458039322000}
+```
+
+
+
+
+****Required Authentication Headers****    
+
+
+
+** Request must contain the following 4 headers** -           
+
+
+| Apz-Token: Authorization Code  |
+| ------------- |
+| UserId-Enabled:true |
+| Apz-AppId:  application key got in admin dashboard  |  
+| Content-Type:  application/json  |  
+
+
+
+Authentication is done using BASIC authentication. It is combination of email & password of admin user .
+
+
+
+**Apz-Token** : Basic Base64Encode of email:password
+
+
+
+
+**Example**- 
+
+If the email of the admin account used for registering to Applzoic is  **jack@gmail.com** and password is **test**, 
+then the Apz-Token will be:
+
+Apz-Token: Basic amFja0BnbWFpbC5jb206dGVzdA==
+
+Apz-AppId: Application Key as shown in Applozic dashboard page.
 
 
 
