@@ -533,7 +533,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Method Type**: POST 
 
-**ContentType**: application/json, application/xml
+**ContentType**: application/json
 
 **Request Body**:   
 
@@ -555,7 +555,10 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **sample**  
 ```
-{"groupName":"BOYZZ","groupMemberList":["A","B","C"]}
+{
+  "groupName" : "Group Name",
+  "groupMemberList" : ["UserName1", "UserName2", "UserName3"]
+}
 ```
 
 **Response** : Response Json  with success status :-  
@@ -758,7 +761,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Method Type**: POST
 
-**ContentType**: application/json, application/xml
+**ContentType**: application/json
 
 **Request Body**:  
 
