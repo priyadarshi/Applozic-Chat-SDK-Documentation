@@ -659,6 +659,16 @@ upsert(Contact contact)
 
 ### Group 
 
+Enable Group Messaging for a user
+```
+ApplozicSetting.getInstance(context).showStartNewGroupButton();
+```
+
+Disable Group Messaging for a user
+```
+ApplozicSetting.getInstance(context).hideStartNewGroupButton();
+```
+
 
 ####1) Create Group
 
