@@ -599,7 +599,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 ```
 {
         "topicId" : "Topic id of the conversation",
-        "userId" : "Topic detail of the conversation",
+        "topicDetail" : "Topic detail of the conversation",
         "supportIds" : "List of the Support User names",
         "applicationKey" : "Application key",
         "groupId" : "Group Id of the conversation group",
