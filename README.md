@@ -2052,7 +2052,7 @@ If you want to send text message directly use below function -
  $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
 ```
 
-Sample code for **MESSAGE_JSON** used as a reference in step 11 :-  
+Sample code for **MESSAGE_JSON** used as a reference in step 13 :-  
 
 ```
 var MESSAGE_JSON = 
@@ -2061,7 +2061,7 @@ var MESSAGE_JSON =
          };       
 
 ```
- **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+ **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
  
 #### Step 14: Anchor tag or button to load(open) individual tab conversation directly (optional)
