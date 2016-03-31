@@ -7,11 +7,10 @@ Message Fallback Time is the duration in which if message is not delivered to en
 
 #Webhook Url
 
-Webhook url is the url on which Json of each message can be received sent by one user to another within the application.
-Webhook Url can be configured by application admin in the applozic dashboard.
+Webhook Url can be configured by application admin in the applozic dashboard.All messages will be forwarded to the webhook url in JSON format.
 
 
-**Response**: Posted Json to configured Url :
+**Request Body**: Posted Json to configured Url :
 
 
  ```  
