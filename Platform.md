@@ -399,7 +399,8 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
  ```  
-{"status":"success","generatedAt":1452345715245,"response":[{"id":177,"name":"BOYZZ","adminName":"TestUser","membersName":["AB","B","C","TestUser"],"unreadCount":0,"type":2}]}   
+{"status":"success","generatedAt":1452345715245,"response":[{"id":177,"name":"Work-Group","adminName":"Marsh",
+"membersName":["Kevin","Joe","Steve","Marsh"],"unreadCount":0,"type":2}]}   
 
  ```
 
