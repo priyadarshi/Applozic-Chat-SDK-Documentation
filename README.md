@@ -1730,9 +1730,26 @@ You can add the following html into your code to directly open a conversation wi
  ```        
  
  **Note** - Data attribute **mck-name** is optional in above tag          
+
+#### Step 11: Function to **Send Message** (optional)
+
+If you want to send text message directly use below function - 
+```
+ $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
+```
+
+Sample code for **MESSAGE_JSON** used as a reference in step 8 :-  
+
+```
+var MESSAGE_JSON = 
+          {"to":'USER_ID',
+          "message" : 'TEXT_MESSAGE'
+         };       
+
+```
  
  
-#### Step 11: To add auto suggest users list in search field use below html element id (optional)
+#### Step 12: To add auto suggest users list in search field use below html element id (optional)
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -1740,7 +1757,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-#### Step 12: To show **online/offline** status (optional)
+#### Step 13: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -1756,7 +1773,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-#### Step 13: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 14: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 
 These are attributes requires on chat button or anchor tag -
@@ -1824,7 +1841,7 @@ Sample  code :-
 ```
 
 
-#### Step 14: Function to get **USER DETAIL** (optional)
+#### Step 15: Function to get **USER DETAIL** (optional)
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
