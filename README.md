@@ -2378,8 +2378,9 @@ Webhook Url can be configured by application admin in the applozic dashboard.
 
 
  ```  
-{"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015", "from":"lee","to":"kevin",
-"message":"hello kevin","timeStamp":1457958424000}
+{"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015",      
+"from":"lee","to":"kevin","message":"hello kevin",
+"timeStamp":1457958424000}
  ```
  
 #Authentication Url
