@@ -567,7 +567,21 @@ Code
  }                           
 ```
 
+####Custom Message
+Send an automated custom message to connect 2 users. The message layout will be same for both users so that it doesn't look like a sent message.
 
+
+Code
+```
+Message message = new Message("contact@applozic.com", "hey! here's a match <3");
+new MobiComMessageService(this, MessageIntentService.class).sendCustomMessage(message);
+```
+
+Customize the background color for the custom message:
+Code
+```
+ApplozicSetting.getInstance(this).setColor(ApplozicSetting.CUSTOM_MESSAGE_BACKGROUND_COLOR, Color.parseColor("#FFB3E5FC"));
+```
 
 ###  Contacts           
 
