@@ -40,9 +40,8 @@ Application can send automated in-app messages to users using Application to Use
 | displayName  | No  |   | Name you want to display to other user  |  
 | applicationId  | Yes  |   | Your Applozic Application key configured in dashboard  |
 | deviceType  | Yes  |   | 1 for Android, 4 for Apple   | 
-| registrationId | Device GCM or APN registration id for push notification |
-| pushNotificationFormat | 0 for Standard (GCM/APN) and 1 for PhoneGap |
-
+| registrationId  | No  |   | Device GCM or APN registration id for push notification  | 
+| pushNotificationFormat  | No  |   | 0 for Standard (GCM/APN) and 1 for PhoneGap   | 
 
 
 
