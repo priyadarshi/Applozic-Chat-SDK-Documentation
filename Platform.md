@@ -48,7 +48,7 @@ Application can send automated in-app messages to users using Application to Use
 
 ** json **                         
 ```
-{"userId":"robert","deviceType":"4","applicationId":"applozic-sample-app"
+{"userId":"robert","deviceType":"4","applicationId":"applozic-sample-app",“registrationId”:“put-gcm-registration-id-here”, “pushNotificationFormat”: “0”
 }
 ```
 
@@ -64,6 +64,8 @@ Application can send automated in-app messages to users using Application to Use
 | deviceKey  | User device key |
 | lastSyncTime  | Time in miliseconds when user device last synced with server  |  
 | currentTimeStamp  | Time in miliseconds when response is return from server | 
+| registrationId | Device GCM or APN registration id for push notification |
+| pushNotificationFormat | 0 for Standard (GCM/APN) and 1 for PhoneGap |
 
 
 
