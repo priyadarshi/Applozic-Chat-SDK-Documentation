@@ -119,19 +119,6 @@ Permissions:
   ```
 
 
-Broadcast Registration For PushNotification:        
-   
-```
-<receiver android:name="com.applozic.mobicomkit.uiwidgets.notification.MTNotificationBroadcastReceiver">
-   <intent-filter>            
-        <action android:name="${applicationId}.send.notification"/>                    
-   </intent-filter>           
-</receiver>                  
-```
-
-**Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
-
-
 Activity
    
 ```
@@ -252,6 +239,19 @@ Activity
 
 Receiver
 
+Broadcast Registration For PushNotification:        
+   
+```
+<receiver android:name="com.applozic.mobicomkit.uiwidgets.notification.MTNotificationBroadcastReceiver">
+   <intent-filter>            
+        <action android:name="${applicationId}.send.notification"/>                    
+   </intent-filter>           
+</receiver>                  
+```
+
+**Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
+
+
 ```
 <receiver android:name="com.applozic.mobicomkit.broadcast.NotificationBroadcastReceiver">
          <intent-filter>
@@ -364,7 +364,6 @@ pushNotificationTask.execute((Void) null);
 ####Step 5: Handling Push Notification
 
 Add MobiComPushReceiver in your GcmBroadcastReceiver's onReceive method.     
-
        
 ```
 if(MobiComPushReceiver.isMobiComPushNotification(intent)) {            
