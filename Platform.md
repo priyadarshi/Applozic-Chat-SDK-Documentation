@@ -733,10 +733,11 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Response**: {"Success"}
+**Response**: 
 
-
-
+```
+{"Success"}
+```
 
 **Request Body**                         
 ```
@@ -774,6 +775,67 @@ Authentication is done using BASIC authentication. It is combination of email & 
 **Apz-Token** : Basic Base64Encode of email:password
 
 
+
+
+**Example**- 
+
+If the email of the admin(Logged in Applozic Dashboard) is  **jack** and password is **adminLoggedInApplozicDashboard**, 
+then the Apz-Token will be:
+
+Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
+
+Apz-AppId: application key of application for which admin want to send message. 
+
+###User Details        
+
+**URL**: https://apps.applozic.com/rest/ws/user/detail
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Parameters**:         
+
+| Parameter  | Description |
+| ------------- | ------------- |
+| userIds | UserId for the user  |
+
+
+**Response**: 
+
+```
+[
+ {
+  "userId": "UserId1", // UserId of the user (String)
+  "userName": "Name1", // Name of the user (String)
+  "connected": true, // Current connected status of user (boolean)
+  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
+  "imageLink": "http://image.url" // Image url of the user
+ },
+ {
+  "userId": "UserId1", // UserId of the user (String)
+  "userName": "Name1", // Name of the user (String)
+  "connected": true, // Current connected status of user (boolean)
+  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
+  "imageLink": "http://image.url" // Image url of the user
+ }
+]
+```
+
+***Required Authentication Headers***
+
+**request should contain these 4 headers** -           
+
+| Header | Value  |
+| ------------- | ----------- |
+| Apz-Token | Authorization Code  |
+| Apz-AppId | application key got in admin dashboard  |  
+| Content-Type |  application/json  |  
+
+
+Authentication is done using BASIC authentication. It is combination of email & password of admin user.
+
+**Apz-Token** : Basic Base64Encode of email:password
 
 
 **Example**- 
