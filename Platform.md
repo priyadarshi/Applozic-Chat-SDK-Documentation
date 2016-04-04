@@ -753,11 +753,11 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-****Required Authentication Headers****    
+***Required Authentication Headers***
 
 
 
-** request should contain these 4 headers** -           
+**request should contain these 3 headers**
 
 | Header | Value  |
 | ------------- | ----------- |
@@ -824,7 +824,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 ***Required Authentication Headers***
 
-**request should contain these 4 headers** -           
+**request should contain these 3 headers** -           
 
 | Header | Value  |
 | ------------- | ----------- |
@@ -868,7 +868,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-** sample request **                         
+**sample request**
 ```
 {
  "message":"HI STEVE","senderName":"john", "to": "steve"   
@@ -886,7 +886,7 @@ Apz-AppId: application key of application for which admin want to send message.
 | createdAt | Time in miliseconds when response is return from server |
 
 
-** sample response **                         
+**sample response**
 ```
 {"messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362", "createdAt": 1456148218000}
 ```
@@ -902,7 +902,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-** json **                         
+**json**
 ```
 {
  "message":"Hello, I am interested in the produc, can we chat?", "senderName":"john","to": "steve",
@@ -928,7 +928,7 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-** json **                         
+**json**
 ```
 {"messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283","conversationId":456,"createdAt":1458039322000}
 ```
@@ -936,18 +936,17 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
-****Required Authentication Headers****    
+***Required Authentication Headers***
 
 
 
-** Request must contain the following 4 headers** -           
+**Request must contain the following 3 headers** -           
 
-
-| Apz-Token: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Apz-AppId:  application key got in admin dashboard  |  
-| Content-Type:  application/json  |  
+| Header | Value  |
+| ------------- | ----------- |
+| Apz-Token | Authorization Code  |
+| Apz-AppId | application key got in admin dashboard  |  
+| Content-Type |  application/json  |  
 
 
 
@@ -960,7 +959,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 
 
-**Example**- 
+**Example**
 
 If the email of the admin account used for registering to Applzoic is  **jack@gmail.com** and password is **test**, 
 then the Apz-Token will be:
