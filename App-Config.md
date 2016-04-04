@@ -1,3 +1,12 @@
+# Application Configuration API     
+
+### Overview        
+
+
+Configure different application parameters in Applozic Dashboard for having many more functionalities.
+
+
+
 #Message Fallback Time
 
 Message Fallback Time is the duration in which if message is not delivered to end user then message will be delivered though mail as a fallback. For message fallback our api requires receiver user emailId which need to pass during registration and also you have to configure message delivery fallback time in dashboard for your app.  
