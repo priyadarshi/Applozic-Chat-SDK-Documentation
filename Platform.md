@@ -808,7 +808,7 @@ Apz-AppId: application key of application for which admin want to send message.
  {
   "userId": "UserId1", // UserId of the user (String)
   "userName": "Name1", // Name of the user (String)
-  "connected": true, // Current connected status of user (boolean)
+  "connected": true, // Current connected status of user, if "connected": true that means user is online (boolean)
   "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
   "imageLink": "http://image.url" // Image url of the user
  },
