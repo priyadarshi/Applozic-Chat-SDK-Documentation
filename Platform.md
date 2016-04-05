@@ -24,7 +24,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 **Content-Type**: application/json
 
-**Parameters**: Json will be passed as a parameter with following properties :-         
+**Request body**:  Json with the following properties:        
 
 
 
