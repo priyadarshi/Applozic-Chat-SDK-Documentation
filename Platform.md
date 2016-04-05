@@ -10,11 +10,16 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 # Rest API       
 
  **User To User**
+ 
+ 
+ 
+ 
+ # Create User API
 
 
 
 
-### Register User    
+### Register     
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
 
