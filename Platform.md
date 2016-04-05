@@ -46,7 +46,8 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 ** json **                         
 ```
-{"userId":"robert","deviceType":"4","applicationId":"applozic-sample-app",“registrationId”:“put-gcm-registration-id-here”, “pushNotificationFormat”: “0”
+{"userId":"robert","deviceType":"4","applicationId":"a68a31e8-04bc-4593-84a6-4af9160cbd00",
+"registrationId":"put-gcm-registration-id-here", "pushNotificationFormat": "0"
 }
 ```
 
