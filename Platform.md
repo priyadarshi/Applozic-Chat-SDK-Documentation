@@ -8,13 +8,10 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 
 # Rest API       
-
- **User To User**
  
  
  
- 
- # Create User API
+ # User API
 
 
 
