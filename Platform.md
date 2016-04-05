@@ -9,14 +9,9 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 
 # Rest API       
 
+ **User To User**
 
 
-
-
-
- **Application To User**
-
-Application can send automated in-app messages to users using Application to User Messaging API.
 
 
 ### Register User    
@@ -140,7 +135,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Send Message   
+### Send   
 
 
 
@@ -188,7 +183,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Multi User Send Message
+### Multi User Send 
 
 
 **URL**: https://apps.applozic.com/rest/ws/message/sendall
@@ -223,7 +218,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Message List        
+### List        
 
 **MESSAGE LIST URL**: https://apps.applozic.com/rest/ws/message/list
 
@@ -267,7 +262,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Delete Message     
+### Delete      
 
 
 
@@ -297,11 +292,11 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | error  |This will come if any exception occurs on server. In case of any exception contact devashish@applozic.com  |
 
 
-### Delete Conversation Thread           
+### Delete Conversation           
 
 
 
-**DELETE CONVERSATION THREAD URL** : https://apps.applozic.com/rest/ws/message/delete/conversation
+**DELETE CONVERSATION  URL** : https://apps.applozic.com/rest/ws/message/delete/conversation
 
 **Method Type**: GET 
 
@@ -332,7 +327,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 # Group API
 
-### Group Creation
+### Creation
 
 
 **GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create 
@@ -413,7 +408,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Delete Group
+### Delete 
 
 
 
@@ -454,7 +449,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Remove Group Member 
+### Remove Member 
 
 
 
@@ -496,7 +491,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
  ```
 
 
-### Leave Group 
+### Leave  
 
 
 
@@ -528,7 +523,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Add Group Member
+### Add Member
 
 
 
@@ -560,7 +555,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-### Change Group Name
+### Change Name
 
 
 
@@ -722,6 +717,13 @@ Authentication is done using BASIC authentication. It is combination of email & 
  
 
 #Admin Api
+
+
+
+ **Application To User**
+
+Application can send automated in-app messages to users using Application to User Messaging API.
+
 
 ### Create User        
 
@@ -905,7 +907,7 @@ Apz-AppId: application key of application for which admin want to send message.
 **json**
 ```
 {
- "message":"Hello, I am interested in the produc, can we chat?", "senderName":"john","to": "steve",
+ "message":"Hello, I am interested in the product, can we chat?", "senderName":"john","to": "steve",
   "conversationPxy": {    "topicId":"prodct topic Id","topicDetail":"{\"title\":\"Product title\",\"subtitle\":\"subtitle of the product\",\"link\":\"product link url \",\"key1\":\" product Qty\",\"value1\":\"50\",\"key2\":\" product Price\",\"value2\":\"Rs.90\"}"    
  }   
 }
