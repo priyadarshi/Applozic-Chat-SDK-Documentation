@@ -462,7 +462,7 @@ Show/Hide Green Dot for Online
 
  ```
 ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
-ApplozicSetting.getInstance(context).showOnlineStatusInMasterList();
+ApplozicSetting.getInstance(context).hideOnlineStatusInMasterList();
  ```
 
 Show/hide 'Start New Conversation' Plus (+) Button 
@@ -582,6 +582,8 @@ Code
 ```
 ApplozicSetting.getInstance(this).setColor(ApplozicSetting.CUSTOM_MESSAGE_BACKGROUND_COLOR, Color.parseColor("#FFB3E5FC"));
 ```
+
+
 
 ###  Contacts           
 
