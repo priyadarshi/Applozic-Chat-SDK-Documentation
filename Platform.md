@@ -278,7 +278,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-| Parameter  | Response | Default  | Description |
+| Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | key  | Yes  |   | Message unique key  |
 
@@ -307,11 +307,22 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
-| Parameter  | Response | Default  | Description |
+| Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| userId  | Yes  |   | User for which you want to delete thread  |         
+| userId  | No  |   | User for which you want to delete thread  |  
+| groupId  | No  |   | Group for which you want to delete thread  |  
+| applicationKey  | No  |   | applicationKey configured in dashboard  |
 
 
+
+
+**Note**:-
+
+
+**1)** For Delete Conversation in Group send **groupId**  as a parameter.
+
+
+**2)** For Delete Conversation in One to One Chat send **userId**  as a parameter.
 
 
 
