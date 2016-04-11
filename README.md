@@ -2113,7 +2113,7 @@ var MESSAGE_JSON =
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 14: Function to **Send Custom Message visible only to Receiver** (optional)
+#### Step 14: **Send Message visible only to Receiver** (optional)
 
 If you want to send text message visible only at receiver end use below function - 
 
