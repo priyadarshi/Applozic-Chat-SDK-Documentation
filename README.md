@@ -2107,25 +2107,21 @@ var MESSAGE_JSON =
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 14: **Send Message visible only to Receiver** (optional)
+#### Step 14: Function to **Send Message visible only to Receiver** (optional)
 
-If you want to send text message visible only at receiver end use below function - 
-
+Code 
 ```
- $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
-```
-
-Sample code for **MESSAGE_JSON** used as a reference in step 12 :-  
-
-```
-var MESSAGE_JSON = 
+var messageJson = 
           {"to":'USER_ID',                                     // required
            "type" : 12,                                        // required
-          "message" : 'TEXT_MESSAGE'                           // required
-        };       
-
+           "message" : 'TEXT_MESSAGE'                          // required
+        };  
+$applozic.fn.applozic('sendMessage', messageJson);
 ```
- **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+
+Useful for cases where you want to send the visitor's info in background to the other party.
+
+ **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
 #### Step 15: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
