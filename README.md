@@ -1759,8 +1759,8 @@ Sample code for **MESSAGE_JSON** used as a reference in step 11 :-
 
 ```
 var MESSAGE_JSON = 
-          {"to":'USER_ID',
-          "message" : 'TEXT_MESSAGE'
+          {"to":'USER_ID',                                 // required
+           "message" : 'TEXT_MESSAGE'                      // required
         };       
 
 ```
@@ -1778,11 +1778,10 @@ Sample code for **MESSAGE_JSON** used as a reference in step 12 :-
 
 ```
 var MESSAGE_JSON = 
-          {"to":'USER_ID',
-           "type" : 12,
-          "message" : 'TEXT_MESSAGE'
-        };       
-
+          {"to":'USER_ID',                                     // required
+           "type" : 12,                                        // required
+           "message" : 'TEXT_MESSAGE'                          // required
+        };  
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
@@ -2113,9 +2112,9 @@ Sample code for **MESSAGE_JSON** used as a reference in step 12 :-
 
 ```
 var MESSAGE_JSON = 
-          {"to":'USER_ID',
-           "type" : 12,
-          "message" : 'TEXT_MESSAGE'
+          {"to":'USER_ID',                                     // required
+           "type" : 12,                                        // required
+          "message" : 'TEXT_MESSAGE'                           // required
         };       
 
 ```
