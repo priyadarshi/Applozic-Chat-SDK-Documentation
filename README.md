@@ -834,8 +834,7 @@ Code
   
   ### Advanced
   
-  ####
-  Open Activity on tap of toolbar in Chat Screen
+  ####Open Activity on tap of toolbar in Chat Screen
 
   Add the following in your androidmanifes.xml
   
