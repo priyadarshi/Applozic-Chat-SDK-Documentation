@@ -1765,21 +1765,20 @@ You can add the following html into your code to directly open a conversation wi
 
 #### Step 11: Function to **Send Message** (optional)
 
-If you want to send text message directly use below function - 
+Code
 ```
 var messageJson = 
           {"to":'USER_ID',                                 // required
            "message" : 'TEXT_MESSAGE'                      // required
         }; 
- $applozic.fn.applozic('sendMessage', messageJson);
+$applozic.fn.applozic('sendMessage', messageJson);
 ```
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 12: Function to **Send Custom Message visible only to Receiver** (optional)
+#### Step 12: Function to **Send Message visible only to Receiver** (optional)
 
-Code to send message visible only at the receiver - 
-
+Code 
 ```
 var messageJson = 
           {"to":'USER_ID',                                     // required
