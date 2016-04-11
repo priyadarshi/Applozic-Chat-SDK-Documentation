@@ -830,8 +830,24 @@ Code
  ```
 
   __Return response__: If group/channel name successfully changed it returns success else error 
+  
+  
+  ### Advanced
+  
+  ####
+  Open Activity on tap of toolbar in Chat Screen
 
+  Add the following in your androidmanifes.xml
+  
+  Code
+  ```
+  <meta-data
+             android:name="com.applozic.mobicomkit.uiwidgets.toolbar.tap.activity"
+             android:value="PUT_ACTIVITY_CLASS_HERE" />
+ ```
 
+  This activity will receive the “userId” of the selected chat in intent.
+  
 
  # IOS SDK           
 
