@@ -1610,7 +1610,7 @@ Add Applozic messaging plugin into your web application :-
 
 ``` 
 <script type="text/javascript">
-  window.applozic.init({userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"});
+  window.applozic.init({appId: 'PUT_APPLICATION_KEY_HERE', userId: 'PUT_USERID_HERE', userName: 'PUT_USER_DISPLAYNAME_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"});
 </script>
 ```    
 
@@ -1618,8 +1618,9 @@ Add Applozic messaging plugin into your web application :-
 Above options description :-    
 
 ```
- userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)   
- appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)     
+ appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)    
+ userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)  
+ userName: 'ACTIVE USER DISPLAY NAME'                  // loggedIn user name (optional)  
  desktopNotification: true or false                    // optional
  notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notification (optional)                             
 ```
@@ -1914,7 +1915,7 @@ Open  message.html file as a reference and add all scripts and html in your web 
 
 Initialize plugin using script (Initialize once page load completely, preferable in document.ready function)
 ```
-  $applozic.fn.applozic({{userId: 'PUT_USERID_HERE', appId: 'PUT_APPLICATION_KEY_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
+  $applozic.fn.applozic({appId: 'PUT_APPLICATION_KEY_HERE', userId: 'PUT_USERID_HERE', userName: 'PUT_USER_DISPLAYNAME_HERE',  desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE"}); 
 ```
 
 #### Step 4: Configure value in above script     
@@ -1922,8 +1923,9 @@ Initialize plugin using script (Initialize once page load completely, preferable
 description - 
 
  ```
+ appId: 'YOUR APPLICATION KEY'                                             // obtained from Step 1 (required)    
  userId: 'UNIQUE USER ID OF ACTIVE USER'                                   // loggedIn user Id (required)   
- appId: 'YOUR APPLICATION KEY'                                             // obtained from Step 1 (required)     
+ userName: 'ACTIVE USER DISPLAY NAME'                                      // loggedIn user name (optional)   
  desktopNotification: true or false                                        // optional
  notificationIconLink : 'YOUR WEB APP LOGO'                                // required for desktop notifications (optional)                                   
 ```
