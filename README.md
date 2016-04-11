@@ -1761,12 +1761,32 @@ Sample code for **MESSAGE_JSON** used as a reference in step 11 :-
 var MESSAGE_JSON = 
           {"to":'USER_ID',
           "message" : 'TEXT_MESSAGE'
-         };       
+        };       
 
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 12: To add auto suggest users list in search field use below html element id (optional)
+#### Step 12: Function to **Send Custom Message visible only to Receiver** (optional)
+
+If you want to send text message visible only at receiver end use below function - 
+
+```
+ $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
+```
+
+Sample code for **MESSAGE_JSON** used as a reference in step 12 :-  
+
+```
+var MESSAGE_JSON = 
+          {"to":'USER_ID',
+           "type" : 12,
+          "message" : 'TEXT_MESSAGE'
+        };       
+
+```
+ **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+ 
+#### Step 13: To add auto suggest users list in search field use below html element id (optional)
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -1774,7 +1794,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-#### Step 13: To show **online/offline** status (optional)
+#### Step 14: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -1790,7 +1810,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-#### Step 14: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 
 These are attributes requires on chat button or anchor tag -
@@ -1858,7 +1878,7 @@ Sample  code :-
 ```
 
 
-#### Step 15: Function to get **USER DETAIL** (optional)
+#### Step 16: Function to get **USER DETAIL** (optional)
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -2081,8 +2101,27 @@ var MESSAGE_JSON =
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
+#### Step 14: Function to **Send Custom Message visible only to Receiver** (optional)
+
+If you want to send text message visible only at receiver end use below function - 
+
+```
+ $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
+```
+
+Sample code for **MESSAGE_JSON** used as a reference in step 12 :-  
+
+```
+var MESSAGE_JSON = 
+          {"to":'USER_ID',
+           "type" : 12,
+          "message" : 'TEXT_MESSAGE'
+        };       
+
+```
+ **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 14: Anchor tag or button to load(open) individual tab conversation directly (optional)
+#### Step 15: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -2093,7 +2132,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag.          
  
 
-#### Step 15: To show **online/offline** status (optional)
+#### Step 16: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -2107,7 +2146,7 @@ Example :-
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-#### Step 16: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 17: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 These are attributes requires on chat button or anchor tag -
 
@@ -2168,7 +2207,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-#### Step 17: Function to get USER DETAIL (optional)
+#### Step 18: Function to get USER DETAIL (optional)
 
 Call below given function to get user details like Total unread count, last seen at etc
 
