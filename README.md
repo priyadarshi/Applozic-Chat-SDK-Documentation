@@ -1783,13 +1783,7 @@ var MESSAGE_JSON =
  
 #### Step 12: Function to **Send Custom Message visible only to Receiver** (optional)
 
-If you want to send text message visible only at receiver end use below function - 
-
-```
- $applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
-```
-
-Sample code for **MESSAGE_JSON** used as a reference in step 12 :-  
+Code to send message visible only at the receiver - 
 
 ```
 var MESSAGE_JSON = 
@@ -1797,7 +1791,11 @@ var MESSAGE_JSON =
            "type" : 12,                                        // required
            "message" : 'TEXT_MESSAGE'                          // required
         };  
+$applozic.fn.applozic('sendMessage', 'PUT_MESSAGE_JSON_HERE');
 ```
+
+Useful for cases where you want to send the visitor's info in background to the other party.
+
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
 #### Step 13: To add auto suggest users list in search field use below html element id (optional)
