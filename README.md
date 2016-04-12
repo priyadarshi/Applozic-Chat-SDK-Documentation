@@ -1647,7 +1647,7 @@ Above options description :-
 
 ```
  1) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // Type - FUNCTION (optional)
-  Callback function which triggered on plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 5
+  Callback function which gets triggered on plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 5
  2) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'                    // Type - FUNCTION (optional)
   Function should return USER_DISPLAY_NAME by taking USERID as input parameter. Example given in Step 6        
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
@@ -1658,7 +1658,7 @@ Above options description :-
 For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
 
 
-#### Step 5: Callback function **onInit()** triggered on plugin initailize :-
+#### Step 5: Callback function **onInit()** on plugin initailize :-
 
 Callback function to get notified whether plugin loaded successfully or not
 
@@ -1670,7 +1670,7 @@ Sample :
      {
         // write your logic here
      } else {
-        // error in loading plugin (you can hide chat button or refresh page.) 
+        // error in loading plugin (you can hide chat button or refresh page) 
      }
   };
   
