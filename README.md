@@ -1655,7 +1655,7 @@ Above options description :-
  4) accessToken: 'PASS_USER_ACCESS_TOKEN_HERE'                            //Type - String (optional)    
  Access token is to authenticate user from your end. To enable access token authentication you have to configure authentication url in admin dashboard. 
 ```
-For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
+For more detail about access token, read :**https://www.applozic.com/app-config.html#authentication-url**.
 
 
 #### Step 5: Callback function **onInit()** on plugin initailize :-
@@ -1982,7 +1982,7 @@ description -
  4) accessToken: 'PASS_USER_ACCESS_TOKEN_HERE'                            //Type - String (optional)    
  Access token is to authenticate user from your end. To enable access token authentication you have to configure authentication url in admin dashboard. 
 ```
-For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
+For more detail about access token, read :**https://www.applozic.com/app-config.html#authentication-url**.
 
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
