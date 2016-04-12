@@ -1647,7 +1647,7 @@ Above options description :-
 
 ```
  1) onInit : 'PASS_YOUR_FUNCTION_NAME_HERE'                               // Type - FUNCTION (optional)
-  Callback function which execute after plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 5
+  Callback function which triggered on plugin initialized. You can write your own logic inside this function to execute on plugin initialization. Example given in Step 5
  2) contactDisplayName: 'PASS_YOUR_FUNCTION_NAME_HERE'                    // Type - FUNCTION (optional)
   Function should return USER_DISPLAY_NAME by taking USERID as input parameter. Example given in Step 6        
  3) contactDisplayImage: 'PASS_YOUR_FUNCTION_NAME_HERE'                   //Type - FUNCTION (optional)
@@ -1658,21 +1658,33 @@ Above options description :-
 For more detail about access token, read :**https://www.applozic.com/developers.html#authentication-url**.
 
 
-#### Step 5: Sample code for **onInit()** function
+#### Step 5: Callback function **onInit()** triggered on plugin initailize :-
 
-You can write javascript function to execute your logic on plugin initialization -
+Callback function to get notified whether plugin loaded successfully or not
 
 Sample :     
 
  ```
   function onInit(response) {
-      if (response === "success")
-         {
-            // write your logic here
-         }
+     if (response === "success")
+     {
+        // write your logic here
+     } else {
+        // error in loading plugin (you can hide chat button or refresh page.) 
+     }
   };
   
   ```
+ Above function name need to configure in 'onInit' option during plugin initialize 
+ 
+ Example - 
+ ``` 
+<script type="text/javascript">
+  window.applozic.init({appId: 'PUT_APPLICATION_KEY_HERE', userId: 'PUT_USERID_HERE', userName: 'PUT_USER_DISPLAYNAME_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE", onInit : onInit});
+</script>
+```    
+ 
+ Useful for cases where you want to load contacts or fetch unread message count detail.
 
 Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 :-     
 
@@ -1974,21 +1986,35 @@ For more detail about access token, read :**https://www.applozic.com/developers.
 
 **Note** : Examples of callback functions and json format is given in below in step 7,8 and also given in message.html
 
-#### Step 6: Sample code for **onInit()** function
+#### Step 6: Callback function **onInit()** triggered on plugin initailize :-
 
-You can write javascript function to execute your logic after plugin initialization
+Callback function to get notified whether plugin loaded successfully or not
 
-Sample -     
+Sample :     
 
  ```
   function onInit(response) {
-    if (response === "success")
-      {
+     if (response === "success")
+     {
         // write your logic here
-      }
+     } else {
+        // error in loading plugin (you can hide chat button or refresh page.) 
+     }
   };
   
-```
+  ```
+ Above function name need to configure in 'onInit' option during plugin initialize 
+ 
+ Example - 
+ ``` 
+<script type="text/javascript">
+  window.applozic.init({appId: 'PUT_APPLICATION_KEY_HERE', userId: 'PUT_USERID_HERE', userName: 'PUT_USER_DISPLAYNAME_HERE', desktopNotification: true,  notificationIconLink: "PUT_LOGO_IMAGE_LINK_HERE", onInit : onInit});
+</script>
+```    
+ 
+ Useful for cases where you want to load contacts or fetch unread message count detail.
+
+
 
 Sample code for **CONTACT_JSON** used as a reference in Step 7 and Step 8 :-     
 
