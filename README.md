@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.30'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.31'    
 ```
 
 
@@ -364,11 +364,11 @@ pushNotificationTask.execute((Void) null);
 
 ####Step 5: Handling Push Notification
 
-Add MobiComPushReceiver in your GcmBroadcastReceiver's onReceive method.     
+Add MobiComPushReceiver in your GcmListenerService onMessageReceived method.     
        
 ```
-if(MobiComPushReceiver.isMobiComPushNotification(intent)) {            
-        MobiComPushReceiver.processMessageAsync(context, intent);               
+if(MobiComPushReceiver.isMobiComPushNotification(data)) {            
+        MobiComPushReceiver.processMessageAsync(this, data);               
         return;          
 }                     
 ```
