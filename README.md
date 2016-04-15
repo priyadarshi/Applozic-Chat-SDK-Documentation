@@ -885,9 +885,10 @@ c) After creating application, you will see your application key listed on admin
 **Installing the iOS SDK** 
 
 **ADD APPLOZIC FRAMEWORK **
-Clone or download the SDK (https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/Framework/Applozic.framework)
+Get latest applozic framework from [**here**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/Frameworks).
 For release-version of framework please contact us at (github@applozic.com)
-Get the latest framework "Applozic.framework" from Applozic github repo [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master/sampleapp)
+
+You can also clone or download our iOS open source repository from github for samples or framework code [**sample project**](https://github.com/AppLozic/Applozic-iOS-SDK/tree/master)
 
 **Add framework to your project:**
 
