@@ -1047,7 +1047,9 @@ Once your app receive notification, pass it to applozic handler for applozic not
 ** Objective-C **    
 ```
  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions    
-  {                     
+  {       
+  ALAppLocalNotifications *localNotification = [ALAppLocalNotifications appLocalNotificationHandler];
+  [localNotification dataConnectionNotificationHandler];
   // Override point for customization after application launch.                              
   NSLog(@"launchOptions: %@", launchOptions);                  
   if (launchOptions != nil)               
