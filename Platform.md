@@ -612,10 +612,17 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
         "topicId" : "Topic id of the conversation",
         "topicDetail" : "Topic detail of the conversation",
         "applicationKey" : "Application key",
-        "userId" : "unique id of the receiver user",
+        "userId" : "unique id of the receiver user", // or "groupId": "groupId  receive from group creation API"
         "status" : "Status flag of the conversation"
 }
 ```
+
+
+**Note**
+
+1.In case of One to One chat  pass **userId**  and in case of group pass **groupId** in request body.
+
+
 
 **Behavior**
 
