@@ -321,9 +321,35 @@ If it is a new user, new user account will get created else existing user will b
 In case, if you don't have the existing GCM related code, then copy the push notification related files from Applozic sample app to your project
 
 ``` 
-https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification
+https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification 
+
 ``` 
-  
+And add this in your androidmanifest.xml file
+
+``` 
+<receiver android:name="com.google.android.gms.gcm.GcmReceiver"
+          android:exported="true"
+          android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="<APP_PKG_NAME>" />
+          </intent-filter>
+</receiver>
+        
+<service android:name="<CLASS_PACKAGE>.ApplozicGcmListenerService">
+         <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+         </intent-filter>
+</service>
+        
+<service android:name="<CLASS_PACKAGE>.GcmInstanceIDListenerService"
+         android:exported="false">
+         <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+         </intent-filter>
+</service>
+
+  ``` 
 Setup GCM in UserLoginTask "onSuccess" (refer Step 3).
 
 ```
