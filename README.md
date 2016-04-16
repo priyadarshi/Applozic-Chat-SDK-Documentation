@@ -1484,15 +1484,14 @@ __memberArray :__ Array of contactId/userid of members
  
 #### 2. Add New member to Channel
  ```
--(BOOL) addMemberToChannel:(NSString *) userId andChannelKey:(NSNumber *) channelKey
+-(void) addMemberToChannel:(NSString *)userId andChannelKey:(NSNumber *)channelKey 
+withComletion:(void(^)(NSError *error,ALAPIResponse *response))completion
  ``` 	  	
 __Parameters:__
 
 __userId :__ contactId/userId
 
 __channelkey :__ channel key/GroupId of your channel where member will be added.
-
-__Return Type :__ BOOL
 
 If member added successfully then it will return YES else NO. 
  
@@ -1501,15 +1500,14 @@ __NOTE:__ Only admin can add member to the group/channel. For more detail see ch
 
 #### 3.  Remove Member from Channel
  ```
--(BOOL) removeMemberFromChannel:(NSString *)userId andChannelKey:(NSNumber *)channelKey
+-(void) removeMemberFromChannel:(NSString *)userId andChannelKey:(NSNumber *)channelKey 
+withComletion:(void(^)(NSError *error, NSString *response))completion
  ```
 __Parameters:__
 
 __userId :__ contactId OR userId
 
 __channelkey :__ channel key of your channel from which member will be removed.
-
-__Return Type :__ BOOL
 
 If member removed successfully then it will return YES else NO. 
 
@@ -1533,15 +1531,14 @@ __NOTE:__ Only admin can add member to the group/channel. For more detail see ch
 
 #### 5.   Leave Channel
 ```
--(BOOL) leaveChannel:(NSNumber *) channelKey andUserId:(NSString *) userId
+-(void) leaveChannel:(NSNumber *)channelKey andUserId:(NSString *)userId 
+withCompletion:(void(^)(NSError *error))completion
 ```
 __Parameters:__
 
 __channelkey :__ channel key of your channel whom you are leaving.
 
 __userId:__ userid  of leaving user
-
-__Return Type :__ BOOL
 
 If member leaved successfully then it will return YES else NO. 
 
