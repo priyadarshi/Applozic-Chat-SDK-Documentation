@@ -620,7 +620,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 **Note**
 
-1.In case of One to One chat  pass **userId**  and in case of group pass **groupId** in request body.
+1.In case of One to One chat  pass **userId**  and in case of group chat pass **groupId** in request body.
 
 
 
@@ -669,7 +669,6 @@ Authentication is done using BASIC authentication. It is combination of email & 
                         "id" : (Int)Conversation id,
                         "topicId" : "Topic id of the conversation",
                         "topicDetail" : "Topic Detail for the conversation",
-                        "supportIds" : [ List of support users - user names ],
                         "created" : (true/false) if the conversation is created or not in this api,
                         "closed" : (true/false) if the conversation is closed,
                         "groupId" : (Int) Group id of the respected group,
