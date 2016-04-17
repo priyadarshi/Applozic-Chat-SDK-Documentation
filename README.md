@@ -420,6 +420,18 @@ intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put 
 startActivity(intent);                              
 ```
 
+On Press back, to return back to the previous screen:
+
+Put "takeOrder" in intent.
+```
+Intent intent = new Intent(this, ConversationActivity.class);            
+intent.putExtra(ConversationUIService.USER_ID, "devashish@applozic.com");             
+intent.putExtra(ConversationUIService.DISPLAY_NAME, "Devashish Mamgain"); //put it for displaying the title.
+intent.putExtra("takeOrder", true);
+startActivity(intent);                              
+```
+
+
 ####Step 7: Logout       
 
 On user logout, calling the following to logout user from Applozic
