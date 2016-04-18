@@ -148,7 +148,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 | pageSize  | No  |10   | list of user to be returned |
 
 
-Response:
+**Response:**
  ```  
 {
   "mark": "true",
@@ -188,14 +188,14 @@ Response:
 
 
 
-**Example**- For API Call: 
+**Example:** For API Call: 
 
  ```  
 http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
  ```  
 
 
-Response:
+**Response:**
 
  ```  
 {
