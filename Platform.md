@@ -172,6 +172,44 @@ Response:
 
 
 
+
+### Users display Name   
+
+**Display Name  URL**: https://apps.applozic.com/rest/ws/info
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| userIds | yes  |  | list of unique userId |
+
+
+
+
+**Example**- For API Call: 
+
+http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
+
+
+Response:
+
+ ```  
+{
+  "robert": "robbie",
+  "john": "Mitchell"
+}
+ ```  
+ 
+ 
+  **Note**
+
+**1)** Only users having display Name will return in response.
+
+
+
+
 #Message API
 
 
