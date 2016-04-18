@@ -149,7 +149,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 Response:
-
+ ```  
 {
   "mark": "true",
   "john": "true",
@@ -161,6 +161,8 @@ Response:
   "bob": "false",
   "liza": "false"
 }
+
+ ```
 
 
 
