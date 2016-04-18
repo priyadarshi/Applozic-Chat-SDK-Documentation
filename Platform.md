@@ -134,6 +134,37 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 
 
+
+### Online Users List   
+
+**Contact List URL**: https://apps.applozic.com/rest/ws/ol/list
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| pageSize  | No  |10   | list of user to be returned |
+
+
+Response:
+
+{
+  "mark": "true",
+  "john": "true",
+  "rachel": "true",
+  "brett": "true",
+  "kristen": "true",
+  "robert": "false",
+  "johnson": "false",
+  "bob": "false",
+  "liza": "false"
+}
+
+
+
+
 #Message API
 
 
