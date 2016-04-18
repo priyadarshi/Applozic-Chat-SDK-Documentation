@@ -190,7 +190,9 @@ Response:
 
 **Example**- For API Call: 
 
+ ```  
 http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
+ ```  
 
 
 Response:
