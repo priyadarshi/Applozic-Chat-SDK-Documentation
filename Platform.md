@@ -163,6 +163,11 @@ Response:
 }
 
  ```
+ 
+ 
+ **Note**
+
+1."true" means user is currently online, "false" means user is currently offline.
 
 
 
