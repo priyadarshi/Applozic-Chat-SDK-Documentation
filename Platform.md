@@ -167,7 +167,7 @@ Response:
  
  **Note**
 
-1."true" means user is currently online, "false" means user is currently offline.
+**1)** "true" means user is currently online, "false" means user is currently offline.
 
 
 
@@ -533,7 +533,7 @@ Response:
 
 
 
-**Note**: Only Admin can remove the grop member otherwise the following error will come:
+**Note**: Only Admin can remove the group member otherwise the following error will come:
 
 
 
