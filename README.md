@@ -1728,10 +1728,10 @@ Sample code for **CONTACT_JSON** used as a reference in Step 6 and Step 7 :-
 
 ```
 var CONTACT_JSON ={"USERID_1": {"displayName": "Devashish",
-                      "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
-                    "USERID_2": { "displayName": "Adarsh", "photoLink":    
+                      "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
+                    "USERID_2": { "displayName": "Adarsh", "imageLink":    
                         "https://www.applozic.com/resources/images/applozic_icon.png"}, 
-                    "USERID_3": { "displayName": "Shanki", "photoLink":  
+                    "USERID_3": { "displayName": "Shanki", "imageLink":  
                         "https://www.applozic.com/resources/images/applozic_icon.png"}
                   }; 
  ```
@@ -1782,11 +1782,11 @@ Sample code for **CONTACT_LIST_JSON** used as a reference in step 8 :-
 ```
 var CONTACT_LIST_JSON = 
           {"contacts": [{"userId": "USER_1", "displayName": "Devashish", 
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_2", "displayName": "Adarsh", 
                           "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_3", "displayName": "Shanki",
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
                         ]
          };       
 
