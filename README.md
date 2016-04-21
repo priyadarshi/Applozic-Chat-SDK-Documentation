@@ -1748,8 +1748,8 @@ Sample :
    var contact = CONTACT_JSON[USERID];               
         if (typeof contact !== 'undefined')             
           {                                      
-           return contact.displayName;                  
-         } 
+             return contact.displayName;                  
+          } 
  }                     
 ```
 
@@ -1764,7 +1764,7 @@ Sample code -
     var contact =  CONTACT_JSON[USERID];                       
     if (typeof contact !== 'undefined')                      
       {                       
-        return contact.photoLink;          
+         return contact.photoLink;          
       }
   }                            
  ```
@@ -1784,7 +1784,7 @@ var CONTACT_LIST_JSON =
           {"contacts": [{"userId": "USER_1", "displayName": "Devashish", 
                           "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_2", "displayName": "Adarsh", 
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_3", "displayName": "Shanki",
                           "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
                         ]
@@ -2058,10 +2058,10 @@ Sample code for **CONTACT_JSON** used as a reference in Step 7 and Step 8 :-
 
 ```
 var CONTACT_JSON ={"USER_1": {"displayName": "Devashish",
-                      "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
-                    "USERID_2": { "displayName": "Adarsh", "photoLink":    
+                      "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
+                    "USERID_2": { "displayName": "Adarsh", "imageLink":    
                         "https://www.applozic.com/resources/images/applozic_icon.png"}, 
-                    "USERID_3": { "displayName": "Shanki", "photoLink":  
+                    "USERID_3": { "displayName": "Shanki", "imageLink":  
                         "https://www.applozic.com/resources/images/applozic_icon.png"}
                   }; 
  ```
@@ -2113,11 +2113,11 @@ Sample code for **CONTACT_LIST_JSON** used as a reference in above script :-
 ```
 var CONTACT_LIST_JSON = 
           {"contacts": [{"userId": "USER_1", "displayName": "Devashish", 
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_2", "displayName": "Adarsh", 
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}, 
                         {"userId": "USER_3", "displayName": "Shanki",
-                          "photoLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
                         ]
          };       
 
