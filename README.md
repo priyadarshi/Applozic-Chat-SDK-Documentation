@@ -496,6 +496,25 @@ ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color
  ```
 
 
+Sent Contact Message Text color
+
+ ```
+ApplozicSetting.getInstance(context).setSentContactMessageTextColor(int color); // accepts the R.color.name
+ ```
+ 
+Received Contact Message Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedContactMessageTextColor(int color); // accepts the R.color.name
+ ```
+
+Attachment Icons Background Color
+
+ ```
+ApplozicSetting.getInstance(context).setAttachmentIconsBackgroundColor(int color); // accepts the R.color.name
+ ```
+ 
+
 Show/Hide Green Dot for Online
 
  ```
