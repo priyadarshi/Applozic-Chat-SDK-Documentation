@@ -1764,7 +1764,7 @@ Sample code -
     var contact =  CONTACT_JSON[USERID];                       
     if (typeof contact !== 'undefined')                      
       {                       
-         return contact.photoLink;          
+         return contact.imageLink;          
       }
   }                            
  ```
@@ -2094,7 +2094,7 @@ Sample code :-
     var contact =  CONTACT_JSON[USERID];                       
     if (typeof contact !== 'undefined')                      
       {                       
-        return contact.photoLink;          
+        return contact.imageLink;          
       }
   }                            
  ```
