@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.33'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.34'    
 ```
 
 
