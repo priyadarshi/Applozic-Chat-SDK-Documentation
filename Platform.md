@@ -137,7 +137,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 ### Online Users List   
 
-**Contact List URL**: https://apps.applozic.com/rest/ws/ol/list
+**Contact List URL**: https://apps.applozic.com/rest/ws/user/ol/list
 
 **Method Type**: GET
 
@@ -159,7 +159,8 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
   "robert": "false",
   "johnson": "false",
   "bob": "false",
-  "liza": "false"
+  "liza": "false",
+  "rohan": "false"
 }
 
  ```
