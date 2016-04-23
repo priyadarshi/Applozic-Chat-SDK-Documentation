@@ -73,7 +73,7 @@ Meta-data
            android:value="@string/default_media_location_folder" /> <!-- Attachment Folder Name -->
            
 <meta-data android:name="com.package.name" 
-           android:value="${applicationId}" /> 
+           android:value="${applicationId}" />  <!-- NOTE: Do NOT change this, it should remain same ie 'com.package.name' -->
 
 <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_GEO_API_KEY" />  <!--Replace with your geo api key from google developer console  --> 
