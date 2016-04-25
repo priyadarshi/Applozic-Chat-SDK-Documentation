@@ -1693,6 +1693,7 @@ Above options description :-
  appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)    
  userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)  
  userName: 'ACTIVE USER DISPLAY NAME'                  // loggedIn user name (optional)  
+ imageLink: 'ACTIVE USER IMAGE LINK'                   // loggedIn user image url (optional)          
  desktopNotification: true or false                    // optional
  notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notification (optional)                             
 ```
@@ -2018,11 +2019,12 @@ Initialize plugin using script (Initialize once page load completely, preferable
 description - 
 
  ```
- appId: 'YOUR APPLICATION KEY'                                             // obtained from Step 1 (required)    
- userId: 'UNIQUE USER ID OF ACTIVE USER'                                   // loggedIn user Id (required)   
- userName: 'ACTIVE USER DISPLAY NAME'                                      // loggedIn user name (optional)   
- desktopNotification: true or false                                        // optional
- notificationIconLink : 'YOUR WEB APP LOGO'                                // required for desktop notifications (optional)                                   
+ appId: 'YOUR APPLICATION KEY'                         // obtained from Step 1 (required)    
+ userId: 'UNIQUE USER ID OF ACTIVE USER'               // loggedIn user Id (required)   
+ userName: 'ACTIVE USER DISPLAY NAME'                  // loggedIn user name (optional)   
+ imageLink: 'ACTIVE USER IMAGE LINK'                   // loggedIn user image url (optional)   
+ desktopNotification: true or false                    // optional
+ notificationIconLink : 'YOUR WEB APP LOGO'            // required for desktop notifications (optional)                                   
 ```
 **Note** : desktopNotification support only for chrome browser, notificationIconLink will be display in desktop notification
 
