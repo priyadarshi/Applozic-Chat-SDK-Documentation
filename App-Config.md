@@ -19,14 +19,26 @@ Message Fallback Time is the duration in which if message is not delivered to en
 Webhook Url can be configured by application admin in the applozic dashboard.All messages will be forwarded to the webhook url in JSON format.
 
 
-**Request Body**: Posted Json to configured Url :
+**Request Body**: Posted Json to configured Url without any attachment:
 
 
  ```  
-{"key":"5-67f73984-2efe-4422-a522-d181cec5bd5d-1457958424015",      
-"from":"lee","to":"kevin","message":"hello kevin",
-"timeStamp":1457958424000}
+{"key":"message key",      
+"from":"sender unique id","to":"receiver unique id","message":"message content",
+"timeStamp":1457958424000(Long value)}
  ```
+ 
+ 
+ 
+ **Request Body**: Posted Json to configured Url with  attachment:
+ 
+ 
+  ```  
+{"key":"message key","from":"sender userId ","to":"receiver userId","message":"message content","timeStamp":1461590467000,"file":{"name":"name of attachment image,file etc","url":"attachment Url","contentType":"image/gif","size":28150,"thumbnailUrl":"attachment thumbnail Url"}}
+ ```
+ 
+ 
+ 
  
 #Authentication Url
 
