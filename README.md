@@ -997,6 +997,20 @@ Launch your chat
     [demoChatManager launchChat:<yourcontrollerReference> ];
 
 ```
+**App Module(optional):**
+
+You can create different app modules within your single application. App modules are just like a sub-applications within your single application key. You will have capability to create and upload multiple apps in play store by creating different app modules. Multiple modules allows the users of one app to communicate to other app.
+
+ **Enable App Module**
+
+To enable app module you need to send your app Module name while doing user registration. If you are using DemoChatManager, you can easily do it by setting module name in ALDefaultChatViewSettings.
+
+```
+[ALUserDefaultsHandler setAppModuleName:<YOUR_APP_MODULE_NAME >];
+
+```
+Note:By default App Module will be created for single app. 
+
 
 Detail about user creation and registraion:
 
