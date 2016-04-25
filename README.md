@@ -91,6 +91,22 @@ To disable the location sharing via map add this line ApplozicSetting.getInstanc
 ```
 <string name="default_media_location_folder"><YOUR_APP_NAME></string> 
 ```
+
+**App Module(optional):**
+
+You can create different app modules within your single application. App modules are just like a sub-applications within your single application key. You will have capability to create and upload multiple apps in play store by creating different app modules. Multiple modules allows the users of one app to communicate to other app.
+
+**To Enable App Module** 
+
+```
+<meta-data
+          android:name="com.applozic.module.key"
+          android:value="MOUDLE_KEY" /> <!-- Example:if you have two apps Buyer and Seller app. In one app you can  Replace MOUDLE_KEY with Buyer and in another app Replace MOUDLE_KEY with Seller -->
+```
+  **Note**:By default App Module will be created for single app   
+  
+  
+ 
   
   
   Register at [Applozic](https://www.applozic.com/) to get the application key.
