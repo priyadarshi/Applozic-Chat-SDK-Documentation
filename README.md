@@ -2020,7 +2020,7 @@ response = {'status' : 'success' ,                     // or error
 
 Code
 ```
-$applozic.fn.applozic('loadBroadcastTab', {users: [{userId:'USERID_1', displayName:'Devashish Mamgain'},{userId: 'USERID_2' , displayName : 'Adarsh Kumar'},{userId:'USERID_3', displayName : 'Pravin Singh'}]});    // userId (required), displayName (optional)
+$applozic.fn.applozic('loadBroadcastTab', {groupName: 'NAME_OF_BROADCAST_GROUP', users: [{userId:'USERID_1', displayName:'Devashish Mamgain'},{userId: 'USERID_2' , displayName : 'Adarsh Kumar'},{userId:'USERID_3', displayName : 'Pravin Singh'}]});    // userId (required), displayName (optional)
 ```
 
  **NOTE**- Call **loadBroadcastTab** function only after plugin initailization. For reference use **init()** function explained in Step 5.
