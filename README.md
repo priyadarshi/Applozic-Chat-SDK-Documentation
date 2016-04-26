@@ -2014,7 +2014,17 @@ response = {'status' : 'success' ,                     // or error
                                 
                      }
            }
-```     
+```
+
+#### Step 17: Function to load **Broadcast Channel** Tab (optional)
+
+Code
+```
+$applozic.fn.applozic('loadBroadcastTab', {users: [{userId:'USERID_1', displayName:'Devashish Mamgain'},{userId: 'USERID_2' , displayName : 'Adarsh Kumar'},{userId:'USERID_3', displayName : 'Pravin Singh'}]});
+```
+
+ **NOTE**- Call **loadBroadcastTab** function only after plugin initailization. For reference use **init()** function explained in Step 5.
+ Max number of users limit in broadcast channel is **100**. 
 
 
 ### Customization     
