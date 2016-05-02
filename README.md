@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.34'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.35'    
 ```
 
 
@@ -511,6 +511,30 @@ Received Message Chat Bubble Color
 ApplozicSetting.getInstance(context).setReceivedMessageBackgroundColor(int color); // accepts the R.color.name
  ```
 
+ Sent Message Chat Bubble Border Color
+
+ ```
+ApplozicSetting.getInstance(context).setSentMessageBorderColor(int color); // accepts the R.color.name
+ ```
+ 
+Received Message Chat Bubble Border Color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedMessageBorderColor(int color); // accepts the R.color.name
+ ```
+
+Sent Message Text color
+
+ ```
+ApplozicSetting.getInstance(context).setSentMessageTextColor(int color); // accepts the R.color.name
+ ```
+ 
+Received Message Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedMessageTextColor(int color); // accepts the R.color.name
+ ```
+
 
 Sent Contact Message Text color
 
@@ -522,6 +546,18 @@ Received Contact Message Text Color
 
  ```
 ApplozicSetting.getInstance(context).setReceivedContactMessageTextColor(int color); // accepts the R.color.name
+ ```
+ 
+Chat Background Color 
+
+ ```
+ApplozicSetting.getInstance(context).setChatBackgroundColorOrDrawableResource(int color); // accepts the R.color.name or  R.drawable.drawableName
+ ```
+ 
+Message EditText Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setMessageEditTextTextColor(int color); // accepts the R.color.name
  ```
 
 Attachment Icons Background Color
