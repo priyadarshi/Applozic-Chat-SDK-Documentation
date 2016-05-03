@@ -176,7 +176,7 @@ Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYj
 
 ### Users display Name   
 
-**Display Name  URL**: https://apps.applozic.com/rest/ws/info
+**Display Name  URL**: https://apps.applozic.com/rest/ws/user/info
 
 **Method Type**: GET
 
