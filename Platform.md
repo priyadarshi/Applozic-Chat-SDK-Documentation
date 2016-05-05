@@ -842,11 +842,11 @@ Application can send automated in-app messages to users using Application to Use
 **Request Body**                         
 ```
 {
-        "userName": "DemoUser", 
-        "displayName": "Display Demo User Name", 
-        "imageLink": "User profile image url", 
-        "email": "User Email", 
-        "createdAt": 1456148218000
+ "userId": "DemoUser", 
+ "displayName": "Display Demo User Name", 
+ "imageLink": "User profile image url", 
+ "email": "User Email", 
+ "createdAt": 1456148218000
 }
 ```
 
