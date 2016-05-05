@@ -21,25 +21,37 @@ Webhook Url can be configured by application admin in the applozic dashboard.All
 
 **Request Body**: Posted Json to configured Url without any attachment:
 
+```
+{
+ "key":"message key",
+ "from":"sender unique id",
+ "to":"receiver unique id",
+ "message":"message content",
+ "timeStamp":1457958424000,  // Long timestamp value
+ "receiverConnected": true,  // Boolean value
+ "receiverLastSeenAtTime": 1457958424000  // Long timestamp value
+}
+```
 
- ```  
-{"key":"message key",      
-"from":"sender unique id","to":"receiver unique id","message":"message content",
-"timeStamp":1457958424000(Long value)}
- ```
+**Request Body**: Posted Json to configured Url with  attachment:
  
- 
- 
- **Request Body**: Posted Json to configured Url with  attachment:
- 
- 
-  ```  
-{"key":"message key","from":"sender userId ","to":"receiver userId","message":"message content","timeStamp":1461590467000,"file":{"name":"name of attachment image,file etc","url":"attachment Url","contentType":"image/gif","size":28150,"thumbnailUrl":"attachment thumbnail Url"}}
- ```
- 
- 
- 
- 
+```  
+{  
+  "key":"message key",
+  "from":"sender userId ",
+  "to":"receiver userId",
+  "message":"message content",
+  "timeStamp":1461590467000,
+  "file":{  
+    "name":"name of attachment image,file etc",
+    "url":"attachment Url",
+    "contentType":"image/gif",
+    "size":28150,
+    "thumbnailUrl":"attachment thumbnail Url"
+  }
+}
+```
+
 #Authentication Url
 
 Authentication Url is configured by application admin in Applozic Dashbaord for authenticating users from your side. The Url should accept POST request with following two paramters.
