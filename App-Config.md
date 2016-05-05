@@ -29,7 +29,7 @@ Webhook Url can be configured by application admin in the applozic dashboard.All
  "message":"message content",
  "timeStamp":1457958424000,  // Long timestamp value
  "receiverConnected": true,  // Boolean value
- "receiverLastSeenAtTime": 1457958424000  // Long timestamp value
+ "receiverLastSeenAtTime": 1457958424000 //Long timestamp value
 }
 ```
 
