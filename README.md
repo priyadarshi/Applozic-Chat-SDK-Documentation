@@ -2577,14 +2577,14 @@ message = {key: "MESSAGE_IDENTIFIER",
            timeStamp: 'MESSAGE_CREATED_TIMESTAMP'          
            }
 ```              
-# PLATFORM API   
-
-**For Platform API vist : https://www.applozic.com/platform.html ** 
+# [PLATFORM API] (https://www.applozic.com/platform.html)  
 
 
-# Application Configuration API   
 
-**For App Configuration API vist : https://www.applozic.com/app-config.html ** 
+
+# [Application Configuration API] (https://www.applozic.com/app-config.html)  
+
+
 
 
 
