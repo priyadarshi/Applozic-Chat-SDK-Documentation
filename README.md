@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.37'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.38'    
 ```
 
 
@@ -72,8 +72,11 @@ Meta-data
 <meta-data android:name="main_folder_name"
            android:value="@string/default_media_location_folder" /> <!-- Attachment Folder Name -->
            
+<meta-data android:name="activity.open.on.notification"
+            android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" /> <!-- NOTE : Do NOT change this value -->
+            
 <meta-data android:name="com.package.name" 
-           android:value="${applicationId}" />  <!-- NOTE: Do NOT change this, it should remain same ie 'com.package.name' -->
+           android:value="${applicationId}" />  <!-- NOTE: Do NOT change this, it should remain same i.e 'com.package.name' -->
 
 <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_GEO_API_KEY" />  <!--Replace with your geo api key from google developer console  --> 
@@ -131,6 +134,8 @@ Permissions:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.CALL_PHONE" />
+<uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
   ```
@@ -270,14 +275,6 @@ Broadcast Registration For PushNotification:
 
 
 ```
-<receiver android:name="com.applozic.mobicomkit.broadcast.NotificationBroadcastReceiver">
-         <intent-filter>
-                 <action android:name="applozic.LAUNCH_APP" />
-         </intent-filter>
-<meta-data
-          android:name="activity.open.on.notification"
-          android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
-</receiver>
 
 <receiver android:name="com.applozic.mobicomkit.broadcast.TimeChangeBroadcastReceiver">
          <intent-filter>
@@ -566,7 +563,12 @@ Attachment Icons Background Color
 ApplozicSetting.getInstance(context).setAttachmentIconsBackgroundColor(int color); // accepts the R.color.name
  ```
  
-
+ Send Button Background Color
+ 
+ ```
+  ApplozicSetting.getInstance(context).setSendButtonBackgroundColor(int color); // accepts the R.color.name
+  ```
+  
 Show/Hide Green Dot for Online
 
  ```
@@ -588,7 +590,29 @@ ApplozicSetting.getInstance(context).showStartNewFloatingActionButton();
 ApplozicSetting.getInstance(context).hideStartNewFloatingActionButton();
 ```
 
+For Group Add Member Button Hide
 
+```
+ApplozicSetting.getInstance(context).setHideGroupAddButton(true);
+```
+For Group Exit Button Hide
+
+```
+ ApplozicSetting.getInstance(context).setHideGroupExitButton(true);
+ ```
+ 
+ For Group Name Change Button Hide
+ 
+ ```
+ ApplozicSetting.getInstance(context).setHideGroupNameEditButton(true);
+ ```
+ 
+ For  Group Memebr Remove Option Hide
+ 
+  ```
+ ApplozicSetting.getInstance(context).setHideGroupRemoveMemberOption(true);
+  ```
+ 
 For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs :
 ```
 [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
