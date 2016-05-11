@@ -1607,6 +1607,48 @@ ALApplozicSettings.setGroupOption(true)
 ```
 This method is used when group feature is required . It will disable group functionality when set to NO.
 
+#### Show/Hide Group Functions
+
+
+
+##### Show/Hide Group Exit Button
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupExitOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupExitOption(true)
+```
+
+
+##### Show/Hide Group Member-Add Button (Admin only)
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupMemberAddOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupMemberAddOption(true)
+```
+
+
+##### Show/Hide Group Member-Remove Button (Admin only)
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupMemberRemoveOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupMemberRemoveOption(true)
+```
+
 
 
 
