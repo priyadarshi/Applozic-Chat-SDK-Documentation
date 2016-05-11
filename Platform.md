@@ -39,6 +39,8 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 | deviceType  | Yes  |   | 1 for Android, 4 for Apple   | 
 | registrationId  | No  |   | Device GCM or APN registration id for push notification  | 
 | pushNotificationFormat  | No  |   | 0 for Standard (GCM/APN) and 1 for PhoneGap   | 
+| userTypeId  | No  |   | to identify different-2 type of user within application  |
+| contactNumber  | No  |   | user contact number    |
 
 
 
@@ -47,7 +49,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 ** json **                         
 ```
 {"userId":"robert","deviceType":"4","applicationId":"applozic-sample-app",
-"registrationId":"put-gcm-registration-id-here", "pushNotificationFormat": "0"
+"registrationId":"put-gcm-registration-id-here", "pushNotificationFormat": "0","contactNumber":"1234567890"
 }
 ```
 
@@ -62,6 +64,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 | userKey | User key  |
 | deviceKey  | User device key |
 | lastSyncTime  | Time in miliseconds when user device last synced with server  |  
+| contactNumber  | user contact number, received only if passed  | 
 | currentTimeStamp  | Time in miliseconds when response is return from server | 
 
 
@@ -70,7 +73,7 @@ Are you looking for platform-native Sdks to integrate into your app. All you nee
 ** json **                         
 ```
 {    "message": "REGISTERED.WITHOUTREGISTRATIONID","userKey": "21fea543-2ade-494f-b905-6bab308d1b4f",
-"deviceKey": "09c5d869-6d38-4d6b-9ebf-9de16cdab176","lastSyncTime": 1454328502029, "currentTimeStamp": 1454328502023}
+"deviceKey": "09c5d869-6d38-4d6b-9ebf-9de16cdab176","lastSyncTime": 1454328502029, "contactNumber": "1234567890", "currentTimeStamp": 1454328502023}
 ```
 
 
