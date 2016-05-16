@@ -1979,7 +1979,14 @@ You don't need to use functions explained in Step 6 and Step 7 if loading all co
 
  ``` 
  
-#### Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional)
+ #### Step 10: Function to load(open) Group tab conversation by group Id (optional)
+
+```
+ $applozic.fn.applozic('loadGroupTab', 'PUT_GROUPID_HERE'); // unique group Id (required)
+
+ ``` 
+ 
+#### Step 11: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -1989,7 +1996,7 @@ You can add the following html into your code to directly open a conversation wi
  
  **Note** - Data attribute **mck-name** is optional in above tag          
 
-#### Step 11: Function to **Send Message** (optional)
+#### Step 12: Function to **Send Message** (optional)
 
 Code
 ```
@@ -2002,7 +2009,7 @@ $applozic.fn.applozic('sendMessage', messageJson);
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 12: Function to **Send Message visible only to Receiver** (optional)
+#### Step 13: Function to **Send Message visible only to Receiver** (optional)
 
 Code 
 ```
@@ -2018,7 +2025,7 @@ Useful for cases where you want to send the visitor's info in background to the 
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 13: To add auto suggest users list in search field use below html element id (optional)
+#### Step 14: To add auto suggest users list in search field use below html element id (optional)
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -2026,7 +2033,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-#### Step 14: To show **online/offline** status (optional)
+#### Step 15: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -2042,7 +2049,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-#### Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 16: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 
 These are attributes requires on chat button or anchor tag -
@@ -2110,7 +2117,7 @@ Sample  code :-
 ```
 
 
-#### Step 16: Function to get **USER DETAIL** (optional)
+#### Step 17: Function to get **USER DETAIL** (optional)
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -2142,7 +2149,7 @@ response = {'status' : 'success' ,                     // or error
            }
 ```
 
-#### Step 17: Function to load **Broadcast Channel** Tab (optional)
+#### Step 18: Function to load **Broadcast Channel** Tab (optional)
 
 Code
 ```
@@ -2339,8 +2346,14 @@ mck-search
 
  ``` 
  
+#### Step 13: Function to load(open) Group tab conversation by group Id (optional)
+
+```
+ $applozic.fn.applozic('loadGroupTab', 'PUT_GROUPID_HERE'); // unique group Id (required)
+
+ ``` 
  
-#### Step 13: Function to **Send Message** (optional)
+#### Step 14: Function to **Send Message** (optional)
 
 If you want to send text message directly use below function - 
 ```
@@ -2358,7 +2371,7 @@ var MESSAGE_JSON =
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 14: Function to **Send Message visible only to Receiver** (optional)
+#### Step 15: Function to **Send Message visible only to Receiver** (optional)
 
 Code 
 ```
@@ -2374,7 +2387,7 @@ Useful for cases where you want to send the visitor's info in background to the 
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 15: Anchor tag or button to load(open) individual tab conversation directly (optional)
+#### Step 16: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -2385,7 +2398,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag.          
  
 
-#### Step 16: To show **online/offline** status (optional)
+#### Step 17: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -2399,7 +2412,7 @@ Example :-
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-#### Step 17: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 18: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 These are attributes requires on chat button or anchor tag -
 
@@ -2460,7 +2473,7 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-#### Step 18: Function to get USER DETAIL (optional)
+#### Step 19: Function to get USER DETAIL (optional)
 
 Call below given function to get user details like Total unread count, last seen at etc
 
