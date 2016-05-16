@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.38'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:3.39'    
 ```
 
 
@@ -545,7 +545,25 @@ Received Contact Message Text Color
 ApplozicSetting.getInstance(context).setReceivedContactMessageTextColor(int color); // accepts the R.color.name
  ```
  
-Chat Background Color 
+ Edit Text Background  Color Or DrawableResource 
+
+ ```
+ApplozicSetting.getInstance(context).setEditTextBackgroundColorOrDrawableResource(int colorOrdrawableName); // accepts the R.color.name or  R.drawable.drawableName
+ ```
+ 
+Sent Message Hyper Link Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setSentMessageLinkTextColor(int color); // accepts the R.color.name
+ ```
+ 
+ Received Message Hyper Link Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedMessageLinkTextColor(int color); // accepts the R.color.name
+ ```
+ 
+Chat Background Image or Color
 
  ```
 ApplozicSetting.getInstance(context).setChatBackgroundColorOrDrawableResource(int color); // accepts the R.color.name or  R.drawable.drawableName
@@ -555,6 +573,12 @@ Message EditText Text Color
 
  ```
 ApplozicSetting.getInstance(context).setMessageEditTextTextColor(int color); // accepts the R.color.name
+ ```
+
+Message EditText Hint Color
+
+ ```
+ApplozicSetting.getInstance(context).setMessageEditTextHintColor(int color); // accepts the R.color.name
  ```
 
 Attachment Icons Background Color
