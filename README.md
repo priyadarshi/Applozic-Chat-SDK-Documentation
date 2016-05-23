@@ -55,6 +55,8 @@ android {
 ####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml
            
 Meta-data
+
+**Note**: Add meta-data within application Tag ``` <application>  </application>```
         
 ```
 <meta-data android:name="com.applozic.application.key"
@@ -82,9 +84,6 @@ Meta-data
             android:value="YOUR_GEO_API_KEY" />  <!--Replace with your geo api key from google developer console  --> 
 <!-- For testing purpose use AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI
 To disable the location sharing via map add this line ApplozicSetting.getInstance(context).disableLocationSharingViaMap(); in onSuccess of Applozic UserLoginTask -->
-
-           
-        
 ```
    **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
@@ -307,6 +306,7 @@ UserLoginTask.TaskListener listener = new UserLoginTask.TaskListener() {
 public void onSuccess(RegistrationResponse registrationResponse, Context context)         
 {           
    // After successful registration with Applozic server the callback will come here 
+    ApplozicSetting.getInstance(context).enableRegisteredUsersContactCall();//To enable the applozic Registered Users Contact Note:for disable that you can comment this line of code
     ApplozicSetting.getInstance(context).showStartNewButton();//To show contact list.
     ApplozicSetting.getInstance(context).showStartNewGroupButton();//To enable group messaging
 }                       
@@ -744,7 +744,7 @@ ApplozicSetting.getInstance(this).setColor(ApplozicSetting.CUSTOM_MESSAGE_BACKGR
 
 ###  Contacts           
 
-
+Note:This methods are for creating local conatcts and only stored locally.
 
 ***Creating Contact list***         
 
@@ -850,52 +850,61 @@ Create the Group with Group Name and Group Members.
 Import
 
 ```
-import com.applozic.mobicomkit.api.people.ChannelCreate;            
-import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelCreateTask;
 ```
 
 Code
  ```
-new Thread(new Runnable() {
-     @Override
-           public void run() {
+  ApplozicChannelCreateTask.ChannelCreateListener channelCreateListener = new ApplozicChannelCreateTask.ChannelCreateListener() {
+            @Override
+            public void onSuccess(Channel channel, Context context) {
+                Log.i("ApplzoicChannelCreate", "After success full creation of channel");
+                Log.i("Channel", "Channel object:" + channel);//channel.getKey() is a channel key or group id
+            }
+
+            @Override
+            public void onFailure(Exception e, Context context) {
+
+            }
+        };
+
                 String groupName = "Applozic Group"; // Name of group.
                 List<String> groupMemberList = new ArrayList<String>(); // List Of unique group member Names.
                 groupMemberList.add("member1");   // Put userId of the user
                 groupMemberList.add("member2");
                 groupMemberList.add("member3");
                 groupMemberList.add("member4");
+                
+ApplozicChannelCreateTask applozicChannelCreateTask = new ApplozicChannelCreateTask(context, channelCreateListener, groupName, groupMemberList);
+applozicChannelCreateTask.execute((Void) null);
 
  ```
- 
-After adding group Members to list, pass the Group Name and Group Member List to constructor below
-
-Code
- ```
-  ChannelCreate channelCreate = new ChannelCreate(groupName, groupMemberList); // The Constructor accepts the two parameter String Group Name and List of Group Members.
-   
-
-  Channel channel = ChannelService.getInstance(context).createChannel(channelCreate); // Instantiating the  group create and it accept the ChannelCreate object.
-               }
-           }).start();
- ```
- 
 
 ####2) Add Member to Group
   
 Import
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+  import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelAddMemberTask;
 ```
 
 Code
  ``` 
- new Thread(new Runnable() {
-        @Override
-             public void run() {
-        String response = ChannelService.getInstance(context).addMemberToChannelProcess(channelKey, userId);
-         }
-    }).start();
+ ApplozicChannelAddMemberTask.ChannelAddMemberListener channelAddMemberListener =  new ApplozicChannelAddMemberTask.ChannelAddMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                Log.i("ApplozicChannelMember","Add Response:"+response);
+
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelAddMemberTask applozicChannelAddMemberTask =  new ApplozicChannelAddMemberTask(context,channelKey,userId,channelAddMemberListener);//pass channel key and userId whom u want to add to channel
+        applozicChannelAddMemberTask.execute((Void)null);
+
  ```
    
   __Parameters:__
@@ -911,17 +920,26 @@ Code
  
 Import  
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelRemoveMemberTask;
 ```
 
 Code
   ```
- new Thread(new Runnable() {
-         @Override
-         public void run() {
-    String response = ChannelService.getInstance(context).removeMemberFromChannelProcess(channelKey, userId);
-                 }
-       }).start();
+  ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener channelRemoveMemberListener = new ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                Log.i("ApplozicChannel","remove member response:"+response);//after removing a member from channel the call back will come here
+
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelRemoveMemberTask applozicChannelRemoveMemberTask =  new ApplozicChannelRemoveMemberTask(context,channelKey,userId,channelRemoveMemberListener);//pass channelKey and userId whom you want to remove from channel
+        applozicChannelRemoveMemberTask.execute((Void)null);
  ```
   
   __Parameters:__
@@ -940,17 +958,25 @@ Code
  
 Import
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelLeaveMember;
 ```
   
 Code
   ```
-   new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-       String response = ChannelService.getInstance(context).leaveMemberFromChannelProcess(channelKey,userId);
-              }
-        }).start();
+  ApplozicChannelLeaveMember.ChannelLeaveMemberListener  channelLeaveMemberListener  = new ApplozicChannelLeaveMember.ChannelLeaveMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                Log.i("ApplozicChannel","Leave member respone:"+response);//After leaving  member from channel  call back will come here
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelLeaveMember applozicChannelLeaveMember = new ApplozicChannelLeaveMember(context,channelKey,userId,channelLeaveMemberListener);//pass channelKey and userId
+        applozicChannelLeaveMember.execute((Void)null);
   ```
  
    __Parameters:__
@@ -961,31 +987,41 @@ Code
  
  __Return response__: success or error 
  
+ Note:This is only for logged in user who want's to leave from group
  
 ####5) Change Group Name
 
 Import
 
 ```
-  import com.applozic.mobicomkit.feed.ChannelName;
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+  
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelNameUpdateTask;
 ```
   
 Code
 
 ```
- new Thread(new Runnable() {
-        @Override
-              public void run() {
-              Integer channelKey = 1234;
-              Strin newChannelName = "ApplozicGroup";
-              ChannelName channeName = new ChannelName(newChannelName,channelKey);//it accepts the new channel Name and channelKey 
-                String response = ChannelService.getInstance(context).updateNewChannelNameProcess(channelName);
-          }
-     }).start();
+  ApplozicChannelNameUpdateTask.ChannelNameUpdateListener channelNameUpdateListener = new ApplozicChannelNameUpdateTask.ChannelNameUpdateListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                Log.i("ApplozicChannel", "Name update:" + response);//after updating channel name call back will come here
+            }
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelNameUpdateTask channelNameUpdateTask = new ApplozicChannelNameUpdateTask(context, channelKey, channelName, channelNameUpdateListener);//pass context ,channelKey,chnanel new name 
+        channelNameUpdateTask.execute((Void) null);
 
  ```
-
+ __Parameters:__
+ 
+ __channelKey__:Unique Integer type 
+ 
+ __channelName__ :new Channel name you want to change
+ 
   __Return response__: If group/channel name successfully changed it returns success else error 
   
   
