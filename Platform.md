@@ -826,6 +826,43 @@ Authentication is done using BASIC authentication. It is combination of email & 
 Application can send automated in-app messages to users using Application to User Messaging API.
 
 
+
+
+***Required Authentication Headers***
+Now these authentication headers need to be sent with each API call.
+
+
+
+**request should contain these 3 headers**
+
+| Header | Value  |
+| ------------- | ----------- |
+| Apz-Token | Authorization Code  |
+| Apz-AppId | application key got in admin dashboard  |  
+| Content-Type |  application/json  |  
+
+
+
+
+Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of admin user.
+
+
+ 
+**Apz-Token** : Basic Base64Encode of email:password
+
+
+
+
+**Example**- 
+
+If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
+then the Apz-Token will be:
+
+Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+
+Apz-AppId: application key of application for which admin want to send message. 
+
+
 ### Create User        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
@@ -856,38 +893,7 @@ Application can send automated in-app messages to users using Application to Use
 
 
 
-***Required Authentication Headers***
 
-
-
-**request should contain these 3 headers**
-
-| Header | Value  |
-| ------------- | ----------- |
-| Apz-Token | Authorization Code  |
-| Apz-AppId | application key got in admin dashboard  |  
-| Content-Type |  application/json  |  
-
-
-
-
-Authentication is done using BASIC authentication. It is combination of email & password of admin user.
-
-
- 
-**Apz-Token** : Basic Base64Encode of email:password
-
-
-
-
-**Example**- 
-
-If the email of the admin(Logged in Applozic Dashboard) is  **jack** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be:
-
-Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
-
-Apz-AppId: application key of application for which admin want to send message. 
 
 ###User Details        
 
@@ -925,30 +931,40 @@ Apz-AppId: application key of application for which admin want to send message.
 ]
 ```
 
-***Required Authentication Headers***
-
-**request should contain these 3 headers** -           
-
-| Header | Value  |
-| ------------- | ----------- |
-| Apz-Token | Authorization Code  |
-| Apz-AppId | application key got in admin dashboard  |  
-| Content-Type |  application/json  |  
 
 
-Authentication is done using BASIC authentication. It is combination of email & password of admin user.
+###Group Create        
 
-**Apz-Token** : Basic Base64Encode of email:password
+**URL**: https://apps.applozic.com/rest/ws/group/create
+
+**Method Type**: POST 
+
+**ContentType**: application/json
+
+**Request Body**:   
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupName | Yes  |   | Name of the group |
+| groupMemberList | Yes  |   |List of names of the  group members |
+| ofUserId | yes  |   | on behalf of this user group is created (existing user in system) |
 
 
-**Example**- 
+**Parameter Example**:   (Suppose Application admin is calling API  and "TestUser" is the existing user in the application)
 
-If the email of the admin(Logged in Applozic Dashboard) is  **jack** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be:
+**sample**  
+```
+{
+  "groupName" : "Group Name",
+  "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
+  "ofUserId": " "TestUser"
+}
+```
 
-Apz-Token: Basic amFjazphZG1pbkxvZ2dlZEluQXBwbG96aWNEYXNoYm9hcmQ=
 
-Apz-AppId: application key of application for which admin want to send message. 
+
+
+
 
 ###Dispatch Message      
 
@@ -998,6 +1014,31 @@ Apz-AppId: application key of application for which admin want to send message.
 
 
 
+**Json required for group based messaging**
+
+
+**json**
+```
+{
+ "message":"message content","groupId":114209 //groupId received while group creation.
+}
+```
+
+
+
+**Response**:
+
+| Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
+
+
+**sample response**
+```
+{"messageKey": "5-agpzfmFwcGxvemljchMLEgZTdVVzZXIYgICAgLrcvwsM-1464093115599", "createdAt": 1456148218000}
+```
+
 
 
 **Json required for contextual based messaging**
@@ -1035,43 +1076,6 @@ Apz-AppId: application key of application for which admin want to send message.
 ```
 {"messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283","conversationId":456,"createdAt":1458039322000}
 ```
-
-
-
-
-***Required Authentication Headers***
-
-
-
-**Request must contain the following 3 headers** -           
-
-| Header | Value  |
-| ------------- | ----------- |
-| Apz-Token | Authorization Code  |
-| Apz-AppId | application key got in admin dashboard  |  
-| Content-Type |  application/json  |  
-
-
-
-Authentication is done using BASIC authentication. It is combination of email & password of admin user .
-
-
-
-**Apz-Token** : Basic Base64Encode of email:password
-
-
-
-
-**Example**
-
-If the email of the admin account used for registering to Applzoic is  **jack@gmail.com** and password is **test**, 
-then the Apz-Token will be:
-
-Apz-Token: Basic amFja0BnbWFpbC5jb206dGVzdA==
-
-Apz-AppId: Application Key as shown in Applozic dashboard page.
-
-
 
 
   Contact us at ` github@applozic.com `
