@@ -2184,8 +2184,40 @@ response = {'status' : 'success' ,                     // or error
                      }
            }
 ```
+#### Step 18: Function to get **Group List** (optional)
 
-#### Step 18: Function to load **Broadcast Channel** Tab (optional)
+Call below given function to get group list :-
+
+```
+   $applozic.fn.applozic('getGroupList', {callback: getGroupList});
+```
+
+
+Callback function to receive response (used as a reference in above function) :-   
+
+```
+function getGroupList(response) {
+   if(response.status === 'success') {
+      // write your logic
+   }
+ }
+ 
+ ````
+
+Response sample :-
+
+
+```
+response = {'status' : 'success' ,                    // or error
+            'data':[{"id":"Group_Id1","name":"GroupName1","adminName":"ADMIN_USER_ID1","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":3, type:'GROUP_TYPE'}, 
+                       {"id":"Group_Id2","name":"GroupName2","adminName":"ADMIN_USER_ID2","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":7, type:'GROUP_TYPE'}]                  
+                    
+           }            
+```
+
+#### Step 19: Function to load **Broadcast Channel** Tab (optional)
 
 Code
 ```
@@ -2511,13 +2543,7 @@ Sample code :-
 
 #### Step 19: Function to get USER DETAIL (optional)
 
-Call below given function to get user details like Total unread count, last seen at etc
-
-```
-  $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
-```
-
-Call below given function to get user details like totalUnreadCount, lastSeenAt time etc :-
+Call below given function to get user details like Total unread count, last seen at etc :-
 
 ```
 function getUserDetail(response) {
@@ -2525,6 +2551,8 @@ function getUserDetail(response) {
       // write your logic
    }
  }
+ 
+ $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```
 
 Response sample :-
@@ -2536,6 +2564,33 @@ response = {'status' : 'success' ,                    // or error
                        [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
                        {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
                      }
+           }            
+```
+
+#### Step 20: Function to get **Group List** (optional)
+
+Call below given function to get group list :-
+
+```
+function getGroupList(response) {
+   if(response.status === 'success') {
+      // write your logic
+   }
+ }
+ 
+  $applozic.fn.applozic('getGroupList', {callback: getGroupList});
+```
+
+Response sample :-
+
+
+```
+response = {'status' : 'success' ,                    // or error
+            'data':[{"id":"Group_Id1","name":"GroupName1","adminName":"ADMIN_USER_ID1","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":3, type:'GROUP_TYPE'}, 
+                       {"id":"Group_Id2","name":"GroupName2","adminName":"ADMIN_USER_ID2","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":7, type:'GROUP_TYPE'}]                  
+                    
            }            
 ```
 
