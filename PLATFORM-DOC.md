@@ -355,7 +355,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 
 
- | Parameter  | Description | 
+| Parameter  | Description | 
 | ------------- | ------------- | 
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs on server. In case of any exception contact devashish@applozic.com  |
@@ -403,6 +403,35 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
       
 
+
+### Delete All           
+
+
+
+**DELETE All  URL** : https://apps.applozic.com/rest/ws/message/delete/all
+
+**Method Type**: GET 
+
+**Parameters**:          
+
+
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes  |   | User for which you want to delete all messages  |  
+
+
+
+**Response**:           
+
+
+
+
+| Parameter  | Description | 
+| ------------- | ------------- | 
+| success  | Request is successfully processedl  |
+| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
+      
 
 
 # Group API
