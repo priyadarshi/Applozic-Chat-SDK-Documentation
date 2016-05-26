@@ -235,13 +235,17 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 ###MESSAGE LIST
 
-1. If no user id or group id is passed to the api then this api returns the latest message of the calling user with each user or group which the user has chat with.
-2. If the user id or group id is passed then api return the messages between the calling user and specified user.
-3. If the grouo id is passed the api returns the messages of the specified group.
-
 **URL**: https://apps.applozic.com/rest/ws/message/list
 
 **Method Type**: GET
+
+**Description**
+
+1. If no user id or group id is passed to the api then this api returns the latest message of the calling user with each user or group which the user has chat with.
+2. If the user id or group id is passed then api return the messages between the calling user and specified user.
+3. If the group id is passed the api returns the messages of the specified group.
+
+
 
 **Request Body**:        
 
