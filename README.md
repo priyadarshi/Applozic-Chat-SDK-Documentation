@@ -2694,7 +2694,7 @@ applozic.events = {onConnect: function () {
                        console.log('onUserConnect: ' + obj);
                   }, onUserDisconnect: function (obj) {
                        console.log('onUserDisconnect: ' + obj);
-                  },
+                  }
                 };              
   ```               
   
