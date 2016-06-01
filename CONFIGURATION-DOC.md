@@ -45,9 +45,9 @@ Webhook Url can be configured by application admin in the applozic dashboard.All
 }
 ```
 
-#Authentication Url
+#Access Token URL
 
-Authentication Url is configured by application admin in Applozic Dashbaord for authenticating users from your side. The Url should accept POST request with following two paramters.
+Access Token URL (Authentication Url) can be configured by application admin in Applozic Dashboard for authenticating users from your backend server. The Url should accept POST request with following two paramters.
 The user should provide the access token in the "accessToken" option while plugin initialization.
 
 | Parameter  | Description |
