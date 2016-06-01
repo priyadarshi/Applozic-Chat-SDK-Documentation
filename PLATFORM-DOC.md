@@ -151,6 +151,10 @@ The following will come in response in case of incomplete email and invalid appl
 | ------------- | ------------- | ------------- | ------------- |       
 | pageSize | No  | 500 | list of contacts to load |
 | startTime | No  |  | pass to load more contact |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+
 
 
 
@@ -216,6 +220,10 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 | Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
 | userIds | yes  |  | list of unique userId |
+
+
+**Note:**: Additional ofUserId parameter not required in case of apllication admin too.
+
 
 **Example:** For API Call: 
 
@@ -286,6 +294,8 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 #Message API
 
 ### Send   
+
+**Note:** For Application user purpose only.
 
 **SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/send
 
