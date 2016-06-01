@@ -709,6 +709,113 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 
 
+### Mutliple Group Creation
+
+**MULTIPLE GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create/multiple
+
+**Method Type**: POST 
+
+**ContentType**: application/json
+
+**Request Body**:   
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupName | Yes  |   | Name of the group |
+| groupMemberList | Yes  |   |List of names of the  group members |
+| type | No  | public  | Type of the group |
+
+"type" parameters possible values
+
+| Value  | Description |
+| ------------- | ------------- |
+| 1 | Private group : other users are not able to join this group voluntarily |
+| 2 | Public Group : Users are able to search and join the group |
+| 5 | Broadcast Group : User can send personal message to a group of Users |
+    
+**Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
+
+**sample**  
+```
+ [
+ { "groupName" : "MultiGroup1",
+  "groupMemberList" : [ "kevin","john"]
+ },
+ { "groupName" : "MultiGroup2",
+  "groupMemberList" : [ "jade"]
+ }
+ 
+]
+
+```
+
+**Response** : Response Json  with success status :-  
+
+**json**                         
+```
+{
+  "status": "success",
+  "generatedAt": 1464793892242,
+  "response": [
+    {
+      "id": 496,
+      "groupId": "496",
+      "name": "MultiGroup1",
+      "adminName": "TestUser",
+      "membersName": [
+        "kevin",
+        "TestUser",
+        "john"
+      ],
+      "users": [
+        {
+          "id": "1d18ac83-5e00-4663-bdb8-91cc1354b63d",
+          "userId": "John",
+          "connected": false,
+          "createdAtTime": 1457714415000,
+          "unreadCount": 0,
+          "deactivated": false
+        },
+        {
+          "id": "8bb2f211-1083-4032-8187-5bc6db1c2080",
+          "userId": "kevin",
+          "connected": true,
+          "lastSeenAtTime": 1457449548000,
+          "createdAtTime": 1457449539000,
+          "unreadCount": 0,
+          "phoneNumber": "+912345678923",
+          "deactivated": false
+        }
+      ],
+      "unreadCount": 0,
+      "type": 2
+    },
+    {
+      "id": 497,
+      "groupId": "497",
+      "name": "MultiGroup2",
+      "adminName": "TestUser",
+      "membersName": [
+        "TestUser",
+        "jade"
+      ],
+      "users": [
+        {
+          "id": "39fcf05f-572d-4efb-8e34-8a4004f1bb37",
+          "userId": "jade",
+          "connected": false,
+          "createdAtTime": 1464681811000,
+          "unreadCount": 0,
+          "deactivated": false
+        }
+      ],
+      "unreadCount": 0,
+      "type": 2
+    }
+  ]
+}
+```
+
 
 
 
