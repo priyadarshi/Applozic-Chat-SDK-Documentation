@@ -22,9 +22,9 @@ Authentication is done using BASIC authentication. Authorization Code is combina
 If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
 then the Apz-Token will be:
 
-Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+**Apz-Token**: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
 
-Apz-AppId: application key of application for which admin want to send message. 
+**Apz-AppId**: application key of application for which admin want to send message. 
 
 
 ****Section-2****
@@ -42,7 +42,7 @@ Use **deviceKey** from registration response to create Authorization Code and se
 **Example**- 
 If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
 
-Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng==
+Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng==
 
 **All request from Device must contain the following 4 headers** -           
 
