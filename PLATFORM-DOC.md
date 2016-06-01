@@ -766,7 +766,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 
 
-### Mutliple Group Creation
+### Multiple Group Creation
 
 **MULTIPLE GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create/multiple
 
@@ -1032,7 +1032,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 {"status":"success","generatedAt":1452347180639,"response":"success"}   
 ``` 
 
-#API's having admin support only
+### API's for application admin purpose only
 
 **Application To User**
 
