@@ -567,6 +567,38 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 {"status":"success","generatedAt":1452347180639,"response":"success"}
 ```
 
+### Add User To Multiple Group
+
+**ADD USER TO MULTIPLE GROUP URL**:  https://apps.applozic.com/rest/ws/group/add/user
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupIds   | Yes  |   | List of group unique id  |
+| userId   | Yes  |   | unique id of the user want to add to the group  |
+
+
+**sample**  
+```
+https://apps.applozic.com/rest/ws/group/add/user? groupIds=490&groupIds=491&groupIds=493&userId=jack
+```
+
+
+**Response**:  Response Json with success status :-  
+
+```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}
+```
+
+**Note**: Groups for the passed groupIds and the user for the passed userId should exist in that application.
+
+
+
+
+
 #Topic/Product API 
 
 ### Retreive Conversation Id
