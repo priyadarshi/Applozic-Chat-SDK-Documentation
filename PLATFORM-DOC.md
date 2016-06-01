@@ -1,6 +1,6 @@
 Explore Platform API's as per Application Admin or as per Application User.
 
-**For APPLICATION ADMIN:**
+**Section-1**
 
 **Required Authentication Headers For APPLICATION ADMIN:**
 For Application Admin send following authentication headers with each API call to explore platform API's.
@@ -25,7 +25,7 @@ Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
 Apz-AppId: application key of application for which admin want to send message. 
 
 
-**For APPLICATION USER:**
+****Section-2****
 
 **Required Authentication Headers For APPLICATION USER**  
 
@@ -784,35 +784,13 @@ Authentication is done using BASIC authentication. It is combination of email & 
 {"status":"success","generatedAt":1452347180639,"response":"success"}   
 ``` 
 
-#Admin Api
+#API's having admin support only
 
 **Application To User**
 
 Application can send automated in-app messages to users using Application to User Messaging API.
 
-***Required Authentication Headers***
-Now these authentication headers need to be sent with each API call.
-
-**request should contain these 3 headers**
-
-| Header | Value  |
-| ------------- | ----------- |
-| Apz-Token | Authorization Code  |
-| Apz-AppId | application key got in admin dashboard  |  
-| Content-Type |  application/json  |  
-
-Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of admin user.
-
-**Apz-Token** : Basic Base64Encode of email:password
-
-**Example**- 
-
-If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be:
-
-Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
-
-Apz-AppId: application key of application for which admin want to send message. 
+**Note:** Send authentication headers in API call  mention in section-1.
 
 ### Create User        
 
@@ -839,67 +817,9 @@ Apz-AppId: application key of application for which admin want to send message.
 }
 ```
 
-###User Details        
 
-**URL**: https://apps.applozic.com/rest/ws/user/detail
 
-**Method Type**: GET
 
-**Content-Type**: application/json
-
-**Parameters**:         
-
-| Parameter  | Description |
-| ------------- | ------------- |
-| userIds | UserId for the user  |
-
-**Response**: 
-
-```
-[
- {
-  "userId": "UserId1", // UserId of the user (String)
-  "userName": "Name1", // Name of the user (String)
-  "connected": true, // Current connected status of user, if "connected": true that means user is online (boolean)
-  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
-  "imageLink": "http://image.url" // Image url of the user
- },
- {
-  "userId": "UserId1", // UserId of the user (String)
-  "userName": "Name1", // Name of the user (String)
-  "connected": true, // Current connected status of user (boolean)
-  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
-  "imageLink": "http://image.url" // Image url of the user
- }
-]
-```
-
-###Group Create        
-
-**URL**: https://apps.applozic.com/rest/ws/group/create
-
-**Method Type**: POST 
-
-**ContentType**: application/json
-
-**Request Body**:   
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupName | Yes  |   | Name of the group |
-| groupMemberList | Yes  |   |List of names of the  group members |
-| ofUserId | yes  |   | on behalf of this user group is created (existing user in system) |
-
-**Parameter Example**:   (Suppose Application admin is calling API  and "TestUser" is the existing user in the application)
-
-**sample**  
-```
-{
-  "groupName" : "Group Name",
-  "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
-  "ofUserId": " "TestUser"
-}
-```
 
 ###Dispatch Message      
 
