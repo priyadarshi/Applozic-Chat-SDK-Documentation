@@ -153,6 +153,7 @@ The following will come in response in case of incomplete email and invalid appl
 | startTime | No  |  | pass to load more contact |
 
 
+
 **Example:** For API Call: 
 
 ```
@@ -484,6 +485,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **ContentType**: application/json
 
+
 **Request Body**:   
 
 | Parameter  | Required | Default  | Description |
@@ -499,6 +501,15 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | 1 | Private group : other users are not able to join this group voluntarily |
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
+
+
+**Note:** In case of Application Admin  **ofUserId** request param required too.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
     
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
@@ -539,6 +550,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | updatedAt | No  |   | lastSyncTime to the server  |
+| ofUserId  | No  |   |pass userId of user for which admin want to load the group list   |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**:   Response Json with success status :-         
 
@@ -570,6 +584,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupId   | Yes  |   | group unique id  |
+| ofUserId  | No  |   |pass userId of group admin user for which application admin want to delete the group   |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of group admin user.
 
 **Response**:  Json with success status :-  
 
@@ -577,7 +594,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 {"status":"success","generatedAt":1452347180639,"response":"success"}   
 ```
 
-**Note**: Only Admin can delete the group otherwise the following error will come:
+**Note**: Only Group Admin can delete the group otherwise the following error will come:
 
 ```
 {
@@ -604,7 +621,10 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | name of the user want to remove from group  |
+| userId   | Yes  |   | userId of the user want to remove from group  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to remove member |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**:  Response Json  with success status :-  
 
@@ -639,6 +659,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupId   | Yes  |   | group unique id  |
+| ofUserId  | No  |   |pass userId of user application admin want to remove |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**: Response Json with success status :-  
 
@@ -658,6 +681,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | groupId   | Yes  |   | group unique id  |
 | userId   | Yes  |   | name of the user want to add to the group  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**:  Response Json with success status :-  
 
@@ -679,6 +705,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | groupId| Yes  |   | group unique id |
 | newName | Yes  |   |new name of group |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to change group name |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**: Response Json with success status :-  
 
@@ -698,6 +727,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | groupId   | Yes  |   | group unique id  |
 | userId   | Yes  |   | userId of the user identify in group  |
+| ofUserId  | No  |   |pass userId of user exist in a group on behalf of which application admin want to check other user  |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**:  API response: in case of success:-  
 
@@ -732,6 +764,14 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | 1 | Private group : other users are not able to join this group voluntarily |
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
+
+**Note:** In case of Application Admin  **ofUserId** request param required too.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create  multiple group    |
     
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
@@ -831,6 +871,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | groupIds   | Yes  |   | List of group unique id  |
 | userId   | Yes  |   | unique id of the user want to add to the group  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 
 **sample**  
