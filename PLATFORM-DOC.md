@@ -14,6 +14,7 @@ For Application Admin send following authentication headers with each API call t
 | Content-Type |  application/json  |  
 
 Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
+
 **Apz-Token** : Basic Base64Encode of email:password
 
 
@@ -22,6 +23,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 then the Apz-Token will be:
 
 Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+
 Apz-AppId: application key of application for which admin want to send message. 
 
 
@@ -153,7 +155,7 @@ The following will come in response in case of incomplete email and invalid appl
 | startTime | No  |  | pass to load more contact |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
 
@@ -204,7 +206,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 ```  
 
 
-**Note**:To load further contact list use "lastFetchTime" value and pass it in "startTime" parameter from next time onwards.
+**Note**:To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
 
 
 
@@ -222,7 +224,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 | userIds | yes  |  | list of unique userId |
 
 
-**Note:**: Additional ofUserId parameter not required in case of apllication admin too.
+**Note:**: Additional **ofUserId**  parameter not required in case of application admin too.
 
 
 **Example:** For API Call: 
@@ -247,7 +249,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 ###User Detail List       
 
-**Note**: API supported both by application admin and application user. No additional parameter (ofUserId) required for Admin.
+**Note**: API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
 
 **URL**: https://apps.applozic.com/rest/ws/user/detail
 
@@ -386,7 +388,12 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | startIndex  | Yes  | 0  | Starting Index to fetch messages from list.  | 
 | pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
 | startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
-| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  | 
+| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+
 
 **Note**: For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
 
@@ -431,6 +438,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | key  | Yes  |   | Message unique key  |
+| ofUserId  | No  |   |pass userId of user for which admin to delete message |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**:        
 
@@ -452,6 +462,9 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | userId  | No  |   | User for which you want to delete thread  |  
 | groupId  | No  |   | Group for which you want to delete thread  |  
 | applicationKey  | No  |   | applicationKey configured in dashboard  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Note**:-
 
@@ -470,20 +483,22 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **DELETE All  URL** : https://apps.applozic.com/rest/ws/message/delete/all
 
-**Method Type**: GET 
+**Method Type**: GET
+
+**Note:** Request param **ofUserId** required for application admin purpose only.
 
 **Parameters**:          
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes  |   | User for which you want to delete all messages  |  
+| ofUserId  | No  |   | User for which application admin want to delete all messages  |  
 
 **Response**:           
 
 | Parameter  | Description | 
 | ------------- | ------------- | 
-| success  | Request is successfully processedl  |
-| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
+| success  | Request is successfully processed  |
+| error  |This will come if any exception occurs. In case of any exception contact contact@applozic.com  |
 
 # Group API
 
