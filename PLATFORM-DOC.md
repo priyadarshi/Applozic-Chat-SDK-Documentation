@@ -686,6 +686,32 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 {"status":"success","generatedAt":1452347180639,"response":"success"}
 ```
 
+### Check User : check user exist in a group or not
+
+**CHECK USER URL**:  https://apps.applozic.com/rest/ws/group/check/user 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| userId   | Yes  |   | userId of the user identify in group  |
+
+**Response**:  API response: in case of success:-  
+
+```  
+{
+"status": "success","generatedAt": 1463673355057,"response": true/false
+}
+```
+
+
+
+
+
+
 ### Add User To Multiple Group
 
 **ADD USER TO MULTIPLE GROUP URL**:  https://apps.applozic.com/rest/ws/group/add/user
