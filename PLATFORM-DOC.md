@@ -14,7 +14,6 @@ For Application Admin send following authentication headers with each API call t
 | Content-Type |  application/json  |  
 
 Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
-
 **Apz-Token** : Basic Base64Encode of email:password
 
 
@@ -23,7 +22,6 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 then the Apz-Token will be:
 
 Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
-
 Apz-AppId: application key of application for which admin want to send message. 
 
 
@@ -138,6 +136,71 @@ The following will come in response in case of incomplete email and invalid appl
 }
 ```
 **Note:** No header required for registration API.
+
+
+
+### Load Contact List   
+
+**CONTACT LIST URL**: http://apps.applozic.com/rest/ws/user/filter
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| pageSize | No  | 500 | list of contacts to load |
+| startTime | No  |  | pass to load more contact |
+
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com//rest/ws/user/filter?pageSize=20
+```
+
+**Response:**
+
+```  
+{
+"users": [
+{
+"userId": "mark",
+"connected": false,
+"lastSeenAtTime": 1461559344000,
+"createdAtTime": 1461559342000,
+"unreadCount": 0,
+"deactivated": false
+},
+{
+"userId": "john",
+"connected": true,
+"lastSeenAtTime": 1460801797000,
+"createdAtTime": 1460803509000,
+"unreadCount": 0,
+"displayName": "Edward",
+"deactivated": false
+},
+{
+"userId": "chris",
+"connected": true,
+"createdAtTime": 1460803509000,
+"unreadCount": 0,
+"displayName": "adam",
+"imageLink": "https://www.applozic.com/resources/images/applozic_logo.gif",
+"deactivated": false
+}
+(20 users detail list...)
+
+],
+"lastFetchTime": 1460803509000,
+"totalUnreadCount": 0
+}
+```  
+
+
+**Note**:To load further contact list use "lastFetchTime" value and pass it in "startTime" parameter from next time onwards.
+
 
 
 
