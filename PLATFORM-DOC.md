@@ -1,3 +1,62 @@
+Explore Platform API's as per Application Admin or as per Application User.
+
+**For APPLICATION ADMIN:**
+
+**Required Authentication Headers For APPLICATION ADMIN:**
+For Application Admin send following authentication headers with each API call to explore platform API's.
+
+**request should contain these 3 headers**
+
+| Header | Value  |
+| ------------- | ----------- |
+| Apz-Token | Authorization Code  |
+| Apz-AppId | application key got in admin dashboard  |  
+| Content-Type |  application/json  |  
+
+Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
+
+**Apz-Token** : Basic Base64Encode of email:password
+
+
+**Example**- 
+If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
+then the Apz-Token will be:
+
+Apz-Token: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+
+Apz-AppId: application key of application for which admin want to send message. 
+
+
+**For APPLICATION USER:**
+
+**Required Authentication Headers For APPLICATION USER**  
+
+Authentication is done using BASIC authentication.
+
+Use **deviceKey** from registration response to create Authorization Code and send **deviceKey** also in request header.
+
+**deviceKey** is received when application user does registration using register/client API.
+ 
+**Authorization Code** : Basic Base64Encode of userId:deviceKey
+
+**Example**- 
+If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
+
+Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng==
+
+**All request from Device must contain the following 4 headers** -           
+
+| Authorization: Authorization Code  |
+| ------------- |
+| UserId-Enabled:true |
+| Application-Key:  Your Application Key  |  
+| Device-Key:  received in registration response  | 
+
+**Note:** Headers are required in each API call except user registration .ie register/client API.
+
+
+
+
 # User API
 
 ### Register     
@@ -78,59 +137,9 @@ The following will come in response in case of incomplete email and invalid appl
   "currentTimeStamp": 1454328359295
 }
 ```
+**Note:** No header required for registration API.
 
-****Authentication Headers From Device****    
 
-Authentication is done using BASIC authentication.
-
-Use **deviceKey** from above registration response to create Authorization Code and send **deviceKey** also  in request header.
- 
-**Authorization Code** : Basic Base64Encode of userId:deviceKey
-
-**Example**- 
-If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
-
-Authorization Code: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng==
-
-**All request from Device must contain the following 4 headers** -           
-
-| Authorization: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Application-Key:  Your Application Key  |  
-| Device-Key:  received in registration response  | 
-
-### Online Users List   
-
-**Contact List URL**: https://apps.applozic.com/rest/ws/user/ol/list
-
-**Method Type**: GET
-
-**parameters**: 
-
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| pageSize  | No  |10   | list of user to be returned |
-
-**Response:**
-```
-{
-  "mark": "true",
-  "john": "true",
-  "rachel": "true",
-  "brett": "true",
-  "kristen": "true",
-  "robert": "false",
-  "johnson": "false",
-  "bob": "false",
-  "liza": "false",
-  "rohan": "false"
-}
-```
-
-**Note**
-
-**1)** "true" means user is currently online, "false" means user is currently offline.
 
 ### Users display Name   
 
