@@ -583,7 +583,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **sample**  
 ```
-https://apps.applozic.com/rest/ws/group/add/user? groupIds=490&groupIds=491&groupIds=493&userId=jack
+https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&groupIds=493&userId=jack
 ```
 
 
