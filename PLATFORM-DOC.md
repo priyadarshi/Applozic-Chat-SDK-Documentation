@@ -1064,11 +1064,6 @@ Application can send automated in-app messages to users using Application to Use
 
 **Content-Type**: application/json
 
-**Response**: 
-
-```
-{"Success"}
-```
 
 **Request Body**                         
 ```
@@ -1081,7 +1076,11 @@ Application can send automated in-app messages to users using Application to Use
 }
 ```
 
+**Response**: 
 
+```
+{"Success"}
+```
 
 
 
