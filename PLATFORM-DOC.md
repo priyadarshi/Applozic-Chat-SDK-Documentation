@@ -275,30 +275,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ]
 ```
 
-###User Merge
-
-**Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
-
-**URL**: https://apps.applozic.com/rest/ws/user/merge?userId=user1&mergeUserId=user2
-
-**Method Type**: GET
-
-**Content-Type**: application/json
-
-**Parameters**:         
-
-| Parameter | Required | Description |
-| --------- | -------  | ----------- |
-| userId |  Yes | UserId of the user in which data will be merged  |
-| mergeUserId | Yes | UserId of the user which will be merged  |
-
-**Response**:           
-
-| Parameter  | Description | 
-| ------------- | ------------- | 
-| success | Request is successfully processed  |
-| error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
-
 
 #Message API
 
@@ -1135,6 +1111,30 @@ Application can send automated in-app messages to users using Application to Use
 ```
 {"Success"}
 ```
+
+###User Merge
+
+**Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
+
+**URL**: https://apps.applozic.com/rest/ws/user/merge?userId=user1&mergeUserId=user2
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Parameters**:         
+
+| Parameter | Required | Description |
+| --------- | -------  | ----------- |
+| userId |  Yes | UserId of the user in which data will be merged  |
+| mergeUserId | Yes | UserId of the user which will be merged  |
+
+**Response**:           
+
+| Parameter  | Description | 
+| ------------- | ------------- | 
+| success | Request is successfully processed  |
+| error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
 
 
