@@ -247,7 +247,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 **Parameters**:         
 
 | Parameter | Required | Description |
-| ------------- | ------------- |
+| ------------- |-------  | ------------- |
 | userIds |  No    |list of UserId of the user  |
 | phoneNumbers | No      |list of phoneNumber of the user  |
 
@@ -412,7 +412,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Response  | Description | 
 | ------------- | ------------- | 
-| error  | In case of any exception or error contact devashish@applozic.com  |
+| error  | In case of any exception or error contact resolve@applozic.com  |
 
 ### Delete      
 
@@ -434,7 +434,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Description | 
 | ------------- | ------------- | 
 | success  | Request is successfully processed  |
-| error  |This will come if any exception occurs on server. In case of any exception contact devashish@applozic.com  |
+| error  |This will come if any exception occurs on server. In case of any exception contact resolve@applozic.com  |
 
 ### Delete Conversation           
 
@@ -448,7 +448,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | userId  | No  |   | User for which you want to delete thread  |  
 | groupId  | No  |   | Group for which you want to delete thread  |  
-| applicationKey  | No  |   | applicationKey configured in dashboard  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
@@ -463,8 +462,8 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Parameter  | Description | 
 | ------------- | ------------- | 
-| success  | Request is successfully processedl  |
-| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact contact@applozic.com  |
+| success  | Request is successfully processed  |
+| error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
 ### Delete All           
 
@@ -485,7 +484,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Description | 
 | ------------- | ------------- | 
 | success  | Request is successfully processed  |
-| error  |This will come if any exception occurs. In case of any exception contact contact@applozic.com  |
+| error  |This will come if any exception occurs. In case of any exception contact reslove@applozic.com  |
 
 # Group API
 
@@ -510,7 +509,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Value  | Description |
 | ------------- | ------------- |
-| 1 | Private group : other users are not able to join this group voluntarily |
+| 1 | Private group : Other users are not able to join this group voluntarily |
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
 
@@ -602,7 +601,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Value  | Description |
 | ------------- | ------------- |
-| 1 | Private group : other users are not able to join this group voluntarily |
+| 1 | Private group : Other users are not able to join this group voluntarily |
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
 
