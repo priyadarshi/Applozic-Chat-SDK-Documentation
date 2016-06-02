@@ -1,61 +1,48 @@
 Explore Platform API's as per Application Admin or as per Application User.
 
-**Section-1**
+# HEADERS
 
-**Required Authentication Headers For APPLICATION ADMIN:**
-For Application Admin send following authentication headers with each API call to explore platform API's.
+###APPLICATION ADMIN
 
-**request should contain these 3 headers**
+For Application Admin send following authentication headers with each API call to explore platform API's. Request should contain these 3 headers
 
-| Header | Value  |
-| ------------- | ----------- |
-| Apz-Token | Authorization Code  |
-| Apz-AppId | application key got in admin dashboard  |  
-| Content-Type |  application/json  |  
-
-Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
-
-**Apz-Token** : Basic Base64Encode of email:password
-
+| Header | Description  |
+| ------ | ----------- |
+| Apz-AppId | application key got in admin dashboard for which admin want to call api. |
+| Apz-Token | Authorization Code. Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin. Basic Base64Encode of "email:password". |
+| Content-Type |  application/json  |
 
 **Example**- 
-If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be:
+If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is
 
-**Apz-Token**: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+| Header | Description  |
+| ------ | ----------- |
+| Apz-AppId | TeatApp |
+| Apz-Token | Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk |
+| Content-Type |  application/json  |
 
-**Apz-AppId**: application key of application for which admin want to send message. 
+###APPLICATION USER
 
+All request from Device must contain the following 4 headers
 
-****Section-2****
-
-**Required Authentication Headers For APPLICATION USER**  
-
-Authentication is done using BASIC authentication.
-
-Use **deviceKey** from registration response to create Authorization Code and send **deviceKey** also in request header.
-
-**deviceKey** is received when application user does registration using register/client API.
- 
-**Authorization Code** : Basic Base64Encode of userId:deviceKey
+| Authorization | Authorization Code  |
+| ------------- | ------ |
+| Application-Key | Your Application Key |
+| Authorization | Authentication is done using BASIC authentication.Basic Base64Encode of userId:deviceKey |
+| Device-Key | DeviceKey is received when application user does registration using register/client API. Use Device-Key to create Authorization Code and send Device-Key also in request header.  |
+| UserId-Enabled | true |
 
 **Example**- 
 If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
 
-Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng==
-
-**All request from Device must contain the following 4 headers** -           
-
-| Authorization: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Application-Key:  Your Application Key  |  
-| Device-Key:  received in registration response  | 
+| Authorization | Authorization Code  |
+| ------------- | ------ |
+| Application-Key | TestApp |
+| Authorization | Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng== |
+| Device-Key | 09c5d869-6d38-4d6b-9ebf-9de16cdab176 |
+| UserId-Enabled | true |
 
 **Note:** Headers are required in each API call except user registration .ie register/client API.
-
-
-
 
 # User API
 
