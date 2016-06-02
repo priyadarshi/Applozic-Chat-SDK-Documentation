@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:4.2'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:4.3'    
 ```
 
 
@@ -133,7 +133,8 @@ Permissions:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.GET_TASKS" />                                             <uses-permission android:name="android.permission.CALL_PHONE" />
+<uses-permission android:name="android.permission.GET_TASKS" />
+<uses-permission android:name="android.permission.CALL_PHONE" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
@@ -459,10 +460,12 @@ On user logout, calling the following to logout user from Applozic
  
 ```
  #keep json classes                
- -keepclassmembernames class * extends com.applozic.mobicomkit.api.JsonMarker         
- {            
- !static !transient <fields>;                  
- }              
+-keepclassmembernames class * extends com.applozic.mobicommons.json.JsonMarker {
+ 	!static !transient <fields>;
+ }
+ -keepclassmembernames class * extends com.applozic.mobicommons.json.JsonParcelableMarker {
+ 	!static !transient <fields>;
+ }          
  #GSON Config          
 -keepattributes Signature          
 -keep class sun.misc.Unsafe { *; }           
