@@ -157,38 +157,37 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 
 ```  
 {
-"users": [
-{
-"userId": "mark",
-"connected": false,
-"lastSeenAtTime": 1461559344000,
-"createdAtTime": 1461559342000,
-"unreadCount": 0,
-"deactivated": false
-},
-{
-"userId": "john",
-"connected": true,
-"lastSeenAtTime": 1460801797000,
-"createdAtTime": 1460803509000,
-"unreadCount": 0,
-"displayName": "Edward",
-"deactivated": false
-},
-{
-"userId": "chris",
-"connected": true,
-"createdAtTime": 1460803509000,
-"unreadCount": 0,
-"displayName": "adam",
-"imageLink": "https://www.applozic.com/resources/images/applozic_logo.gif",
-"deactivated": false
-}
-(20 users detail list...)
-
-],
-"lastFetchTime": 1460803509000,
-"totalUnreadCount": 0
+  "users": [
+    {
+      "userId": "mark",
+      "connected": false,
+      "lastSeenAtTime": 1461559344000,
+      "createdAtTime": 1461559342000,
+      "unreadCount": 0,
+      "deactivated": false
+    },
+    {
+      "userId": "john",
+      "connected": true,
+      "lastSeenAtTime": 1460801797000,
+      "createdAtTime": 1460803509000,
+      "unreadCount": 0,
+      "displayName": "Edward",
+      "deactivated": false
+    },
+    {
+      "userId": "chris",
+      "connected": true,
+      "createdAtTime": 1460803509000,
+      "unreadCount": 0,
+      "displayName": "adam",
+      "imageLink": "https://www.applozic.com/resources/images/applozic_logo.gif",
+      "deactivated": false
+    }
+    (20 users detail list...)
+  ],
+  "lastFetchTime": 1460803509000,
+  "totalUnreadCount": 0
 }
 ```  
 
@@ -692,6 +691,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
     }
   ]
 }
+
 ```
 
 
