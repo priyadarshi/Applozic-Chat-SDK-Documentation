@@ -1146,7 +1146,6 @@ Application can send automated in-app messages to users using Application to Use
 **Description** : 
 
 1.Message Dispatch API behave same as Message Send API, but used by Application Admin.
-
 2. Application Admin can send Message on behalf of one user to another user on back date also. (Used for data migration from your Server to Applozic Sever)
 
 **Method Type**: POST
