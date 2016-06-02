@@ -307,7 +307,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }
 ```
 
-**Response**:-       
+**Response**     
 
 | Response  | Description |
 | ------------- | ------------- |
@@ -350,7 +350,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }
 ```
 
-**Response** :- success Response Json to the request
+**Response** : success Response Json to the request
 
 ###MESSAGE LIST
 
@@ -408,7 +408,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }      
 ```
 
-**In Case of Error**:-  
+**In Case of Error** :
 
 | Response  | Description | 
 | ------------- | ------------- | 
@@ -452,7 +452,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
-**Note**:-
+**Note** :
 
 **1)** For Delete Conversation in Group send **groupId**  as a parameter.
 
@@ -888,7 +888,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
-**Response**:  API response: in case of success:-  
+**Response**:  API response: in case of success :-  
 
 ```  
 {
