@@ -1138,7 +1138,8 @@ Application can send automated in-app messages to users using Application to Use
 
 
 
-###Dispatch Message      
+###Dispatch Message   
+
 
 **DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
 
