@@ -916,6 +916,7 @@ Code
  ApplozicChannelAddMemberTask.ChannelAddMemberListener channelAddMemberListener =  new ApplozicChannelAddMemberTask.ChannelAddMemberListener() {
             @Override
             public void onSuccess(String response, Context context) {
+                //Response will be "success" if user is added successfully
                 Log.i("ApplozicChannelMember","Add Response:"+response);
 
             }
@@ -930,14 +931,11 @@ Code
         applozicChannelAddMemberTask.execute((Void)null);
 
  ```
-   
-  __Parameters:__
-
-  __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
-  
-  __userId__:Unique userId of string type to whom u want to add to group/channel
-  
-   __Return response__: If user added successfully in group/channel it returns success else error 
+    
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
  
 ####3) Remove Member from Group
@@ -952,7 +950,8 @@ Code
   ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener channelRemoveMemberListener = new ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener() {
             @Override
             public void onSuccess(String response, Context context) {
-                Log.i("ApplozicChannel","remove member response:"+response);//after removing a member from channel the call back will come here
+                //Response will be "success" if user is removed successfully
+                Log.i("ApplozicChannel","remove member response:"+response);
 
             }
 
@@ -966,13 +965,11 @@ Code
         applozicChannelRemoveMemberTask.execute((Void)null);
  ```
   
-  __Parameters:__
-  
- __channelKey__:Is a Unique Integer type from which u want to remove member
- 
- __userId__:Unique userId of string type whome u want to remove from group/channel
-
- __Return response__: If user Removed successfully from group/channel it returns success else error 
+   
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
  
   __NOTE:__ Only admin can remove member from the group/channel.
@@ -990,7 +987,8 @@ Code
   ApplozicChannelLeaveMember.ChannelLeaveMemberListener  channelLeaveMemberListener  = new ApplozicChannelLeaveMember.ChannelLeaveMemberListener() {
             @Override
             public void onSuccess(String response, Context context) {
-                Log.i("ApplozicChannel","Leave member respone:"+response);//After leaving  member from channel  call back will come here
+                //Response will be "success" if user is left successfully
+                Log.i("ApplozicChannel","Leave member respone:"+response);
             }
 
             @Override
@@ -1003,15 +1001,12 @@ Code
         applozicChannelLeaveMember.execute((Void)null);
   ```
  
-   __Parameters:__
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
- __channelKey__:Unique Integer type 
- 
- __userId__ :Unique userId of string type
- 
- __Return response__: success or error 
- 
- Note:This is only for logged in user who want's to leave from group
+ __Note:__ This is only for logged in user who want's to leave from group
  
 ####5) Change Group Name
 
@@ -1028,7 +1023,8 @@ Code
   ApplozicChannelNameUpdateTask.ChannelNameUpdateListener channelNameUpdateListener = new ApplozicChannelNameUpdateTask.ChannelNameUpdateListener() {
             @Override
             public void onSuccess(String response, Context context) {
-                Log.i("ApplozicChannel", "Name update:" + response);//after updating channel name call back will come here
+               //Response will be "success" if Channel/Group name is changed successfully
+                Log.i("ApplozicChannel", "Name update:" + response);
             }
             @Override
             public void onFailure(String response, Exception e, Context context) {
@@ -1040,13 +1036,11 @@ Code
         channelNameUpdateTask.execute((Void) null);
 
  ```
- __Parameters:__
- 
- __channelKey__:Unique Integer type 
- 
- __channelName__ :new Channel name you want to change
- 
-  __Return response__: If group/channel name successfully changed it returns success else error 
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
+  
   
   
   ### Advanced
