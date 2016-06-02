@@ -537,7 +537,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ```
 {
   "status": "success",
-  "generatedAt": 1464854985171,
+  "generatedAt": 1464854985171,  // time value at which response is generated from server
   "response": {
     "id": 274457,
     "name": "Group Name",
@@ -634,7 +634,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ```
 {
   "status": "success",
-  "generatedAt": 1464793892242,
+  "generatedAt": 1464793892242,  // time value at which response is generated from server
   "response": [
     {
       "id": 496,
@@ -715,7 +715,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ```
 {
   "status":"success",
-  "generatedAt":1452345715245,
+  "generatedAt":1452345715245,  // time value at which response is generated from server
   "response":[
     {
       "id":177,
@@ -749,7 +749,11 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 **Response**:  Response Json with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
 ```
 
 
@@ -779,7 +783,11 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Response**:  Response Json with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
 ```
 
 **Note**: Groups for the passed groupIds and the user for the passed userId should exist in that application.
@@ -804,7 +812,11 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Response**:  Response Json  with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
 ```
 
 **Note**: Only Admin can remove the group member otherwise the following error will come:
@@ -819,7 +831,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
       "displayMessage":"Unable to process"
     }
   ],
-  "generatedAt":1452348983616
+  "generatedAt":1452348983616  // time value at which response is generated from server
 }
 ```
 
@@ -843,7 +855,11 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Response**: Response Json with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
 ```
 
 
@@ -869,7 +885,11 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Response**: Response Json with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
 ```
 
 ### Check User : check user exist in a group or not
@@ -892,7 +912,9 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 ```  
 {
-"status": "success","generatedAt": 1463673355057,"response": true/false
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true/false
 }
 ```
 
@@ -915,7 +937,11 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Response**:  Json with success status :-  
 
 ```
-{"status":"success","generatedAt":1452347180639,"response":"success"}   
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true
+}  
 ```
 
 **Note**: Only Group Admin can delete the group otherwise the following error will come:
@@ -930,7 +956,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
       "displayMessage":"Unable to process"
     }
   ],
-  "generatedAt":1452348983616
+  "generatedAt":1452348983616   // time value at which response is generated from server
 }
 ```
 
@@ -1026,7 +1052,11 @@ Authentication is done using BASIC authentication. It is combination of email & 
 **Response**:  Response Json with success status :-  
 
 ```
-{"status":"success","generatedAt":1452347180639,"response":"success"}   
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true
+}   
 ```
 
 ### Unblock User    
@@ -1044,7 +1074,11 @@ Authentication is done using BASIC authentication. It is combination of email & 
 **Response**:  Response Json with success status :-  
 
 ```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}   
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true
+}  
 ``` 
 
 ### API's for application admin purpose only
