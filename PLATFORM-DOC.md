@@ -1,7 +1,5 @@
 Explore Platform API's as per Application Admin or as per Application User.
 
-**Section-1**
-
 **Required Authentication Headers For APPLICATION ADMIN:**
 For Application Admin send following authentication headers with each API call to explore platform API's.
 
@@ -13,21 +11,17 @@ For Application Admin send following authentication headers with each API call t
 | Apz-AppId | application key got in admin dashboard  |  
 | Content-Type |  application/json  |  
 
+**Apz-Token** : Basic Base64Encode of "email:password"
+
 Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
-
-**Apz-Token** : Basic Base64Encode of email:password
-
 
 **Example**- 
 If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be:
+then the Apz-Token will be: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
 
-**Apz-Token**: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
-
-**Apz-AppId**: application key of application for which admin want to send message. 
+**Apz-Token**: 
 
 
-****Section-2****
 
 **Required Authentication Headers For APPLICATION USER**  
 
@@ -46,16 +40,13 @@ Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2Rh
 
 **All request from Device must contain the following 4 headers** -           
 
-| Authorization: Authorization Code  |
-| ------------- |
-| UserId-Enabled:true |
-| Application-Key:  Your Application Key  |  
-| Device-Key:  received in registration response  | 
+| Authorization | Authorization Code  |
+| ------------- | ------ |
+| UserId-Enabled | true |
+| Application-Key | Your Application Key  |  
+| Device-Key | received in registration response  | 
 
 **Note:** Headers are required in each API call except user registration .ie register/client API.
-
-
-
 
 # User API
 
@@ -87,8 +78,7 @@ Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2Rh
 {
   "userId":"robert",
   "deviceType":"4",
-  "applicationId":
-  "applozic-sample-app",
+  "applicationId": "applozic-sample-app",
   "registrationId":"put-gcm-registration-id-here", 
   "pushNotificationFormat": "0",
   "contactNumber":"+911234567890"
