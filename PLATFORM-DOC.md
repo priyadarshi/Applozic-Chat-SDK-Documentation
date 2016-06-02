@@ -42,7 +42,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 | Device-Key | 09c5d869-6d38-4d6b-9ebf-9de16cdab176 |
 | UserId-Enabled | true |
 
-**Note:** Headers are required in each API call except user registration .ie register/client API.
+**Note** : Headers are required in each API call except user registration .ie register/client API.
 
 # User API
 
@@ -105,7 +105,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 }
 ```
 
-***Note** :- **deviceKey** need to be stored and  sent in request header in each API call.
+**Note** : **deviceKey** need to be stored and  sent in request header in each API call.
 
 The following will come in response in case of incomplete email and invalid application key resepectively:
 
@@ -124,7 +124,7 @@ The following will come in response in case of incomplete email and invalid appl
   "currentTimeStamp": 1454328359295
 }
 ```
-**Note:** No header required for registration API.
+**Note** : No header required for registration API.
 
 
 
@@ -142,7 +142,7 @@ The following will come in response in case of incomplete email and invalid appl
 | startTime | No  |  | pass to load more contact |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
 
@@ -193,7 +193,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 ```  
 
 
-**Note**:To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
+**Note** : To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
 
 
 
@@ -211,7 +211,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 | userIds | yes  |  | list of unique userId |
 
 
-**Note:**: Additional **ofUserId**  parameter not required in case of application admin too.
+**Note** : Additional **ofUserId**  parameter not required in case of application admin too.
 
 
 **Example:** For API Call: 
@@ -236,7 +236,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 ###User Detail List       
 
-**Note**: API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
+**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
 
 **URL**: https://apps.applozic.com/rest/ws/user/detail
 
@@ -252,7 +252,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | phoneNumbers | No      |list of phoneNumber of the user  |
 
 
-**Note**: Pass either userIds or phoneNumbers 
+**Note** : Pass either userIds or phoneNumbers 
 
 **Response**: 
 
@@ -284,7 +284,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 ### Send   
 
-**Note:** For Application user purpose only.
+**Note** : For Application user purpose only.
 
 **SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/send
 
@@ -378,11 +378,11 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
 
-**Note**: For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
+**Note** : For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
 
 **Response**:
 ```  
@@ -427,7 +427,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | key  | Yes  |   | Message unique key  |
 | ofUserId  | No  |   |pass userId of user for which admin to delete message |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**:        
 
@@ -451,7 +451,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | applicationKey  | No  |   | applicationKey configured in dashboard  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Note**:-
 
@@ -472,7 +472,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Method Type**: GET
 
-**Note:** Request param **ofUserId** required for application admin purpose only.
+**Note** : Request param **ofUserId** required for application admin purpose only.
 
 **Parameters**:          
 
@@ -515,7 +515,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | 5 | Broadcast Group : User can send personal message to a group of Users |
 
 
-**Note:** In case of Application Admin  **ofUserId** request param required too.
+**Note** : In case of Application Admin  **ofUserId** request param required too.
 
 **Request Parameter**: 
 
@@ -606,7 +606,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
 
-**Note:** In case of Application Admin  **ofUserId** request param required too.
+**Note** : In case of Application Admin  **ofUserId** request param required too.
 
 **Request Parameter**: 
 
@@ -709,7 +709,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | updatedAt | No  |   | lastSyncTime to the server  |
 | ofUserId  | No  |   |pass userId of user for which admin want to load the group list   |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**:   Response Json with success status :-         
 
@@ -745,7 +745,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | userId   | Yes  |   | name of the user want to add to the group  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**:  Response Json with success status :-  
 
@@ -768,7 +768,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | userId   | Yes  |   | unique id of the user want to add to the group  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
 **sample**  
@@ -800,7 +800,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 | userId   | Yes  |   | userId of the user want to remove from group  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to remove member |
 
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+**Note**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
 **Response**:  Response Json  with success status :-  
 
@@ -839,7 +839,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 | groupId   | Yes  |   | group unique id  |
 | ofUserId  | No  |   |pass userId of user application admin want to remove |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**: Response Json with success status :-  
 
@@ -865,7 +865,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 | newName | Yes  |   |new name of group |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to change group name |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**: Response Json with success status :-  
 
@@ -887,7 +887,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 | userId   | Yes  |   | userId of the user identify in group  |
 | ofUserId  | No  |   |pass userId of user exist in a group on behalf of which application admin want to check other user  |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **Response**:  API response: in case of success:-  
 
@@ -911,7 +911,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 | groupId   | Yes  |   | group unique id  |
 | ofUserId  | No  |   |pass userId of group admin user, for which application admin want to delete the group   |
 
-**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
 
 **Response**:  Json with success status :-  
 
@@ -1054,7 +1054,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 Application can send automated in-app messages to users using Application to User Messaging API.
 
-**Note:** Send authentication headers in API call  mention in section-1.
+**Note** : Send authentication headers in API call  mention in section-1.
 
 ### Create User        
 
