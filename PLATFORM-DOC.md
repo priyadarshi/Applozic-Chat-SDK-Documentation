@@ -1,5 +1,7 @@
 Explore Platform API's as per Application Admin or as per Application User.
 
+**Section-1**
+
 **Required Authentication Headers For APPLICATION ADMIN:**
 For Application Admin send following authentication headers with each API call to explore platform API's.
 
@@ -11,17 +13,21 @@ For Application Admin send following authentication headers with each API call t
 | Apz-AppId | application key got in admin dashboard  |  
 | Content-Type |  application/json  |  
 
-**Apz-Token** : Basic Base64Encode of "email:password"
-
 Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin.
+
+**Apz-Token** : Basic Base64Encode of email:password
+
 
 **Example**- 
 If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard**, 
-then the Apz-Token will be: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+then the Apz-Token will be:
 
-**Apz-Token**: 
+**Apz-Token**: Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk
+
+**Apz-AppId**: application key of application for which admin want to send message. 
 
 
+****Section-2****
 
 **Required Authentication Headers For APPLICATION USER**  
 
@@ -40,13 +46,16 @@ Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2Rh
 
 **All request from Device must contain the following 4 headers** -           
 
-| Authorization | Authorization Code  |
-| ------------- | ------ |
-| UserId-Enabled | true |
-| Application-Key | Your Application Key  |  
-| Device-Key | received in registration response  | 
+| Authorization: Authorization Code  |
+| ------------- |
+| UserId-Enabled:true |
+| Application-Key:  Your Application Key  |  
+| Device-Key:  received in registration response  | 
 
 **Note:** Headers are required in each API call except user registration .ie register/client API.
+
+
+
 
 # User API
 
@@ -78,7 +87,8 @@ Authorization Code**: Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2Rh
 {
   "userId":"robert",
   "deviceType":"4",
-  "applicationId": "applozic-sample-app",
+  "applicationId":
+  "applozic-sample-app",
   "registrationId":"put-gcm-registration-id-here", 
   "pushNotificationFormat": "0",
   "contactNumber":"+911234567890"
@@ -506,7 +516,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupName | Yes  |   | Name of the group |
-| groupMemberList | Yes  |   |List of names of the  group members |
+| groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 
 "type" parameters possible values
@@ -525,7 +535,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
-    
+ 
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
 **sample**  
@@ -541,220 +551,49 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 **json**                         
 ```
 {
-  "status":"success",
-  "generatedAt":1452342819495,
-  "response":{
-    "id":176,
-    "name":"applozic",
-    "adminName":"nitin",
-    "membersName":["john","snow","krishi","lee"],
-    "unreadCount":0,
-    "type":2
+  "status": "success",
+  "generatedAt": 1464854985171,
+  "response": {
+    "id": 274457,
+    "name": "Group Name",
+    "adminName": "TestUser",
+    "membersName": [
+      "UserName2",
+      "UserName3",
+      "UserName1",
+      "TestUser"
+    ],
+    "users": [
+      {
+        "id": "77749a25-b260-4e37-aa62-12b8dfc64657",
+        "userId": "UserName2",
+        "connected": false,
+        "createdAtTime": 1464854985050,
+        "unreadCount": 0,
+        "deactivated": false
+      },
+      {
+        "id": "05c576da-538d-4f46-aa34-8ba4bccf98f0",
+        "userId": "UserName3",
+        "connected": false,
+        "createdAtTime": 1464854985057,
+        "unreadCount": 0,
+        "deactivated": false
+      },
+      {
+        "id": "894591fc-a48a-4e0a-ae9b-fd5125002f46",
+        "userId": "UserName1",
+        "connected": false,
+        "createdAtTime": 1464854985062,
+        "unreadCount": 0,
+        "deactivated": false
+      }
+    ],
+    "unreadCount": 0,
+    "type": 2
   }
 }
 ```
-
-### User's Group List
-
-**LIST URL**:  https://apps.applozic.com/rest/ws/group/list 
-
-**Method Type**: GET
-
-**Parameters**:        
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| updatedAt | No  |   | lastSyncTime to the server  |
-| ofUserId  | No  |   |pass userId of user for which admin want to load the group list   |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**:   Response Json with success status :-         
-
-```
-{
-  "status":"success",
-  "generatedAt":1452345715245,
-  "response":[
-    {
-      "id":177,
-      "name":"Work-Group",
-      "adminName":"Marsh","membersName":["Kevin","Joe","Steve","Marsh"],
-      "unreadCount":0,"type":2
-    }
-  ]
-}   
-```
-
-**Note**: For the next sync call, pass "updatedAt" parameter to get details of only the modified group and newly added group of that user. Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "updatedAt" for your next sync call.
-
-### Delete 
-
-**DELETE GROUP URL**:  https://apps.applozic.com/rest/ws/group/delete 
-
-**Method Type**: GET
-
-**Parameters**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| ofUserId  | No  |   |pass userId of group admin user for which application admin want to delete the group   |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of group admin user.
-
-**Response**:  Json with success status :-  
-
-```
-{"status":"success","generatedAt":1452347180639,"response":"success"}   
-```
-
-**Note**: Only Group Admin can delete the group otherwise the following error will come:
-
-```
-{
-  "status":"error",
-  "errorResponse":[
-    {
-      "errorCode":"AL-UN-01",
-      "description":"unauthorized user",
-      "displayMessage":"Unable to process"
-    }
-  ],
-  "generatedAt":1452348983616
-}
-```
-
-### Remove Member 
-
-**REMOVE GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/remove/member 
-
-**Method Type**: GET
-
-**Parameters**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | userId of the user want to remove from group  |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to remove member |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**:  Response Json  with success status :-  
-
-```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
-```
-
-**Note**: Only Admin can remove the group member otherwise the following error will come:
-
-```  
-{
-  "status":"error",
-  "errorResponse":[
-    {
-      "errorCode":"AL-UN-01",
-      "description":"unauthorized user",
-      "displayMessage":"Unable to process"
-    }
-  ],
-  "generatedAt":1452348983616
-}
-```
-
-### Leave  
-
-**LEAVE GROUP URL**:  https://apps.applozic.com/rest/ws/group/left 
-
-**Method Type**: GET
-
-**Parameters**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| ofUserId  | No  |   |pass userId of user application admin want to remove |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**: Response Json with success status :-  
-
-```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
-```
-
-### Add Member
-
-**ADD GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/add/member 
-
-**Method Type**: GET
-
-**Parameters**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | name of the user want to add to the group  |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**:  Response Json with success status :-  
-
-```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
-```
-
-### Change Name
-
-**CHANGE GROUP NAME URL**:  https://apps.applozic.com/rest/ws/group/change/name 
-
-**Method Type**: POST
-
-**ContentType**: application/json
-
-**Request Body**:  
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId| Yes  |   | group unique id |
-| newName | Yes  |   |new name of group |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to change group name |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**: Response Json with success status :-  
-
-```  
-{"status":"success","generatedAt":1452347180639,"response":"success"}
-```
-
-### Check User : check user exist in a group or not
-
-**CHECK USER URL**:  https://apps.applozic.com/rest/ws/group/check/user 
-
-**Method Type**: GET
-
-**Parameters**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | userId of the user identify in group  |
-| ofUserId  | No  |   |pass userId of user exist in a group on behalf of which application admin want to check other user  |
-
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
-
-**Response**:  API response: in case of success:-  
-
-```  
-{
-"status": "success","generatedAt": 1463673355057,"response": true/false
-}
-```
-
-
 
 ### Multiple Group Creation
 
@@ -769,7 +608,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupName | Yes  |   | Name of the group |
-| groupMemberList | Yes  |   |List of names of the  group members |
+| groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 
 "type" parameters possible values
@@ -814,7 +653,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
   "response": [
     {
       "id": 496,
-      "groupId": "496",
       "name": "MultiGroup1",
       "adminName": "TestUser",
       "membersName": [
@@ -847,7 +685,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
     },
     {
       "id": 497,
-      "groupId": "497",
       "name": "MultiGroup2",
       "adminName": "TestUser",
       "membersName": [
@@ -872,6 +709,62 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ```
 
 
+### User's Group List
+
+**LIST URL**:  https://apps.applozic.com/rest/ws/group/list 
+
+**Method Type**: GET
+
+**Parameters**:        
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| updatedAt | No  |   | lastSyncTime to the server  |
+| ofUserId  | No  |   |pass userId of user for which admin want to load the group list   |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**:   Response Json with success status :-         
+
+```
+{
+  "status":"success",
+  "generatedAt":1452345715245,
+  "response":[
+    {
+      "id":177,
+      "name":"Work-Group",
+      "adminName":"Marsh","membersName":["Kevin","Joe","Steve","Marsh"],
+      "unreadCount":0,"type":2
+    }
+  ]
+}   
+```
+
+**Note**: For the next sync call, pass "updatedAt" parameter to get details of only the modified group and newly added group of that user. Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "updatedAt" for your next sync call.
+
+
+### Add User to Single Group
+
+**ADD GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/add/member 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| userId   | Yes  |   | name of the user want to add to the group  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**:  Response Json with success status :-  
+
+```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}
+```
 
 
 ### Add User To Multiple Group
@@ -888,7 +781,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | userId   | Yes  |   | unique id of the user want to add to the group  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
 
-**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
 **sample**  
@@ -906,8 +799,154 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 **Note**: Groups for the passed groupIds and the user for the passed userId should exist in that application.
 
 
+### Remove Member 
+
+**REMOVE GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/remove/member 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| userId   | Yes  |   | userId of the user want to remove from group  |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to remove member |
+
+**Note:**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+
+**Response**:  Response Json  with success status :-  
+
+```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}
+```
+
+**Note**: Only Admin can remove the group member otherwise the following error will come:
+
+```  
+{
+  "status":"error",
+  "errorResponse":[
+    {
+      "errorCode":"AL-UN-01",
+      "description":"unauthorized user",
+      "displayMessage":"Unable to process"
+    }
+  ],
+  "generatedAt":1452348983616
+}
+```
 
 
+
+### Leave  
+
+**LEAVE GROUP URL**:  https://apps.applozic.com/rest/ws/group/left 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| ofUserId  | No  |   |pass userId of user application admin want to remove |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**: Response Json with success status :-  
+
+```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}
+```
+
+
+
+### Change Group Name
+
+**CHANGE GROUP NAME URL**:  https://apps.applozic.com/rest/ws/group/change/name 
+
+**Method Type**: POST
+
+**ContentType**: application/json
+
+**Request Body**:  
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId| Yes  |   | group unique id |
+| newName | Yes  |   |new name of group |
+| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to change group name |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**: Response Json with success status :-  
+
+```  
+{"status":"success","generatedAt":1452347180639,"response":"success"}
+```
+
+### Check User : check user exist in a group or not
+
+**CHECK USER URL**:  https://apps.applozic.com/rest/ws/group/check/user 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| userId   | Yes  |   | userId of the user identify in group  |
+| ofUserId  | No  |   |pass userId of user exist in a group on behalf of which application admin want to check other user  |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**:  API response: in case of success:-  
+
+```  
+{
+"status": "success","generatedAt": 1463673355057,"response": true/false
+}
+```
+
+
+### Delete 
+
+**DELETE GROUP URL**:  https://apps.applozic.com/rest/ws/group/delete 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId   | Yes  |   | group unique id  |
+| ofUserId  | No  |   |pass userId of group admin user, for which application admin want to delete the group   |
+
+**Note:**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
+
+**Response**:  Json with success status :-  
+
+```
+{"status":"success","generatedAt":1452347180639,"response":"success"}   
+```
+
+**Note**: Only Group Admin can delete the group otherwise the following error will come:
+
+```
+{
+  "status":"error",
+  "errorResponse":[
+    {
+      "errorCode":"AL-UN-01",
+      "description":"unauthorized user",
+      "displayMessage":"Unable to process"
+    }
+  ],
+  "generatedAt":1452348983616
+}
+```
 
 #Topic/Product API 
 
