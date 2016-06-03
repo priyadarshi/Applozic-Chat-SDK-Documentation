@@ -191,11 +191,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 }
 ```  
 
-
 **Note** : To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
-
-
-
 
 ### Users display Name   
 
@@ -209,9 +205,7 @@ http://apps.applozic.com//rest/ws/user/filter?pageSize=20
 | ------------- | ------------- | ------------- | ------------- |       
 | userIds | yes  |  | list of unique userId |
 
-
 **Note** : Additional **ofUserId**  parameter not required in case of application admin too.
-
 
 **Example:** For API Call: 
 
@@ -360,8 +354,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 2. If the user id or group id is passed then api return the messages between the calling user and specified user.
 3. If the group id is passed the api returns the messages of the specified group.
 
-
-
 **Request Body**:        
 
 | Parameter  | Required | Default  | Description |
@@ -375,8 +367,6 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
-
-
 
 **Note** : For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
 
@@ -482,6 +472,23 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs. In case of any exception contact reslove@applozic.com  |
 
+###Message Metadata
+
+To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message objet. The metadata object is a map with string keys and values.
+
+**Sample Message Object Json with Metadata**:          
+
+```json
+{
+  "to":"John",
+  "message":"Hi John",
+  "metadata" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  }
+}
+```
+
 # Group API
 
 ### Creation
@@ -530,8 +537,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Response** : Response Json  with success status :-  
 
-**json**                         
-```
+```json
 {
   "status": "success",
   "generatedAt": 1464854985171,  // time value at which response is generated from server
