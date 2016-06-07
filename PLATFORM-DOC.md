@@ -502,7 +502,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId | NO  |   | Id of the group with respect to client |
+| clientGroupId | No  |   | Id of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
@@ -632,7 +632,6 @@ Array of object containing following parameters.
     "groupMemberList" : [ "kevin","john"]
   },
   {
-    "clientGroupId": "GroupId2", //optional
     "groupName" : "MultiGroup2",
     "groupMemberList" : [ "jade"]
   }
@@ -682,7 +681,7 @@ Array of object containing following parameters.
     },
     {
       "id": 497,
-      "clientGroupId": "GroupId2",
+      "clientGroupId": "497", // same as Applozic group Id.
       "name": "MultiGroup2",
       "adminName": "TestUser",
       "membersName": [
@@ -727,17 +726,38 @@ Array of object containing following parameters.
 
 ```
 {
-  "status":"success",
-  "generatedAt":1452345715245,  // time value at which response is generated from server
-  "response":[
+  "status": "success",
+  "generatedAt": 1465310497564,    // time value at which response is generated from server
+  "response": [
     {
-      "id":177,
-      "name":"Work-Group",
-      "adminName":"Marsh","membersName":["Kevin","Joe","Steve","Marsh"],
-      "unreadCount":0,"type":2
+      "id": 496,
+      "clientGroupId": "GroupId1",
+      "name": "MultiGroup1",
+      "adminName": "TestUser",
+      "membersName": [
+        "kevin",
+        "john",
+        "TestUser"
+      ],
+      "removedMembersId": [],
+      "unreadCount": 0,
+      "type": 2
+    },
+    {
+      "id": 497,
+      "clientGroupId": "497",
+      "name": "MultiGroup2",
+      "adminName": "TestUser",
+      "membersName": [
+        "jade",
+        "TestUser"
+      ],
+      "removedMembersId": [],
+      "unreadCount": 0,
+      "type": 2
     }
   ]
-}   
+}
 ```
 
 **Note**: For the next sync call, pass "updatedAt" parameter to get details of only the modified group and newly added group of that user. Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "updatedAt" for your next sync call.
