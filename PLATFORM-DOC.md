@@ -597,6 +597,7 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
+| clientGroupId | Yes  |   | Id of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
