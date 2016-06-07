@@ -502,10 +502,12 @@ To add metadata for a message, send the metadata object inside the message objec
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId | Yes  |   | Id of the group with respect to client |
+| clientGroupId | NO  |   | Id of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
+
+**Note** : If group already exist in your system, pass that groupId in **clientGroupId** to use same with Applozic.
 
 "type" parameters possible values
 
@@ -529,6 +531,7 @@ To add metadata for a message, send the metadata object inside the message objec
 **sample**  
 ```
 {
+  "clientGroupId":"Client Group Id",  // optional
   "groupName" : "Group Name",
   "groupMemberList" : ["UserName1", "UserName2", "UserName3"]
 }
@@ -597,7 +600,7 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId | Yes  |   | Id of the group with respect to client |
+| clientGroupId | No  |   | Id of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
@@ -624,12 +627,12 @@ Array of object containing following parameters.
 ```
 [
   {
-    "clientGroupId": "GroupId1",
+    "clientGroupId": "GroupId1",  //optional
     "groupName" : "MultiGroup1",
     "groupMemberList" : [ "kevin","john"]
   },
   {
-    "clientGroupId": "GroupId2",
+    "clientGroupId": "GroupId2", //optional
     "groupName" : "MultiGroup2",
     "groupMemberList" : [ "jade"]
   }
