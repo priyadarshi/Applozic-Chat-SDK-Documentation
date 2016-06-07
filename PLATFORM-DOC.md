@@ -145,8 +145,6 @@ The following will come in response in case of incomplete email and invalid appl
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 
-
-
 **Example:** For API Call: 
 
 ```
@@ -504,6 +502,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
+| clientGroupId | Yes  |   | Id of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
@@ -543,6 +542,7 @@ To add metadata for a message, send the metadata object inside the message objec
   "generatedAt": 1464854985171,  // time value at which response is generated from server
   "response": {
     "id": 274457,
+    "clientGroupId": "Client Group Id",
     "name": "Group Name",
     "adminName": "TestUser",
     "membersName": [
@@ -591,7 +591,9 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **ContentType**: application/json
 
-**Request Body**:   
+**Request Body** 
+
+Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -619,16 +621,18 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **sample**  
 ```
- [
- { "groupName" : "MultiGroup1",
-  "groupMemberList" : [ "kevin","john"]
- },
- { "groupName" : "MultiGroup2",
-  "groupMemberList" : [ "jade"]
- }
- 
+[
+  {
+    "clientGroupId": "GroupId1",
+    "groupName" : "MultiGroup1",
+    "groupMemberList" : [ "kevin","john"]
+  },
+  {
+    "clientGroupId": "GroupId2",
+    "groupName" : "MultiGroup2",
+    "groupMemberList" : [ "jade"]
+  }
 ]
-
 ```
 
 **Response** : Response Json  with success status :-  
@@ -641,6 +645,7 @@ To add metadata for a message, send the metadata object inside the message objec
   "response": [
     {
       "id": 496,
+      "clientGroupId": "GroupId1",
       "name": "MultiGroup1",
       "adminName": "TestUser",
       "membersName": [
@@ -673,6 +678,7 @@ To add metadata for a message, send the metadata object inside the message objec
     },
     {
       "id": 497,
+      "clientGroupId": "GroupId2",
       "name": "MultiGroup2",
       "adminName": "TestUser",
       "membersName": [
@@ -743,9 +749,9 @@ To add metadata for a message, send the metadata object inside the message objec
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | name of the user want to add to the group  |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
+| groupId   | Yes  |   | Group unique id |
+| userId   | Yes  |   | Name of the user want to add to the group  |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -771,8 +777,8 @@ To add metadata for a message, send the metadata object inside the message objec
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | groupIds   | Yes  |   | List of group unique id  |
-| userId   | Yes  |   | unique id of the user want to add to the group  |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to add member  |
+| userId   | Yes  |   | Unique id of the user want to add to the group  |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -784,7 +790,6 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 
 **Response**:  Response Json with success status :-  
-
 ```  
 {
   "status": "success",
@@ -806,9 +811,9 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | userId of the user want to remove from group  |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to remove member |
+| groupId   | Yes  |   | Group unique id  |
+| userId   | Yes  |   | UserId of the user want to remove from group  |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to remove member |
 
 **Note**: Pass ofUserId only if application Admin calling the API on behalf of any user.
 
@@ -850,8 +855,8 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| ofUserId  | No  |   |pass userId of user application admin want to remove |
+| groupId   | Yes  |   | Group unique id  |
+| ofUserId  | No  |   | Pass userId of user application admin want to remove |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -879,9 +884,9 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId| Yes  |   | group unique id |
-| newName | Yes  |   |new name of group |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to change group name |
+| groupId| Yes  |   | Group unique id |
+| newName | Yes  |   | New name of group |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -905,9 +910,9 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| userId   | Yes  |   | userId of the user identify in group  |
-| ofUserId  | No  |   |pass userId of user exist in a group on behalf of which application admin want to check other user  |
+| groupId   | Yes  |   | Group unique id  |
+| userId   | Yes  |   | UserId of the user identify in group  |
+| ofUserId  | No  |   | Pass userId of user exist in a group on behalf of which application admin want to check other user |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -932,8 +937,8 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | group unique id  |
-| ofUserId  | No  |   |pass userId of group admin user, for which application admin want to delete the group   |
+| groupId   | Yes  |   | Group unique id  |
+| ofUserId  | No  |   | Pass userId of group admin user, for which application admin want to delete the group   |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
 
