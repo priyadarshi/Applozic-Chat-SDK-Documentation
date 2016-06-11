@@ -502,12 +502,12 @@ To add metadata for a message, send the metadata object inside the message objec
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId | No  |   | Id of the group with respect to client |
+| clientGroupId | No  |   | Unique identifier of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 
-**Note** : If group already exist in your system, pass that groupId in **clientGroupId** to use same with Applozic.
+**Note** : If group already exist in your system, pass that group unique identifier in **clientGroupId** to use same with Applozic.
 
 "type" parameters possible values
 
@@ -600,7 +600,7 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId | No  |   | Id of the group with respect to client |
+| clientGroupId | No  |   | Unique identifier of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
@@ -773,7 +773,7 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | Group unique id |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | userId   | Yes  |   | Name of the user want to add to the group  |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
 
@@ -800,17 +800,12 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupIds   | Yes  |   | List of group unique id  |
+| clientGroupIds   | Yes  |   |List of Group unique identifiers  |
 | userId   | Yes  |   | Unique id of the user want to add to the group  |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
-
-**sample**  
-```
-https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&groupIds=493&userId=jack
-```
 
 
 **Response**:  Response Json with success status :-  
@@ -822,7 +817,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 }
 ```
 
-**Note**: Groups for the passed groupIds and the user for the passed userId should exist in that application.
+**Note**: Groups for the passed clientGroupIds and the user for the passed userId should exist in that application.
 
 
 ### Remove Member 
@@ -835,7 +830,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | Group unique id  |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | userId   | Yes  |   | UserId of the user want to remove from group  |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to remove member |
 
@@ -851,7 +846,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 }
 ```
 
-**Note**: Only Admin can remove the group member otherwise the following error will come:
+**Note**: Only Admin can remove the group member from private group otherwise the following error will come:
 
 ```  
 {
@@ -879,7 +874,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | Group unique id  |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | ofUserId  | No  |   | Pass userId of user application admin want to remove |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
@@ -908,7 +903,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId| Yes  |   | Group unique id |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | newName | Yes  |   | New name of group |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
 
@@ -934,7 +929,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | Group unique id  |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | userId   | Yes  |   | UserId of the user identify in group  |
 | ofUserId  | No  |   | Pass userId of user exist in a group on behalf of which application admin want to check other user |
 
@@ -961,7 +956,7 @@ https://apps.applozic.com/rest/ws/group/add/user?groupIds=490&groupIds=491&group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupId   | Yes  |   | Group unique id  |
+| clientGroupId   | Yes  |   | Group unique identifier  |
 | ofUserId  | No  |   | Pass userId of group admin user, for which application admin want to delete the group   |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
