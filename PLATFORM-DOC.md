@@ -507,7 +507,10 @@ To add metadata for a message, send the metadata object inside the message objec
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 
-**Note** : If group already exist in your system, pass that group unique identifier in **clientGroupId** to use same with Applozic.
+**Note** : 
+1.If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
+
+2.If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
 
 "type" parameters possible values
 
@@ -604,6 +607,11 @@ Array of object containing following parameters.
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
+
+**Note** : 
+1.If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
+
+2.If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
 
 "type" parameters possible values
 
@@ -919,7 +927,7 @@ Array of object containing following parameters.
 }
 ```
 
-### Check User : check user exist in a group or not
+### Check if user is a part of a member of a Group
 
 **CHECK USER URL**:  https://apps.applozic.com/rest/ws/group/check/user 
 
