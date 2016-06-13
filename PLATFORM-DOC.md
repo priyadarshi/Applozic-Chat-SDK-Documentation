@@ -288,9 +288,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | to  | Yes  |   | UserId to which you want to send message |
 | message  | Yes  |   | Text Message |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to send message  |
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **sample**                         
 ```
@@ -307,9 +305,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId  | Yes  |   | Unique identifier of the group with respect to client |
 | message  | Yes  |   | Text Message |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to send message  |
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **sample**                         
 ```
@@ -318,6 +314,14 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
   "message":"Hi John"
 }
 ```
+
+**Note** : In case of Application Admin  **ofUserId** request param required too.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
 
 **Response** Same in both case: **One to One** and **Group Message Send**
 
@@ -350,6 +354,14 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | clientGroupIds  | No  |   | List of Group unique identifiers to which you want to send message |
 | messageObject  | Yes  |   | Message Container Object |
 | message  | Yes  |   | Text Message |
+
+**Note** : In case of Application Admin  **ofUserId** request param required too.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
 
 **sample**
 ```
