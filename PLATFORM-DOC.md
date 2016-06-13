@@ -272,7 +272,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 ### Send   
 
-**Note** : For Application user purpose only.
+**Note** : API supported both by application admin and application user.
 
 **SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/send
 
@@ -282,10 +282,15 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Request Body**:
 
+**Note** : Request body in case of **One to One message send**. 
+
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | to  | Yes  |   | UserId to which you want to send message |
 | message  | Yes  |   | Text Message |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to send message  |
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 **sample**                         
 ```
@@ -295,7 +300,26 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }
 ```
 
-**Response**     
+
+**Note** : Request body in case of **Group message send**. 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| clientGroupId  | Yes  |   | Unique identifier of the group with respect to client |
+| message  | Yes  |   | Text Message |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to send message  |
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**sample**                         
+```
+{
+ "clientGroupId": "group Unique Identifier",  
+  "message":"Hi John"
+}
+```
+
+**Response**     Response is same in both case: **One to One** and **Group Message Send**
 
 | Response  | Description |
 | ------------- | ------------- |
@@ -323,7 +347,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userNames  | No  |   | User Names to which you want to send message |
-| groupIds  | No  |   | Group Ids to which you want to send message |
+| clientGroupIds  | No  |   | List of Group unique identifiers to which you want to send message |
 | messageObject  | Yes  |   | Message Container Object |
 | message  | Yes  |   | Text Message |
 
@@ -331,7 +355,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ```
 {
   "userNames" : ["UserName1", "UserName2", "UserName3"],
-  "groupIds" : [1, 2, 3],
+  "clientGroupIds" : ["1", "2", "3"],
   "messageObject" : {
     "message":"Hi John"
   }
