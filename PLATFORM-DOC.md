@@ -319,7 +319,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }
 ```
 
-**Response**     Response is same in both case: **One to One** and **Group Message Send**
+**Response** Same in both case: **One to One** and **Group Message Send**
 
 | Response  | Description |
 | ------------- | ------------- |
