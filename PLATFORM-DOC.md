@@ -267,6 +267,30 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ]
 ```
 
+###User Exist
+
+**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
+
+**URL**: https://apps.applozic.com/rest/ws/user/exist
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Parameters**:         
+
+| Parameter | Required | Description |
+| ------------- |-------  | ------------- |
+| userIds | Yes |list of UserId of the user  |
+
+**Response**: 
+
+```
+If Web user : "we user"
+If Android : version code of the device
+If Not Found : "User Not Found"
+```
+
 
 #Message API
 
