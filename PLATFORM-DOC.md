@@ -281,12 +281,12 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Parameter | Required | Description |
 | ------------- |-------  | ------------- |
-| userIds | Yes |list of UserId of the user  |
+| userId | Yes | UserId of the user  |
 
 **Response**: 
 
 ```
-If Web user : "we user"
+If Web user : "web user"
 If Android : version code of the device
 If Not Found : "User Not Found"
 ```
@@ -321,7 +321,6 @@ If Not Found : "User Not Found"
   "message":"Hi John"
 }
 ```
-
 
 **Note** : Request body in case of **Group message send**. 
 
