@@ -140,7 +140,7 @@ The following will come in response in case of incomplete email and invalid appl
 | ------------- | ------------- | ------------- | ------------- |       
 | pageSize | No  | 500 | list of contacts to load |
 | startTime | No  |  | pass to load more contact |
-| ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
+| userId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -148,7 +148,7 @@ The following will come in response in case of incomplete email and invalid appl
 **Example:** For API Call: 
 
 ```
-http://apps.applozic.com//rest/ws/user/filter?pageSize=20
+http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 ```
 
 **Response:**
