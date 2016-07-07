@@ -140,9 +140,7 @@ The following will come in response in case of incomplete email and invalid appl
 | ------------- | ------------- | ------------- | ------------- |       
 | pageSize | No  | 500 | list of contacts to load |
 | startTime | No  |  | pass to load more contact |
-| userId  | No  |   |pass userId of user on behalf of which application admin want to call API |
-
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+| userId  | No  |   | pass userId of user for which information has to be retrieved |
 
 
 **Example:** For API Call: 
