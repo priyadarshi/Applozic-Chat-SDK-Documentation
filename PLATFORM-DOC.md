@@ -684,8 +684,8 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create  multiple group    |
-    
+| ofUserId | Yes (in case of admin only) | |pass userId of user on which behalf admin want to create  multiple group |
+
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
 **sample**  
@@ -768,9 +768,42 @@ Array of object containing following parameters.
     }
   ]
 }
-
 ```
 
+### Group Info
+
+**LIST URL**:  https://apps.applozic.com/rest/ws/group/info 
+
+**Method Type**: GET
+
+**Parameters**:        
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId | No  |   | Group Id of the group  |
+| clientGroupId  | No  |   | Client Group id of the group |
+
+**Response**:   Response Json with success status :-
+```
+{
+  "status": "success",
+  "generatedAt": 1465310497564,
+  "response": {
+      "id": 496,
+      "clientGroupId": "GroupId1",
+      "name": "MultiGroup1",
+      "adminName": "TestUser",
+      "membersName": [
+        "kevin",
+        "john",
+        "TestUser"
+      ],
+      "removedMembersId": [],
+      "unreadCount": 0,
+      "type": 2
+    }
+}
+```
 
 ### User's Group List
 
