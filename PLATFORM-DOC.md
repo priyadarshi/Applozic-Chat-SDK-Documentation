@@ -989,9 +989,9 @@ Array of object containing following parameters.
 
 
 
-### Change Group Name
+### Update Group
 
-**CHANGE GROUP NAME URL**:  https://apps.applozic.com/rest/ws/group/change/name 
+**UPDATE GROUP URL**: https://apps.applozic.com/rest/ws/group/update 
 
 **Method Type**: POST
 
@@ -1002,7 +1002,8 @@ Array of object containing following parameters.
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId   | Yes  |   | Group unique identifier  |
-| newName | Yes  |   | New name of group |
+| newName | No  |   | New name of group |
+| imageUrl | No  |   | image url of the group |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
