@@ -548,7 +548,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 ### Creation
 
-**GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create 
+**GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/v2/create 
 
 **Method Type**: POST 
 
@@ -607,8 +607,8 @@ To add metadata for a message, send the metadata object inside the message objec
     "id": 274457,
     "clientGroupId": "Client Group Id",
     "name": "Group Name",
-    "adminName": "TestUser",
-    "membersName": [
+    "adminId": "TestUser",
+    "membersId": [
       "UserName2",
       "UserName3",
       "UserName1",
@@ -772,7 +772,7 @@ Array of object containing following parameters.
 
 ### Group Info
 
-**LIST URL**:  https://apps.applozic.com/rest/ws/group/info 
+**LIST URL**:  https://apps.applozic.com/rest/ws/group/v2/info 
 
 **Method Type**: GET
 
@@ -792,8 +792,8 @@ Array of object containing following parameters.
       "id": 496,
       "clientGroupId": "GroupId1",
       "name": "MultiGroup1",
-      "adminName": "TestUser",
-      "membersName": [
+      "adminId": "TestUser",
+      "membersId": [
         "kevin",
         "john",
         "TestUser"
@@ -807,7 +807,7 @@ Array of object containing following parameters.
 
 ### User's Group List
 
-**LIST URL**:  https://apps.applozic.com/rest/ws/group/list 
+**LIST URL**:  https://apps.applozic.com/rest/ws/group/v2/list 
 
 **Method Type**: GET
 
@@ -831,8 +831,8 @@ Array of object containing following parameters.
       "id": 496,
       "clientGroupId": "GroupId1",
       "name": "MultiGroup1",
-      "adminName": "TestUser",
-      "membersName": [
+      "adminId": "TestUser",
+      "membersId": [
         "kevin",
         "john",
         "TestUser"
@@ -845,8 +845,8 @@ Array of object containing following parameters.
       "id": 497,
       "clientGroupId": "497",
       "name": "MultiGroup2",
-      "adminName": "TestUser",
-      "membersName": [
+      "adminId": "TestUser",
+      "membersId": [
         "jade",
         "TestUser"
       ],
@@ -1144,8 +1144,8 @@ Authentication is done using BASIC authentication. It is combination of email & 
   "response" : {
     "id" : Group Id (integer),
     "name" : "Group Name",
-    "adminName" : "Group Admin User Name",
-    "membersName" : [ List of members user names],
+    "adminId" : "Group Admin User Name",
+    "membersId" : [ List of members user names],
     "unreadCount" : (Int) message unread count for the logged in user,
     "type" : Group type,
     "conversationPxy" : {
