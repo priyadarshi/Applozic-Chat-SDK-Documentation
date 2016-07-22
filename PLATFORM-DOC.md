@@ -888,9 +888,9 @@ Array of object containing following parameters.
 ```
 
 
-### Add User To Multiple Group
+### Add Multiple Users To Multiple Groups
 
-**ADD USER TO MULTIPLE GROUP URL**:  https://apps.applozic.com/rest/ws/group/add/user
+**URL**:  https://apps.applozic.com/rest/ws/group/add/users
 
 **Method Type**: GET
 
@@ -898,8 +898,8 @@ Array of object containing following parameters.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupIds   | Yes  |   |List of Group unique identifiers  |
-| userId   | Yes  |   | Unique id of the user want to add to the group  |
+| clientGroupIds   | Yes  |   | List of Group unique identifiers  |
+| userIds   | Yes  |   | List of Unique ids of the users to be added to the group  |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
