@@ -648,7 +648,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 ### Multiple Group Creation
 
-**MULTIPLE GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/create/multiple
+**MULTIPLE GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/v2/create/multiple
 
 **Method Type**: POST 
 
@@ -715,8 +715,8 @@ Array of object containing following parameters.
       "id": 496,
       "clientGroupId": "GroupId1",
       "name": "MultiGroup1",
-      "adminName": "TestUser",
-      "membersName": [
+      "adminId": "TestUser",
+      "membersId": [
         "kevin",
         "TestUser",
         "john"
@@ -748,8 +748,8 @@ Array of object containing following parameters.
       "id": 497,
       "clientGroupId": "497", // same as Applozic group Id.
       "name": "MultiGroup2",
-      "adminName": "TestUser",
-      "membersName": [
+      "adminId": "TestUser",
+      "membersId": [
         "TestUser",
         "jade"
       ],
@@ -1043,6 +1043,41 @@ Array of object containing following parameters.
   "response": true/false
 }
 ```
+
+### Get Group User Count 
+
+**URL**:  https://apps.applozic.com/rest/ws/group/user/count
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| clientGroupIds   | Yes  |   | List of Group unique identifiers  |
+
+
+**Response**:  Response Json with success status :-  
+```  
+{
+  "status": "success",
+  "generatedAt": 1469293877608,
+  "response": [
+    {
+      "id": 503,
+      "clientGroupId": "503",
+      "userCount": 3
+    },
+    {
+      "id": 504,
+      "clientGroupId": "clientGroupId",
+      "userCount": 5
+    }
+  ]
+}
+```
+
+
 
 
 ### Delete 
