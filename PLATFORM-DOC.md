@@ -576,6 +576,7 @@ To add metadata for a message, send the metadata object inside the message objec
 | 1 | Private group : Other users are not able to join this group voluntarily |
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
+| 6 | Open Group : Any user can send the message to this group without being the member of this group |
 
 
 **Note** : In case of Application Admin  **ofUserId** request param required too.
