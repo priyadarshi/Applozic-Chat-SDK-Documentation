@@ -1351,10 +1351,7 @@ Application can send automated in-app messages to users using Application to Use
 | success | Request is successfully processed  |
 | error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
-
-
 ###Dispatch Message   
-
 
 **DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
 
@@ -1457,5 +1454,36 @@ Application can send automated in-app messages to users using Application to Use
   "createdAt":1458039322000
 }
 ```
+
+###Message Export
+
+**Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
+
+**URL**: https://apps.applozic.com/rest/ws/analytics/message
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Accept**: application/json, application/octet-stream
+
+**Parameters**:         
+
+| Parameter | Required | Description |
+| --------- | -------  | ----------- |
+| applicationId |  Yes | UserId of the user in which data will be merged  |
+| startIndex | Yes | UserId of the user which will be merged  |
+| pageSize | Yes | UserId of the user which will be merged  |
+| to | Yes | UserId of the user which will be merged  |
+| from | Yes | UserId of the user which will be merged  |
+| startTime | Yes | UserId of the user which will be merged  |
+
+
+**Response**:           
+
+| Parameter  | Description | 
+| ------------- | ------------- | 
+| success | Request is successfully processed  |
+| error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
 Contact us at ` github@applozic.com `
