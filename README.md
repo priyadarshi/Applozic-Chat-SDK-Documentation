@@ -28,7 +28,7 @@ Add dependency in build.gradle
 
 
 ```
-compile 'com.applozic.communication.uiwidget:mobicomkitui:3.38'    
+compile 'com.applozic.communication.uiwidget:mobicomkitui:4.4'    
 ```
 
 
@@ -55,6 +55,8 @@ android {
 ####Step 2: Addition of Meta-data, Permissions, Services and Receivers in androidmanifest.xml
            
 Meta-data
+
+**Note**: Add meta-data within application Tag ``` <application>  </application>```
         
 ```
 <meta-data android:name="com.applozic.application.key"
@@ -82,9 +84,6 @@ Meta-data
             android:value="YOUR_GEO_API_KEY" />  <!--Replace with your geo api key from google developer console  --> 
 <!-- For testing purpose use AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI
 To disable the location sharing via map add this line ApplozicSetting.getInstance(context).disableLocationSharingViaMap(); in onSuccess of Applozic UserLoginTask -->
-
-           
-        
 ```
    **Note**: If you are **not using gradle build** you need to replace ${applicationId}  with your Android app package name
 
@@ -134,6 +133,7 @@ Permissions:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.GET_TASKS" />
 <uses-permission android:name="android.permission.CALL_PHONE" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -307,6 +307,7 @@ UserLoginTask.TaskListener listener = new UserLoginTask.TaskListener() {
 public void onSuccess(RegistrationResponse registrationResponse, Context context)         
 {           
    // After successful registration with Applozic server the callback will come here 
+    ApplozicSetting.getInstance(context).enableRegisteredUsersContactCall();//To enable the applozic Registered Users Contact Note:for disable that you can comment this line of code
     ApplozicSetting.getInstance(context).showStartNewButton();//To show contact list.
     ApplozicSetting.getInstance(context).showStartNewGroupButton();//To enable group messaging
 }                       
@@ -320,7 +321,8 @@ public void onFailure(RegistrationResponse registrationResponse, Exception excep
 User user = new User();          
 user.setUserId(userId); //userId it can be any unique user identifier
 user.setDisplayName(displayName); //displayName is the name of the user which will be shown in chat messages
-user.setEmail(email); //optional                        
+user.setEmail(email); //optional   
+user.setImageLink("");//optional,pass your image link 
 new UserLoginTask(user, listener, this).execute((Void) null);                                   
 ```
 
@@ -458,10 +460,12 @@ On user logout, calling the following to logout user from Applozic
  
 ```
  #keep json classes                
- -keepclassmembernames class * extends com.applozic.mobicomkit.api.JsonMarker         
- {            
- !static !transient <fields>;                  
- }              
+-keepclassmembernames class * extends com.applozic.mobicommons.json.JsonMarker {
+ 	!static !transient <fields>;
+ }
+ -keepclassmembernames class * extends com.applozic.mobicommons.json.JsonParcelableMarker {
+ 	!static !transient <fields>;
+ }          
  #GSON Config          
 -keepattributes Signature          
 -keep class sun.misc.Unsafe { *; }           
@@ -545,7 +549,25 @@ Received Contact Message Text Color
 ApplozicSetting.getInstance(context).setReceivedContactMessageTextColor(int color); // accepts the R.color.name
  ```
  
-Chat Background Color 
+ Edit Text Background  Color Or DrawableResource 
+
+ ```
+ApplozicSetting.getInstance(context).setEditTextBackgroundColorOrDrawableResource(int colorOrdrawableName); // accepts the R.color.name or  R.drawable.drawableName
+ ```
+ 
+Sent Message Hyper Link Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setSentMessageLinkTextColor(int color); // accepts the R.color.name
+ ```
+ 
+ Received Message Hyper Link Text Color
+
+ ```
+ApplozicSetting.getInstance(context).setReceivedMessageLinkTextColor(int color); // accepts the R.color.name
+ ```
+ 
+Chat Background Image or Color
 
  ```
 ApplozicSetting.getInstance(context).setChatBackgroundColorOrDrawableResource(int color); // accepts the R.color.name or  R.drawable.drawableName
@@ -555,6 +577,12 @@ Message EditText Text Color
 
  ```
 ApplozicSetting.getInstance(context).setMessageEditTextTextColor(int color); // accepts the R.color.name
+ ```
+
+Message EditText Hint Color
+
+ ```
+ApplozicSetting.getInstance(context).setMessageEditTextHintColor(int color); // accepts the R.color.name
  ```
 
 Attachment Icons Background Color
@@ -612,6 +640,26 @@ For Group Exit Button Hide
   ```
  ApplozicSetting.getInstance(context).setHideGroupRemoveMemberOption(true);
   ```
+  
+    
+  To customize the theme, copy paste the following in your theme's  res file:
+   ```
+  <style name="ApplozicTheme" parent="Theme.AppCompat.Light.NoActionBar">
+  
+   <!--To change the toolbar color change the colorPrimary  -->
+    <item name="colorPrimary">@color/applozic_theme_color_primary</item>
+    
+    <!-- To change the status bar  color change the color of  colorPrimaryDark-->
+    <item name="colorPrimaryDark">@color/applozic_theme_color_primary_dark</item>
+    
+    <!-- colorAccent is used as the default value for colorControlActivated which is used to tint widgets -->
+    <item name="colorAccent">@color/applozic_theme_color_primary</item>
+    
+    <item name="windowActionModeOverlay">true</item>
+  </style>
+   ```
+  
+   Change the name of the style  name="ApplozicTheme"  to some new name and in your app androidmanifest.xml file find for ApplozicTheme and replace with your new theme style.
  
 For complete control over UI, you can also download open source chat UI toolkit and change it as per your designs :
 ```
@@ -720,7 +768,7 @@ ApplozicSetting.getInstance(this).setColor(ApplozicSetting.CUSTOM_MESSAGE_BACKGR
 
 ###  Contacts           
 
-
+Note:This methods are for creating local conatcts and only stored locally.
 
 ***Creating Contact list***         
 
@@ -826,87 +874,102 @@ Create the Group with Group Name and Group Members.
 Import
 
 ```
-import com.applozic.mobicomkit.api.people.ChannelCreate;            
-import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelCreateTask;
 ```
 
 Code
  ```
-new Thread(new Runnable() {
-     @Override
-           public void run() {
+  ApplozicChannelCreateTask.ChannelCreateListener channelCreateListener = new ApplozicChannelCreateTask.ChannelCreateListener() {
+            @Override
+            public void onSuccess(Channel channel, Context context) {
+                Log.i("ApplzoicChannelCreate", "After success full creation of channel");
+                Log.i("Channel", "Channel object:" + channel);//channel.getKey() is a channel key or group id
+            }
+
+            @Override
+            public void onFailure(Exception e, Context context) {
+
+            }
+        };
+
                 String groupName = "Applozic Group"; // Name of group.
                 List<String> groupMemberList = new ArrayList<String>(); // List Of unique group member Names.
                 groupMemberList.add("member1");   // Put userId of the user
                 groupMemberList.add("member2");
                 groupMemberList.add("member3");
                 groupMemberList.add("member4");
+                
+ApplozicChannelCreateTask applozicChannelCreateTask = new ApplozicChannelCreateTask(context, channelCreateListener, groupName, groupMemberList);
+applozicChannelCreateTask.execute((Void) null);
 
  ```
- 
-After adding group Members to list, pass the Group Name and Group Member List to constructor below
-
-Code
- ```
-  ChannelCreate channelCreate = new ChannelCreate(groupName, groupMemberList); // The Constructor accepts the two parameter String Group Name and List of Group Members.
-   
-
-  Channel channel = ChannelService.getInstance(context).createChannel(channelCreate); // Instantiating the  group create and it accept the ChannelCreate object.
-               }
-           }).start();
- ```
- 
 
 ####2) Add Member to Group
   
 Import
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+  import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelAddMemberTask;
 ```
 
 Code
  ``` 
- new Thread(new Runnable() {
-        @Override
-             public void run() {
-        String response = ChannelService.getInstance(context).addMemberToChannelProcess(channelKey, userId);
-         }
-    }).start();
- ```
-   
-  __Parameters:__
+ ApplozicChannelAddMemberTask.ChannelAddMemberListener channelAddMemberListener =  new ApplozicChannelAddMemberTask.ChannelAddMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                //Response will be "success" if user is added successfully
+                Log.i("ApplozicChannelMember","Add Response:"+response);
 
-  __channelkey__: Is a unique Integer type to which group/channel u want to add a member to it
-  
-  __userId__:Unique userId of string type to whom u want to add to group/channel
-  
-   __Return response__: If user added successfully in group/channel it returns success else error 
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelAddMemberTask applozicChannelAddMemberTask =  new ApplozicChannelAddMemberTask(context,channelKey,userId,channelAddMemberListener);//pass channel key and userId whom u want to add to channel
+        applozicChannelAddMemberTask.execute((Void)null);
+
+ ```
+    
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
  
 ####3) Remove Member from Group
  
 Import  
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelRemoveMemberTask;
 ```
 
 Code
   ```
- new Thread(new Runnable() {
-         @Override
-         public void run() {
-    String response = ChannelService.getInstance(context).removeMemberFromChannelProcess(channelKey, userId);
-                 }
-       }).start();
+  ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener channelRemoveMemberListener = new ApplozicChannelRemoveMemberTask.ChannelRemoveMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                //Response will be "success" if user is removed successfully
+                Log.i("ApplozicChannel","remove member response:"+response);
+
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelRemoveMemberTask applozicChannelRemoveMemberTask =  new ApplozicChannelRemoveMemberTask(context,channelKey,userId,channelRemoveMemberListener);//pass channelKey and userId whom you want to remove from channel
+        applozicChannelRemoveMemberTask.execute((Void)null);
  ```
   
-  __Parameters:__
-  
- __channelKey__:Is a Unique Integer type from which u want to remove member
- 
- __userId__:Unique userId of string type whome u want to remove from group/channel
-
- __Return response__: If user Removed successfully from group/channel it returns success else error 
+   
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
  
   __NOTE:__ Only admin can remove member from the group/channel.
@@ -916,53 +979,68 @@ Code
  
 Import
 ```
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelLeaveMember;
 ```
   
 Code
   ```
-   new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-       String response = ChannelService.getInstance(context).leaveMemberFromChannelProcess(channelKey,userId);
-              }
-        }).start();
+  ApplozicChannelLeaveMember.ChannelLeaveMemberListener  channelLeaveMemberListener  = new ApplozicChannelLeaveMember.ChannelLeaveMemberListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+                //Response will be "success" if user is left successfully
+                Log.i("ApplozicChannel","Leave member respone:"+response);
+            }
+
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelLeaveMember applozicChannelLeaveMember = new ApplozicChannelLeaveMember(context,channelKey,userId,channelLeaveMemberListener);//pass channelKey and userId
+        applozicChannelLeaveMember.execute((Void)null);
   ```
  
-   __Parameters:__
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
  
- __channelKey__:Unique Integer type 
- 
- __userId__ :Unique userId of string type
- 
- __Return response__: success or error 
- 
+ __Note:__ This is only for logged in user who want's to leave from group
  
 ####5) Change Group Name
 
 Import
 
 ```
-  import com.applozic.mobicomkit.feed.ChannelName;
-  import com.applozic.mobicomkit.channel.service.ChannelService;
+  
+import com.applozic.mobicomkit.uiwidgets.async.ApplozicChannelNameUpdateTask;
 ```
   
 Code
 
 ```
- new Thread(new Runnable() {
-        @Override
-              public void run() {
-              Integer channelKey = 1234;
-              Strin newChannelName = "ApplozicGroup";
-              ChannelName channeName = new ChannelName(newChannelName,channelKey);//it accepts the new channel Name and channelKey 
-                String response = ChannelService.getInstance(context).updateNewChannelNameProcess(channelName);
-          }
-     }).start();
+  ApplozicChannelNameUpdateTask.ChannelNameUpdateListener channelNameUpdateListener = new ApplozicChannelNameUpdateTask.ChannelNameUpdateListener() {
+            @Override
+            public void onSuccess(String response, Context context) {
+               //Response will be "success" if Channel/Group name is changed successfully
+                Log.i("ApplozicChannel", "Name update:" + response);
+            }
+            @Override
+            public void onFailure(String response, Exception e, Context context) {
+
+            }
+        };
+
+        ApplozicChannelNameUpdateTask channelNameUpdateTask = new ApplozicChannelNameUpdateTask(context, channelKey, channelName, channelNameUpdateListener);//pass context ,channelKey,chnanel new name 
+        channelNameUpdateTask.execute((Void) null);
 
  ```
-
-  __Return response__: If group/channel name successfully changed it returns success else error 
+| Parameter | Description  |
+| --------- | ------------ |
+| channelKey | Unique identifier of the group/channel |
+| userId | Unique identifier of the user |
+  
   
   
   ### Advanced
@@ -1681,6 +1759,48 @@ ALApplozicSettings.setGroupOption(true)
 ```
 This method is used when group feature is required . It will disable group functionality when set to NO.
 
+#### Show/Hide Group Functions
+
+
+
+##### Show/Hide Group Exit Button
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupExitOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupExitOption(true)
+```
+
+
+##### Show/Hide Group Member-Add Button (Admin only)
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupMemberAddOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupMemberAddOption(true)
+```
+
+
+##### Show/Hide Group Member-Remove Button (Admin only)
+
+__Objective-C__
+```
+[ALApplozicSettings setGroupMemberRemoveOption:YES];
+```
+
+__Swift__
+```
+ALApplozicSettings.setGroupMemberRemoveOption(true)
+```
+
 
 
 
@@ -1987,7 +2107,14 @@ You don't need to use functions explained in Step 6 and Step 7 if loading all co
 
  ``` 
  
-#### Step 10: Anchor tag or button to load(open) individual tab conversation directly (optional)
+ #### Step 10: Function to load(open) Group tab conversation by group Id (optional)
+
+```
+ $applozic.fn.applozic('loadGroupTab', 'PUT_GROUPID_HERE'); // unique group Id (required)
+
+ ``` 
+ 
+#### Step 11: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -1997,7 +2124,7 @@ You can add the following html into your code to directly open a conversation wi
  
  **Note** - Data attribute **mck-name** is optional in above tag          
 
-#### Step 11: Function to **Send Message** (optional)
+#### Step 12: Function to **Send Message** (optional)
 
 Code
 ```
@@ -2010,7 +2137,7 @@ $applozic.fn.applozic('sendMessage', messageJson);
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 12: Function to **Send Message visible only to Receiver** (optional)
+#### Step 13: Function to **Send Message visible only to Receiver** (optional)
 
 Code 
 ```
@@ -2026,7 +2153,7 @@ Useful for cases where you want to send the visitor's info in background to the 
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 5.
  
-#### Step 13: To add auto suggest users list in search field use below html element id (optional)
+#### Step 14: To add auto suggest users list in search field use below html element id (optional)
 
 You can bind auto suggest plugin on input search field of id given below -      
 
@@ -2034,7 +2161,7 @@ You can bind auto suggest plugin on input search field of id given below -
 mck-search 
 ```
 
-#### Step 14: To show **online/offline** status (optional)
+#### Step 15: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -2050,7 +2177,7 @@ Example -
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```        
 
-#### Step 15: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 16: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 
 These are attributes requires on chat button or anchor tag -
@@ -2118,7 +2245,7 @@ Sample  code :-
 ```
 
 
-#### Step 16: Function to get **USER DETAIL** (optional)
+#### Step 17: Function to get **USER DETAIL** (optional)
 
 Call below given function to get user details like totalUnreadCount, lastSeenAt time etc -
 
@@ -2149,8 +2276,40 @@ response = {'status' : 'success' ,                     // or error
                      }
            }
 ```
+#### Step 18: Function to get **Group List** (optional)
 
-#### Step 17: Function to load **Broadcast Channel** Tab (optional)
+Call below given function to get group list :-
+
+```
+   $applozic.fn.applozic('getGroupList', {callback: getGroupList});
+```
+
+
+Callback function to receive response (used as a reference in above function) :-   
+
+```
+function getGroupList(response) {
+   if(response.status === 'success') {
+      // write your logic
+   }
+ }
+ 
+ ````
+
+Response sample :-
+
+
+```
+response = {'status' : 'success' ,                    // or error
+            'data':[{"id":"Group_Id1","name":"GroupName1","adminName":"ADMIN_USER_ID1","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":3, type:'GROUP_TYPE'}, 
+                       {"id":"Group_Id2","name":"GroupName2","adminName":"ADMIN_USER_ID2","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":7, type:'GROUP_TYPE'}]                  
+                    
+           }            
+```
+
+#### Step 19: Function to load **Broadcast Channel** Tab (optional)
 
 Code
 ```
@@ -2347,8 +2506,14 @@ mck-search
 
  ``` 
  
+#### Step 13: Function to load(open) Group tab conversation by group Id (optional)
+
+```
+ $applozic.fn.applozic('loadGroupTab', 'PUT_GROUPID_HERE'); // unique group Id (required)
+
+ ``` 
  
-#### Step 13: Function to **Send Message** (optional)
+#### Step 14: Function to **Send Message** (optional)
 
 If you want to send text message directly use below function - 
 ```
@@ -2366,7 +2531,7 @@ var MESSAGE_JSON =
 ```
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 14: Function to **Send Message visible only to Receiver** (optional)
+#### Step 15: Function to **Send Message visible only to Receiver** (optional)
 
 Code 
 ```
@@ -2382,7 +2547,7 @@ Useful for cases where you want to send the visitor's info in background to the 
 
  **NOTE**- Call **sendMessage** function only after plugin initailization. For reference use **init()** function explained in Step 6.
  
-#### Step 15: Anchor tag or button to load(open) individual tab conversation directly (optional)
+#### Step 16: Anchor tag or button to load(open) individual tab conversation directly (optional)
 
 You can add the following html into your code to directly open a conversation with any user -   
 
@@ -2393,7 +2558,7 @@ You can add the following html into your code to directly open a conversation wi
  **Note** - Data attribute **mck-name** is optional in above tag.          
  
 
-#### Step 16: To show **online/offline** status (optional)
+#### Step 17: To show **online/offline** status (optional)
 
 You can add the following attributes to your html element for real time online/offline status update -
 
@@ -2407,7 +2572,7 @@ Example :-
 <div class="mck-user-ol-status n-vis" data-mck-id='PUT_OTHER_USERID_HERE'></div>
 ```
 
-#### Step 17: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
+#### Step 18: Topic or product based conversation (BUYER/SELLER CHAT) (optional)
 
 These are attributes requires on chat button or anchor tag -
 
@@ -2468,15 +2633,9 @@ Sample code :-
 <a href="#" class="applozic-tm-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAY_NAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">Chat on topic</a>
 ```
 
-#### Step 18: Function to get USER DETAIL (optional)
+#### Step 19: Function to get USER DETAIL (optional)
 
-Call below given function to get user details like Total unread count, last seen at etc
-
-```
-  $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
-```
-
-Call below given function to get user details like totalUnreadCount, lastSeenAt time etc :-
+Call below given function to get user details like Total unread count, last seen at etc :-
 
 ```
 function getUserDetail(response) {
@@ -2484,6 +2643,8 @@ function getUserDetail(response) {
       // write your logic
    }
  }
+ 
+ $applozic.fn.applozic('getUserDetail', {callback: getUserDetail});
 ```
 
 Response sample :-
@@ -2495,6 +2656,33 @@ response = {'status' : 'success' ,                    // or error
                        [{"userId":"USERID_1","connected":false,"lastSeenAtTime":1453462368000,"createdAtTime":1452150981000,"unreadCoun t":3}, 
                        {"userId":"USERID_2","connected":false,"lastSeenAtTime":1452236884000,"createdAtTime":1452236884000,"unreadCount":1}]                  
                      }
+           }            
+```
+
+#### Step 20: Function to get **Group List** (optional)
+
+Call below given function to get group list :-
+
+```
+function getGroupList(response) {
+   if(response.status === 'success') {
+      // write your logic
+   }
+ }
+ 
+  $applozic.fn.applozic('getGroupList', {callback: getGroupList});
+```
+
+Response sample :-
+
+
+```
+response = {'status' : 'success' ,                    // or error
+            'data':[{"id":"Group_Id1","name":"GroupName1","adminName":"ADMIN_USER_ID1","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":3, type:'GROUP_TYPE'}, 
+                       {"id":"Group_Id2","name":"GroupName2","adminName":"ADMIN_USER_ID2","membersName":
+["USER_ID1", "USER_ID2", "USER_ID3"],"unreadCount":7, type:'GROUP_TYPE'}]                  
+                    
            }            
 ```
 
@@ -2578,7 +2766,7 @@ applozic.events = {onConnect: function () {
                        console.log('onUserConnect: ' + obj);
                   }, onUserDisconnect: function (obj) {
                        console.log('onUserDisconnect: ' + obj);
-                  },
+                  }
                 };              
   ```               
   
