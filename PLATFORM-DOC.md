@@ -414,11 +414,11 @@ If Not Found : "User Not Found"
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId  | No  |  | User Id of the user whose respective chat messages user want to fetch.  | 
-| groupId  | No  |  | Group Id of the group for which messages need to be fetched.  | 
+| groupId  | No  |  | Group Id of the group for which messages need to be fetched. | 
 | startIndex  | Yes  | 0  | Starting Index to fetch messages from list.  | 
 | pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
-| startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
-| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
+| startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
+| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
@@ -1463,7 +1463,10 @@ Application can send automated in-app messages to users using Application to Use
 
 **Method Type**: GET
 
-**Content-Type**: application/json
+**Content-Type**:
+
+1. application/json : For return type as json
+2. application/vnd.openxmlformats-officedocument.spreadsheetml.sheet : For returning as Excel.
 
 **Accept**: application/json, application/octet-stream
 
@@ -1471,19 +1474,56 @@ Application can send automated in-app messages to users using Application to Use
 
 | Parameter | Required | Description |
 | --------- | -------  | ----------- |
-| applicationId |  Yes | UserId of the user in which data will be merged  |
-| startIndex | Yes | UserId of the user which will be merged  |
-| pageSize | Yes | UserId of the user which will be merged  |
-| to | Yes | UserId of the user which will be merged  |
-| from | Yes | UserId of the user which will be merged  |
-| startTime | Yes | UserId of the user which will be merged  |
+| applicationId | Yes | Your Applozic Application key configured in dashboard |
+| startIndex | No | Starting Index to fetch messages from list |
+| pageSize | No | Number of messages per page you want to fetch |
+| to | No | UserId of the sender of the fetched message |
+| from | No | UserId of the reveiver of the fetched message |
+| startTime | No | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
+| endTime | No | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
+| messageType | No | Message type of the message to check |
+| period | No | if startTime is not passed. amount of period to check the message |
+| timeUnit | No | Time unit of the period |
 
+messageType : Possible Values:
+
+1. MessageDelivered
+2. MessageUnDelivered
+3. MessageRead
+4. MessageUnRead
+
+timeUnit : Possible Values:
+
+1. MilliSeconds
+2. Second
+3. Minute
+4. Hour
+5. Day
+6. Week
+7. Month
+8. Year
 
 **Response**:           
 
-| Parameter  | Description | 
-| ------------- | ------------- | 
-| success | Request is successfully processed  |
-| error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
+**Response**:  Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": [
+    {
+      "id" : "5-agpzfmFwcGxvemljchMLEgZTdVVzZXIYgICAgLrcvwsM-1464093115599",
+      "fromUserId" : "john",
+      "toUserId" : "steve",
+      "groupName" : null,
+      "content" : "Hello",
+      "createdAtTime" : 1458039322000,
+      "deliveredAtTime" : 1458039322000,
+      "readAtTime" : 1458039322000
+    }
+  ]
+}  
+```
 
 Contact us at ` github@applozic.com `
