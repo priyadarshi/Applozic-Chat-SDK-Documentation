@@ -1078,9 +1078,6 @@ Array of object containing following parameters.
 }
 ```
 
-
-
-
 ### Delete 
 
 **DELETE GROUP URL**:  https://apps.applozic.com/rest/ws/group/delete 
@@ -1121,6 +1118,59 @@ Array of object containing following parameters.
   "generatedAt":1452348983616   // time value at which response is generated from server
 }
 ```
+
+### Channel 
+
+**URL**:  https://apps.applozic.com/rest/ws/group/channel 
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
+| startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
+| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
+
+**Response**:  Json with success status :-  
+
+```
+{
+  "status": "success",
+  "generatedAt": 1465310497564,    // time value at which response is generated from server
+  "response": [
+    {
+      "id": 496,
+      "clientGroupId": "GroupId1",
+      "name": "MultiGroup1",
+      "adminId": "TestUser",
+      "membersId": [
+        "kevin",
+        "john",
+        "TestUser"
+      ],
+      "removedMembersId": [],
+      "unreadCount": 0,
+      "type": 6
+    },
+    {
+      "id": 497,
+      "clientGroupId": "497",
+      "name": "MultiGroup2",
+      "adminId": "TestUser",
+      "membersId": [
+        "jade",
+        "TestUser"
+      ],
+      "removedMembersId": [],
+      "unreadCount": 0,
+      "type": 6
+    }
+  ]
+}
+```
+
 
 #Topic/Product API 
 
