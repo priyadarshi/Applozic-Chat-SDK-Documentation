@@ -1059,7 +1059,7 @@ Code
   This activity will receive the “userId” of the selected chat in intent.
   
 
- # IOS SDK           
+ #iOS SDK           
 
 
 ### Overview        
