@@ -1058,8 +1058,7 @@ Code
 
   This activity will receive the “userId” of the selected chat in intent.
   
-
- #iOS SDK           
+# iOS SDK
 
 
 ### Overview        
