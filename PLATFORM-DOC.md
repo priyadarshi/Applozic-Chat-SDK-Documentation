@@ -1463,12 +1463,12 @@ Application can send automated in-app messages to users using Application to Use
 
 **Method Type**: GET
 
-**Content-Type**:
+**Content-Type**: application/json
 
-1. application/json : For return type as json
-2. application/vnd.openxmlformats-officedocument.spreadsheetml.sheet : For returning as Excel.
+**Accept**:
 
-**Accept**: application/json, application/octet-stream
+1. application/json (Default) : For return type as json
+2. application/octet-stream : For returning as Excel.
 
 **Parameters**:         
 
