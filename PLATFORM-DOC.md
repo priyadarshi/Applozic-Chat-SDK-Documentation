@@ -1477,8 +1477,8 @@ Application can send automated in-app messages to users using Application to Use
 | applicationId | Yes | Your Applozic Application key configured in dashboard |
 | startIndex | No | Starting Index to fetch messages from list |
 | pageSize | No | Number of messages per page you want to fetch |
-| to | No | UserId of the sender of the fetched message |
-| from | No | UserId of the reveiver of the fetched message |
+| from | No | UserId of the sender for the fetched message |
+| to | No | UserId of the receiver for the fetched message |
 | startTime | No | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
 | endTime | No | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
 | messageType | No | Message type of the message to check |
