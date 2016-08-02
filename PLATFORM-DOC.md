@@ -1359,13 +1359,15 @@ Application can send automated in-app messages to users using Application to Use
 
 1.Message Dispatch API behave same as Message Send API, but used by Application Admin.
 
-2.Application Admin can send Message on behalf of one user to another user on back date also. (Used for data migration from your Server to Applozic Sever)
+2.Message Dispatch API supports One to One, group based and contextual based messaging.
+
+3.Application Admin can send Message on behalf of one user to another user on back date also. (Used for data migration from your Server to Applozic Sever)
 
 **Method Type**: POST
 
 **Content-Type**: application/json
 
-**Request body**:  Json with the following properties: 
+**Request body**:  Json with the following properties for One to One messaging: 
 
 | Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
@@ -1374,7 +1376,10 @@ Application can send automated in-app messages to users using Application to Use
 | message  | Yes |   | message content to be passed  |
 | oldTimestamp  | No |   | create message  timestamp   |
 
-**sample request**
+
+
+**Json required for One to One based messaging**
+
 ```
 {
   "message":"HI STEVE",
