@@ -17,7 +17,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 
 | Header | Description  |
 | ------ | ----------- |
-| Apz-AppId | TeatApp |
+| Apz-AppId | TestApp |
 | Apz-Token | Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk |
 | Content-Type |  application/json  |
 
@@ -25,7 +25,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 
 All request from Device must contain the following 4 headers
 
-| Authorization | Authorization Code  |
+| Key | Values  |
 | ------------- | ------ |
 | Application-Key | Your Application Key |
 | Authorization | Authentication is done using BASIC authentication.Basic Base64Encode of userId:deviceKey |
@@ -35,7 +35,7 @@ All request from Device must contain the following 4 headers
 **Example**- 
 If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
 
-| Authorization | Authorization Code  |
+| Key | Values  |
 | ------------- | ------ |
 | Application-Key | TestApp |
 | Authorization | Basic cm9iZXJ0OjA5YzVkODY5LTZkMzgtNGQ2Yi05ZWJmLTlkZTE2Y2RhYjE3Ng== |
@@ -1217,7 +1217,7 @@ DEFAULT: return the conversation as it is.
 
 | Header | Value |
 | ------------- | ------------ |
-| Authorization | Authorization Code  |
+| Key | Values  |
 | UserId-Enabled | true |
 | Application-Key | Your Application Key  |  
 | Device-Key | Received in registration response  | 
