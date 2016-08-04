@@ -395,7 +395,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Response** : success Response Json to the request
 
-####MESSAGE LIST
+####Message list
 
 **URL**: https://apps.applozic.com/rest/ws/message/list
 
