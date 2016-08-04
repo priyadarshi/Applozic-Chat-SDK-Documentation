@@ -2,7 +2,7 @@ Explore Platform API's as per Application Admin or as per Application User.
 
 # HEADERS
 
-###APPLICATION ADMIN
+###Application Admin
 
 For Application Admin send following authentication headers with each API call to explore platform API's. Request should contain these 3 headers
 
@@ -21,7 +21,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 | Apz-Token | Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk |
 | Content-Type |  application/json  |
 
-###APPLICATION USER
+###Application User
 
 All request from Device must contain the following 4 headers
 
@@ -44,9 +44,9 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 
 **Note** : Headers are required in each API call except user registration .ie register/client API.
 
-# User API
+### User API
 
-### Register     
+#### Login/Register User     
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
 
@@ -127,8 +127,107 @@ The following will come in response in case of incomplete email and invalid appl
 **Note** : No header required for registration API.
 
 
+#### User Info   
 
-### Load Contact List   
+**Display Name  URL**: https://apps.applozic.com/rest/ws/user/info
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| userIds | yes  |  | list of unique userId |
+
+**Note** : Additional **ofUserId**  parameter not required in case of application admin too.
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
+```
+
+**Response:**
+
+```  
+{
+  "robert": "robbie",
+  "john": "Mitchell"
+}
+```  
+ 
+**Note**
+
+**1)** Only users having display Name will return in response.
+
+
+####User Details       
+
+**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
+
+**URL**: https://apps.applozic.com/rest/ws/user/detail
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Parameters**:         
+
+| Parameter | Required | Description |
+| ------------- |-------  | ------------- |
+| userIds |  No    |list of UserId of the user  |
+| phoneNumbers | No      |list of phoneNumber of the user  |
+
+
+**Note** : Pass either userIds or phoneNumbers 
+
+**Response**: 
+
+```
+[
+ {
+  "userId": "UserId1", // UserId of the user (String)
+  "userName": "Name1", // Name of the user (String)
+  "connected": true, // Current connected status of user, if "connected": true that means user is online (boolean)
+  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
+  "imageLink": "http://image.url", // Image url of the user
+   "phoneNumber": "+912345678954" // phone number of user
+ },
+ {
+  "userId": "UserId1", // UserId of the user (String)
+  "userName": "Name1", // Name of the user (String)
+  "connected": true, // Current connected status of user (boolean)
+  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
+  "imageLink": "http://image.url" // Image url of the user
+ }
+]
+```
+
+####User Exist
+
+**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
+
+**URL**: https://apps.applozic.com/rest/ws/user/exist
+
+**Method Type**: GET
+
+**Content-Type**: application/json
+
+**Parameters**:         
+
+| Parameter | Required | Description |
+| ------------- |-------  | ------------- |
+| userId | Yes | UserId of the user  |
+
+**Response**: 
+
+```
+If Web user : "web user"
+If Android : version code of the device
+If Not Found : "User Not Found"
+```
+
+#####Contact List   
 
 **CONTACT LIST URL**: http://apps.applozic.com/rest/ws/user/filter
 
@@ -189,110 +288,9 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Note** : To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
 
-### Users display Name   
+###Message API
 
-**Display Name  URL**: https://apps.applozic.com/rest/ws/user/info
-
-**Method Type**: GET
-
-**parameters**: 
-
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| userIds | yes  |  | list of unique userId |
-
-**Note** : Additional **ofUserId**  parameter not required in case of application admin too.
-
-**Example:** For API Call: 
-
-```
-http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
-```
-
-**Response:**
-
-```  
-{
-  "robert": "robbie",
-  "john": "Mitchell"
-}
-```  
- 
-**Note**
-
-**1)** Only users having display Name will return in response.
-
-
-###User Detail List       
-
-**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
-
-**URL**: https://apps.applozic.com/rest/ws/user/detail
-
-**Method Type**: GET
-
-**Content-Type**: application/json
-
-**Parameters**:         
-
-| Parameter | Required | Description |
-| ------------- |-------  | ------------- |
-| userIds |  No    |list of UserId of the user  |
-| phoneNumbers | No      |list of phoneNumber of the user  |
-
-
-**Note** : Pass either userIds or phoneNumbers 
-
-**Response**: 
-
-```
-[
- {
-  "userId": "UserId1", // UserId of the user (String)
-  "userName": "Name1", // Name of the user (String)
-  "connected": true, // Current connected status of user, if "connected": true that means user is online (boolean)
-  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
-  "imageLink": "http://image.url", // Image url of the user
-   "phoneNumber": "+912345678954" // phone number of user
- },
- {
-  "userId": "UserId1", // UserId of the user (String)
-  "userName": "Name1", // Name of the user (String)
-  "connected": true, // Current connected status of user (boolean)
-  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
-  "imageLink": "http://image.url" // Image url of the user
- }
-]
-```
-
-###User Exist
-
-**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
-
-**URL**: https://apps.applozic.com/rest/ws/user/exist
-
-**Method Type**: GET
-
-**Content-Type**: application/json
-
-**Parameters**:         
-
-| Parameter | Required | Description |
-| ------------- |-------  | ------------- |
-| userId | Yes | UserId of the user  |
-
-**Response**: 
-
-```
-If Web user : "web user"
-If Android : version code of the device
-If Not Found : "User Not Found"
-```
-
-
-#Message API
-
-### Send   
+#### Send Message
 
 **Note** : API supported both by application admin and application user.
 
@@ -359,7 +357,7 @@ If Not Found : "User Not Found"
 }
 ```
 
-### Multi User Send 
+#### Broadcast Message
 
 **URL**: https://apps.applozic.com/rest/ws/message/sendall
 
@@ -397,7 +395,7 @@ If Not Found : "User Not Found"
 
 **Response** : success Response Json to the request
 
-###MESSAGE LIST
+####MESSAGE LIST
 
 **URL**: https://apps.applozic.com/rest/ws/message/list
 
@@ -455,7 +453,8 @@ If Not Found : "User Not Found"
 | ------------- | ------------- | 
 | error  | In case of any exception or error contact resolve@applozic.com  |
 
-### Delete      
+
+#### Delete Message     
 
 **DELETE MESSAGE  URL**: https://apps.applozic.com/rest/ws/message/delete
 
@@ -477,7 +476,8 @@ If Not Found : "User Not Found"
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs on server. In case of any exception contact resolve@applozic.com  |
 
-### Delete Conversation           
+
+#### Delete Conversation           
 
 **DELETE CONVERSATION  URL** : https://apps.applozic.com/rest/ws/message/delete/conversation
 
@@ -506,7 +506,7 @@ If Not Found : "User Not Found"
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
-### Delete All           
+#### Delete All Chats         
 
 **DELETE All  URL** : https://apps.applozic.com/rest/ws/message/delete/all
 
@@ -527,7 +527,8 @@ If Not Found : "User Not Found"
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs. In case of any exception contact reslove@applozic.com  |
 
-###Message Metadata
+
+####Message Metadata
 
 To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message objet. The metadata object is a map with string keys and values.
 
@@ -544,9 +545,9 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
-# Group API
+### Group API
 
-### Creation
+#### Create Group
 
 **GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/v2/create 
 
@@ -647,7 +648,7 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
-### Multiple Group Creation
+#### Multiple Group Creation
 
 **MULTIPLE GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/v2/create/multiple
 
@@ -771,7 +772,7 @@ Array of object containing following parameters.
 }
 ```
 
-### Group Info
+#### Group Info
 
 **LIST URL**:  https://apps.applozic.com/rest/ws/group/v2/info 
 
@@ -806,7 +807,7 @@ Array of object containing following parameters.
 }
 ```
 
-### User's Group List
+#### User's Group List
 
 **LIST URL**:  https://apps.applozic.com/rest/ws/group/v2/list 
 
@@ -862,7 +863,7 @@ Array of object containing following parameters.
 **Note**: For the next sync call, pass "updatedAt" parameter to get details of only the modified group and newly added group of that user. Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "updatedAt" for your next sync call.
 
 
-### Add User to Single Group
+#### Add User to Group
 
 **ADD GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/add/member 
 
@@ -889,7 +890,7 @@ Array of object containing following parameters.
 ```
 
 
-### Add Multiple Users To Multiple Groups
+#### Add users to Many Groups
 
 **URL**:  https://apps.applozic.com/rest/ws/group/add/users
 
@@ -919,7 +920,7 @@ Array of object containing following parameters.
 **Note**: Groups for the passed clientGroupIds and the user for the passed userId should exist in that application.
 
 
-### Remove Member 
+### Remove User from Group 
 
 **REMOVE GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/remove/member 
 
@@ -963,7 +964,7 @@ Array of object containing following parameters.
 
 
 
-### Leave  
+#### Leave Group
 
 **LEAVE GROUP URL**:  https://apps.applozic.com/rest/ws/group/left 
 
@@ -990,7 +991,7 @@ Array of object containing following parameters.
 
 
 
-### Update Group
+#### Update Group
 
 **UPDATE GROUP URL**: https://apps.applozic.com/rest/ws/group/update 
 
@@ -1019,7 +1020,8 @@ Array of object containing following parameters.
 }
 ```
 
-### Check if user is a part of a member of a Group
+#### Group - Is User Present
+Check if user is part of a Group
 
 **CHECK USER URL**:  https://apps.applozic.com/rest/ws/group/check/user 
 
@@ -1045,7 +1047,7 @@ Array of object containing following parameters.
 }
 ```
 
-### Get Group User Count 
+#### Group Users Count 
 
 **URL**:  https://apps.applozic.com/rest/ws/group/user/count
 
@@ -1078,7 +1080,7 @@ Array of object containing following parameters.
 }
 ```
 
-### Delete 
+### Group Delete 
 
 **DELETE GROUP URL**:  https://apps.applozic.com/rest/ws/group/delete 
 
@@ -1119,7 +1121,7 @@ Array of object containing following parameters.
 }
 ```
 
-### Channel 
+#### Channel (or Group)
 
 **URL**:  https://apps.applozic.com/rest/ws/group/channel 
 
@@ -1172,9 +1174,11 @@ Array of object containing following parameters.
 ```
 
 
-#Topic/Product API 
+### Contextual (Topic/Product) Chat 
 
-### Retreive Conversation Id
+#### Conversation Id
+
+Retreive Conversation Id
 
 **URL**: https://apps.applozic.com/rest/ws/conversation/id
 
@@ -1247,9 +1251,9 @@ Authentication is done using BASIC authentication. It is combination of email & 
 }
 ```
 
-# Block/Unblock API
+### Block/Unblock API
 
-### Block User     
+#### Block User     
 
 **BLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/block
 
@@ -1271,7 +1275,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 }   
 ```
 
-### Unblock User    
+#### Unblock User    
 
 **UNBLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/unblock
 
@@ -1293,7 +1297,8 @@ Authentication is done using BASIC authentication. It is combination of email & 
 }  
 ``` 
 
-### API's for application admin purpose only
+### Application Admin APIs
+API's for application admin purpose only
 
 **Application To User**
 
@@ -1301,7 +1306,7 @@ Application can send automated in-app messages to users using Application to Use
 
 **Note** : Send authentication headers in API call required by Application Admin.
 
-### Create User        
+#### Create User        
 
 **URL**: https://apps.applozic.com/rest/ws/user/create
 
@@ -1327,7 +1332,7 @@ Application can send automated in-app messages to users using Application to Use
 {"Success"}
 ```
 
-###User Merge
+#### Merge Users
 
 **Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
 
@@ -1460,7 +1465,7 @@ Application can send automated in-app messages to users using Application to Use
 }
 ```
 
-###Message Export
+####Message History Export
 
 **Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
 
