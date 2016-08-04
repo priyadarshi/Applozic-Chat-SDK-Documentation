@@ -1,13 +1,13 @@
 
 
-#Message Fallback Time
+###Email and SMS Fallback
 
-Message Fallback Time is the duration in which if message is not delivered to end user then message will be delivered though mail as a fallback. For message fallback our api requires receiver user emailId which need to pass during registration and also you have to configure message delivery fallback time in dashboard for your app.  
-
-
+Message Fallback Time is the duration in which if message is not delivered to end user then message will be delivered though mail and SMS as a fallback. For message fallback our api requires receiver user emailId which need to pass during registration and also you have to configure message delivery fallback time in dashboard for your app.  
 
 
-#Webhook Url
+
+
+###Webhooks
 
 Webhook Url can be configured by application admin in the applozic dashboard.All messages will be forwarded to the webhook url in JSON format.
 
@@ -45,7 +45,7 @@ Webhook Url can be configured by application admin in the applozic dashboard.All
 }
 ```
 
-#Access Token URL
+###Access Token URL
 
 Access Token URL (Authentication Url) can be configured by application admin in Applozic Dashboard for authenticating users from your backend server. The Url should accept POST request with following two paramters.
 The user should provide the access token in the "accessToken" option while plugin initialization.
