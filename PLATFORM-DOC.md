@@ -59,7 +59,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 | Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
 | userId  | Yes  |   | User name  |
-| emailId  | No  | null  | User email address  |
+| email  | No  | null  | User email address  |
 | password  | No  | null  | User account password  |
 | displayName  | No  |   | Name you want to display to other user  |  
 | applicationId  | Yes  |   | Your Applozic Application key configured in dashboard  |
