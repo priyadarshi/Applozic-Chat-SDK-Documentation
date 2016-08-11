@@ -1308,7 +1308,7 @@ Application can send automated in-app messages to users using Application to Use
 
 #### Create User        
 
-**URL**: https://apps.applozic.com/rest/ws/user/create
+**URL**: https://apps.applozic.com/rest/ws/user/v2/create
 
 **Method Type**: POST
 
@@ -1322,7 +1322,8 @@ Application can send automated in-app messages to users using Application to Use
   "displayName": "Display Demo User Name", 
   "imageLink": "User profile image url", 
   "email": "User Email", 
-  "createdAt": 1456148218000
+  "createdAtTime": 1456148218000, // if want user creation on specific date
+   "roleName":"BOT"
 }
 ```
 
