@@ -1314,6 +1314,17 @@ Application can send automated in-app messages to users using Application to Use
 
 **Content-Type**: application/json
 
+**Parameters**:         
+
+| Parameter  | Response | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user  |
+| displayName | No  |   |display name of user  |
+| imageLink | No |   |image link of user  |
+| email | No  |   |email of user  |
+| createdAtTime | No  |   |time in miliseconds  |
+| roleName | No  |   |want to create user of specific type: BOT  |
+
 
 **Request Body**                         
 ```
@@ -1322,15 +1333,19 @@ Application can send automated in-app messages to users using Application to Use
   "displayName": "Display Demo User Name", 
   "imageLink": "User profile image url", 
   "email": "User Email", 
-  "createdAtTime": 1456148218000, // if want user creation on specific date
-   "roleName":"BOT"
+  "createdAtTime": 1456148218000, // if want to create user on specific time
+   "roleName":"BOT" // if want to create application Bot user
 }
 ```
 
 **Response**: 
 
 ```
-{"Success"}
+{
+  "status": "success",
+  "generatedAt": 1470903020662,
+  "response": "success"
+}
 ```
 
 #### Merge Users
