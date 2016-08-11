@@ -1261,7 +1261,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **Parameters**:         
 
-| Parameter  | Response | Default  | Description |
+| Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user you want to block  |
 
@@ -1283,7 +1283,7 @@ Authentication is done using BASIC authentication. It is combination of email & 
 
 **Parameters**:         
 
-| Parameter  | Response | Default  | Description |
+| Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user you want to unblock  |
 
@@ -1316,7 +1316,7 @@ Application can send automated in-app messages to users using Application to Use
 
 **Parameters**:         
 
-| Parameter  | Response | Default  | Description |
+| Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user  |
 | displayName | No  |   |display name of user  |
