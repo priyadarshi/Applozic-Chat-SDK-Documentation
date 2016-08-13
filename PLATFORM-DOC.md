@@ -17,7 +17,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 
 | Header | Description  |
 | ------ | ----------- |
-| Apz-AppId | TestApp |
+| Apz-AppId | 21040368s3869d9b2b7b2f953ae28cf |
 | Apz-Token | Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk |
 | Content-Type |  application/json  |
 
