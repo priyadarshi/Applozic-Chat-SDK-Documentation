@@ -618,7 +618,7 @@ To add metadata for a message, send the metadata object inside the message objec
 | ------------- | ------------- | ------------- | ------------- |
 | ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
  
-**Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
+
 
 
 
@@ -726,7 +726,6 @@ To add metadata for a message, send the metadata object inside the message objec
 | ------------- | ------------- | ------------- | ------------- |
 | ofUserId | Yes (in case of admin only) | |pass userId of user on which behalf admin want to create  multiple group |
 
-**Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
 
 
