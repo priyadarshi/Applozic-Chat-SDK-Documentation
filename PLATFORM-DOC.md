@@ -368,7 +368,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 }
 ```
 
-| Response  | Description |
+| Response Parameter  | Description |
 | ------------- | ------------- |
 | message key  | Request is successfully processed  |
 | createdAt  | time in milliseconds |
@@ -679,7 +679,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **ContentType**: application/json
 
-**Request Body** 
+**Request Body**: 
 
 **Json**  
 ```
@@ -1211,7 +1211,7 @@ Retreive Conversation Id
 
 **Content-Type**: application/json
 
-**Request Body**
+**Request Body**:
 ```
 {
   "topicId" : "Topic id of the conversation",
@@ -1419,8 +1419,9 @@ Application can send automated in-app messages to users using Application to Use
 
 **Request body**:  
 
-**Json required for One to One based messaging**
+**Json required for One to One based messaging**:
 
+**json**
 ```
 {
   "message":"HI STEVE",
@@ -1458,7 +1459,7 @@ Application can send automated in-app messages to users using Application to Use
 | messageKey |message key  |
 | createdAt | Time in miliseconds when response is return from server |
 
-**Json required for group based messaging**
+**Json required for group based messaging**:
 
 **json**
 ```
@@ -1485,7 +1486,7 @@ Application can send automated in-app messages to users using Application to Use
 | messageKey |message key  |
 | createdAt | Time in miliseconds when response is return from server |
 
-**Json required for contextual based messaging**
+**Json required for contextual based messaging**:
 
 **json**
 ```
