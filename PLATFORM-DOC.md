@@ -54,9 +54,23 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 
 **Content-Type**: application/json
 
-**Request body**:  Json with the following properties:        
+**Request body**:  
 
-| Parameter  | Required | Default | Description |
+**json**                         
+```
+{
+  "userId":"robert",
+  "deviceType":"4",
+  "applicationId":"applozic-sample-app",
+  "registrationId":"put-gcm-registration-id-here", 
+  "pushNotificationFormat": "0",
+  "contactNumber":"+911234567890"
+}
+```
+
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
 | userId  | Yes  |   | User name  |
 | email  | No  | null  | User email address  |
@@ -69,29 +83,10 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 | userTypeId  | No  |   | to identify different-2 type of user within application  |
 | contactNumber  | No  |   | user contact number    |
 
-**json**                         
-```
-{
-  "userId":"robert",
-  "deviceType":"4",
-  "applicationId":
-  "applozic-sample-app",
-  "registrationId":"put-gcm-registration-id-here", 
-  "pushNotificationFormat": "0",
-  "contactNumber":"+911234567890"
-}
-```
 
-**Response** : success Response Json to the request with following properties :-         
 
-| Response  | Description |
-| ------------- | ------------- |
-| message | One of the following is returned: REGISTERED,REGISTERED.WITHOUTREGISTRATIONID, UPDATED |
-| userKey | User key  |
-| deviceKey  | User device key |
-| lastSyncTime  | Time in miliseconds when user device last synced with server  |  
-| contactNumber  | user contact number, received only if passed  | 
-| currentTimeStamp  | Time in miliseconds when response is return from server | 
+**Response** : Success Response Json to the request with following properties :-   
+
 
 **json**
 ```
@@ -105,19 +100,31 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 }
 ```
 
+| Response Parameter  | Description |
+| ------------- | ------------- |
+| message | One of the following is returned: REGISTERED,REGISTERED.WITHOUTREGISTRATIONID, UPDATED |
+| userKey | User key  |
+| deviceKey  | User device key |
+| lastSyncTime  | Time in miliseconds when user device last synced with server  |  
+| contactNumber  | user contact number, received only if passed  | 
+| currentTimeStamp  | Time in miliseconds when response is return from server | 
+
+
 **Note** : **deviceKey** need to be stored and  sent in request header in each API call.
 
-The following will come in response in case of incomplete email and invalid application key resepectively:
+The following will come in response in case of no userId or application key passed:
 
 **json**
 ```
 {
-  "message": "INCOMPLETE_EMAILID",
+  "message": "INVALID_PARAMETER",
   "currentTimeStamp": 1454328359265
 }
 ```
 
-**json**
+The following will come in response in case of no application found with the passed application key:
+
+**json** 
 ```
 {
   "message": "INVALID_APPLICATIONID",
@@ -304,13 +311,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Note** : Request body in case of **One to One message send**. 
 
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| to  | Yes  |   | UserId to which you want to send message |
-| message  | Yes  |   | Text Message |
-
-
-**sample**                         
+**Json**                         
 ```
 {
   "to":"John",
@@ -318,21 +319,36 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 }
 ```
 
-**Note** : Request body in case of **Group message send**. 
+**Json Parameter Description**: 
 
-| Parameter  | Required | Default  | Description |
+| Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId  | Yes  |   | Unique identifier of the group with respect to client |
+| to  | Yes  |   | UserId to which you want to send message |
 | message  | Yes  |   | Text Message |
 
 
-**sample**                         
+
+
+**Note** : Request body in case of **Group message send**. 
+
+**Json**                         
 ```
 {
  "clientGroupId": "group Unique Identifier",  
   "message":"Hi John"
 }
 ```
+
+
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| clientGroupId  | Yes  |   | Unique identifier of the group with respect to client |
+| message  | Yes  |   | Text Message |
+
+
+
 
 **Note** : In case of Application Admin  **ofUserId** request param required too.
 
@@ -344,18 +360,18 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Response** Same in both case: **One to One** and **Group Message Send**
 
-| Response  | Description |
-| ------------- | ------------- |
-| message key  | Request is successfully processed  |
-| createdAt  | time in milliseconds |
-
-**sample**
+**Json**
 ```
 {
   "messageKey": "5-22bf4626-9019-4a4a-8565-6c0e40ecda96-1454398305364",
   "createdAt": 1454398305000
 }
 ```
+
+| Response  | Description |
+| ------------- | ------------- |
+| message key  | Request is successfully processed  |
+| createdAt  | time in milliseconds |
 
 #### Broadcast Message
 
@@ -365,9 +381,22 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Content-Type**: application/json
 
-**Request Body** :               
+**Request Body** :  
 
-| Parameter  | Required | Default  | Description |
+**Json**
+```
+{
+  "userNames" : ["UserName1", "UserName2", "UserName3"],
+  "clientGroupIds" : ["1", "2", "3"],
+  "messageObject" : {
+    "message":"Hi John"
+  }
+}
+```
+
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userNames  | No  |   | User Names to which you want to send message |
 | clientGroupIds  | No  |   | List of Group unique identifiers to which you want to send message |
@@ -382,16 +411,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | ------------- | ------------- | ------------- | ------------- |
 | ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
 
-**sample**
-```
-{
-  "userNames" : ["UserName1", "UserName2", "UserName3"],
-  "clientGroupIds" : ["1", "2", "3"],
-  "messageObject" : {
-    "message":"Hi John"
-  }
-}
-```
+
 
 **Response** : success Response Json to the request
 
@@ -558,7 +578,17 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **Request Body**:   
 
-| Parameter  | Required | Default  | Description |
+**Json**  
+```
+{
+  "clientGroupId":"Client Group Id",  // optional
+  "groupName" : "Group Name",
+  "groupMemberList" : ["UserName1", "UserName2", "UserName3"]
+}
+```
+**Json Parameter Description**: 
+
+| Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId | No  |   | Unique identifier of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
@@ -590,14 +620,7 @@ To add metadata for a message, send the metadata object inside the message objec
  
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
-**sample**  
-```
-{
-  "clientGroupId":"Client Group Id",  // optional
-  "groupName" : "Group Name",
-  "groupMemberList" : ["UserName1", "UserName2", "UserName3"]
-}
-```
+
 
 **Response** : Response Json  with success status :-  
 
@@ -658,9 +681,24 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **Request Body** 
 
-Array of object containing following parameters.
+**Json**  
+```
+[
+  {
+    "clientGroupId": "GroupId1",  //optional
+    "groupName" : "MultiGroup1",
+    "groupMemberList" : [ "kevin","john"]
+  },
+  {
+    "groupName" : "MultiGroup2",
+    "groupMemberList" : [ "jade"]
+  }
+]
+```
 
-| Parameter  | Required | Default  | Description |
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId | No  |   | Unique identifier of the group with respect to client |
 | groupName | Yes  |   | Name of the group |
@@ -690,20 +728,7 @@ Array of object containing following parameters.
 
 **Parameter Example**:   (Suppose "TestUser" is the user calling group creation API)
 
-**sample**  
-```
-[
-  {
-    "clientGroupId": "GroupId1",  //optional
-    "groupName" : "MultiGroup1",
-    "groupMemberList" : [ "kevin","john"]
-  },
-  {
-    "groupName" : "MultiGroup2",
-    "groupMemberList" : [ "jade"]
-  }
-]
-```
+
 
 **Response** : Response Json  with success status :-  
 
@@ -1314,19 +1339,9 @@ Application can send automated in-app messages to users using Application to Use
 
 **Content-Type**: application/json
 
-**Parameters**:         
+**Request Body**:
 
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| userId | Yes  |   |pass unique id of user  |
-| displayName | No  |   |display name of user  |
-| imageLink | No |   |image link of user  |
-| email | No  |   |email of user  |
-| createdAtTime | No  |   |time in miliseconds  |
-| roleName | No  |   |want to create user of specific type: BOT  |
-
-
-**Request Body**                         
+**Json**
 ```
 {
   "userId": "DemoUser", 
@@ -1337,6 +1352,20 @@ Application can send automated in-app messages to users using Application to Use
    "roleName":"BOT" // if want to create application Bot user
 }
 ```
+
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user  |
+| displayName | No  |   |display name of user  |
+| imageLink | No |   |image link of user  |
+| email | No  |   |email of user  |
+| createdAtTime | No  |   |time in miliseconds  |
+| roleName | No  |   |want to create user of specific type: BOT  |
+
+
+
 
 **Response**: 
 
@@ -1388,16 +1417,7 @@ Application can send automated in-app messages to users using Application to Use
 
 **Content-Type**: application/json
 
-**Request body**:  Json with the following properties for One to One messaging: 
-
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| senderName | Yes  |   | unique Id of  message sender user  |
-| to | Yes  |   | unique Id of message receiver user  |
-| message  | Yes |   | message content to be passed  |
-| oldTimestamp  | No |   | create message  timestamp   |
-
-
+**Request body**:  
 
 **Json required for One to One based messaging**
 
@@ -1407,22 +1427,36 @@ Application can send automated in-app messages to users using Application to Use
   "senderName":"john",
   "to": "steve"   
 }
+
 ```
+
+**Json Parameter Description**:
+
+|Json Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| senderName | Yes  |   | unique Id of  message sender user  |
+| to | Yes  |   | unique Id of message receiver user  |
+| message  | Yes |   | message content to be passed  |
+| oldTimestamp  | No |   | create message  timestamp   |
+
+
 
 **Response**:
 
-| Parameters  | Description |
-| ------------- | ------------- |
-| messageKey |message key  |
-| createdAt | Time in miliseconds when response is return from server |
 
-**sample response**
+
+**Json**
 ```
 {
   "messageKey": "5-a97d66cd-67f9-42ba-aa61-a357455088ac-1456148218362",
   "createdAt": 1456148218000
 }
 ```
+
+| Response Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
 
 **Json required for group based messaging**
 
@@ -1436,18 +1470,20 @@ Application can send automated in-app messages to users using Application to Use
 
 **Response**:
 
-| Parameters  | Description |
-| ------------- | ------------- |
-| messageKey |message key  |
-| createdAt | Time in miliseconds when response is return from server |
 
-**sample response**
+
+**Json**
 ```
 {
   "messageKey": "5-agpzfmFwcGxvemljchMLEgZTdVVzZXIYgICAgLrcvwsM-1464093115599",
   "createdAt": 1456148218000
 }
 ```
+
+| Response Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
 
 **Json required for contextual based messaging**
 
@@ -1466,11 +1502,7 @@ Application can send automated in-app messages to users using Application to Use
 
 **Response**:      
 
-| Parameters  | Description |
-| ------------- | ------------- |
-| messageKey |message key  |
-| createdAt | Time in miliseconds when response is return from server |
-| conversationId | open conversation to chat on topic |
+
 
 **json**
 ```
@@ -1481,7 +1513,13 @@ Application can send automated in-app messages to users using Application to Use
 }
 ```
 
-####Message History Export
+| Response Parameters  | Description |
+| ------------- | ------------- |
+| messageKey |message key  |
+| createdAt | Time in miliseconds when response is return from server |
+| conversationId | open conversation to chat on topic |
+
+#### Message History Export
 
 **Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
 
