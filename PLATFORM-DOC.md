@@ -247,7 +247,15 @@ If Not Found : "User Not Found"
 | pageSize | No  | 500 | list of contacts to load |
 | startTime | No  |  | pass to load more contact |
 | userId  | No  |   | pass userId of user for which information has to be retrieved |
+| role  | No  |   | pass role of users for which information has to be retrieved |
 
+
+Roles:
+
+| Parameter  |
+| ------------- |
+| BOT |
+| USER |
 
 **Example:** For API Call: 
 
@@ -1361,7 +1369,7 @@ Application can send automated in-app messages to users using Application to Use
 | imageLink | No |   |image link of user  |
 | email | No  |   |email of user  |
 | createdAtTime | No  |   |time in miliseconds  |
-| roleName | No  |   |want to create user of specific type: BOT  |
+| roleName | No  |   | want to create user of specific type: BOT  |
 
 
 
