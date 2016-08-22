@@ -210,6 +210,36 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 ]
 ```
 
+#### Update User
+
+**UPDATE User URL**: https://apps.applozic.com/rest/ws/user/update 
+
+**Method Type**: POST
+
+**ContentType**: application/json
+
+**Request Body**:  
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| email   | No  |   | Group unique identifier  |
+| displayName | No  |   | New name of group |
+| imageLink | No  |   | image url of the group |
+| statusMessage | No  |   | image url of the group |
+| ofUserId  | No  |   | Pass userId if application admin want to update any user details |
+
+**Note**: Pass **ofUserId** only if application Admin calling the API.
+
+**Response**: Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+```
+
 ####User Exist
 
 **Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
