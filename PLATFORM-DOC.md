@@ -222,10 +222,10 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| email   | No  |   | Group unique identifier  |
-| displayName | No  |   | New name of group |
-| imageLink | No  |   | image url of the group |
-| statusMessage | No  |   | image url of the group |
+| email   | No  |   | user email  |
+| displayName | No  |   | display name of user |
+| imageLink | No  |   | image link of the user |
+| statusMessage | No  |   | status message of user |
 | ofUserId  | No  |   | Pass userId if application admin want to update any user details |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API.
