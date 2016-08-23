@@ -220,15 +220,33 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Request Body**:  
 
-| Parameter  | Required | Default  | Description |
+**json**                         
+```
+{
+  { "email" : "user email",
+  "displayName" : "user display name",
+  "imageLink" : "User profile image url",
+  "statusMessage": "status Message"
+ }
+}
+```
+**Json Parameter Description** 
+
+|Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | email   | No  |   | user email  |
 | displayName | No  |   | display name of user |
 | imageLink | No  |   | image link of the user |
 | statusMessage | No  |   | status message of user |
-| ofUserId  | No  |   | Pass userId if application admin want to update any user details |
+
 
 **Note**: Pass **ofUserId** only if application Admin calling the API.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user for which admin want to update details.  |
 
 **Response**: Response Json with success status :-  
 
