@@ -652,9 +652,10 @@ To add metadata for a message, send the metadata object inside the message objec
 | type | No  | public  | Type of the group |
 
 **Note** : 
-1.If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
 
-2.If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
+**1)** If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
+
+**2)** If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
 
 "type" parameters possible values
 
@@ -762,9 +763,10 @@ To add metadata for a message, send the metadata object inside the message objec
 | type | No  | public  | Type of the group |
 
 **Note** : 
-1.If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
 
-2.If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
+**1)** If group already exist in your system, pass that group unique identifier in **clientGroupId** to use the same with Applozic.
+
+**2)** If **clientGroupId** is not passed then Applozic will generate a unique id for the group which should be used as **clientGroupId** for all API calls.
 
 "type" parameters possible values
 
