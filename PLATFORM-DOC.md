@@ -1469,6 +1469,41 @@ Application can send automated in-app messages to users using Application to Use
 }
 ```
 
+
+
+#### Update User Password  
+
+**Update User Password  URL**: https://apps.applozic.com/rest/ws/user/update/password/by/admin
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| userId | yes  |  | unique identifier for user |
+| password | yes  |  |  password for user |
+
+
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com/rest/ws/user/update/password?userId=jack&password=1234567
+```
+
+**Response:**
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+``` 
+
+
+
 #### Merge Users
 
 **Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
