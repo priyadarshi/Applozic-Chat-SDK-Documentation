@@ -261,6 +261,8 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 #### Update User Password  
 
+**Note**: User can update own password using API.
+
 **Update Password  URL**: https://apps.applozic.com/rest/ws/user/update/password
 
 **Method Type**: GET
@@ -1471,9 +1473,11 @@ Application can send automated in-app messages to users using Application to Use
 
 
 
-#### Update User Password  
+#### Set User Password  
 
-**Update User Password  URL**: https://apps.applozic.com/rest/ws/user/update/password/by/admin
+**Note**: Application admin can set any user password.
+
+**Set User Password  URL**: https://apps.applozic.com/rest/ws/user/update/password/by/admin
 
 **Method Type**: GET
 
@@ -1489,7 +1493,7 @@ Application can send automated in-app messages to users using Application to Use
 **Example:** For API Call: 
 
 ```
-http://apps.applozic.com/rest/ws/user/update/password?userId=jack&password=1234567
+http://apps.applozic.com/rest/ws/user/update/password/by/admin?userId=jack&password=1234567
 ```
 
 **Response:**
