@@ -258,6 +258,41 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 }
 ```
 
+
+#### Update User Password  
+
+**Update Password  URL**: https://apps.applozic.com/rest/ws/user/update/password
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| oldPassword | yes  |  | existing password |
+| newPassword | yes  |  | new password |
+
+
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com/rest/ws/user/update/password?oldPassword=12345&newPassword=1234567
+```
+
+**Response:**
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+``` 
+
+
+
+
 ####User Exist
 
 **Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
