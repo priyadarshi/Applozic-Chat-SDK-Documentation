@@ -42,7 +42,14 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 | Device-Key | 09c5d869-6d38-4d6b-9ebf-9de16cdab176 |
 | UserId-Enabled | true |
 
+**Note** :  Access-Token header is also required if user password is set in Applozic.
+
+| Key | Values  |
+| Access-Token | user password |
+
 **Note** : Headers are required in each API call except user registration .ie register/client API.
+
+ 
 
 ### User API
 
