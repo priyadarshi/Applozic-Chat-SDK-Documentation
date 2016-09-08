@@ -684,7 +684,8 @@ To add metadata for a message, send the metadata object inside the message objec
 {
   "clientGroupId":"Client Group Id",  // optional
   "groupName" : "Group Name",
-  "groupMemberList" : ["UserName1", "UserName2", "UserName3"]
+  "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
+  "imageUrl": "Group image Url"
 }
 ```
 **Json Parameter Description**: 
@@ -695,6 +696,7 @@ To add metadata for a message, send the metadata object inside the message objec
 | groupName | Yes  |   | Name of the group |
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
+| imageUrl | No  |  | image url for group |
 
 **Note** : 
 
