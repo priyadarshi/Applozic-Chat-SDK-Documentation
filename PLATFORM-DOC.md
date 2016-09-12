@@ -1488,6 +1488,7 @@ Application can send automated in-app messages to users using Application to Use
 **Note**: Application admin can set any user password.
 
 **Set User Password  URL**: https://apps.applozic.com/rest/ws/user/set/password
+
 **Method Type**: GET
 
 **parameters**: 
