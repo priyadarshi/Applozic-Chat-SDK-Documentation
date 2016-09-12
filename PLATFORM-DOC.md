@@ -1503,7 +1503,7 @@ Application can send automated in-app messages to users using Application to Use
 **Example:** For API Call: 
 
 ```
-http://apps.applozic.com/rest/ws/user/update/password/by/admin?userId=jack&password=1234567
+http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 ```
 
 **Response:**
