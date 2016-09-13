@@ -1265,7 +1265,9 @@ func application(application: UIApplication, didRegisterForRemoteNotificationsWi
             return ;           
           }              
     NSLog(@"Registration response from server:%@", rResponse);                         
-    }]; } }                                 
+    }]; 
+   }
+ }                                 
 
 ```
 
