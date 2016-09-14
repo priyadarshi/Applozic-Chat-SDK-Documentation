@@ -932,6 +932,9 @@ To add metadata for a message, send the metadata object inside the message objec
       "removedMembersId": [],
       "unreadCount": 0,
       "type": 2
+      "imageUrl": "https://www.applozic.com/resources/images/applozic_logo.gif",
+      "createdAtTime": 1473836906978,
+      "userCount": 3
     }
 }
 ```
