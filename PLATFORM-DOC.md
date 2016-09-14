@@ -64,7 +64,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 
 **Request body**:  
 
-**json**                         
+**Json**                         
 ```
 {
   "userId":"robert",
@@ -96,7 +96,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 **Response** : Success Response Json to the request with following properties :-   
 
 
-**json**
+**Json**
 ```
 {
   "message": "REGISTERED.WITHOUTREGISTRATIONID",
@@ -122,7 +122,7 @@ If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab
 
 The following will come in response in case of no userId or application key passed:
 
-**json**
+**Json**
 ```
 {
   "message": "INVALID_PARAMETER",
@@ -132,7 +132,7 @@ The following will come in response in case of no userId or application key pass
 
 The following will come in response in case of no application found with the passed application key:
 
-**json** 
+**Json** 
 ```
 {
   "message": "INVALID_APPLICATIONID",
@@ -228,7 +228,7 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Request Body**:  
 
-**json**                         
+**Json**                         
 ```
 {
   { "email" : "user email",
@@ -836,7 +836,7 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **Response** : Response Json  with success status :-  
 
-**json**                         
+**Json**                         
 ```
 {
   "status": "success",
@@ -1565,7 +1565,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 **Json required for One to One based messaging**:
 
-**json**
+**Json**
 ```
 {
   "message":"HI STEVE",
@@ -1605,7 +1605,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 **Json required for group based messaging**:
 
-**json**
+**Json**
 ```
 {
   "message":"message content",
@@ -1632,7 +1632,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 **Json required for contextual based messaging**:
 
-**json**
+**Json**
 ```
 {
   "message":"Hello, I am interested in the product, can we chat?",
@@ -1649,7 +1649,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 
 
-**json**
+**Json**
 ```
 {
   "messageKey":"5-a97d66cd-67f9-42ba-aa61-a357455088ac-1458039322283",
