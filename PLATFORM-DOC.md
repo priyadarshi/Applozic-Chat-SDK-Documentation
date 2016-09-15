@@ -1312,7 +1312,7 @@ Check if user is part of a Group
 
 Retreive Conversation Id
 
-**URL**: https://apps.applozic.com/rest/ws/conversation/id
+**URL**: https://apps.applozic.com/rest/ws/conversation/v2/id
 
 **Method Type**: POST
 
@@ -1347,38 +1347,66 @@ OPEN: If the conversation is closed, it will be re-opened.
 
 DEFAULT: return the conversation as it is.
 
-***Required Authentication Headers***
 
-**request should contain these 3 headers** -
-
-| Header | Value |
-| ------------- | ------------ |
-| Key | Values  |
-| UserId-Enabled | true |
-| Application-Key | Your Application Key  |  
-| Device-Key | Received in registration response  | 
-
-Authentication is done using BASIC authentication. It is combination of email & password of admin user .
-
-**Response**:  success Response Json to the request
+**Response**:  success Response Json to the request in case of **userId** passed
 ```
 {
-  "status" : "success",
-  "response" : {
-    "id" : Group Id (integer),
-    "name" : "Group Name",
-    "adminId" : "Group Admin User Name",
-    "membersId" : [ List of members user names],
-    "unreadCount" : (Int) message unread count for the logged in user,
-    "type" : Group type,
-    "conversationPxy" : {
-      "id" : (Int)Conversation id,
-      "topicId" : "Topic id of the conversation",
-      "topicDetail" : "Topic Detail for the conversation",
-      "created" : (true/false) if the conversation is created or not in this api,
-      "closed" : (true/false) if the conversation is closed,
-      "groupId" : (Int) Group id of the respected group,
-    }
+  "status": "success",
+  "generatedAt": 1473936678880,
+  "response": {
+    "id": "Group Id (integer)",             // internally creating virtual group
+    "clientGroupId": "Group Id (integer)",
+    "name": "Group Name",
+    "membersId": "[ List of members user names]",
+    "removedMembersId": "[]",
+    "unreadCount": "(Int) message unread count for the logged in user",
+    "type": "Group type",
+    "conversationPxy": {
+      "id": "(Int)Conversation id",
+      "topicId": "Topic id of the conversation",
+      "topicDetail": "Topic Detail for the conversation",
+      "userId": " userId of User with whom topic based chat initiated",
+      "created": "(true/false) if the conversation is created or not in this api",
+      "closed": "(true/false) if the conversation is closed",
+      "senderUserName": "userId who is initiating topic based chat",
+      "status": "status of the conversation",
+      "groupId": "(Int) Group id of the virtually created group"
+    },
+    "createdAtTime": 1473933607470,
+    "userCount": 2
+  }
+}
+```
+
+
+**Response**:  success Response Json to the request in case of **groupId** passed
+```
+{
+  "status": "success",
+  "generatedAt": 1473936678880,
+  "response": {
+    "id": "Group Id (integer)",
+    "clientGroupId": "140891",
+    "name": "Group Name",
+     "adminId": "userId of group admin ",
+    "membersId": "[ List of members userIds]",
+    "removedMembersId": "[]",
+    "unreadCount": "(Int) message unread count for the logged in user",
+    "type": "Group type",
+    "conversationPxy": {
+      "id": "(Int)Conversation id",
+      "topicId": "Topic id of the conversation",
+      "topicDetail": "Topic Detail for the conversation",
+      "userId": " userId of User with whom topic based chat initiated",
+      "created": "(true/false) if the conversation is created or not in this api",
+      "closed": "(true/false) if the conversation is closed",
+      "senderUserName": "userId who is initiating topic based chat",
+      "status": "status of the conversation",
+      "groupId": "(Int) Group id of the respected group"
+    },
+    "imageUrl": "Group image Url",
+    "createdAtTime": 1473933607470,
+    "userCount": "group user count"
   }
 }
 ```
