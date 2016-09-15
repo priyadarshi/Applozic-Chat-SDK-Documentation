@@ -1362,10 +1362,10 @@ DEFAULT: return the conversation as it is.
     "unreadCount": "(Int) message unread count for the logged in user",
     "type": "Group type",
     "conversationPxy": {
-      "id": "(Int)Conversation id",
+      "id": "(Int)Conversation id",    // pass as "conversationId" in request body for topic based send message
       "topicId": "Topic id of the conversation",
       "topicDetail": "Topic Detail for the conversation",
-      "userId": " userId of User with whom topic based chat initiated",
+      "userId": "unique id of the receiver user",   // pass as "to" in request body for topic based send message
       "created": "(true/false) if the conversation is created or not in this api",
       "closed": "(true/false) if the conversation is closed",
       "senderUserName": "userId who is initiating topic based chat",
@@ -1394,7 +1394,7 @@ DEFAULT: return the conversation as it is.
     "unreadCount": "(Int) message unread count for the logged in user",
     "type": "Group type",
     "conversationPxy": {
-      "id": "(Int)Conversation id",
+      "id": "(Int)Conversation id",       // pass as "conversationId" in request body for topic based send message
       "topicId": "Topic id of the conversation",
       "topicDetail": "Topic Detail for the conversation",
       "userId": " userId of User with whom topic based chat initiated",
@@ -1402,7 +1402,7 @@ DEFAULT: return the conversation as it is.
       "closed": "(true/false) if the conversation is closed",
       "senderUserName": "userId who is initiating topic based chat",
       "status": "status of the conversation",
-      "groupId": "(Int) Group id of the respected group"
+      "groupId": "(Int) Group id of the respected group"    // pass as "groupId"  in request body for topic based send message
     },
     "imageUrl": "Group image Url",
     "createdAtTime": 1473933607470,
@@ -1410,6 +1410,75 @@ DEFAULT: return the conversation as it is.
   }
 }
 ```
+
+####Topic based Send Message
+
+**TOPIC BASED SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/send
+
+**Method Type**: POST
+
+**Content-Type**: application/json
+
+**Request Body**:
+
+**Note** : Request body in case of **One to One Topic based message send**. 
+
+**Json**                         
+```
+{
+  "to":"unique id of the receiver user",
+  "message":"Message text",
+  "conversationId": "Receive in Retreive Conversation Id API"
+}
+```
+
+**Json Parameter Description**: 
+
+| Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| to  | Yes  |   | UserId to which you want to send message |
+| message  | Yes  |   | Text Message |
+| conversationId  | Yes  |   | unique id of topic based conversation |
+
+
+
+
+**Note** : Request body in case of **Group message send**. 
+
+**Json**                         
+```
+{
+ "groupId": "group Unique Identifier",  
+  "message":"Message text"
+  "conversationId": "Receive in Retreive Conversation Id API"
+}
+```
+
+
+**Json Parameter Description**:
+
+| Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupId  | Yes  |   | Unique identifier of the group with respect to client |
+| message  | Yes  |   | Text Message |
+| conversationId  | Yes  |   | unique id of topic based conversation |
+
+
+
+**Json**
+```
+{
+  "messageKey": "5-22bf4626-9019-4a4a-8565-6c0e40ecda96-1454398305364",
+  "conversationId": 670,
+  "createdAt": 1454398305000
+}
+```
+
+| Response Parameter  | Description |
+| ------------- | ------------- |
+| message key  | message unique id |
+| createdAt  | time in milliseconds |
+| conversationId  | unique id of topic based conversation |
 
 ### Block/Unblock API
 
