@@ -1362,10 +1362,10 @@ DEFAULT: return the conversation as it is.
     "unreadCount": "(Int) message unread count for the logged in user",
     "type": "Group type",
     "conversationPxy": {
-      "id": "(Int)Conversation id",    // pass as "conversationId" in request body for topic based send message
+      "id": "(Int)Conversation id",  // pass as "conversationId" in request body for topic based send message
       "topicId": "Topic id of the conversation",
       "topicDetail": "Topic Detail for the conversation",
-      "userId": "unique id of the receiver user",   // pass as "to" in request body for topic based send message
+      "userId": "unique id of the receiver user", // pass as "to" in request body for topic based send message
       "created": "(true/false) if the conversation is created or not in this api",
       "closed": "(true/false) if the conversation is closed",
       "senderUserName": "userId who is initiating topic based chat",
@@ -1394,7 +1394,7 @@ DEFAULT: return the conversation as it is.
     "unreadCount": "(Int) message unread count for the logged in user",
     "type": "Group type",
     "conversationPxy": {
-      "id": "(Int)Conversation id",       // pass as "conversationId" in request body for topic based send message
+      "id": "(Int)Conversation id",     // pass as "conversationId" in request body for topic based send message
       "topicId": "Topic id of the conversation",
       "topicDetail": "Topic Detail for the conversation",
       "userId": " userId of User with whom topic based chat initiated",
@@ -1402,7 +1402,7 @@ DEFAULT: return the conversation as it is.
       "closed": "(true/false) if the conversation is closed",
       "senderUserName": "userId who is initiating topic based chat",
       "status": "status of the conversation",
-      "groupId": "(Int) Group id of the respected group"    // pass as "groupId"  in request body for topic based send message
+      "groupId": "(Int) Group id of the respected group"  // pass as "groupId"  in request body for topic based send message
     },
     "imageUrl": "Group image Url",
     "createdAtTime": 1473933607470,
@@ -1788,6 +1788,40 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 | messageKey |message key  |
 | createdAt | Time in miliseconds when response is return from server |
 | conversationId | open conversation to chat on topic |
+
+
+
+#### Close Topic/Product based Conversation
+
+**CLOSE TOPIC/PRODUCT BASED CONVERSATION**:  https://apps.applozic.com/rest/ws/conversation/closeall
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| topicId  | Yes  |   |List of unique topic id of the conversation  |
+| userId  | No  |   | unique user identifier   |
+| withUserId  | No  |   | unique user identifier   |
+
+
+**Note** :
+
+**1)** Pass  only list of topicId to close all the conversations regarding that topicIds.
+
+**2)** Pass all three parameters (**topicId**,**userId**,**withUserId**) to close any specific Conversation between two user.
+
+
+**Response**:  Response String with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
+```
 
 #### Message History Export
 
