@@ -1810,7 +1810,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 **1)** Pass  only list of topicId to close all the conversations regarding that topicIds.
 
-**2)** Pass all three parameters (**topicId**,**userId**,**withUserId**) to close any specific Conversation between two user.
+**2)** Pass all three parameters (**topicId**,**userId**,**withUserId**) to close any specific Conversation on certain topic between two user.
 
 
 **Response**:  Response String with success status :-  
