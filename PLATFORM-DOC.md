@@ -1421,7 +1421,7 @@ DEFAULT: return the conversation as it is.
 
 **Request Body**:
 
-**Note** : Request body in case of **One to One Topic based message send**. 
+**Note** : Request body in case of **One to One, Topic based message send**. 
 
 **Json**                         
 ```
@@ -1443,7 +1443,7 @@ DEFAULT: return the conversation as it is.
 
 
 
-**Note** : Request body in case of **Group message send**. 
+**Note** : Request body in case of **Group, Topic based message send**. 
 
 **Json**                         
 ```
@@ -1479,6 +1479,34 @@ DEFAULT: return the conversation as it is.
 | message key  | message unique id |
 | createdAt  | time in milliseconds |
 | conversationId  | unique id of topic based conversation |
+
+
+#### Close Topic based Conversation
+
+**CLOSE TOPIC BASED CONVERSATION**:  https://apps.applozic.com/rest/ws/conversation/closeall
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| topicId  | Yes  |   |unique topic id of the conversation  |
+| withUserId  | Yes  |   | unique user identifier   |
+
+
+
+**Response**:  Response String with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
+```
+
+
 
 ### Block/Unblock API
 
