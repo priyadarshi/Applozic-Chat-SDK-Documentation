@@ -180,21 +180,27 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
 
 **Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
 
-**URL**: https://apps.applozic.com/rest/ws/user/detail
+**URL**: https://apps.applozic.com/rest/ws/user/v2/detail
 
-**Method Type**: GET
+**Method Type**: POST
 
 **Content-Type**: application/json
 
-**Parameters**:         
+**Json Example**                         
+```
+{ 
+"userIdList" : ["userId1","userId2"]
+}
+```
 
-| Parameter | Required | Description |
-| ------------- |-------  | ------------- |
-| userIds |  No    |list of UserId of the user  |
-| phoneNumbers | No      |list of phoneNumber of the user  |
+**Json Parameter Description** 
 
+|Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userIdList   | No  |   | List of userIds  |
+| phoneNumberList | No  |   | List of phoneNumbers |
 
-**Note** : Pass either userIds or phoneNumbers 
+**Note**: Pass either userIdList or phoneNumberList
 
 **Response**: 
 
@@ -204,13 +210,13 @@ http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=m
   "userId": "UserId1", // UserId of the user (String)
   "userName": "Name1", // Name of the user (String)
   "connected": true, // Current connected status of user, if "connected": true that means user is online (boolean)
-  "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
+  "lastSeenAtTime": 12345679,  // Timestamp of the last seen time of user (long) 
   "imageLink": "http://image.url", // Image url of the user
    "phoneNumber": "+912345678954" // phone number of user
  },
  {
-  "userId": "UserId1", // UserId of the user (String)
-  "userName": "Name1", // Name of the user (String)
+  "userId": "UserId2", // UserId of the user (String)
+  "userName": "Name2", // Name of the user (String)
   "connected": true, // Current connected status of user (boolean)
   "lastSeenAtTime": 123456789,  // Timestamp of the last seen time of user (long) 
   "imageLink": "http://image.url" // Image url of the user
