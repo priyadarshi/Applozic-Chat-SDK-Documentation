@@ -651,7 +651,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 ####Message Metadata
 
-To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message objet. The metadata object is a map with string keys and values.
+To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message object. The metadata object is a map with string keys and values.
 
 **Sample Message Object Json with Metadata**:          
 
@@ -1318,7 +1318,7 @@ To add metadata for a group, send the metadata object inside the group object wh
 
 Setting for enable/disable default messages creation for the group. This will also helpful for altering the default message template for the group. 
 
-Note: If the messsage is sent as blank, the no notification message is sent.
+Note: If the template is sent as blank, the no notification message is sent.
 
 **Update metadata of the group as the following property keys**:          
 
