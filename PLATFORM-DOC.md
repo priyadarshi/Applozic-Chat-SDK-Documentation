@@ -723,9 +723,6 @@ To add metadata for a message, send the metadata object inside the message objec
 | ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
  
 
-
-
-
 **Response** : Response Json  with success status :-  
 
 ```json
@@ -830,9 +827,6 @@ To add metadata for a message, send the metadata object inside the message objec
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | ofUserId | Yes (in case of admin only) | |pass userId of user on which behalf admin want to create  multiple group |
-
-
-
 
 **Response** : Response Json  with success status :-  
 
@@ -1038,8 +1032,6 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
-
-
 **Response**:  Response Json with success status :-  
 ```  
 {
@@ -1120,8 +1112,6 @@ To add metadata for a message, send the metadata object inside the message objec
   "response": "success"
 }
 ```
-
-
 
 #### Update Group
 
@@ -1253,7 +1243,7 @@ Check if user is part of a Group
 }
 ```
 
-#### Channel (or Group)
+### Channel (or Group)
 
 **URL**:  https://apps.applozic.com/rest/ws/group/channel 
 
@@ -1302,6 +1292,59 @@ Check if user is part of a Group
       "type": 6
     }
   ]
+}
+```
+
+### Group Metadata
+
+To add metadata for a group, send the metadata object inside the group object while creating group. The same metadata object will be received in group list api with group object. The metadata object is a map with string keys and values.
+
+**Sample Group Object Json with Metadata**:          
+
+```json
+{
+ "clientGroupId":"Client Group Id",
+ "groupName" : "Group Name",
+ "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
+ "imageUrl": "Group image Url",
+ "metadata" : {
+   "key1" : "value1",
+   "key2" : "value2"
+ }
+}
+```
+
+### Group Settings
+
+Setting for enable/disable default messages creation for the group. This will also helpful for altering the default message template for the group. 
+
+Note: If the messsage is sent as blank, the no notification message is sent.
+
+**Update metadata of the group as the following property keys**:          
+
+- GROUP_CREATED_MESSAGE
+- REMOVE_MEMBER_MESSAGE
+- ADD_MEMBER_MESSAGE
+- JOIN_MEMBER_MESSAGE
+- GROUP_NAME_CHANGE_MESSAGE
+- GROUP_ICON_CHANGE_MESSAGE
+- GROUP_LEFT_MESSAGE
+- DELETED_GROUP_MESSAGE
+
+**Following place holders will be replaced**
+
+- :adminName = admin name of the group
+- :groupName = group name
+- :userName = user name for which the action is performed
+
+Perform the group create, update, add member, remove etc actions on the group. Eg: 
+
+```json
+{
+  "metadata":{
+    "GROUP_CREATED_MESSAGE":":adminName created group",
+    "ADD_MEMBER_MESSAGE":":userName joined group"
+  }
 }
 ```
 
