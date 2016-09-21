@@ -1348,7 +1348,7 @@ Perform the group create, update, add member, remove etc actions on the group. E
 ```json
 {
   "metadata":{
-    "GROUP_CREATED_MESSAGE":":adminName created group",
+    "CREATE_GROUP_MESSAGE":":adminName created group",
     "ADD_MEMBER_MESSAGE":":userName joined group"
   }
 }
