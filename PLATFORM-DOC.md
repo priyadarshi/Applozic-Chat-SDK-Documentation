@@ -1328,7 +1328,7 @@ Note: If the template is sent as blank, the no notification message is sent.
 
 **Update metadata of the group as the following property keys**:          
 
-- GROUP_CREATED_MESSAGE
+- CREATE_GROUP_MESSAGE
 - REMOVE_MEMBER_MESSAGE
 - ADD_MEMBER_MESSAGE
 - JOIN_MEMBER_MESSAGE
