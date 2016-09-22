@@ -1626,6 +1626,7 @@ Application can send automated in-app messages to users using Application to Use
 ```
 {
   "userId": "DemoUser", 
+  "password": "Demo User password",
   "displayName": "Display Demo User Name", 
   "imageLink": "User profile image url", 
   "email": "User Email", 
@@ -1639,12 +1640,15 @@ Application can send automated in-app messages to users using Application to Use
 | Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user  |
+| password | No  |   |password of user  |
 | displayName | No  |   |display name of user  |
 | imageLink | No |   |image link of user  |
 | email | No  |   |email of user  |
 | createdAtTime | No  |   |time in miliseconds  |
 | roleName | No  |   | want to create user of specific type: BOT  |
 
+
+**Note**: User password is required in case of Bot User creation.
 
 
 
