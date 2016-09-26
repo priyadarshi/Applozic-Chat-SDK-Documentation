@@ -1530,6 +1530,32 @@ DEFAULT: return the conversation as it is.
 | conversationId  | unique id of topic based conversation |
 
 
+#### Close Conversation
+
+**CLOSE CONVERSATION URL**:  https://apps.applozic.com/rest/ws/conversation/close
+
+**Method Type**: GET
+
+**Parameters**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| id   | Yes  |   | unique conversation identifier  |
+
+**Note**: Conversation is close based on unique conversation identifier.
+
+
+**Response**:  Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
+```
+
+
 #### Close Topic based Conversation
 
 **CLOSE TOPIC BASED CONVERSATION**:  https://apps.applozic.com/rest/ws/conversation/closeall
@@ -1544,6 +1570,7 @@ DEFAULT: return the conversation as it is.
 | withUserId  | Yes  |   | unique user identifier   |
 
 
+**Note**: Conversation is close based on unique topic identifier.
 
 **Response**:  Response String with success status :-  
 
