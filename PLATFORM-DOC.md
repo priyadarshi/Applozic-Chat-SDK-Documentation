@@ -408,7 +408,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 **Note** : API supported both by application admin and application user.
 
-**SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/send
+**SEND MESSAGE URL**: https://apps.applozic.com/rest/ws/message/v2/send
 
 **Method Type**: POST
 
