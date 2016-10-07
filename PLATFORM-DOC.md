@@ -1209,7 +1209,7 @@ To add metadata for a message, send the metadata object inside the message objec
 |Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupIds   | Yes  |   | List of Group unique identifiers  |
-| userIds   | Yes  |   | List of Unique ids of the users to be added to the group  |
+| userIds   | Yes  |   | List of Unique ids of the users to be removed from the group  |
 
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
