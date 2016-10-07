@@ -999,17 +999,35 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **ADD GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/add/member 
 
-**Method Type**: GET
+**Method Type**: POST
 
-**Parameters**: 
+**ContentType**: application/json
+
+**Request Body**: 
+
+**Json**                         
+```
+{
+	"userId":"user unique identifier ",
+	"clientGroupId":"group unique identifier"	
+}
+```
+
+**Json Parameter Description**: 
+
+|Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId   | Yes  |   | User unique identifier to be added in group  |
+| clientGroupId | Yes  |   | Group  unique identifier |
+
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Request Parameter**: 
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId   | Yes  |   | Group unique identifier  |
-| userId   | Yes  |   | Name of the user want to add to the group  |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
-
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+| ofUserId  | Yes (in case of admin only) |   |Pass userId of user on behalf of which application admin want to add member  |
 
 **Response**:  Response Json with success status :-  
 
@@ -1026,17 +1044,34 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **URL**:  https://apps.applozic.com/rest/ws/group/add/users
 
-**Method Type**: GET
+**Method Type**: POST
 
-**Parameters**: 
+**ContentType**: application/json
 
-| Parameter  | Required | Default  | Description |
+**Request Body**:  
+
+**Json** 
+```
+  { 
+  "userIds":["userId1","userId2","userId3"],
+	"clientGroupIds":["groupId1","groupId2"]
+ }
+```
+**Json Parameter Description**: 
+
+|Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupIds   | Yes  |   | List of Group unique identifiers  |
 | userIds   | Yes  |   | List of Unique ids of the users to be added to the group  |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to add member  |
+
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only)  |   | Pass userId of user on behalf of which application admin want to add users  |
 
 **Response**:  Response Json with success status :-  
 ```  
@@ -1047,24 +1082,42 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
-**Note**: Groups for the passed clientGroupIds and the user for the passed userId should exist in that application.
+**Note**: Groups for the passed clientGroupIds and the user for the passed userIds should exist in that application.
 
 
 ### Remove User from Group 
 
 **REMOVE GROUP MEMBER URL**:  https://apps.applozic.com/rest/ws/group/remove/member 
 
-**Method Type**: GET
+**Method Type**: POST
 
-**Parameters**: 
+**ContentType**: application/json
+
+**Request Body**: 
+
+**Json**                         
+```
+{
+	"userId":"user unique identifier ",
+	"clientGroupId":"group unique identifier"	
+}
+```
+
+**Json Parameter Description**: 
+
+|Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId   | Yes  |   | User unique identifier to be removed from group  |
+| clientGroupId | Yes  |   | Group  unique identifier |
+
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Request Parameter**: 
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId   | Yes  |   | Group unique identifier  |
-| userId   | Yes  |   | UserId of the user want to remove from group  |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to remove member |
-
-**Note**: Pass ofUserId only if application Admin calling the API on behalf of any user.
+| ofUserId  | Yes (in case of admin only) |   |Pass userId of user on behalf of which application admin want to remove member  |
 
 **Response**:  Response Json  with success status :-  
 
@@ -1076,7 +1129,7 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
-**Note**: Only Admin can remove the group member from private group otherwise the following error will come:
+**Note**: Only Group Admin can remove the group member from private group otherwise the following error will come:
 
 ```  
 {
@@ -1098,16 +1151,31 @@ To add metadata for a message, send the metadata object inside the message objec
 
 **LEAVE GROUP URL**:  https://apps.applozic.com/rest/ws/group/left 
 
-**Method Type**: GET
+**Method Type**: POST
 
-**Parameters**: 
+**ContentType**: application/json
+
+**Request Body**: 
+
+**Json**                         
+```
+{
+	"clientGroupId":"group unique identifier"	
+}
+```
+
+**Json Parameter Description**: 
+
+|Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| clientGroupId | Yes  |   | Group  unique identifier |
+
+
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId   | Yes  |   | Group unique identifier  |
-| ofUserId  | No  |   | Pass userId of user application admin want to remove |
-
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+| ofUserId  | Yes (in case of application admin only) |   |Pass userId of user for which application admin want to leave the group  |
 
 **Response**: Response Json with success status :-  
 
