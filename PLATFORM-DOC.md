@@ -1187,6 +1187,50 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
+#### Remove Users From Many Groups
+
+**URL**:  https://apps.applozic.com/rest/ws/group/remove/users
+
+**Method Type**: POST
+
+**ContentType**: application/json
+
+**Request Body**:  
+
+**Json** 
+```
+  { 
+  "userIds":["userId1","userId2","userId3"],
+	"clientGroupIds":["groupId1","groupId2"]
+ }
+```
+**Json Parameter Description**: 
+
+|Json Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| clientGroupIds   | Yes  |   | List of Group unique identifiers  |
+| userIds   | Yes  |   | List of Unique ids of the users to be added to the group  |
+
+
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of  application admin only)  |   | Pass userId of user on behalf of which application admin want to remove users  |
+
+**Response**:  Response Json with success status :-  
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
+```
+
+**Note**: Groups for the passed clientGroupIds and the user for the passed userIds should exist in that application.
+
 #### Update Group
 
 **UPDATE GROUP URL**: https://apps.applozic.com/rest/ws/group/update 
