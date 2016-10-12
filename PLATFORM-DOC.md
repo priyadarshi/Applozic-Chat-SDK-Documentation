@@ -1784,10 +1784,21 @@ Application can send automated in-app messages to users using Application to Use
 | imageLink | No |   |image link of user  |
 | email | No  |   |email of user  |
 | createdAtTime | No  |   |time in miliseconds  |
-| roleName | No  |   | want to create user of specific type: BOT  |
+| roleName | No  | USER  | want to create user of specific type then pass: BOT  |
 
+Roles:
 
-**Note**: User password is required in case of Bot User creation.
+| Parameter  |
+| ------------- |
+| BOT |
+| USER |
+
+**Note** :
+
+**1)** User password is required in case of **BOT** User creation.
+
+**2)** By default role is **USER** if roleName is not passed.
+ 
 
 
 
