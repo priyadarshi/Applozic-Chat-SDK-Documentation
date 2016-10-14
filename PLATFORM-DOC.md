@@ -1260,6 +1260,36 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
+#### Update Group User Properties
+
+**Url**: https://apps.applozic.com/rest/ws/group/user/update
+
+**Method Type**: POST
+
+**ContentType**: application/json
+
+**Request Body**:  
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId   | No  |   | User identifier for 1-1 chat |
+| groupId   | No  |   | Group unique identifier  |
+| clientGroupId   | No  |   | Client Group unique identifier  |
+| notificationAfterTime   | No  |   | Time Interval for which notification has be be disabled  |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
+
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**: Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+```
+
 #### Group - Is User Present
 Check if user is part of a Group
 
