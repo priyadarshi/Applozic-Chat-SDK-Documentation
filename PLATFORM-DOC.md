@@ -505,8 +505,8 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 | Json Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| userNames  | No  |   | User Names to which you want to send message |
-| clientGroupIds  | No  |   | List of Group unique identifiers to which you want to send message |
+| userNames  | No  |   | User Names to which you want to send message. Limit 50 |
+| clientGroupIds  | No  |   | List of Group unique identifiers to which you want to send message. Limit 50 |
 | messageObject  | Yes  |   | Message Container Object |
 | message  | Yes  |   | Text Message |
 
