@@ -672,6 +672,31 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
+####Smart Messaging Using Metadata
+
+Add specific metadata for a message, send the metadata object inside the message object while sending message. Message metadata type can be **HIDDEN**, **PUSHNOTIFICATION**, **ARCHIVE**.
+
+**Sample Message Object Json with Metadata**:          
+
+```json
+{
+  "to":"John",
+  "message":"Hidden Message",
+   "metadata" : {
+    "category" : "HIDDEN"
+  }
+}
+```
+
+ 
+"category" value can be:
+
+| value  |
+| ------------- |
+|  HIDDEN |
+| PUSHNOTIFICATION |
+| ARCHIVE|
+
 ### Group API
 
 #### Create Group
