@@ -680,10 +680,10 @@ Add specific metadata for a message, send the metadata object inside the message
 
 ```json
 {
-  "to":"John",
-  "message":"Hidden Message",
-   "metadata" : {
-    "category" : "HIDDEN"
+  "to": "John",
+  "message": "Hidden Message",
+  "metadata": {
+    "category": "HIDDEN"
   }
 }
 ```
