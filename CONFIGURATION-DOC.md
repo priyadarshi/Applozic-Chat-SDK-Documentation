@@ -4,14 +4,18 @@
 
 Message Fallback Time is the duration in which if message is not delivered to end user then message will be delivered though mail and SMS as a fallback. For message fallback our api requires receiver user emailId which need to pass during registration and also you have to configure message delivery fallback time in dashboard for your app.  
 
+Login to https://www.applozic.com 
+Go to Dashboard -> Application List -> Action -> Edit -> SMS/Email Fallback
+
 
 
 
 ###Webhooks
 
 Webhook Url can be configured by application admin in the Applozic dashboard. All messages will be forwarded to the webhook url in JSON format.
+
 Login to https://www.applozic.com 
-Go to Dashboard -> Applications -> Edit Application -> Webhooks -> Forward Message URL
+Go to Dashboard -> Application List -> Action -> Edit -> Webhooks -> Forward Message To
 
 
 **Request Body**: Posted Json to configured Url without any attachment:
