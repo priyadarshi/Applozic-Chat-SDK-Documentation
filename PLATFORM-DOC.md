@@ -1254,6 +1254,43 @@ Add specific metadata for a message, send the metadata object inside the message
 }
 ```
 
+
+
+####Remove User From All Group        
+
+**Note** : API supported both by application admin and application user. 
+
+**URL**: https://apps.applozic.com/rest/ws/user/remove/group/all
+
+**Method Type**: GET
+
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId   | Yes  |   | user unique identifier  | 
+
+
+**Note**: Pass **ofUserId** only if application Admin calling the API.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes (in case of admin only) |   |pass userId of user to which admin want to remove from groups  |
+
+
+**Note**: API will remove User from **Private**, **Public** and **Open** Group.
+
+**Response**: 
+
+```
+{
+  "status": "success",
+  "generatedAt": 1452347180639, // time value at which response is generated from server
+  "response": "success"
+}
+```
+
 **Note**: Groups for the passed clientGroupIds and the user for the passed userIds should exist in that application.
 
 #### Update Group
