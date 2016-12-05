@@ -1253,7 +1253,7 @@ Add specific metadata for a message, send the metadata object inside the message
   "response": "success"
 }
 ```
-
+**Note**: Groups for the passed clientGroupIds and the user for the passed userIds should exist in that application.
 
 
 ####Remove User From All Group        
@@ -1291,7 +1291,6 @@ Add specific metadata for a message, send the metadata object inside the message
 }
 ```
 
-**Note**: Groups for the passed clientGroupIds and the user for the passed userIds should exist in that application.
 
 #### Update Group
 
