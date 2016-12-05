@@ -309,30 +309,6 @@ http://apps.applozic.com/rest/ws/user/update/password?oldPassword=12345&newPassw
 
 
 
-####User Exist
-
-**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
-
-**URL**: https://apps.applozic.com/rest/ws/user/exist
-
-**Method Type**: GET
-
-**Content-Type**: application/json
-
-**Parameters**:         
-
-| Parameter | Required | Description |
-| ------------- |-------  | ------------- |
-| userId | Yes | UserId of the user  |
-
-**Response**: 
-
-```
-If Web user : "web user"
-If Android : version code of the device
-If Not Found : "User Not Found"
-```
-
 #####Contact List   
 
 **CONTACT LIST URL**: http://apps.applozic.com/rest/ws/user/filter
