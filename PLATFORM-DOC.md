@@ -609,6 +609,38 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | success  | Request is successfully processed  |
 | error  |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
+
+
+
+#### Delete User Messages Older Than X days
+
+**Delete User Messages URL**: https://apps.applozic.com/rest/ws/user/messages/delete
+
+**Method Type**: POST
+
+**Request Parameters**:  
+
+**Note**: Pass **ofUserId** only if application Admin calling the API.
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| days | Yes  |  | Delete chat history older than X days |
+| ofUserId  | Yes (in case of  Application admin only) |   |pass userId of user for which admin want to delete messages.  |
+
+
+
+**Response**: Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+```
+
+
+
 #### Delete All Chats         
 
 **DELETE All  URL** : https://apps.applozic.com/rest/ws/message/delete/all
