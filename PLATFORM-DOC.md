@@ -1870,7 +1870,7 @@ Authentication:
 | Parameter Name  |Value |Description|
 | ------------- |-------|-----------|
 | authenticationTypeId |0 |Verification from client side|
-| authenticationTypeId |1 |verification from applozic using password|
+| authenticationTypeId |1 |Verification from applozic using password|
 
 **Note** :
 
