@@ -142,40 +142,6 @@ The following will come in response in case of no application found with the pas
 **Note** : No header required for registration API.
 
 
-#### User Info   
-
-**Display Name API URL**: https://apps.applozic.com/rest/ws/user/info
-
-**Method Type**: GET
-
-**parameters**: 
-
-| Parameter  | Required | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |       
-| userIds | yes  |  | list of unique userId |
-
-**Note** : Additional **ofUserId**  parameter not required in case of application admin too.
-
-**Example:** For API Call: 
-
-```
-http://apps.applozic.com/rest/ws/user/info?userIds=robert&userIds=john&userIds=mark
-```
-
-**Response:**
-
-```  
-{
-  "robert": "robbie",
-  "john": "Mitchell"
-}
-```  
- 
-**Note**
-
-**1)** Only users having display Name will return in response.
-
-
 ####User Details       
 
 **Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
