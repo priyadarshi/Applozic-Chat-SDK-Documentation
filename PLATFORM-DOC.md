@@ -1855,6 +1855,7 @@ Application can send automated in-app messages to users using Application to Use
 | imageLink | No |   |image link of user  |
 | email | No  |   |email of user  |
 | createdAtTime | No  |   |time in miliseconds  |
+| authenticationTypeId | No  | 0  |used for user authentication  |
 | roleName | No  | USER  | want to create user of specific type then pass: BOT  |
 
 Roles:
@@ -1864,13 +1865,20 @@ Roles:
 | BOT |
 | USER |
 
+Authentication:
+
+| Parameter Name  |Value |Description|
+| ------------- |-------|-----------|
+| authenticationTypeId |0 |Verification from client side|
+| authenticationTypeId |1 |verification from applozic using password|
+
 **Note** :
 
 **1)** User password is required in case of **BOT** User creation.
 
 **2)** By default role is **USER** if roleName is not passed.
- 
 
+ 
 
 
 **Response**: 
