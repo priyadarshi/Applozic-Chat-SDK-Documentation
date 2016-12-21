@@ -144,7 +144,7 @@ The following will come in response in case of no application found with the pas
 
 #### User Info   
 
-**Display Name  URL**: https://apps.applozic.com/rest/ws/user/info
+**Display Name API URL**: https://apps.applozic.com/rest/ws/user/info
 
 **Method Type**: GET
 
