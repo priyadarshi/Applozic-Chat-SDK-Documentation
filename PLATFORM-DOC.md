@@ -1533,9 +1533,9 @@ To add metadata for a group, send the metadata object inside the group object wh
 
 ### Group Settings
 
-Setting for enable/disable default messages creation for the group. This will also helpful for altering the default message template for the group. 
+ This will helpful for altering the default message template for the group. 
 
-Note: If the template is sent as blank, the no notification message is sent.
+Note: If the template is sent as blank, then no alert notification is sent to devices and receive message silently.
 
 **Update metadata of the group as the following property keys**:          
 
@@ -1547,6 +1547,7 @@ Note: If the template is sent as blank, the no notification message is sent.
 - GROUP_ICON_CHANGE_MESSAGE
 - GROUP_LEFT_MESSAGE
 - DELETED_GROUP_MESSAGE
+- ALERT
 
 **Following place holders will be replaced**
 
@@ -1560,10 +1561,15 @@ Perform the group create, update, add member, remove etc actions on the group. E
 {
   "metadata":{
     "CREATE_GROUP_MESSAGE":":adminName created group",
-    "ADD_MEMBER_MESSAGE":":userName joined group"
+    "ADD_MEMBER_MESSAGE":":userName joined group",
+    "ALERT":"false"
   }
 }
 ```
+
+**Note**
+
+1.If Alert metadata is configured to false no explicit notification send to iOS devices.
 
 
 ### Contextual (Topic/Product) Chat 
