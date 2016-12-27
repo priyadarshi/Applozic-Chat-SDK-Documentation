@@ -422,6 +422,52 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | message key  | Request is successfully processed  |
 | createdAt  | time in milliseconds |
 
+
+####Message Metadata
+
+To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message object. The metadata object is a map with string keys and values.
+
+**Sample Message Object Json with Metadata**:          
+
+```json
+{
+  "to":"John",
+  "message":"Hi John",
+  "metadata" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  }
+}
+```
+
+####Smart Messaging Using Metadata
+
+Add specific metadata for a message, send the metadata object inside the message object while sending message. Message metadata type can be **HIDDEN**, **PUSHNOTIFICATION**, **ARCHIVE**.
+
+**Sample Message Object Json with Metadata**:          
+
+```json
+{
+  "to": "John",
+  "message": "Hidden Message",
+  "metadata": {
+    "category": "HIDDEN"
+  }
+}
+```
+
+ 
+"category" value can be:
+
+| value  |
+| ------------- |
+|  HIDDEN |
+| PUSHNOTIFICATION |
+| ARCHIVE|
+
+
+
+
 #### Broadcast Message
 
 **URL**: https://apps.applozic.com/rest/ws/message/sendall
@@ -629,47 +675,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | error  |This will come if any exception occurs. In case of any exception contact reslove@applozic.com  |
 
 
-####Message Metadata
 
-To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message object. The metadata object is a map with string keys and values.
-
-**Sample Message Object Json with Metadata**:          
-
-```json
-{
-  "to":"John",
-  "message":"Hi John",
-  "metadata" : {
-    "key1" : "value1",
-    "key2" : "value2"
-  }
-}
-```
-
-####Smart Messaging Using Metadata
-
-Add specific metadata for a message, send the metadata object inside the message object while sending message. Message metadata type can be **HIDDEN**, **PUSHNOTIFICATION**, **ARCHIVE**.
-
-**Sample Message Object Json with Metadata**:          
-
-```json
-{
-  "to": "John",
-  "message": "Hidden Message",
-  "metadata": {
-    "category": "HIDDEN"
-  }
-}
-```
-
- 
-"category" value can be:
-
-| value  |
-| ------------- |
-|  HIDDEN |
-| PUSHNOTIFICATION |
-| ARCHIVE|
 
 ### Group API
 
