@@ -919,6 +919,10 @@ Add specific metadata for a message, send the metadata object inside the message
 | groupId | No  |   | Group Id of the group  |
 | clientGroupId  | No  |   | Client Group id of the group |
 
+**Note** : 
+
+**1)** Either pass **groupId** or **clientGroupId** to get the group information.
+
 **Response**:   Response Json with success status :-
 ```
 {
