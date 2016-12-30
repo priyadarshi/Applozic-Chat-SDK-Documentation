@@ -1317,11 +1317,11 @@ Add specific metadata for a message, send the metadata object inside the message
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| userId   | No  |   | User identifier for 1-1 chat |
+| userId   | No  |   | User identifier for One - One conversation |
 | groupId   | No  |   | Group unique identifier  |
 | clientGroupId   | No  |   | Client Group unique identifier  |
-| notificationAfterTime   | No  |   | Time Interval for which notification has be be disabled  |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
+| notificationAfterTime   | No  |   | Time Interval for which notification has be be disabled |
+| ofUserId  | No  |   | Pass userId of user on behalf of which application admin |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
@@ -1348,7 +1348,7 @@ Check if user is part of a Group
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId   | Yes  |   | Group unique identifier  |
 | userId   | Yes  |   | UserId of the user identify in group  |
-| ofUserId  | No  |   | Pass userId of user exist in a group on behalf of which application admin want to check other user |
+| ofUserId  | No  |   | Pass userId of user exist in a group on behalf of which application admin |
 
 **Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
