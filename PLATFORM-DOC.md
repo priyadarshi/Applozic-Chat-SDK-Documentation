@@ -1288,12 +1288,13 @@ Add specific metadata for a message, send the metadata object inside the message
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| clientGroupId   | Yes  |   | Group unique identifier  |
+| groupId   | No  |   | Group unique identifier |
+| clientGroupId   | No  |   | Client Group unique identifier |
 | newName | No  |   | New name of group |
 | imageUrl | No  |   | image url of the group |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user. Pass either groupId or clientGroupId.
 
 **Response**: Response Json with success status :-  
 
