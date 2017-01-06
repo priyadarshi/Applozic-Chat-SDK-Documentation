@@ -1324,7 +1324,7 @@ Add specific metadata for a message, send the metadata object inside the message
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId   | No  |   | User identifier for One - One conversation |
-| groupId   | No  |   | Group unique identifier  |
+| id   | No  |   | Group unique identifier  |
 | clientGroupId   | No  |   | Client Group unique identifier  |
 | notificationAfterTime   | No  |   | Time Interval for which notification has be be disabled |
 | ofUserId  | No  |   | Pass userId of user on behalf of which application admin |
