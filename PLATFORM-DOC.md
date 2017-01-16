@@ -1829,6 +1829,74 @@ DEFAULT: return the conversation as it is.
 }  
 ``` 
 
+####  User's Block List Sync
+
+** SYNC BLOCK USER LIST URL**:  https://apps.applozic.com/rest/ws/user/blocked/sync?lastSyncTime=1000
+
+**Method Type**: GET
+
+**Parameters**:        
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| lastSyncTime | Yes  |   | lastSyncTime to the server  |
+| ofUserId  | No  |   |pass userId of user for which admin want to get the blockedTo and blockedBy user's list   |
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**:   Response Json with success status :-         
+
+**Note** : Suppose API is called by user **mink** or  application admin calling on behalf of user **mink**
+```
+{
+  "status": "success",
+  "generatedAt": 1484550889825,  // time value at which response is generated from server
+  "response": {
+    "blockedByUserList": [
+      {
+        "blockedBy": "mink2",   // User mink is blocked by user mink2
+        "createdAtTime": 1484550881647,
+        "userBlocked": true,   // user is blocked  
+        "updatedAtTime": 1484550881650
+      }
+    ],
+    "blockedToUserList": [
+      {
+        "blockedTo": "mink1",  // User mink  blocked user mink1
+        "createdAtTime": 1484548333978,
+        "userBlocked": true, // user is blocked
+        "updatedAtTime": 1484548333982
+      },
+      {
+        "blockedTo": "jack", // User mink  unblocked user jack
+        "createdAtTime": 1484553240694,
+        "userBlocked": false,  // user is unblocked
+        "updatedAtTime": 1484553240695
+      }
+	  
+    ]
+  }
+}
+```
+
+**Note**:
+
+**1**) Paramter userBlocked dexxcription:
+
+| Parameter  |  Value  |Description |
+| ---------- |---------| ---------- |
+| userBlocked | true  | user is blocked |
+| userBlocked | false | user is unblocked |
+
+**2**) For the next sync call, pass "lastSyncTime" parameter to get latest modification between user block/unblock state if any . Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "lastSyncTime" for your next block sync call.
+
+
+
+
+
+
+
+
 ### Application Admin APIs
 API's for application admin purpose only
 
