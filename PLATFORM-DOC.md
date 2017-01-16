@@ -1881,7 +1881,7 @@ DEFAULT: return the conversation as it is.
 
 **Note**:
 
-**1**) Paramter userBlocked dexxcription:
+**1**) Paramter userBlocked description:
 
 | Parameter  |  Value  |Description |
 | ---------- |---------| ---------- |
