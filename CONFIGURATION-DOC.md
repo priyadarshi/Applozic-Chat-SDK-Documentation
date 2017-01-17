@@ -20,7 +20,7 @@ Login to https://www.applozic.com
 Go to Dashboard -> Application List -> Action -> Edit -> Webhooks -> Forward Message To
 
 
-**Request Body**: Posted Json to configured Url without any attachment:
+**Request Body**: Posted Json to configured Url without any attachment :
 
 ```
 {
@@ -34,7 +34,7 @@ Go to Dashboard -> Application List -> Action -> Edit -> Webhooks -> Forward Mes
 }
 ```
 
-**Request Body**: Posted Json to configured Url with  attachment:
+**Request Body**: Posted Json to configured Url with  attachment and meta data passed in message:
  
 ```  
 {  
@@ -49,6 +49,10 @@ Go to Dashboard -> Application List -> Action -> Edit -> Webhooks -> Forward Mes
     "contentType":"image/gif",
     "size":28150,
     "thumbnailUrl":"attachment thumbnail Url"
+  },
+  "metadata":{
+  "key1":"value1",
+  "key2":"value2"
   }
 }
 ```
