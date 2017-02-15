@@ -2260,4 +2260,118 @@ timeUnit : Possible Values:
 }  
 ```
 
+#####Load Application's Group List
+
+**Group Filter URL**: http://apps.applozic.com/rest/ws/group/filter
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| pageSize | No  | 500 | list of groups to load |
+| endTime | No  |  | pass to load more group |
+
+
+
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com/rest/ws/group/filter?pageSize=2
+```
+
+**Response:**
+
+``` 
+{
+  "status": "success",
+  "generatedAt": 1487156976360,
+  "response": {
+    "users": [],
+    "groups": [
+      {
+        "id": 2101199,
+        "clientGroupId": "2101199",
+        "name": "phonegapprivate",
+        "adminName": "vipinpro",
+        "adminId": "vipinpro",
+        "membersName": [
+          "sonupro",
+          "phonegapdemo",
+          "vipinpro"
+        ],
+        "membersId": [
+          "sonupro",
+          "phonegapdemo",
+          "vipinpro"
+        ],
+        "removedMembersId": [],
+        "unreadCount": 0,
+        "type": 1,
+        "createdAtTime": 1487155124542,
+        "userCount": 3,
+        "groupUsers": [
+          {
+            "userId": "phonegapdemo",
+            "role": 3
+          },
+          {
+            "userId": "sonupro",
+            "role": 3
+          },
+          {
+            "userId": "vipinpro",
+            "role": 1
+          }
+        ],
+        "childKeys": [],
+        "childClientGroupIds": []
+      },
+      {
+        "id": 2092165,
+        "clientGroupId": "2092165",
+        "name": "two",
+        "adminName": "sunil",
+        "adminId": "sunil",
+        "membersName": [
+          "sunil",
+          "xyz"
+        ],
+        "membersId": [
+          "sunil",
+          "xyz"
+        ],
+        "removedMembersId": [],
+        "unreadCount": 0,
+        "type": 7,
+        "createdAtTime": 1487088852348,
+        "userCount": 2,
+        "groupUsers": [
+          {
+            "userId": "xyz",
+            "role": 3
+          },
+          {
+            "userId": "sunil",
+            "role": 1
+          }
+        ],
+        "childKeys": [],
+        "childClientGroupIds": []
+      }
+    ],
+    "devices": [],
+    "lastFetchTime": 1487088852348,
+    "lastFetchIndex": 1,
+    "totalUnreadCount": 0
+  }
+} 
+
+```  
+
+**Note** : To load further group list use **lastFetchTime** value and pass it in **endTime** parameter from next time onwards.
+
+
 Contact us at ` github@applozic.com `
