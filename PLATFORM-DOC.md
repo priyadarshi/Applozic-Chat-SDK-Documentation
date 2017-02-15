@@ -2260,7 +2260,8 @@ timeUnit : Possible Values:
 }  
 ```
 
-#####Load Application's Group List
+
+##### Load Application's Group List
 
 **Group Filter URL**: https://apps.applozic.com/rest/ws/group/filter
 
