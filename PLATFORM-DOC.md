@@ -13,7 +13,7 @@ For Application Admin send following authentication headers with each API call t
 | Content-Type |  application/json  |
 
 **Example**- 
-If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is
+If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard** :
 
 | Header | Description  |
 | ------ | ----------- |
