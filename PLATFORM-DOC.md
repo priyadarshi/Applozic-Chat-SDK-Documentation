@@ -2262,7 +2262,7 @@ timeUnit : Possible Values:
 
 #####Load Application's Group List
 
-**Group Filter URL**: http://apps.applozic.com/rest/ws/group/filter
+**Group Filter URL**: https://apps.applozic.com/rest/ws/group/filter
 
 **Method Type**: GET
 
@@ -2279,7 +2279,7 @@ timeUnit : Possible Values:
 **Example:** For API Call: 
 
 ```
-http://apps.applozic.com/rest/ws/group/filter?pageSize=2
+https://apps.applozic.com/rest/ws/group/filter?pageSize=2
 ```
 
 **Response:**
