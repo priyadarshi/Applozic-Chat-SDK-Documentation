@@ -1331,11 +1331,11 @@ Add specific metadata for a message, send the metadata object inside the message
 ```
 **Role**: 
 
-| Parameter  | Value | Description |
+| Parameter  | Value | Description | Privilege |
 | ------------- | ------------- | ------------- |       
-| role | 1 |  role will be admin |
-| role | 2 |  role will be moderator |
-| role | 3|  role will be member |
+| role | 1 |  role will be admin | Full Access to group  |
+| role | 2 |  role will be moderator | Add/remove users , Group Info update|
+| role | 3|  role will be member |Group Info update|
 
 
 
