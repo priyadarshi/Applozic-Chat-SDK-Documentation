@@ -1310,6 +1310,34 @@ Add specific metadata for a message, send the metadata object inside the message
   "response": "success"
 }
 ```
+**Note** Group Admin can update any group user role by passing following request body:
+
+**Request Body**: 
+
+```  
+{
+  "clientGroupId": "group unique identifier",
+  "users": [
+    {
+      "userId": "user unique identifier",
+      "role": 1
+    },
+    {
+      "userId": "user unique identifier",
+      "role": 1
+    }
+  ]
+}
+```
+**Role**: 
+
+| Parameter  | Value | Description |
+| ------------- | ------------- | ------------- |       
+| role | 1 |  role will be admin |
+| role | 2 |  role will be moderator |
+| role | 3|  role will be member |
+
+
 
 #### Update Group User Properties
 
