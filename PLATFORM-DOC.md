@@ -2064,6 +2064,40 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 | success | Request is successfully processed  |
 | error |This will come if any exception occurs on server or all the parameters are null. In case of any exception contact resolve@applozic.com  |
 
+
+#### Delete User
+
+**DELETE USER URL**: https://apps.applozic.com/rest/ws/user/delete 
+
+**Method Type**: POST
+
+**ContentType**: application/json
+
+ **Note**: Pass **ofUserId**  application Admin calling the API.
+
+**Request Parameter**: 
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| ofUserId  | Yes  |   |pass userId of user for which admin want to delete |
+
+**Example:** For API Call:
+
+```
+https://apps.applozic.com/rest/ws/user/delete/?ofUserId=user1
+```
+
+**Response**: Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1452347180639,  // time value at which response is generated from server
+  "response": "success"
+}
+```
+
+
 ###Dispatch Message   
 
 **DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
