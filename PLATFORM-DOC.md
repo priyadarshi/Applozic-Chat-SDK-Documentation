@@ -1470,9 +1470,9 @@ Check if user is part of a Group
 }
 ```
 
-### Channel (or Group)
+###  OPEN Channel (or Group)
 
-**URL**:  https://apps.applozic.com/rest/ws/group/channel 
+**URL**:  https://apps.applozic.com/rest/ws/group/v2/channel 
 
 **Method Type**: GET
 
@@ -1480,47 +1480,69 @@ Check if user is part of a Group
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
-| startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
-| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT.  |
+| pageSize  | No  | 50  | Number of Open channel need to be fetch.  |
+| endTime  | No  |   | pass  time(fetched in API response) to load  more channel list   |
 
 **Response**:  Json with success status :-  
 
 ```
 {
   "status": "success",
-  "generatedAt": 1465310497564,    // time value at which response is generated from server
-  "response": [
-    {
-      "id": 496,
-      "clientGroupId": "GroupId1",
-      "name": "MultiGroup1",
-      "adminId": "TestUser",
-      "membersId": [
-        "kevin",
-        "john",
-        "TestUser"
-      ],
-      "removedMembersId": [],
-      "unreadCount": 0,
-      "type": 6
-    },
-    {
-      "id": 497,
-      "clientGroupId": "497",
-      "name": "MultiGroup2",
-      "adminId": "TestUser",
-      "membersId": [
-        "jade",
-        "TestUser"
-      ],
-      "removedMembersId": [],
-      "unreadCount": 0,
-      "type": 6
-    }
-  ]
+  "generatedAt": 1487742549494,
+  "response": {
+    "groupPxys": [
+      {
+        "id": 40689,
+        "clientGroupId": "40689",
+        "name": "OPEN_GROUPSS_TYPE_ID",
+        "adminName": "beneton",
+        "adminId": "beneton",
+        "memberUserKeys": [
+          "29c97be5-6d3f-4aaf-95c0-f282650f5c14",
+          "a7b2d8ab-cc4d-47ed-9a31-0362c6a75975"
+        ],
+        "membersName": [
+          "beneton",
+          "banglow"
+        ],
+        "membersId": [
+          "beneton",
+          "banglow"
+        ],
+        "removedMembersId": [],
+        "unreadCount": 0,
+        "type": 6,
+        "createdAtTime": 1487689414972,
+        "userCount": 2,
+        "groupUsers": [
+          {
+            "userId": "banglow",
+            "status": 0,
+            "unreadCount": 0,
+            "role": 3,
+            "deleted": false
+          },
+          {
+            "userId": "beneton",
+            "status": 0,
+            "unreadCount": 0,
+            "role": 1,
+            "deleted": false
+          }
+        ],
+        "childKeys": [],
+        "childClientGroupIds": [],
+        "metadata": {
+          "AL_CATEGORY": "Drop",
+          "Key": "VALUE"
+        }
+      }
+    ],
+    "lastFetchTime": 1487689414972
+  }
 }
 ```
+
 
 ### Group Metadata
 
