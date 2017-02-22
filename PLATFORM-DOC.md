@@ -1481,7 +1481,7 @@ Check if user is part of a Group
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | pageSize  | No  | 50  | Number of Open channel need to be fetch.  |
-| endTime  | No  |   | pass  time(fetched in API response) to load  more channel list   |
+| endTime  | No  |   | pass  lastFetchTime as endTime(fetched in API response) to load  more channel list   |
 
 **Response**:  Json with success status :-  
 
@@ -1543,6 +1543,7 @@ Check if user is part of a Group
 }
 ```
 
+**Note**: To load more open channel pass "endTime" parameter in API call. Pass "lastFetchTime" as "endTime" in API call.
 
 ### Group Metadata
 
