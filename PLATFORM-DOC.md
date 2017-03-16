@@ -677,7 +677,7 @@ Add specific metadata for a message, send the metadata object inside the message
 | Parameter  | Description | 
 | ------------- | ------------- | 
 | success  | Request is successfully processed  |
-| error  |This will come if any exception occurs. In case of any exception contact reslove@applozic.com  |
+| error  |This will come if any exception occurs. In case of any exception contact resolve@applozic.com  |
 
 
 
