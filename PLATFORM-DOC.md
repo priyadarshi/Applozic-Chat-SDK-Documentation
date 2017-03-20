@@ -517,14 +517,14 @@ Add specific metadata for a message, send the metadata object inside the message
 
 ####Message list
 
-**URL**: https://apps.applozic.com/rest/ws/message/list
+**URL**: https://apps.applozic.com/rest/ws/message/v2/list
 
 **Method Type**: GET
 
 **Description**
 
 1. If no user id or group id is passed to the api then this api returns the latest message of the calling user with each user or group which the user has chat with.
-2. If the user id or group id is passed then api return the messages between the calling user and specified user.
+2. If the user id is passed then api return the messages between the calling user and specified user.
 3. If the group id is passed the api returns the messages of the specified group.
 
 **Request Body**:        
@@ -535,13 +535,12 @@ Add specific metadata for a message, send the metadata object inside the message
 | groupId  | No  |  | Group Id of the group for which messages need to be fetched. | 
 | startIndex  | Yes  | 0  | Starting Index to fetch messages from list.  | 
 | pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
-| startTime  | No  |   | Start Time from when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
-| endTime  | No  |   | End Time upto when you want to fetch message list. It is number of milliseconds since January 1, 1970, 00:00:00 GMT |
+| endTime  | No  |   |Pass  oldest time from the fetched messages to load more older messages  |
 | ofUserId  | No  |   |pass userId of user on behalf of which application admin want to call API |
 
 **Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
 
-**Note** : For fetching the next page of your message list startIndex value should be equal to the sum of pageSize value of all the previous calls.
+**Note** : To load more older messages in list pass endTime parameter with oldest message time received in messages list.
 
 **Response**:
 ```  
