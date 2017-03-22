@@ -573,6 +573,74 @@ Add specific metadata for a message, send the metadata object inside the message
 | error  | In case of any exception or error contact resolve@applozic.com  |
 
 
+#### Message Info 
+
+**Message Info URL**: https://apps.applozic.com/rest/ws/message/info
+
+**Method Type**: GET
+
+**parameters**: 
+
+| Parameter  | Required | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |       
+| key | yes  |  | unique identifier of message|
+
+
+**Example:** For API Call: 
+
+```
+http://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
+```
+
+**Response:**
+
+**In case of One to One Message**:
+
+**Note:** Suppose user1 sends a message to user2
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1490168160713,
+  "response": [
+    {
+      "userId": "user2",
+      "deliveredAtTime": 1490168151068,
+      "status": 4      // delivered to user2
+    }
+  ]
+}
+``` 
+
+
+**In case of Group Message:
+
+**Note:** Suppose user1 sends a message to group having users: user2, user3, user4
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1490168526401,
+  "response": [
+    {
+      "userId": "user2",
+      "deliveredAtTime": 1490168482844,
+      "status": 4     // delivered to user2
+    },
+    {
+      "userId": "user3",
+      "deliveredAtTime": 1490168483132,
+      "readAtTime": 1490168523731,
+      "status": 1    // read by user3
+    }
+  ]
+}
+```
+**Note:** message is neither delivered or read by user4.
+
+
+
+
 #### Delete Message     
 
 **DELETE MESSAGE  URL**: https://apps.applozic.com/rest/ws/message/delete
