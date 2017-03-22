@@ -589,7 +589,7 @@ Add specific metadata for a message, send the metadata object inside the message
 **Example:** For API Call: 
 
 ```
-http://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
+https://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
 ```
 
 **Response:**
@@ -636,7 +636,7 @@ http://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
   ]
 }
 ```
-**Note:** message is neither delivered or read by user4.
+**Note:** message is neither delivered nor read by user4.
 
 
 
