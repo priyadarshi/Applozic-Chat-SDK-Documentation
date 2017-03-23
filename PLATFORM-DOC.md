@@ -1647,13 +1647,15 @@ Note: If the template is sent as blank, then no alert notification is sent to de
 - GROUP_ICON_CHANGE_MESSAGE
 - GROUP_LEFT_MESSAGE
 - DELETED_GROUP_MESSAGE
+- GROUP_USER_ROLE_UPDATED_MESSAGE
 - ALERT
 
 **Following place holders will be replaced**
 
 - :adminName = admin name of the group
 - :groupName = group name
-- :userName = user name for which the action is performed
+- :userName = user name for which the action is performed 
+- :role = role of user 
 
 Perform the group create, update, add member, remove etc actions on the group. Eg: 
 
@@ -1662,6 +1664,7 @@ Perform the group create, update, add member, remove etc actions on the group. E
   "metadata":{
     "CREATE_GROUP_MESSAGE":":adminName created group",
     "ADD_MEMBER_MESSAGE":":userName joined group",
+    "GROUP_USER_ROLE_UPDATED_MESSAGE":":userName is :role now",
     "ALERT":"false"
   }
 }
