@@ -2,7 +2,7 @@ Explore Platform API's as per Application Admin or as per Application User.
 
 # HEADERS
 
-###Application Admin
+####Application Admin
 
 For Application Admin send following authentication headers with each API call to explore platform API's. Request should contain these 3 headers
 
@@ -21,7 +21,7 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 | Apz-Token | Basic amFja0BnbWFpbC5jb206YWRtaW5Mb2dnZWRJbkFwcGxvemljRGFzaGJvYXJk |
 | Content-Type |  application/json  |
 
-###Application User
+####Application User
 
 All request from Device must contain the following 4 headers
 
