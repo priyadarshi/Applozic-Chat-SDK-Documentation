@@ -294,3 +294,116 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 ```  
 
 **Note** : To load further contact list use **lastFetchTime** value and pass it in **startTime** parameter from next time onwards.
+
+
+### Block/Unblock API
+
+#### Block User     
+
+**BLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/block
+
+**Method Type**: GET 
+
+**Parameters**:         
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user you want to block  |
+
+**Response**:  Response Json with success status :-  
+
+```
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true
+}   
+```
+
+#### Unblock User    
+
+**UNBLOCK USER  URL**: https://apps.applozic.com/rest/ws/user/unblock
+
+**Method Type**: GET 
+
+**Parameters**:         
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| userId | Yes  |   |pass unique id of user you want to unblock  |
+
+**Response**:  Response Json with success status :-  
+
+```  
+{
+  "status": "success",
+  "generatedAt": 1463673355057,  // time value at which response is generated from server
+  "response": true
+}  
+``` 
+
+####  User's Block List Sync
+
+** SYNC BLOCK USER LIST URL**:  https://apps.applozic.com/rest/ws/user/blocked/sync?lastSyncTime=1000
+
+**Method Type**: GET
+
+**Parameters**:        
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| lastSyncTime | Yes  |   | lastSyncTime to the server  |
+| ofUserId  | No  |   |pass userId of user for which admin want to get the blockedTo and blockedBy user's list   |
+
+**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+
+**Response**:   Response Json with success status :-         
+
+**Note** : Suppose API is called by user **mink** or  application admin calling on behalf of user **mink**
+```
+{
+  "status": "success",
+  "generatedAt": 1484550889825,  // time value at which response is generated from server
+  "response": {
+    "blockedByUserList": [
+      {
+        "blockedBy": "mink2",   // User mink is blocked by user mink2
+        "createdAtTime": 1484550881647,
+        "userBlocked": true,   // user is blocked  
+        "updatedAtTime": 1484550881650
+      }
+    ],
+    "blockedToUserList": [
+      {
+        "blockedTo": "mink1",  // User mink  blocked user mink1
+        "createdAtTime": 1484548333978,
+        "userBlocked": true, // user is blocked
+        "updatedAtTime": 1484548333982
+      },
+      {
+        "blockedTo": "jack", // User mink  unblocked user jack
+        "createdAtTime": 1484553240694,
+        "userBlocked": false,  // user is unblocked
+        "updatedAtTime": 1484553240695
+      }
+	  
+    ]
+  }
+}
+```
+
+**Note**:
+
+**1**) Paramter userBlocked description:
+
+| Parameter  |  Value  |Description |
+| ---------- |---------| ---------- |
+| userBlocked | true  | user is blocked |
+| userBlocked | false | user is unblocked |
+
+**2**) For the next sync call, pass "lastSyncTime" parameter to get latest modification between user block/unblock state if any . Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "lastSyncTime" for your next block sync call.
+
+
+
+
+
