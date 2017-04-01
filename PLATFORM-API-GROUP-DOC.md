@@ -1,7 +1,3 @@
-
-
-### Group API
-
 #### Create Group
 
 **GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/v2/create 
