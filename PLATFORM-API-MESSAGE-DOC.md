@@ -1,5 +1,3 @@
-###Message API
-
 #### Send Message
 
 **Note** : API supported both by application admin and application user.
