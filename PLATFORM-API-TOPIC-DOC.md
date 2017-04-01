@@ -1,5 +1,3 @@
-### Contextual (Topic/Product) Chat 
-
 #### Conversation Id
 
 Retreive Conversation Id
