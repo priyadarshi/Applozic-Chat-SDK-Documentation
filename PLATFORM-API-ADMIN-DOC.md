@@ -1,6 +1,3 @@
-
-
-### Application Admin APIs
 API's for application admin purpose only
 
 **Application To User**
