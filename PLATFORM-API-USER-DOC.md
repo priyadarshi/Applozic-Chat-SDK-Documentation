@@ -1,5 +1,3 @@
-### User API
-
 #### Login/Register User     
 
 **Registration URL**: https://apps.applozic.com/rest/ws/register/client
