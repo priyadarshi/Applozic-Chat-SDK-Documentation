@@ -1115,9 +1115,9 @@ ii ) Go to Build Phase. Expand  Embedded frameworks and add applozic framework.
 
 You can test your chat quickly by adding below .h and .m file to your project.
 
-[**DemoChatManager.h**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.h)        
+[**ALChatManager.h**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sample-with-framework/applozicdemo/ALChatManager.h)        
 
-[**DemoChatManager.m**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sampleapp/applozicdemo/DemoChatManager.m)  
+[**ALChatManager.m**](https://raw.githubusercontent.com/AppLozic/Applozic-iOS-SDK/master/sample-with-framework/applozicdemo/ALChatManager.m)  
 
 Change applicationID in DemoChatManager and you are ready to launch your chat from your controller :)
 
