@@ -1649,6 +1649,7 @@ Note: If the template is sent as blank, then no alert notification is sent to de
 - DELETED_GROUP_MESSAGE
 - GROUP_USER_ROLE_UPDATED_MESSAGE
 - ALERT
+- HIDE
 
 **Following place holders will be replaced**
 
@@ -1670,9 +1671,12 @@ Perform the group create, update, add member, remove etc actions on the group. E
 }
 ```
 
-**Note**
+**Note** :
 
-1.If Alert metadata is configured to false no explicit notification send to iOS devices.
+**1)** If Alert metadata is configured to false no explicit notification send to iOS devices.
+
+**2)** To don't want to display message in chat list pass HIDE metadate is true.
+
 
 
 ### Contextual (Topic/Product) Chat 
