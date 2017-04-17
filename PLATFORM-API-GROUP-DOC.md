@@ -911,12 +911,89 @@ Perform the group create, update, add member, remove etc actions on the group. E
   "metadata":{
     "CREATE_GROUP_MESSAGE":":adminName created group",
     "ADD_MEMBER_MESSAGE":":userName joined group",
-    "GROUP_USER_ROLE_UPDATED_MESSAGE":":userName is :role now",
-    "ALERT":"false"
+    "GROUP_USER_ROLE_UPDATED_MESSAGE":":userName is :role now"
   }
 }
 ```
 
-**Note**
+
+
+**Example:1**
+
+If want to displayed messages in chat message list but don't want explicit notification.
+
+Use below sample:
+```json
+{
+  "groupName" : "GroupName",
+  "groupMemberList" : ["user1","user2"],
+  "metadata":{
+    "CREATE_GROUP_MESSAGE":"",
+    "ADD_MEMBER_MESSAGE":"",
+    "GROUP_NAME_CHANGE_MESSAGE" : "",
+  }
+   
+}
+```
+**Note** 
 
 1.If Alert metadata is configured to false no explicit notification send to iOS devices.
+
+2.) For Android device messages in message list will come with metadata having key **show** with value **false** so android explicit notification can be handled.
+
+
+**Example:2**
+
+1.)If having any customize message for different metadata and want to add those messages in chat messages list but don't want explicit notification.
+
+2.)Basically  messages will add to device silently:
+
+Use below sample:
+```json
+{
+  "groupName" : "GroupName",
+  "groupMemberList" : ["user1","user2"],
+  "metadata":{
+    "CREATE_GROUP_MESSAGE":"Message in different language",
+    "ADD_MEMBER_MESSAGE":" :adminName Ne Group :groupName me add Kiya :)",
+    "GROUP_NAME_CHANGE_MESSAGE" : "Message in different language",
+    "ALERT": "false"
+  }
+   
+}
+```
+**Note** 
+
+1.If Alert metadata is configured to false no explicit notification send to iOS devices.
+
+2.) For Android device messages in message list will come with metadata having key **show** with value **false** so android explicit notification can be handled.
+
+
+**Example:3**
+
+If want to filter messages not to be displayed in chat message list
+
+Use below sample:
+ 
+```json
+{
+  "groupName" : "GroupName",
+  "groupMemberList" : ["user1","user2"],
+  "metadata":{
+    "CREATE_GROUP_MESSAGE":"",
+    "ADD_MEMBER_MESSAGE":"",
+    "GROUP_NAME_CHANGE_MESSAGE" : "",
+    "HIDE": "true"
+  }
+   
+}
+```
+
+**Note** 
+1.) In this case Group create, add and name change message will come with metadata **hide** with value **true** message list API call.
+
+2.)So you can filter out these messages:
+
+
+
+
