@@ -990,6 +990,7 @@ Use below sample:
 ```
 
 **Note** 
+
 1.) In this case Group create, add and name change message will come with metadata **hide** with value **true** message list API call.
 
 2.)So you can filter out these messages:
