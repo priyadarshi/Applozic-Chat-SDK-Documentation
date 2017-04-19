@@ -652,6 +652,23 @@
 | role | 3|  role will be member |Group Info update|
 
 
+**Note** Group Admin can update group existing meta data value and can pass new meta data as well in request body:
+
+**Request Body**: 
+
+``` 
+
+{
+  "clientGroupId": "226583",
+  
+  "metadata":{
+    "HIDE":"true",
+    "GROUP_ICON_CHANGE_MESSAGE": "Icon Changed"
+
+  }
+}
+```
+
 
 #### Update Group User Properties
 
