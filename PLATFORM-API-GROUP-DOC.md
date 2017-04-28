@@ -913,6 +913,7 @@ Note: If the template is sent as blank, then no alert notification is sent to de
 - DELETED_GROUP_MESSAGE
 - GROUP_USER_ROLE_UPDATED_MESSAGE
 - ALERT
+- HIDE
 
 **Following place holders will be replaced**
 
