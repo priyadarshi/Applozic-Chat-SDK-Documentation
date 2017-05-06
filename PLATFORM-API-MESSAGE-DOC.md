@@ -174,7 +174,7 @@ Add specific metadata for a message, send the metadata object inside the message
 2. If the user id is passed then api return the messages between the calling user and specified user.
 3. If the group id is passed the api returns the messages of the specified group.
 
-**Request Body**:        
+**Request Parameter**:        
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
