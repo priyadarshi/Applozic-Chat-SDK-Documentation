@@ -170,7 +170,7 @@ https://apps.applozic.com/rest/ws/user/delete/?ofUserId=user1
 ```
 
 
-###Dispatch Message   
+### Dispatch Message   
 
 **DISPATCH MESSAGE URL**: https://apps.applozic.com/rest/ws/message/dispatch
 
