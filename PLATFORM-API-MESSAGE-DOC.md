@@ -75,6 +75,19 @@
 | createdAt  | time in milliseconds |
 
 
+####Send Html Message
+
+**Sample Message Object Json with contentType*:          
+
+```json
+{
+  "to":"John",
+  "message":"<p>This is normal text - <b>and this is bold text</b>.</p>",
+  "contentType":3
+}
+```
+
+
 ####Message Metadata
 
 To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message object. The metadata object is a map with string keys and values.
