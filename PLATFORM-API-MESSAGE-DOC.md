@@ -77,7 +77,7 @@
 
 ####Send Html Message
 
-**Sample Message Object Json with contentType*:          
+**Sample Message Object Json with contentType**:          
 
 ```json
 {
