@@ -410,10 +410,10 @@ To add metadata for a user, send the metadata object inside the user object whil
 
 ```json
 {
-  "userId":"DemoUser", 
-  "password":"password",
-  "displayName":"Display Name",
-  "email":"sample@example.com",
+ "userId":"DemoUser", 
+ "password":"password",
+ "displayName":"Display Name",
+ "email":"sample@example.com",
   "metadata":{
   	"key1":"value1",
   	"key2":"value2",
@@ -425,9 +425,9 @@ To add metadata for a user, send the metadata object inside the user object whil
 
 ```json
 {
-  "userId":"DemoUser", 
-  "password":"password",
-  "metadata":{
+ "userId":"DemoUser", 
+ "password":"password",
+ "metadata":{
   	"key1":"updated value1",
   	"key2":"updated value2",
   	"key3":"updated value3"}
