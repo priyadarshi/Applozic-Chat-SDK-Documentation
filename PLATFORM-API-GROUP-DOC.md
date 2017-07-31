@@ -16,6 +16,7 @@
   "groupName" : "Group Name",
   "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
   "imageUrl": "Group image Url"
+  "admin":"UserName"
 }
 ```
 **Json Parameter Description**: 
@@ -27,6 +28,7 @@
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 | imageUrl | No  |  | image url for group |
+| admin | No  |  | set 
 
 **Note** : 
 
@@ -1012,6 +1014,8 @@ Use below sample:
 1.) In this case Group create, add and name change message will come with metadata **hide** with value **true** message list API call.
 
 2.)So you can filter out these messages:
+
+####Group api to support setting another user as admin
 
 
 
