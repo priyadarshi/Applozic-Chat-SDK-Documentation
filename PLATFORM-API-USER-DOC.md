@@ -406,7 +406,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 
 To add metadata for a user, send the metadata object inside the user object while creating user. The same metadata object will be received in user detail api with user object. The metadata object is a map with string keys and values.
 
-**Sample User Object Json with Metadata**:          
+**Sample User Object Json with Metadata**:
 
 ```json
 {
