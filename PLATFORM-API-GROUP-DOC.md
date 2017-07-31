@@ -28,7 +28,7 @@
 | groupMemberList | Yes  |   |List of userIds of the  group members |
 | type | No  | public  | Type of the group |
 | imageUrl | No  |  | image url for group |
-| admin | No  |  | set 
+| admin | No  |  | set another user as admin of group |
 
 **Note** : 
 
