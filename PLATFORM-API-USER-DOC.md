@@ -402,6 +402,40 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 **2**) For the next sync call, pass "lastSyncTime" parameter to get latest modification between user block/unblock state if any . Applozic API response contains "generatedAt" parameter which contains the timestamp at the time of server response. Use it as "lastSyncTime" for your next block sync call.
 
 
+#### User Metadata
+
+To add metadata for a user, send the metadata object inside the user object while creating user. The same metadata object will be received in user detail api with user object. The metadata object is a map with string keys and values.
+
+**Sample User Object Json with Metadata**:          
+
+```json
+{
+  "userId":"DemoUser", 
+  "password":"password",
+  "displayName":"Display Name",
+  "email":"sample@example.com",
+  "metadata":{
+  	"key1":"value1",
+  	"key2":"value2",
+  	"key3":"value3"}
+}
+```
+
+**user metadata updated from the user update API as below example**:
+
+```json
+{
+  "userId":"DemoUser", 
+  "password":"password",
+  "metadata":{
+  	"key1":"updated value1",
+  	"key2":"updated value2",
+  	"key3":"updated value3"}
+}
+```
+
+
+
 
 
 
