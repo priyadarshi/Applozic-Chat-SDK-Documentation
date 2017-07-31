@@ -15,7 +15,7 @@
   "clientGroupId":"Client Group Id",  // optional
   "groupName" : "Group Name",
   "groupMemberList" : ["UserName1", "UserName2", "UserName3"],
-  "imageUrl": "Group image Url"
+  "imageUrl": "Group image Url",
  "admin":"UserName"
 }
 ```
