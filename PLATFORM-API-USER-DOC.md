@@ -86,7 +86,7 @@ The following will come in response in case of no application found with the pas
 **Note** : No header required for registration API.
 
 
-####User Details       
+#### User Details       
 
 **Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
 
