@@ -1015,7 +1015,89 @@ Use below sample:
 
 2.)So you can filter out these messages:
 
-####Group api to support setting another user as admin
+#### Create Friend/Favourite List
+
+Using this API you can create your group of contacts and fetch it later. 
+
+Example usage case : You can create your favorite contact list by passing GroupName as favorite, and keep modifying list based on once user marks it as favorite.
+
+**URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/add 
+
+**Method Type**: POST 
+
+**ContentType**: application/json
+
+
+**Request Body**:   
+
+**Json**  
+```
+["UserName1","UserName1","UserName1"]
+```
+
+**Note** : 
+
+**1)** If List does not exist then it will create group and add the list of users (passed in JSON) add into group.
+
+**2)** If group already exist in your system, then the API will add the passed user into group.
+
+
+
+#### Get Friend/Favourite List
+
+Using this API you can get your friends contact list. 
+
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/get?groupType=9
+
+**Method Type**: GET 
+
+**Parameter**:
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupType   | No  |   | groupType required only for open group  |
+
+
+**Response**:  Json with friend list info with added users :- 
+
+
+#### Remove user from Friend List
+
+Using this API you can remove user from your friends contact list. 
+
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/remove?userId=userName&groupType=9
+
+**Method Type**: GET 
+
+**Parameter**:
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupType   | No  |   | groupType required only for open group  |
+
+
+**Response**:  Json with success:- 
+
+
+#### Delete Friend List
+
+Using this API you can delete friends contact list. 
+
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/delete?groupType=9
+
+**Method Type**: GET 
+
+**Parameter**:
+
+| Parameter  | Required | Default  | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| groupType   | No  |   | groupType required only for open group  |
+
+
+**Response**:  Json with success:- 
+
+
+
 
 
 
