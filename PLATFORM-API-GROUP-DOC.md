@@ -1015,9 +1015,9 @@ Use below sample:
 
 2.)So you can filter out these messages:
 
-#### Create Friend/Favourite List
+#### Create User's Friend/Favourite contacts List
 
-Using this API you can create your group of contacts and fetch it later. 
+Using this API you can create your group of contacts for individual user and fetch it later. 
 
 Example usage case : You can create your favorite contact list by passing GroupName as favorite, and keep modifying list based on once user marks it as favorite.
 
@@ -1037,7 +1037,33 @@ Example usage case : You can create your favorite contact list by passing GroupN
 
 **Note** : 
 
-**1)** If List does not exist then it will create group and add the list of users (passed in JSON) add into group.
+**1)** If group does not exist then it will create group and add the list of users (passed in JSON) add into group.
+
+**2)** If group already exist in your system, then the API will add the passed user into group.
+
+###  Create open Friend/Favourite contacts List 
+
+Using this API you can create group of contacts and any member present in the list can fecth it. 
+
+**GROUP CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/add/members 
+
+**Method Type**: POST 
+
+**ContentType**: application/json
+
+
+**Request Body**:   
+
+**Json**  
+```
+{"type":"9",
+"groupMemberList":["user1","user2","user3"]
+}
+```
+
+**Note** : 
+
+**1)** If group does not exist then it will create group and add the list of users (passed in JSON) add into group.
 
 **2)** If group already exist in your system, then the API will add the passed user into group.
 
@@ -1047,7 +1073,7 @@ Example usage case : You can create your favorite contact list by passing GroupN
 
 Using this API you can get your friends contact list. 
 
-**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/get?groupType=9
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/get
 
 **Method Type**: GET 
 
@@ -1055,7 +1081,7 @@ Using this API you can get your friends contact list.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupType   | No  |   | groupType required only for open group  |
+| groupType   | No  |   | groupType required only for open List  |
 
 
 **Response**:  Json with friend list info with added users :- 
@@ -1065,7 +1091,7 @@ Using this API you can get your friends contact list.
 
 Using this API you can remove user from your friends contact list. 
 
-**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/remove?userId=userName&groupType=9
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/remove?userId=userName
 
 **Method Type**: GET 
 
@@ -1083,7 +1109,7 @@ Using this API you can remove user from your friends contact list.
 
 Using this API you can delete friends contact list. 
 
-**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/delete?groupType=9
+**FRIEND LIST CREATION URL**: https://apps.applozic.com/rest/ws/group/{GroupName}/delete
 
 **Method Type**: GET 
 
