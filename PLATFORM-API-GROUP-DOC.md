@@ -1099,7 +1099,7 @@ Using this API you can remove user from your friends contact list.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupType   | No  |   | groupType required only for open group  |
+| groupType   | No  |   | groupType required only for open List  |
 
 
 **Response**:  Json with success:- 
@@ -1117,7 +1117,7 @@ Using this API you can delete friends contact list.
 
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| groupType   | No  |   | groupType required only for open group  |
+| groupType   | No  |   | groupType required only for open List  |
 
 
 **Response**:  Json with success:- 
