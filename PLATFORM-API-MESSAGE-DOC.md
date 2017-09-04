@@ -75,7 +75,7 @@
 | createdAt  | time in milliseconds |
 
 
-####Send Html Message
+#### Send Html Message
 
 **Sample Message Object Json with contentType**:          
 
@@ -87,8 +87,14 @@
 }
 ```
 
+#### Send Message with attachment
 
-####Message Metadata
+Message can be send with attachment following the doc:
+
+https://drive.google.com/file/d/0B-z3q71mhMBSNGtURk4xS1VDY2ZsUUw2SXFRc3FQeXdTbmdV/view
+
+
+#### Message Metadata
 
 To add metadata for a message, send the metadata object inside the message object while sending message. The same metadata object will be received in message list api with message object. The metadata object is a map with string keys and values.
 
@@ -105,7 +111,7 @@ To add metadata for a message, send the metadata object inside the message objec
 }
 ```
 
-####Smart Messaging Using Metadata
+#### Smart Messaging Using Metadata
 
 Add specific metadata for a message, send the metadata object inside the message object while sending message. Message metadata type can be **HIDDEN**, **PUSHNOTIFICATION**, **ARCHIVE**.
 
