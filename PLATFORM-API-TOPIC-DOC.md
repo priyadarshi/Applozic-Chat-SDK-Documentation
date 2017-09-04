@@ -13,11 +13,22 @@ Retreive Conversation Id
 {
   "topicId" : "Topic id of the conversation",
   "topicDetail" : "Topic detail of the conversation",
-  "applicationKey" : "Application key",
   "userId" : "unique id of the receiver user", // or "groupId": "groupId  receive from group creation API"
   "status" : "Status flag of the conversation"
 }
 ```
+
+**Sample Json**:
+```
+{ 
+	"topicId":"topicId",
+	"topicDetail" : "{\"title\":\"Air Condition\",\"subtitle\":\"PID : Smart Air Conditioner\",\"link\":\"http://www.freepngimg.com/download/air_conditioner/6-2-ac-picture.png\",\"key1\":\"Qty\",\"value1\":\"10\",\"key2\":\"Price\",\"value2\":\"Rs.60\"}",
+	"userId" : "userId",
+  "status": "new"
+}
+```
+
+
 
 **Note**
 
