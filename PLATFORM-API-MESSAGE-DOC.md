@@ -89,7 +89,7 @@
 
 #### Send Message with attachment
 
-Message can be send with attachment following the doc:
+Refer the doc below for message sending with attachment:
 
 https://drive.google.com/file/d/0B-z3q71mhMBSNGtURk4xS1VDY2ZsUUw2SXFRc3FQeXdTbmdV/view
 
