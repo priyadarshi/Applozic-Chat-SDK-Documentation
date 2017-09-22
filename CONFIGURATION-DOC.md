@@ -64,7 +64,7 @@ The user should provide the access token in the "accessToken" option while plugi
 
 | Parameter  | Description |
 | ------------- | ------------- |
-| userId | UserId of the user who should be authenticated |
+| userId | userId of the user who should be authenticated |
 | token | Access token for the specified user |
 
 **Response**: Response text received on configured url:
