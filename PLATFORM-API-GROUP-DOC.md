@@ -46,13 +46,7 @@
 | 6 | Open Group : Any user can send the message to this group without being the member of this group |
 
 
-**Note** : In case of Application Admin  **ofUserId** request param required too.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only) |   |pass userId of user on which behalf admin want to create group    |
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId of user on which behalf admin want to create group.
  
 
 **Response** : Response Json  with success status :-  
@@ -152,13 +146,7 @@
 | 2 | Public Group : Users are able to search and join the group |
 | 5 | Broadcast Group : User can send personal message to a group of Users |
 
-**Note** : In case of Application Admin  **ofUserId** request param required too.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId | Yes (in case of admin only) | |pass userId of user on which behalf admin want to create  multiple group |
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId of user on which behalf admin want to create group.
 
 **Response** : Response Json  with success status :-  
 
@@ -280,9 +268,8 @@
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | updatedAt | No  |   | lastSyncTime to the server  |
-| ofUserId  | No  |   |pass userId of user for which admin want to load the group list   |
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user for which admin want to load the group list.
 
 **Response**:   Response Json with success status :-         
 
@@ -351,13 +338,7 @@
 | clientGroupId | Yes  |   | Group  unique identifier |
 
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only) |   |Pass userId of user on behalf of which application admin want to add member  |
+**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to add member.
 
 **Response**:  Response Json with success status :-  
 
@@ -395,13 +376,7 @@
 | userIds   | Yes  |   | List of Unique ids of the users to be added to the group  |
 
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only)  |   | Pass userId of user on behalf of which application admin want to add users  |
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to add users.
 
 **Response**:  Response Json with success status :-  
 ```  
@@ -441,7 +416,7 @@
 | clientGroupId | Yes  |   | Group  unique identifier |
 
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to remove member.
 
 **Request Parameter**: 
 
@@ -501,11 +476,7 @@
 | clientGroupId | Yes  |   | Group  unique identifier |
 
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of application admin only) |   |Pass userId of user for which application admin want to leave the group  |
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user for which application admin want to leave the group.
 
 **Response**: Response Json with success status :-  
 
@@ -542,13 +513,7 @@
 | userIds   | Yes  |   | List of Unique ids of the users to be removed from the group  |
 
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of  application admin only)  |   | Pass userId of user on behalf of which application admin want to remove users  |
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to remove users.
 
 **Response**:  Response Json with success status :-  
 ```  
@@ -575,13 +540,7 @@
 | userId   | Yes  |   | user unique identifier  | 
 
 
-**Note**: Pass **ofUserId** only if application Admin calling the API.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only) |   |pass userId of user to which admin want to remove from groups  |
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user to which admin want to remove from groups.
 
 
 **Note**: API will remove User from **Private**, **Public** and **Open** Group.
@@ -613,9 +572,8 @@
 | clientGroupId   | No  |   | Client Group unique identifier |
 | newName | No  |   | New name of group |
 | imageUrl | No  |   | image url of the group |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin want to change group name |
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user. Pass either groupId or clientGroupId.
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to change group name. Pass either groupId or clientGroupId.
 
 **Response**: Response Json with success status :-  
 
@@ -688,9 +646,8 @@
 | id   | No  |   | Group unique identifier  |
 | clientGroupId   | No  |   | Client Group unique identifier  |
 | notificationAfterTime   | No  |   | Time Interval for which notification has be be disabled |
-| ofUserId  | No  |   | Pass userId of user on behalf of which application admin |
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to update group user properties.
 
 **Response**: Response Json with success status :-  
 
@@ -715,9 +672,8 @@ Check if user is part of a Group
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId   | Yes  |   | Group unique identifier  |
 | userId   | Yes  |   | UserId of the user identify in group  |
-| ofUserId  | No  |   | Pass userId of user exist in a group on behalf of which application admin |
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is userId of user exist in a group on behalf of which application admin calling th API.
 
 **Response**:  API response: in case of success :-  
 
@@ -773,9 +729,8 @@ Check if user is part of a Group
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | clientGroupId   | Yes  |   | Group unique identifier  |
-| ofUserId  | No  |   | Pass userId of group admin user, for which application admin want to delete the group   |
 
-**Note**: Pass **ofUserId** only if application Admin calling the API on behalf of group admin user.
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of group admin user, on behalf of which application admin want to delete the group.
 
 **Response**:  Json with success status :-  
 
