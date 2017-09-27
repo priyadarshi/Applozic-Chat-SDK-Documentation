@@ -13,7 +13,7 @@ For Application Admin send following authentication headers with each API call t
 | Content-Type |  application/json  |
 | OfUserId |  On behalf of Application Admin want to call the API |
 
-**Note** : In some of the API's **OfUserId** header not required, that is specified in the API details.
+**Note** : Pass **OfUserId** header only where it is required, it is specified in the API details.
 
 **Example**- 
 If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard** then header will be:
