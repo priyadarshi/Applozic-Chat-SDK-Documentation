@@ -11,7 +11,7 @@ For Application Admin send following authentication headers with each API call t
 | Apz-AppId | application key got in admin dashboard for which admin want to call api. |
 | Apz-Token | Authorization Code. Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin. Basic Base64Encode of "email:password". |
 | Content-Type |  application/json  |
-| OfUserId |  On behalf of Application Admin want to call the API |
+| OfUserId |  On behalf of which Application Admin want to call the API |
 
 **Note** : Pass **OfUserId** header only where it is required, it is specified in the API details.
 
