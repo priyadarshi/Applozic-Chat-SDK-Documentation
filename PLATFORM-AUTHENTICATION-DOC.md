@@ -4,13 +4,16 @@ Explore Platform API's as per Application Admin or as per Application User.
 
 #####Application Admin
 
-For Application Admin send following authentication headers with each API call to explore platform API's. Request should contain these 3 headers
+For Application Admin send following authentication headers with each API call to explore platform API's. Request should contain these headers:
 
 | Header | Description  |
 | ------ | ----------- |
 | Apz-AppId | application key got in admin dashboard for which admin want to call api. |
 | Apz-Token | Authorization Code. Authentication is done using BASIC authentication. Authorization Code is combination of  base64 value of email & password of  application admin. Basic Base64Encode of "email:password". |
 | Content-Type |  application/json  |
+| OfUserId |  On behalf of Application Admin want to call the API |
+
+**Note** : In some of the API's **OfUserId** header not required, that is specified in the API details.
 
 **Example**- 
 If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** and password is **adminLoggedInApplozicDashboard** then header will be:
@@ -23,14 +26,14 @@ If the email of the admin(Logged in Applozic Dashboard) is  **jack@gmail.com** a
 
 #####Application User
 
-All request from Device must contain the following 4 headers
+All request from Device must contain following headers:
 
 | Key | Values  |
 | ------------- | ------ |
 | Application-Key | Your Application Key |
 | Authorization | Authentication is done using BASIC authentication.Basic Base64Encode of userId:deviceKey |
 | Device-Key | DeviceKey is received when application user does registration using register/client API. Use Device-Key to create Authorization Code and send Device-Key also in request header.  |
-| UserId-Enabled | true |
+
 
 **Example**- 
 If the userId is **robert** and deviceKey is **09c5d869-6d38-4d6b-9ebf-9de16cdab176**, then the authorization code will be:
