@@ -88,7 +88,7 @@ The following will come in response in case of no application found with the pas
 
 #### User Details       
 
-**Note** : API supported both by application admin and application user. No additional parameter **ofUserId** required for Admin.
+**Note** : API supported both by application admin and application user. Application admin need not to sent **OfUserId** header to get the user details.
 
 **URL**: https://apps.applozic.com/rest/ws/user/v2/detail
 
@@ -169,13 +169,7 @@ The following will come in response in case of no application found with the pas
 | statusMessage | No  |   | status message of user |
 
 
-**Note**: Pass **ofUserId** only if application Admin calling the API.
-
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes (in case of admin only) |   |pass userId of user for which admin want to update details.  |
+**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user for which  application admin want to update details.
 
 **Response**: Response Json with success status :-  
 
@@ -351,9 +345,8 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | lastSyncTime | Yes  |   | lastSyncTime to the server  |
-| ofUserId  | No  |   |pass userId of user for which admin want to get the blockedTo and blockedBy user's list   |
 
-**Note** : Pass **ofUserId** only if application Admin calling the API on behalf of any user.
+**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user for which admin want to get the blockedTo and blockedBy user's list 
 
 **Response**:   Response Json with success status :-         
 
