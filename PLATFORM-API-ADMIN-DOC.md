@@ -114,7 +114,7 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 #### Merge Users
 
-**Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
+**Note** : API supported only by application admin. No additional header **OfUserId** required for Admin.
 
 **URL**: https://apps.applozic.com/rest/ws/user/merge?userId=user1&mergeUserId=user2
 
@@ -145,19 +145,8 @@ http://apps.applozic.com/rest/ws/user/set/password?userId=jack&password=1234567
 
 **ContentType**: application/json
 
- **Note**: Pass **ofUserId**  application Admin calling the API.
+ **Note**: Pass **OfUserId** header. OfUserId is the userId of the user to which application admin want to delete .
 
-**Request Parameter**: 
-
-| Parameter  | Required | Default  | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| ofUserId  | Yes  |   |pass userId of user for which admin want to delete |
-
-**Example:** For API Call:
-
-```
-https://apps.applozic.com/rest/ws/user/delete/?ofUserId=user1
-```
 
 **Response**: Response Json with success status :-  
 
@@ -325,7 +314,7 @@ https://apps.applozic.com/rest/ws/user/delete/?ofUserId=user1
 
 #### Message History Export
 
-**Note** : API supported only by application admin. No additional parameter **ofUserId** required for Admin.
+**Note** : API supported only by application admin. No additional header **OfUserId** required for Admin.
 
 **URL**: https://apps.applozic.com/rest/ws/analytics/message
 
