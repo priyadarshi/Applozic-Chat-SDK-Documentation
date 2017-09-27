@@ -51,7 +51,7 @@
 
 
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to send message.
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId of user on behalf of which application admin want to send message.
 
 **Response** Same in both case: **One to One** and **Group Message Send**
 
@@ -163,7 +163,7 @@ Add specific metadata for a message, send the metadata object inside the message
 | messageObject  | Yes  |   | Message Container Object |
 | message  | Yes  |   | Text Message |
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which  application admin want to send message.
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId of user on behalf of which  application admin want to send message.
 
 
 
@@ -191,7 +191,7 @@ Add specific metadata for a message, send the metadata object inside the message
 | pageSize  | Yes  | 50  | Number of messages per page you want to fetch.  |
 | endTime  | No  |   |Pass  oldest time from the fetched messages to load more older messages  |
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of user on behalf of which application admin want to call API.
+**Note** :In case of Application Admin **OfUserId** header required too. OfUserId is the userId of user on behalf of which application admin want to call API.
 
 **Note** : To load more older messages in list pass endTime parameter with oldest message time received in messages list.
 
@@ -306,7 +306,7 @@ https://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
 | ------------- | ------------- | ------------- | ------------- |
 | key  | Yes  |   | Message unique key  |
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId for which admin to delete message.
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId for which admin to delete message.
 
 **Response**:        
 
@@ -329,7 +329,7 @@ https://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
 | userId  | No  |   | User for which you want to delete thread  |  
 | groupId  | No  |   | Group for which you want to delete thread  |  
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId for which admin to delete message conversation.
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId for which admin to delete message conversation.
 
 **Note** :
 
@@ -355,7 +355,7 @@ https://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
 
 **Request Parameters**:  
 
-**Note**: Pass **OfUserId** header only if application Admin calling the API. OfUserId is the user for which admin want to delete messages.
+**Note**: In case of Application Admin **OfUserId** header required too. OfUserId is the user for which admin want to delete messages.
 
 | Parameter  | Required | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |       
@@ -380,7 +380,7 @@ https://apps.applozic.com/rest/ws/message/info?key=5-226299-1490015022917
 
 **Method Type**: GET
 
-**Note** : Pass **OfUserId** header only if application Admin calling the API. OfUserId is the userId of the user for which application admin want to delete all messages.
+**Note** : In case of Application Admin **OfUserId** header required too. OfUserId is the userId of the user for which application admin want to delete all messages.
 
 
 **Response**:           
