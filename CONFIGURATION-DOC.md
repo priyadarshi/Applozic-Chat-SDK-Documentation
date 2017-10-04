@@ -59,8 +59,8 @@ Go to Dashboard -> Application List -> Action -> Edit -> Webhooks -> Forward Mes
 
 ###Access Token URL
 
-Access Token URL (Authentication Url) can be configured by application admin in Applozic Dashboard for authenticating users from your backend server. The Url should accept POST request with following two paramters.
-The user should provide the access token in the "accessToken" option while plugin initialization.
+Access Token URL (Authentication Url) can be configured by Application admin in Applozic Dashboard for authenticating users from your backend server. This Url should accept POST request with following two request parameters.
+The user should provide the access token in the **accessToken** option while plugin initialization.
 
 | Parameter  | Description |
 | ------------- | ------------- |
