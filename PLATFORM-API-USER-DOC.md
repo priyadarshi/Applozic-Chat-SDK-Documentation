@@ -169,7 +169,7 @@ The following will come in response in case of no application found with the pas
 | statusMessage | No  |   | status message of user |
 
 
-**Note**: In case of Application Admin OfUserId header required too. OfUserId is the userId of user for which  application admin want to update details.
+**Note**: In case of Application Admin **Of-User-Id** header required too. **Of-User-Id** is the userId of user for which  application admin want to update details.
 
 **Response**: Response Json with success status :-  
 
@@ -346,7 +346,7 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | ------------- | ------------- | ------------- | ------------- |
 | lastSyncTime | Yes  |   | lastSyncTime to the server  |
 
-**Note** : In case of Application Admin OfUserId header required too. OfUserId is the userId of user for which admin want to get the blockedTo and blockedBy user's list 
+**Note** : In case of Application Admin **Of-User-Id** header required too. **Of-User-Id** is the userId of user for which admin want to get the blockedTo and blockedBy user's list 
 
 **Response**:   Response Json with success status :-         
 
