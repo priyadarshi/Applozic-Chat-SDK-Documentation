@@ -302,6 +302,8 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user you want to block  |
 
+**Note**: In case of Application Admin **Of-User-Id** header required too. **Of-User-Id** is the userId of user who wants to block other user.
+
 **Response**:  Response Json with success status :-  
 
 ```
@@ -323,6 +325,8 @@ http://apps.applozic.com/rest/ws/user/filter?pageSize=20
 | Parameter  | Required | Default  | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | userId | Yes  |   |pass unique id of user you want to unblock  |
+
+**Note**: In case of Application Admin **Of-User-Id** header required too. **Of-User-Id** is the userId of user who wants to unblock other user.
 
 **Response**:  Response Json with success status :-  
 
