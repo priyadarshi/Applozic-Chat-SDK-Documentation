@@ -1,3 +1,6 @@
+## DEPRECATED. Check out https://www.applozic.com/docs.html for Applozic docs.
+
+
 # QUICK START
 
 ### Overview 
